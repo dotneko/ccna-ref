@@ -218,7 +218,7 @@ exit
 <pre><code>ipv6 address &lt;ipv6-address&gt;/&lt;prefix-length&gt;
 </code></pre>
 
-<p>Configures global unicast IPv6 address with an interface ID in the low-order 64 bits of the IPv6 address using the EUI-64 process.</p>
+<p>Configure global unicast IPv6 address with an interface ID in the low-order 64 bits of the IPv6 address using the EUI-64 process.</p>
 <pre><code>ipv6 address &lt;ipv6-address&gt;/&lt;prefix-length&gt; eui-64
 </code></pre>
 
@@ -271,7 +271,7 @@ show ipv6 route
 terminal length 0     # No pause
 </code></pre>
 
-<p>Pipe after the show then <filter parameter> <filter expression>
+<p>Pipe after the <code>show</code> then <code>&lt;filter parameter&gt; &lt;filter expression&gt;</code>
 Can be used in combination with any <code>show</code> command.</p>
 <pre><code>show running-config | section line vty
 </code></pre>
@@ -291,8 +291,8 @@ show ip route | begin Gateway
 
 <h2 id="command-history">Command History</h2>
 <ul>
-<li><Ctrl-P> or <Up Arrow></li>
-<li><Ctrl-N> or <Down Arrow></li>
+<li>\<Ctrl-P> or \<Up Arrow></li>
+<li>\<Ctrl-N> or \<Down Arrow></li>
 </ul>
 <pre><code>show history    # (PrivExec)
 </code></pre>
@@ -305,7 +305,7 @@ show ip route | begin Gateway
 <ul>
 <li>Instead of the ARP process, IPv6 address resolution uses ICMP v6 Neighbor Solicitation (NS) and Neighbor Advertisement messages.</li>
 <li>IPv6-to-MAC address mapping are kept in a table similar to the ARP cache, called the <strong>neighbor cache</strong>.</li>
-<li>More info on <a href="https://keepingitclassless.net/2011/10/neighbor-solicitation-ipv6s-replacement-for-arp/">IPv6 neighbor solication</a></li>
+<li>More info on <a href="https://keepingitclassless.net/2011/10/neighbor-solicitation-ipv6s-replacement-for-arp/">IPv6 neighbor solicitation</a></li>
 </ul>
 <pre><code>show ipv6 neighbors
 </code></pre>
@@ -342,8 +342,7 @@ show ipv6 route
 <li>IP-address of the connecting router to use for forwarding; commonly referred to as the <strong>next hop</strong>.</li>
 <li>Exit-intf: the outgoing interface to use to forward the packet to the next hop.</li>
 </ul>
-<p>Distance paremter used to create a floating static route by setting an administrative distance
-higher than a dynamically learned route.</p>
+<p>The distance parameter is used to create a floating static route by setting an administrative distance that is higher than a dynamically learned route.</p>
 <pre><code>ip route &lt;network-address&gt; &lt;subnet-mask&gt; {ip-address | exit-intf}
 </code></pre>
 
