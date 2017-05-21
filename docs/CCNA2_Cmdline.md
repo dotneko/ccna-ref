@@ -61,7 +61,7 @@ Create a global unicast IPv6 address:
 ipv6 address <ipv6-address>/<prefix-length>
 ```
 
-Configures global unicast IPv6 address with an interface ID in the low-order 64 bits of the IPv6 address using the EUI-64 process.
+Configure global unicast IPv6 address with an interface ID in the low-order 64 bits of the IPv6 address using the EUI-64 process.
 
 ```
 ipv6 address <ipv6-address>/<prefix-length> eui-64
@@ -127,7 +127,7 @@ terminal length <number of lines>
 terminal length 0     # No pause
 ```
 
-Pipe after the show then <filter parameter> <filter expression>
+Pipe after the `show` then `<filter parameter> <filter expression>`
 Can be used in combination with any `show` command.
 
 ```
@@ -151,8 +151,8 @@ show ip route | begin Gateway
 
 ## Command History
 
-- <Ctrl-P> or <Up Arrow>
-- <Ctrl-N> or <Down Arrow>
+- \<Ctrl-P> or \<Up Arrow>
+- \<Ctrl-N> or \<Down Arrow>
 
 ```
 show history    # (PrivExec)
@@ -168,7 +168,7 @@ terminal history size <num>   # (UserExec)
 
 - Instead of the ARP process, IPv6 address resolution uses ICMP v6 Neighbor Solicitation (NS) and Neighbor Advertisement messages.
 - IPv6-to-MAC address mapping are kept in a table similar to the ARP cache, called the **neighbor cache**.
-- More info on [IPv6 neighbor solication](https://keepingitclassless.net/2011/10/neighbor-solicitation-ipv6s-replacement-for-arp/)
+- More info on [IPv6 neighbor solicitation](https://keepingitclassless.net/2011/10/neighbor-solicitation-ipv6s-replacement-for-arp/)
 
 ```
 show ipv6 neighbors
@@ -216,8 +216,7 @@ Also one or both of the following:
 - IP-address of the connecting router to use for forwarding; commonly referred to as the **next hop**.
 - Exit-intf: the outgoing interface to use to forward the packet to the next hop.
 
-Distance paremter used to create a floating static route by setting an administrative distance
-higher than a dynamically learned route.
+The distance parameter is used to create a floating static route by setting an administrative distance that is higher than a dynamically learned route.
 
 ```
 ip route <network-address> <subnet-mask> {ip-address | exit-intf}
