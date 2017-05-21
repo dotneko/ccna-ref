@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>CCNA1 Cmdline - CCNA Reference</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "CCNA1 Cmdline";
+    var mkdocs_page_input_path = "CCNA1_Cmdline.md";
+    var mkdocs_page_url = "/CCNA1_Cmdline/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> CCNA Reference</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">CCNA1 Cmdline</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#ccna1-command-line-reference">CCNA1 Command Line Reference</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#break-keys">Break Keys</a></li>
+        
+            <li><a class="toctree-l3" href="#modes">Modes</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#basic-commands">Basic Commands</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#configuration-status">Configuration Status</a></li>
+        
+            <li><a class="toctree-l3" href="#save-configuration">Save Configuration</a></li>
+        
+            <li><a class="toctree-l3" href="#change-hostname">Change Hostname</a></li>
+        
+            <li><a class="toctree-l3" href="#clock">Clock</a></li>
+        
+            <li><a class="toctree-l3" href="#configure-passwords">Configure Passwords</a></li>
+        
+            <li><a class="toctree-l3" href="#configure-banner-motd">Configure Banner MOTD</a></li>
+        
+            <li><a class="toctree-l3" href="#switch-virtual-interface-configuration">Switch Virtual Interface Configuration</a></li>
+        
+            <li><a class="toctree-l3" href="#display-interface-information">Display Interface Information</a></li>
+        
+            <li><a class="toctree-l3" href="#configure-router-interface-lab-6433">Configure Router Interface (Lab 6.4.3.3)</a></li>
+        
+            <li><a class="toctree-l3" href="#configure-an-interface-description">Configure an Interface Description</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#configure-ipv6-addressing-on-the-router">Configure IPv6 Addressing on the Router</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#enable-router-to-forward-ipv6-packets">Enable router to forward IPv6 packets</a></li>
+        
+            <li><a class="toctree-l3" href="#configure-ipv6-addressing">Configure IPv6 addressing</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#basic-security-practices">Basic Security Practices</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#configure-ssh">Configure SSH</a></li>
+        
+            <li><a class="toctree-l3" href="#remove-username">Remove Username</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#miscellaneous">Miscellaneous</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#disable-dns-lookup">Disable DNS lookup</a></li>
+        
+            <li><a class="toctree-l3" href="#shutdown-multiple-interfaces-at-a-time">Shutdown Multiple Interfaces at a time</a></li>
+        
+            <li><a class="toctree-l3" href="#show-commands">Show Commands</a></li>
+        
+            <li><a class="toctree-l3" href="#debugging">Debugging</a></li>
+        
+            <li><a class="toctree-l3" href="#cisco-discovery-protocol-cdp">Cisco Discovery Protocol CDP</a></li>
+        
+            <li><a class="toctree-l3" href="#flash">Flash</a></li>
+        
+            <li><a class="toctree-l3" href="#tftp">TFTP</a></li>
+        
+            <li><a class="toctree-l3" href="#connecting-to-ssh-in-cisco-packet-tracer-cmd-line">Connecting to SSH in Cisco Packet Tracer CMD Line</a></li>
+        
+            <li><a class="toctree-l3" href="#terminal-configuration-settings-to-access-console">Terminal Configuration Settings to Access Console</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../CCNA2_Cmdline/">CCNA2 Cmdline</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">CCNA Reference</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>CCNA1 Cmdline</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="ccna1-command-line-reference">CCNA1 Command Line Reference</h1>
+<h2 id="break-keys">Break Keys</h2>
+<ul>
+<li>Ctrl-C: Ends configuration mode -&gt; PrivEXEC; aborts to command prompt in setup mode.</li>
+<li>Ctrl-Z: Ends configuration mode -&gt; PrivEXEC</li>
+<li>
+<p>Ctrl-Shift-6: Interrupts command midstream</p>
+</li>
+<li>
+<p>Ctrl-R: Redisplays line</p>
+</li>
+</ul>
+<h2 id="modes">Modes</h2>
+<pre><code>enable                # Enters PrivEXEC
+disable               # Exits PrivEXEC -&gt; UserEXEC
+
+configure terminal    # Enters Global Configuration Mode (GCM)
+end                   # Exits into PrivExec
+exit                  # Exits into current -&gt; previous mode
+</code></pre>
+
+<h1 id="basic-commands">Basic Commands</h1>
+<h2 id="configuration-status">Configuration Status</h2>
+<pre><code>show running-config   # Shows current configuration in RAM
+show startup-config   # Shows configuration stored in NVRAM
+</code></pre>
+
+<h2 id="save-configuration">Save Configuration</h2>
+<pre><code>copy running-config startup-config
+cop r s               # Shortcut
+</code></pre>
+
+<h2 id="change-hostname">Change Hostname</h2>
+<pre><code>hostname &lt;device_host_name&gt;
+</code></pre>
+
+<h2 id="clock">Clock</h2>
+<pre><code>show clock
+
+clock set ?
+clock set hh:mm:ss dd MON yyyy
+</code></pre>
+
+<h2 id="configure-passwords">Configure Passwords</h2>
+<h3 id="secure-privilege-exec-mode">Secure Privilege Exec Mode</h3>
+<pre><code>enable password &lt;password&gt;    # Password in clear text
+enable secret &lt;password&gt;      # Uses MD5 hash encryption; overrides password above
+</code></pre>
+
+<h3 id="secure-console-line">Secure Console Line</h3>
+<pre><code>line console 0                  # Enters first console interface
+password &lt;password&gt;
+login                                 # Enables userEXEC access
+</code></pre>
+
+<h3 id="secure-vty-terminal-lines">Secure VTY (Terminal) Lines</h3>
+<pre><code>line vty 0 15
+password &lt;password&gt;
+login
+</code></pre>
+
+<h3 id="encrypt-passwords">Encrypt Passwords</h3>
+<pre><code>service password-encryption     # Applies weak encryption
+</code></pre>
+
+<h2 id="configure-banner-motd">Configure Banner MOTD</h2>
+<pre><code>banner motd # &lt;message&gt; #
+
+</code></pre>
+
+<ul>
+<li>Delimiter (# above) could be any character that is not in the message.</li>
+</ul>
+<h2 id="switch-virtual-interface-configuration">Switch Virtual Interface Configuration</h2>
+<pre><code>interface vlan 1
+ip address &lt;ip-address&gt; &lt;subnet-mask&gt;
+no shutdown
+</code></pre>
+
+<h2 id="display-interface-information">Display Interface Information</h2>
+<pre><code>show interfaces
+show ip interface brief
+show ip route
+
+show interface serial 0/0/0
+show interface GigabitEthernet 0/0
+
+show interface s0/0/0         # shortcut
+show interface g0/0           # shortcut
+</code></pre>
+
+<h2 id="configure-router-interface-lab-6433">Configure Router Interface (Lab 6.4.3.3)</h2>
+<pre><code>interface gigabitethernet 0/0
+ip address 192.168.10.1 255.255.255.0
+no shutdown
+</code></pre>
+
+<h2 id="configure-an-interface-description">Configure an Interface Description</h2>
+<pre><code>description &lt;description&gt;
+</code></pre>
+
+<h1 id="configure-ipv6-addressing-on-the-router">Configure IPv6 Addressing on the Router</h1>
+<h2 id="enable-router-to-forward-ipv6-packets">Enable router to forward IPv6 packets</h2>
+<pre><code>ipv6 unicast-routing
+</code></pre>
+
+<h2 id="configure-ipv6-addressing">Configure IPv6 addressing</h2>
+<pre><code>ipv6 address &lt;ipv6 address&gt;/&lt;prefix&gt;
+ipv6 address &lt;ipv6 address&gt; link-local
+no shutdown
+</code></pre>
+
+<h1 id="basic-security-practices">Basic Security Practices</h1>
+<pre><code>service password-encryption
+security password min-length &lt;num chars&gt;
+login block-for &lt;seconds&gt; attempts &lt;num attempts&gt; within &lt;seconds&gt;
+line vty 0 4
+exec-timeout 10
+end
+</code></pre>
+
+<h2 id="configure-ssh">Configure SSH</h2>
+<ul>
+<li>Requires hostname and domain name configured.</li>
+</ul>
+<pre><code>hostname &lt;host_name&gt;
+ip domain-name &lt;domain.com&gt;
+crypto key generate rsa
+username &lt;username&gt; secret &lt;password&gt;
+line vty 0 15
+login local
+transport input ssh
+transport input telnet ssh        # Telnet and SSH
+</code></pre>
+
+<h2 id="remove-username">Remove Username</h2>
+<pre><code>no username &lt;username&gt;
+</code></pre>
+
+<h1 id="miscellaneous">Miscellaneous</h1>
+<h2 id="disable-dns-lookup">Disable DNS lookup</h2>
+<ul>
+<li>Prevents router from translating typos into an IP address as if they were hostnames.</li>
+</ul>
+<pre><code>no ip domain-lookup
+</code></pre>
+
+<h2 id="shutdown-multiple-interfaces-at-a-time">Shutdown Multiple Interfaces at a time</h2>
+<pre><code>interface range f0/1-4, f0/7-24, g0/1-2
+shutdown
+end
+</code></pre>
+
+<h2 id="show-commands">Show Commands</h2>
+<pre><code>show arp
+show flash
+show ip route
+show interfaces
+show ip interface brief
+show protocols
+show users              # Show connected users
+show version
+show run | i username           # Shows list of usernames
+</code></pre>
+
+<h2 id="debugging">Debugging</h2>
+<pre><code>debug ip icmp
+undebug all
+terminal monitor            # Show log messages through SSH
+terminal no monitor         # Disable display of log messages through SSH
+</code></pre>
+
+<h2 id="cisco-discovery-protocol-cdp">Cisco Discovery Protocol CDP</h2>
+<pre><code>show cdp neighbors
+show cdp neighbors detail   # Shows IP addresses of neighbouring Cisco devices
+
+no cdp run                  # Disables CDP function - should be disabled for user-facing devices
+</code></pre>
+
+<h3 id="backup-configuration-using-tftp">Backup Configuration using TFTP</h3>
+<ul>
+<li><a href="http://www.cisco.com/c/en/us/support/docs/ios-nx-os-software/ios-software-releases-122-mainline/46741-backup-config.html">Cisco Backup Config</a></li>
+</ul>
+<pre><code>copy startup-config tftp:
+copy flash tftp:
+</code></pre>
+
+<h2 id="flash">Flash</h2>
+<pre><code>show flash
+copy startup-config flash
+</code></pre>
+
+<h2 id="tftp">TFTP</h2>
+<pre><code>copy startup-config tftp:
+copy flash tftp:
+
+</code></pre>
+
+<h2 id="connecting-to-ssh-in-cisco-packet-tracer-cmd-line">Connecting to SSH in Cisco Packet Tracer CMD Line</h2>
+<pre><code>ssh -l &lt;username&gt; &lt;target&gt;
+</code></pre>
+
+<h2 id="terminal-configuration-settings-to-access-console">Terminal Configuration Settings to Access Console</h2>
+<ul>
+<li>Bits per second: 9600</li>
+<li>Data bits: 8</li>
+<li>Parity: None</li>
+<li>Stop bits: 1</li>
+<li>Flow control: None</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../CCNA2_Cmdline/" class="btn btn-neutral float-right" title="CCNA2 Cmdline">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../CCNA2_Cmdline/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

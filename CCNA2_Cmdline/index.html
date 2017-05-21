@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>CCNA2 Cmdline - CCNA Reference</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "CCNA2 Cmdline";
+    var mkdocs_page_input_path = "CCNA2_Cmdline.md";
+    var mkdocs_page_url = "/CCNA2_Cmdline/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> CCNA Reference</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../CCNA1_Cmdline/">CCNA1 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">CCNA2 Cmdline</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#ccna2-command-line-reference">CCNA2 Command Line Reference</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#enable-ip-on-a-switch">Enable IP on a Switch</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#router-configuration">Router Configuration</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#configure-basic-router-settings">Configure Basic Router Settings</a></li>
+        
+            <li><a class="toctree-l3" href="#configure-an-ipv4-router-interface">Configure an IPv4 Router Interface</a></li>
+        
+            <li><a class="toctree-l3" href="#configure-an-ipv6-router-interface">Configure an IPv6 Router Interface</a></li>
+        
+            <li><a class="toctree-l3" href="#verify-interface-settings">Verify Interface Settings</a></li>
+        
+            <li><a class="toctree-l3" href="#verify-ipv6-interface-settings">Verify IPv6 Interface Settings</a></li>
+        
+            <li><a class="toctree-l3" href="#filter-show-command-output">Filter Show Command Output</a></li>
+        
+            <li><a class="toctree-l3" href="#command-history">Command History</a></li>
+        
+            <li><a class="toctree-l3" href="#ipv6-packets">IPv6 Packets</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#configuring-static-routes">Configuring Static Routes</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#ip-route-command">IP Route Command</a></li>
+        
+            <li><a class="toctree-l3" href="#next-hop-options">Next Hop Options</a></li>
+        
+            <li><a class="toctree-l3" href="#configure-an-ipv4-floating-static-route">Configure an IPv4 Floating Static Route</a></li>
+        
+            <li><a class="toctree-l3" href="#verify-a-static-route">Verify a Static Route</a></li>
+        
+            <li><a class="toctree-l3" href="#ipv6-routes">IPv6 Routes</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#common-ios-troubleshooting-commands">Common IOS Troubleshooting Commands</a></li>
+    
+
+    <li class="toctree-l2"><a href="#configuring-dynamic-routing">Configuring Dynamic Routing</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#access-rip-configuration-mode">Access RIP configuration mode</a></li>
+        
+            <li><a class="toctree-l3" href="#advertise-networks">Advertise Networks</a></li>
+        
+            <li><a class="toctree-l3" href="#verify-rip-routing">Verify RIP Routing</a></li>
+        
+            <li><a class="toctree-l3" href="#enable-and-verify-ripv2">Enable and Verify RIPv2</a></li>
+        
+            <li><a class="toctree-l3" href="#disable-auto-summarization">Disable Auto Summarization</a></li>
+        
+            <li><a class="toctree-l3" href="#propogate-a-default-route">Propogate a Default Route</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">CCNA Reference</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>CCNA2 Cmdline</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="ccna2-command-line-reference">CCNA2 Command Line Reference</h1>
+<h2 id="enable-ip-on-a-switch">Enable IP on a Switch</h2>
+<pre><code>interface vlan 1
+ip address &lt;xxx.xxx.xxx.xxx&gt; &lt;subnet mask&gt;
+no shutdown
+exit
+ip default-gateway &lt;xxx.xxx.xxx.xxx&gt;
+</code></pre>
+
+<h1 id="router-configuration">Router Configuration</h1>
+<h3 id="configure-basic-router-settings">Configure Basic Router Settings</h3>
+<p>Always configure:</p>
+<ul>
+<li>Hostname</li>
+<li>Secure management access (privEXEC, userEXEC, remote access)</li>
+<li>Banner for legal notification of unauthorized access</li>
+</ul>
+<h3 id="configure-an-ipv4-router-interface">Configure an IPv4 Router Interface</h3>
+<ul>
+<li>Good practice to configure <code>description</code> on each interface.</li>
+<li>Additional parameters might be required on certain interfaces - e.g. the serial interface connecting to the serial cable end labeled DCE must be confgured with the <code>clock rate</code> command.</li>
+</ul>
+<pre><code>interface serial 0/0/0
+description Link to XX
+ip address &lt;ip_address&gt; &lt;subnet mask&gt;
+clock rate 128000
+no shutdown
+exit
+</code></pre>
+
+<h3 id="configure-an-ipv6-router-interface">Configure an IPv6 Router Interface</h3>
+<pre><code>interface GigabitEthernet 0/0
+ipv6 address &lt;ipv6_address&gt;/&lt;prefix-length&gt;
+ipv6 address &lt;link-local address&gt; link-local
+no shutdown
+exit
+</code></pre>
+
+<p>Note: An interface can generate its own IPv6 link-local address without having a global unicast address by using the <code>ipv6 enable</code> interface configuration command.</p>
+<p>IPv6 interfaces typically have more than one IPv6 address.</p>
+<ul>
+<li>IPv6 device must have an IPv6 link-local address at a minimum.</li>
+<li>Most would also have an IPv6 global unicast address.</li>
+<li>IPv6 also supports ability for an interface to have multiple IPv6 global unicast addresses from the same subnet.</li>
+</ul>
+<h4 id="statically-create-ipv6-global-unicastlink-local-addresses">Statically create IPv6 global unicast/link-local addresses</h4>
+<p>Create a global unicast IPv6 address:</p>
+<pre><code>ipv6 address &lt;ipv6-address&gt;/&lt;prefix-length&gt;
+</code></pre>
+
+<p>Configures global unicast IPv6 address with an interface ID in the low-order 64 bits of the IPv6 address using the EUI-64 process.</p>
+<pre><code>ipv6 address &lt;ipv6-address&gt;/&lt;prefix-length&gt; eui-64
+</code></pre>
+
+<p>Configure a static link-local address on the interface that is used instaead of the link-local address that is automatically configured when the global unicast IPv6 address is assigned to the interface or enabled using the <code>ipv6 enable</code> interface command.</p>
+<pre><code>ipv6 address &lt;ipv6-address&gt;/&lt;prefix-length&gt; link-local
+</code></pre>
+
+<p>Configure IPv6 Unicast Routing</p>
+<pre><code>ipv6 unicast-routing
+</code></pre>
+
+<ul>
+<li>Router begins sending ICMPv6 Router Advertisement messages out of the interface.</li>
+<li>This allows connected PCs to automatically configure an IPv6 address and set a default gateway without needing the services of a DHCPv6 server.</li>
+</ul>
+<h4 id="enabling-and-assigning-a-loopback-address">Enabling and Assigning a Loopback Address</h4>
+<pre><code>interface loopback &lt;number&gt;
+ip address &lt;ip-address&gt; &lt;subnet-mask&gt;
+exit
+</code></pre>
+
+<h3 id="verify-interface-settings">Verify Interface Settings</h3>
+<pre><code>show ip interface brief
+show ip route
+show running-config interface &lt;interface-id&gt;
+show interfaces
+show ip interface
+</code></pre>
+
+<h3 id="verify-ipv6-interface-settings">Verify IPv6 Interface Settings</h3>
+<pre><code>show ipv6 interface brief
+</code></pre>
+
+<ul>
+<li><code>up/up</code> output on the same line as the interface name indicates the Layer1/Layer2 state - same as the Status and Protocol columns in the equivalent IPv4 command.</li>
+</ul>
+<pre><code>show ipv6 interface gigabitethernet 0/0
+show ipv6 route
+</code></pre>
+
+<ul>
+<li>"C" next to route: directly connected.</li>
+<li>When the router interface is configured with a global unicast address and is in the “up/up” state, the IPv6 prefix and prefix length is added to the IPv6 routing table as a connected route.</li>
+<li>The IPv6 global unicast address configured on the interface is also installed in the routing table as a local route. The local route has a /128 prefix. Local routes are used by the routing table to efficiently process packets with the interface address of the router as the destination.</li>
+<li>The <code>ping</code> command for IPv6 is identical to the command used with IPv4 except that an IPv6 address is used. As shown in Figure 4, the ping command is used to verify Layer 3 connectivity between R1 and PC1.</li>
+</ul>
+<h3 id="filter-show-command-output">Filter Show Command Output</h3>
+<p>Configure number of lines to display during <code>show</code></p>
+<pre><code>terminal length &lt;number of lines&gt;
+terminal length 0     # No pause
+</code></pre>
+
+<p>Pipe after the show then <filter parameter> <filter expression>
+Can be used in combination with any <code>show</code> command.</p>
+<pre><code>show running-config | section line vty
+</code></pre>
+
+<p>Filtering parameters:</p>
+<ul>
+<li><code>section</code>: entire section that starts with expression</li>
+<li><code>include</code>: all output lines that match expression</li>
+<li><code>exclude</code>: excludes all output lines that match expression</li>
+<li><code>begin</code>: all output lines from a certain point, starting with the line that matches the filtering expression.</li>
+</ul>
+<p>Useful examples:</p>
+<pre><code>show ip interface brief | include up
+show ip interface brief | exclude unassigned
+show ip route | begin Gateway
+</code></pre>
+
+<h2 id="command-history">Command History</h2>
+<ul>
+<li><Ctrl-P> or <Up Arrow></li>
+<li><Ctrl-N> or <Down Arrow></li>
+</ul>
+<pre><code>show history    # (PrivExec)
+</code></pre>
+
+<h3 id="change-size-of-history-buffer">Change size of history buffer</h3>
+<pre><code>terminal history size &lt;num&gt;   # (UserExec)
+</code></pre>
+
+<h2 id="ipv6-packets">IPv6 Packets</h2>
+<ul>
+<li>Instead of the ARP process, IPv6 address resolution uses ICMP v6 Neighbor Solicitation (NS) and Neighbor Advertisement messages.</li>
+<li>IPv6-to-MAC address mapping are kept in a table similar to the ARP cache, called the <strong>neighbor cache</strong>.</li>
+<li>More info on <a href="https://keepingitclassless.net/2011/10/neighbor-solicitation-ipv6s-replacement-for-arp/">IPv6 neighbor solication</a></li>
+</ul>
+<pre><code>show ipv6 neighbors
+</code></pre>
+
+<h3 id="routing-table-sources">Routing Table Sources</h3>
+<pre><code>show ip route
+show ipv6 route
+</code></pre>
+
+<h1 id="configuring-static-routes">Configuring Static Routes</h1>
+<p>There are two common types of static routes in the routing table:</p>
+<ul>
+<li>Static route to a specific network</li>
+<li>Default static route</li>
+</ul>
+<p>A static route can be configured to reach a specific remote network. IPv4 static routes are configured using the following command:</p>
+<pre><code>ip route &lt;network-address&gt; &lt;subnet-mask&gt; { next-hop-ip | exit-intf }
+</code></pre>
+
+<p>A static route is identified in the routing table with the code ‘S’.</p>
+<p>A <strong>default static route</strong> is similar to a default gateway on a host. The default static route specifies the exit point to use when the routing table does not contain a path for the destination network. A default static route is useful when a router has only one exit point to another router, such as when the router connects to a central router or service provider.</p>
+<p>To configure an IPv4 default static route, use the following command:</p>
+<pre><code>Router(config)# ip route 0.0.0.0 0.0.0.0 { exit-intf | next-hop-ip }
+</code></pre>
+
+<h3 id="ip-route-command">IP Route Command</h3>
+<p>Requires following parameters:</p>
+<ul>
+<li>Network-address (destination); often referred to as the <strong>prefix</strong></li>
+<li>Subnet-mask (or just mask); can be modified to summarize a group of networks.</li>
+</ul>
+<p>Also one or both of the following:</p>
+<ul>
+<li>IP-address of the connecting router to use for forwarding; commonly referred to as the <strong>next hop</strong>.</li>
+<li>Exit-intf: the outgoing interface to use to forward the packet to the next hop.</li>
+</ul>
+<p>Distance paremter used to create a floating static route by setting an administrative distance
+higher than a dynamically learned route.</p>
+<pre><code>ip route &lt;network-address&gt; &lt;subnet-mask&gt; {ip-address | exit-intf}
+</code></pre>
+
+<h3 id="next-hop-options">Next Hop Options</h3>
+<p>The next hop can be identified by an IP address, exit interface, or both. How the destination is specified creates one of the three following route types:</p>
+<ul>
+<li>Next-hop route - Only the next-hop IP address is specified</li>
+<li>Directly connected static route - Only the router exit interface is specified</li>
+<li>Fully specified static route - The next-hop IP address and exit interface are specified</li>
+</ul>
+<pre><code>show ip route | begin Gateway
+show ip route | include C
+</code></pre>
+
+<h3 id="configure-an-ipv4-floating-static-route">Configure an IPv4 Floating Static Route</h3>
+<pre><code>ip route 0.0.0.0 0.0.0.0 172.16.2.2
+</code></pre>
+
+<h3 id="verify-a-static-route">Verify a Static Route</h3>
+<pre><code>show ip route
+show ip route static                  # Displays contents of static routes
+show ip route static | begin Gateway
+show ip route &lt;network&gt;
+
+show running-config | section ip route
+traceroute &lt;ip-address&gt;
+</code></pre>
+
+<h2 id="ipv6-routes">IPv6 Routes</h2>
+<p>Static routes for IPv6 are configured using the ipv6 route global configuration command.</p>
+<pre><code>ipv6 route &lt;ipv6-prefix/prefixlength&gt; {ipv6-address | exit-intf}
+</code></pre>
+
+<h3 id="displaying-and-testing-ipv6-routes">Displaying and Testing IPv6 Routes</h3>
+<pre><code>show ipv6 route
+show ipv6 route static
+show ipv6 route &lt;network&gt;
+show running-config | section ipv6 route
+
+ping ipv6 &lt;ipv6-address&gt;
+traceroute &lt;
+</code></pre>
+
+<h3 id="configure-a-directly-connected-static-ipv6-route">Configure a Directly Connected Static IPv6 Route</h3>
+<pre><code>ipv6 route &lt;ipv6-address&gt;/&lt;network-prefix&gt; &lt;interface&gt;
+ipv6 route 2001:db8:acad:2::/64 s0/0/0
+</code></pre>
+
+<h3 id="configure-a-fully-specified-static-ipv6-route">Configure a Fully Specified Static IPv6 Route</h3>
+<pre><code>ipv6 route &lt;ipv6-address&gt;/&lt;network-prefix&gt; &lt;interface&gt; &lt;next-hop ipv6-address&gt;
+ipv6 route 2001:db8:acad:2::/64 s0/0/0 fe80::2
+</code></pre>
+
+<h3 id="configure-a-default-ipv6-static-route">Configure a Default IPv6 Static Route</h3>
+<pre><code>ipv6 route ::/0 {ipv6-address | exit-intf}
+ipv6 route ::/ 2001:db8:acad:4::2
+</code></pre>
+
+<h3 id="configure-an-ipv6-floating-static-route">Configure an IPv6 Floating Static Route</h3>
+<pre><code>ipv6 route ::/0 &lt;ipv6-address&gt; &lt;administrative-distance&gt;
+ipv6 route ::/0 2001:db8:aad:4::2
+ipv6 route ::/0 2001:db8:aad:6::2 5
+</code></pre>
+
+<h1 id="common-ios-troubleshooting-commands">Common IOS Troubleshooting Commands</h1>
+<pre><code>ping
+ping &lt;ip-address&gt; source &lt;source_ip&gt;
+traceroute &lt;ip-address&gt;
+show ip route | begin Gateway
+show ip interface brief
+show cdp neighbors detail
+</code></pre>
+
+<h1 id="configuring-dynamic-routing">Configuring Dynamic Routing</h1>
+<h3 id="access-rip-configuration-mode">Access RIP configuration mode</h3>
+<pre><code>router rip
+no router rip
+</code></pre>
+
+<ul>
+<li>Prompt will show up as <code>Router(config-router)#</code></li>
+<li>When enabling RIP, the default version is RIPv1.</li>
+<li>To disable and eliminate RIP, use the <code>no router rip</code> global configuration command. This command stops the RIP process and erases all existing RIP configurations.</li>
+</ul>
+<h3 id="advertise-networks">Advertise Networks</h3>
+<pre><code>network &lt;network-address&gt;
+</code></pre>
+
+<h3 id="verify-rip-routing">Verify RIP Routing</h3>
+<pre><code>show ip protocols
+</code></pre>
+
+<h3 id="enable-and-verify-ripv2">Enable and Verify RIPv2</h3>
+<p>By <em>default, when a RIP process is configured on a Cisco router, it is running RIPv1</em>, as shown in Figure 1. However, even though the router only sends RIPv1 messages, it can interpret both RIPv1 and RIPv2 messages. A <em>RIPv1 router ignores the RIPv2 fields in the route entry</em>.</p>
+<p>Use the <code>version 2</code> router configuration mode command to enable RIPv2, as shown in Figure 2. Notice how the <code>show ip protocols</code> command verifies that R2 is now configured to send and receive version 2 messages only. The RIP process now includes the subnet mask in all updates, making <em>RIPv2 a classless routing protocol</em>.</p>
+<p>Note: Configuring <code>version 1</code> enables RIPv1 only, while configuring <code>no version</code> returns the router to the default setting of sending version 1 updates but listening for version 1 and version 2 updates.</p>
+<h3 id="disable-auto-summarization">Disable Auto Summarization</h3>
+<pre><code>no auto-summary
+</code></pre>
+
+<h3 id="propogate-a-default-route">Propogate a Default Route</h3>
+<p>To propagate a default route in RIP, the edge router must be configured with:</p>
+<ul>
+<li>A default static route using the <code>ip route 0.0.0.0 0.0.0.0</code> command.</li>
+<li>The <code>default-information originate</code> router configuration command. This instructs R1 to originate default information, by propagating the static default route in RIP updates.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../CCNA1_Cmdline/" class="btn btn-neutral" title="CCNA1 Cmdline"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../CCNA1_Cmdline/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
