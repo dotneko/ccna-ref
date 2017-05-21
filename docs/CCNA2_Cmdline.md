@@ -151,8 +151,8 @@ show ip route | begin Gateway
 
 ## Command History
 
-- \<Ctrl-P> or \<Up Arrow>
-- \<Ctrl-N> or \<Down Arrow>
+- Ctrl-P or Up-Arrow
+- Ctrl-N or Down-Arrow
 
 ```
 show history    # (PrivExec)
