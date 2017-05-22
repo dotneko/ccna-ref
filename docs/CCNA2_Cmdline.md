@@ -237,9 +237,15 @@ show ip route | include C
 
 ### Configure an IPv4 Floating Static Route
 
+- Given an example where R1 is attached to R2 (172.16.2.2) and R3 (10.10.10.2), the following would create a default static route to R2, and a floating static route to R3:
+
 ```
-ip route 0.0.0.0 0.0.0.0 172.16.2.2
+ip route 0.0.0.0 0.0.0.0 172.16.2.2     # Default route to R2
+ip route 0.0.0.0 0.0.0.0 10.10.10.2 5   # Floating default route to R3
 ```
+
+- Default route to R2 has no administrative distance specified, so would default to 1. This is the preferred route..
+- Floating default route to R3 has administrative distance 5. Since this value is greater that of the default route, this route "floats" - it is not present in the routing table unless the preferred route fails.
 
 ### Verify a Static Route
 
