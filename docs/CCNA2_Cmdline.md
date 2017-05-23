@@ -67,7 +67,7 @@ Configure global unicast IPv6 address with an interface ID in the low-order 64 b
 ipv6 address <ipv6-address>/<prefix-length> eui-64
 ```
 
-Configure a static link-local address on the interface that is used instaead of the link-local address that is automatically configured when the global unicast IPv6 address is assigned to the interface or enabled using the `ipv6 enable` interface command.
+Configure a static link-local address on the interface that is used instead of the link-local address that is automatically configured when the global unicast IPv6 address is assigned to the interface or enabled using the `ipv6 enable` interface command.
 
 ```
 ipv6 address <ipv6-address>/<prefix-length> link-local
@@ -247,6 +247,23 @@ ip route 0.0.0.0 0.0.0.0 10.10.10.2 5   # Floating default route to R3
 - Default route to R2 has no administrative distance specified, so would default to 1. This is the preferred route..
 - Floating default route to R3 has administrative distance 5. Since this value is greater that of the default route, this route "floats" - it is not present in the routing table unless the preferred route fails.
 
+
+### Default Administrative Distances
+
+```
+Connected                   0
+Static                      1
+EIGRP summary route         5
+External BGP                20
+Internal EIGRP              90
+IGRP                        100
+OSPF                        110
+IS-IS                       115
+RIP                         120
+External EIGRP              170
+Internal BGP                200
+```
+
 ### Verify a Static Route
 
 ```
@@ -363,4 +380,49 @@ To propagate a default route in RIP, the edge router must be configured with:
 - A default static route using the `ip route 0.0.0.0 0.0.0.0` command.
 - The `default-information originate` router configuration command. This instructs R1 to originate default information, by propagating the static default route in RIP updates.
 
+# Dynamic Routing
 
+### RIP: Enable and disable
+
+```
+router rip          # Default version RIPv1 (Classful)
+no router rip
+```
+
+### RIP Routing Configuration Mode Commands
+
+```
+network <network-address>       # Enables RIP on all interfaces on that network.
+version 2                       # Enables RIPv2
+version 1                       # Enables RIPv1 only
+no version                      # Returns to default setting: send v1, listen v1+v2
+no auto-summary                 # Disables default automatic summarization (RIPv2)
+
+passive-interface <interface>   # Prevent transmission of routing updates out interface
+                                # However, still allows network to be advertised
+passive-interface g0/0
+passive-interface default       # Makes all interfaces passive
+no passive-interface <intf>     # Re-enables passive transmission of routing updates
+```
+
+### Verify RIP Routing
+
+```
+show ip protocols
+show ip route
+```
+
+### Propogate a Default Route
+
+Assuming edge router configured with a fully configured static route
+
+```
+ip route 0.0.0.0 0.0.0.0 <exit-interface> <next-hop IP>
+```
+
+Next configure router to propogate the static default route in RIP updates:
+
+```
+router rip
+default-information originate
+```
