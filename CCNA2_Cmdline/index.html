@@ -104,6 +104,8 @@
         
             <li><a class="toctree-l3" href="#configure-an-ipv4-floating-static-route">Configure an IPv4 Floating Static Route</a></li>
         
+            <li><a class="toctree-l3" href="#default-administrative-distances">Default Administrative Distances</a></li>
+        
             <li><a class="toctree-l3" href="#verify-a-static-route">Verify a Static Route</a></li>
         
             <li><a class="toctree-l3" href="#ipv6-routes">IPv6 Routes</a></li>
@@ -129,6 +131,21 @@
             <li><a class="toctree-l3" href="#disable-auto-summarization">Disable Auto Summarization</a></li>
         
             <li><a class="toctree-l3" href="#propogate-a-default-route">Propogate a Default Route</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#dynamic-routing">Dynamic Routing</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#rip-enable-and-disable">RIP: Enable and disable</a></li>
+        
+            <li><a class="toctree-l3" href="#rip-routing-configuration-mode-commands">RIP Routing Configuration Mode Commands</a></li>
+        
+            <li><a class="toctree-l3" href="#verify-rip-routing_1">Verify RIP Routing</a></li>
+        
+            <li><a class="toctree-l3" href="#propogate-a-default-route_1">Propogate a Default Route</a></li>
         
         </ul>
     
@@ -222,7 +239,7 @@ exit
 <pre><code>ipv6 address &lt;ipv6-address&gt;/&lt;prefix-length&gt; eui-64
 </code></pre>
 
-<p>Configure a static link-local address on the interface that is used instaead of the link-local address that is automatically configured when the global unicast IPv6 address is assigned to the interface or enabled using the <code>ipv6 enable</code> interface command.</p>
+<p>Configure a static link-local address on the interface that is used instead of the link-local address that is automatically configured when the global unicast IPv6 address is assigned to the interface or enabled using the <code>ipv6 enable</code> interface command.</p>
 <pre><code>ipv6 address &lt;ipv6-address&gt;/&lt;prefix-length&gt; link-local
 </code></pre>
 
@@ -369,6 +386,20 @@ ip route 0.0.0.0 0.0.0.0 10.10.10.2 5   # Floating default route to R3
 <li>Default route to R2 has no administrative distance specified, so would default to 1. This is the preferred route..</li>
 <li>Floating default route to R3 has administrative distance 5. Since this value is greater that of the default route, this route "floats" - it is not present in the routing table unless the preferred route fails.</li>
 </ul>
+<h3 id="default-administrative-distances">Default Administrative Distances</h3>
+<pre><code>Connected                   0
+Static                      1
+EIGRP summary route         5
+External BGP                20
+Internal EIGRP              90
+IGRP                        100
+OSPF                        110
+IS-IS                       115
+RIP                         120
+External EIGRP              170
+Internal BGP                200
+</code></pre>
+
 <h3 id="verify-a-static-route">Verify a Static Route</h3>
 <pre><code>show ip route
 show ip route static                  # Displays contents of static routes
@@ -457,6 +488,40 @@ no router rip
 <li>A default static route using the <code>ip route 0.0.0.0 0.0.0.0</code> command.</li>
 <li>The <code>default-information originate</code> router configuration command. This instructs R1 to originate default information, by propagating the static default route in RIP updates.</li>
 </ul>
+<h1 id="dynamic-routing">Dynamic Routing</h1>
+<h3 id="rip-enable-and-disable">RIP: Enable and disable</h3>
+<pre><code>router rip          # Default version RIPv1 (Classful)
+no router rip
+</code></pre>
+
+<h3 id="rip-routing-configuration-mode-commands">RIP Routing Configuration Mode Commands</h3>
+<pre><code>network &lt;network-address&gt;       # Enables RIP on all interfaces on that network.
+version 2                       # Enables RIPv2
+version 1                       # Enables RIPv1 only
+no version                      # Returns to default setting: send v1, listen v1+v2
+no auto-summary                 # Disables default automatic summarization (RIPv2)
+
+passive-interface &lt;interface&gt;   # Prevent transmission of routing updates out interface
+                                # However, still allows network to be advertised
+passive-interface g0/0
+passive-interface default       # Makes all interfaces passive
+no passive-interface &lt;intf&gt;     # Re-enables passive transmission of routing updates
+</code></pre>
+
+<h3 id="verify-rip-routing_1">Verify RIP Routing</h3>
+<pre><code>show ip protocols
+show ip route
+</code></pre>
+
+<h3 id="propogate-a-default-route_1">Propogate a Default Route</h3>
+<p>Assuming edge router configured with a fully configured static route</p>
+<pre><code>ip route 0.0.0.0 0.0.0.0 &lt;exit-interface&gt; &lt;next-hop IP&gt;
+</code></pre>
+
+<p>Next configure router to propogate the static default route in RIP updates:</p>
+<pre><code>router rip
+default-information originate
+</code></pre>
               
             </div>
           </div>
