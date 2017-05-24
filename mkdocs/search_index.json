@@ -2,13 +2,18 @@
     "docs": [
         {
             "location": "/", 
-            "text": "CCNA Cisco IOS Commandline Notes\n\n\n\n\nCCNA1 Command Line Notes\n\n\nCCNA2 Command Line Notes", 
+            "text": "CCNA Cisco IOS Commandline Notes\n\n\n\n\nCCNA1 Command Line Notes\n\n\nCCNA2 Command Line Notes\n\n\n\n\nOther\n\n\n\n\nIngmar's Cisco Study Notes", 
             "title": "Home"
         }, 
         {
             "location": "/#ccna-cisco-ios-commandline-notes", 
             "text": "CCNA1 Command Line Notes  CCNA2 Command Line Notes", 
             "title": "CCNA Cisco IOS Commandline Notes"
+        }, 
+        {
+            "location": "/#other", 
+            "text": "Ingmar's Cisco Study Notes", 
+            "title": "Other"
         }, 
         {
             "location": "/CCNA1_Cmdline/", 
@@ -394,6 +399,21 @@
             "location": "/CCNA2_Cmdline/#propogate-a-default-route_1", 
             "text": "Assuming edge router configured with a fully configured static route  ip route 0.0.0.0 0.0.0.0  exit-interface   next-hop IP   Next configure router to propogate the static default route in RIP updates:  router rip\ndefault-information originate", 
             "title": "Propogate a Default Route"
+        }, 
+        {
+            "location": "/Cisco_Misc/", 
+            "text": "Cisco Software Upgrade Procedure\n\n\nSee: \nCisco Access Routers Software Upgrade Procedures\n\n\nConfigure Router as TFTP Server\n\n\ntftp-server flash:\nios_image_name.bin", 
+            "title": "Cisco Misc"
+        }, 
+        {
+            "location": "/Cisco_Misc/#cisco-software-upgrade-procedure", 
+            "text": "See:  Cisco Access Routers Software Upgrade Procedures", 
+            "title": "Cisco Software Upgrade Procedure"
+        }, 
+        {
+            "location": "/Cisco_Misc/#configure-router-as-tftp-server", 
+            "text": "tftp-server flash: ios_image_name.bin", 
+            "title": "Configure Router as TFTP Server"
         }
     ]
 }
