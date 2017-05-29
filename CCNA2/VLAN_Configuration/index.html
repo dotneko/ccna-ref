@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>VLAN Configuration - CCNA Reference</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "VLAN Configuration";
+    var mkdocs_page_input_path = "CCNA2/VLAN_Configuration.md";
+    var mkdocs_page_url = "/CCNA2/VLAN_Configuration/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Reference</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA1 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA2_Cmdline/">CCNA2 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA2</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Miscellaneous/">Miscellaneous</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Static_Routing/">Static Routing</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">VLAN Configuration</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#configuring-vlans">Configuring VLANs</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#displayverify-vlans">Display/Verify VLANs</a></li>
+        
+            <li><a class="toctree-l4" href="#create-a-vlan">Create a VLAN</a></li>
+        
+            <li><a class="toctree-l4" href="#assigning-ports-to-vlans">Assigning Ports to VLANs</a></li>
+        
+            <li><a class="toctree-l4" href="#changing-vlan-port-membership">Changing VLAN Port Membership</a></li>
+        
+            <li><a class="toctree-l4" href="#deleting-vlans">Deleting VLANs</a></li>
+        
+            <li><a class="toctree-l4" href="#restore-switch-to-factory-defaults">Restore switch to factory defaults</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#configuring-vlan-trunks">Configuring VLAN Trunks</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#resetting-the-trunk-to-default-state">Resetting the Trunk to Default State</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#troubleshooting">Troubleshooting</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#troubleshooting-vlans">Troubleshooting VLANs</a></li>
+        
+            <li><a class="toctree-l4" href="#troubleshooting-trunks">Troubleshooting Trunks</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#inter-vlan-routing">Inter-VLAN Routing</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#configure-legacy-inter-vlan-routing">Configure Legacy Inter-VLAN Routing</a></li>
+        
+            <li><a class="toctree-l4" href="#configure-router-on-a-stick">Configure Router-on-a-Stick</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Reference</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNA2 &raquo;</li>
+        
+      
+    
+    <li>VLAN Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="configuring-vlans">Configuring VLANs</h1>
+<ul>
+<li>Configurations are stored in the <code>flash:vlan.dat</code> file.</li>
+</ul>
+<h3 id="displayverify-vlans">Display/Verify VLANs</h3>
+<pre><code>show vlan
+show vlan brief
+show vlan summary
+show vlan id &lt;vlan-id&gt;
+show vlan name &lt;vlan-name&gt;
+
+show interfaces vlan &lt;vlan-id&gt;
+show interfaces &lt;interface-id&gt; switchport
+</code></pre>
+
+<h3 id="create-a-vlan">Create a VLAN</h3>
+<pre><code>vlan &lt;vlan-id&gt;
+name &lt;vlan-name&gt;
+exit
+
+vlan 100,102, 105-107       # Creates multiple VLANs
+</code></pre>
+
+<h3 id="assigning-ports-to-vlans">Assigning Ports to VLANs</h3>
+<pre><code>interface &lt;interface-id&gt;
+  switchport mode access
+  switchport access vlan &lt;vlan-id&gt;
+</code></pre>
+
+<ul>
+<li><code>interface range &lt;interfaces&gt;</code> can be used to configure multipe interfaces.</li>
+</ul>
+<h3 id="changing-vlan-port-membership">Changing VLAN Port Membership</h3>
+<pre><code>interface &lt;interface-id&gt;
+  no switchport access vlan # Removes vlan; not necessary if want to replace
+</code></pre>
+
+<h3 id="deleting-vlans">Deleting VLANs</h3>
+<pre><code>no vlan &lt;vlan-id&gt;       # Delete single VLAN
+
+delete flash:vlan.dat       # Deletes entire vlan.dat file
+</code></pre>
+
+<ul>
+<li>Note: before deleting a VLAN, reassign all member ports to a different VLAN first. Any ports that are not moved to an active VLAN are unable to communicate with other hosts after the VLAN is deleted and until tey are assigned to an active VLAN.</li>
+</ul>
+<h3 id="restore-switch-to-factory-defaults">Restore switch to factory defaults</h3>
+<pre><code>erase startup-config
+delete vlan.dat
+reload
+</code></pre>
+
+<h1 id="configuring-vlan-trunks">Configuring VLAN Trunks</h1>
+<pre><code>interface &lt;interface-id&gt;
+  switchport mode trunk
+  switchport trunk native vlan &lt;vlan-id&gt;
+  switchport trunk allowed vlan &lt;vlan-list&gt;
+exit
+</code></pre>
+
+<h3 id="resetting-the-trunk-to-default-state">Resetting the Trunk to Default State</h3>
+<pre><code>interface &lt;interface-id&gt;
+  no switchport trunk allowed vlan
+  no switchport trunk native vlan
+end
+</code></pre>
+
+<h1 id="troubleshooting">Troubleshooting</h1>
+<h3 id="troubleshooting-vlans">Troubleshooting VLANs</h3>
+<pre><code>show vlan
+show mac address-table
+show interfaces
+show interfaces switchport
+show interface &lt;interface-id&gt; switchport
+</code></pre>
+
+<ul>
+<li>Each VLAN must correspond to a unique IP subnet; check IP addressing.</li>
+<li>Check that ports belongs to expected VLANs and are active.</li>
+<li>Check if inactive VLAN is assigned to a port: <code>show interfaces switchport</code></li>
+</ul>
+<h3 id="troubleshooting-trunks">Troubleshooting Trunks</h3>
+<pre><code>show interfaces trunk
+</code></pre>
+
+<ul>
+<li>Check whether local and peer native VLANs match (VLAN leaking occurs with mismatch).</li>
+<li>Check whether trunk has been established. Cisco Catalyst switch ports use DTP by default; statically configure trunk links whenever possible.</li>
+<li>Check status of trunk ports for incorrect port modes</li>
+<li>Common configuration errors:<ul>
+<li>Native VLAN mismatches: inter-VLAN routing issues; security risk.</li>
+<li>Trunk mode mismatches: trunk link will not work.</li>
+<li>Allowed VLANs on trunks: unexpected or no traffic.</li>
+</ul>
+</li>
+</ul>
+<h1 id="inter-vlan-routing">Inter-VLAN Routing</h1>
+<h3 id="configure-legacy-inter-vlan-routing">Configure Legacy Inter-VLAN Routing</h3>
+<p>Scenario:
+- R1 connected to switch ports: G0/0 -&gt; F0/4 (VLAN 10), G0/1 -&gt; F05 (VLAN 30)
+- S1 switch ports F0/4 and F0/11 belong to VLAN 10; F0/5 and F0/6 belong to VLAN 30.</p>
+<p>Configure the switch:</p>
+<pre><code>vlan 10                 # Create VLAN 10
+vlan 30                 # Create VLAN 30
+interface f0/11
+  switchport access vlan 10
+interface f0/4
+  switchport access vlan 10
+interface f0/6
+  switchport access vlan 30
+interface f0/5
+  switchport access vlan 30
+  end
+</code></pre>
+
+<p>Configure the router:</p>
+<pre><code>interface g0/0
+  ip address &lt;default gateway of VLAN10&gt; &lt;subnet-mask&gt;
+  no shutdown
+interface g0/1
+  ip address &lt;default gateway of VLAN 30&gt; &lt;subnet-mask&gt;
+  no shutdown
+  end
+</code></pre>
+
+<p>Check routing table with:</p>
+<pre><code>show ip route
+</code></pre>
+
+<h3 id="configure-router-on-a-stick">Configure Router-on-a-Stick</h3>
+<p>Scenario:
+- R1 is connected to switch S1 on trunk port F0/5
+- VLANs 10 and 30 are added to switch S1
+- Two subinterfaces are configured using the <code>interface &lt;interface-id&gt;.&lt;subinterface-id&gt;</code>
+    - G0/0.10: 172.17.10.1/24
+    - G0/0.30: 172.17.30.1/24</p>
+<p>Configure the switch:</p>
+<pre><code>vlan 10
+vlan 30
+interface f0/5
+  switchport mode trunk
+  end
+</code></pre>
+
+<p>Configure the router:</p>
+<pre><code>interface g0/0.10
+  encapsulation dot1q 10
+  ip address 172.17.10.1 255.255.255.0
+interface g0/0.30
+  encapsulation dot1q 30
+  ip address 172.17.30.1 255.255.255.0
+interface g0/0
+  no shutdown
+</code></pre>
+
+<p>To set the IEEE 802.1Q native VLAN, use the <code>native</code> keyword option; by default, the native VLAN is VLAN 1.
+If the physical interface is disabled, all subinterfaces are disabled.</p>
+<p>Verify Subinterfaces:</p>
+<pre><code>show vlan
+show ip route
+</code></pre>
+
+<p>Verify routing:</p>
+<pre><code>ping &lt;ip-address&gt;
+traceroute &lt;ip-address&gt;     # UNIX
+tracert &lt;ip-address&gt;        # Windows
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../Static_Routing/" class="btn btn-neutral" title="Static Routing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Static_Routing/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

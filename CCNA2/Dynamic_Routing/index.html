@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Dynamic Routing - CCNA Reference</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Dynamic Routing";
+    var mkdocs_page_input_path = "CCNA2/Dynamic_Routing.md";
+    var mkdocs_page_url = "/CCNA2/Dynamic_Routing/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Reference</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA1 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA2_Cmdline/">CCNA2 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA2</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Dynamic Routing</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#configuring-dynamic-routing">Configuring Dynamic Routing</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#access-rip-configuration-mode">Access RIP configuration mode</a></li>
+        
+            <li><a class="toctree-l4" href="#enable-and-verify-ripv2">Enable and Verify RIPv2</a></li>
+        
+            <li><a class="toctree-l4" href="#propogate-a-default-route">Propogate a Default Route</a></li>
+        
+            <li><a class="toctree-l4" href="#rip-routing-configuration-mode-commands">RIP Routing Configuration Mode Commands</a></li>
+        
+            <li><a class="toctree-l4" href="#verify-rip-routing">Verify RIP Routing</a></li>
+        
+            <li><a class="toctree-l4" href="#propogate-a-default-route_1">Propogate a Default Route</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Miscellaneous/">Miscellaneous</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Reference</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNA2 &raquo;</li>
+        
+      
+    
+    <li>Dynamic Routing</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="configuring-dynamic-routing">Configuring Dynamic Routing</h1>
+<h3 id="access-rip-configuration-mode">Access RIP configuration mode</h3>
+<pre><code>router rip
+</code></pre>
+
+<ul>
+<li>Prompt will show up as <code>Router(config-router)#</code></li>
+<li>When enabling RIP, the default version is RIPv1.</li>
+<li>To disable and eliminate RIP, use the <code>no router rip</code> global configuration command. This command stops the RIP process and erases all existing RIP configurations.</li>
+<li>Upon enabling, need to advertise networks with <code>network &lt;network-address&gt;</code></li>
+</ul>
+<h3 id="enable-and-verify-ripv2">Enable and Verify RIPv2</h3>
+<p>By <em>default, when a RIP process is configured on a Cisco router, it is running RIPv1</em>, as shown in Figure 1. However, even though the router only sends RIPv1 messages, it can interpret both RIPv1 and RIPv2 messages. A <em>RIPv1 router ignores the RIPv2 fields in the route entry</em>.</p>
+<p>Use the <code>version 2</code> router configuration mode command to enable RIPv2, as shown in Figure 2. Notice how the <code>show ip protocols</code> command verifies that R2 is now configured to send and receive version 2 messages only. The RIP process now includes the subnet mask in all updates, making <em>RIPv2 a classless routing protocol</em>.</p>
+<p>Note: Configuring <code>version 1</code> enables RIPv1 only, while configuring <code>no version</code> returns the router to the default setting of sending version 1 updates but listening for version 1 and version 2 updates.</p>
+<h3 id="propogate-a-default-route">Propogate a Default Route</h3>
+<p>The <code>default-information originate</code> router configuration command. This instructs R1 to originate default information, by propagating the static default route in RIP updates.</p>
+<h3 id="rip-routing-configuration-mode-commands">RIP Routing Configuration Mode Commands</h3>
+<pre><code>network &lt;network-address&gt;       # Enables RIP on all interfaces on that network.
+version 2                       # Enables RIPv2
+version 1                       # Enables RIPv1 only
+no version                      # Returns to default setting: send v1, listen v1+v2
+no auto-summary                 # Disables default automatic summarization (RIPv2)
+
+passive-interface &lt;interface&gt;   # Prevent transmission of routing updates out interface
+                                # However, still allows network to be advertised
+passive-interface g0/0
+passive-interface default       # Makes all interfaces passive
+no passive-interface &lt;intf&gt;     # Re-enables passive transmission of routing updates
+</code></pre>
+
+<h3 id="verify-rip-routing">Verify RIP Routing</h3>
+<pre><code>show ip protocols
+show ip route
+</code></pre>
+
+<h3 id="propogate-a-default-route_1">Propogate a Default Route</h3>
+<p>To propagate a default route in RIP, the edge router must be configured with a default static route using the <code>ip route 0.0.0.0 0.0.0.0</code> command:</p>
+<pre><code>ip route 0.0.0.0 0.0.0.0 &lt;exit-interface&gt; &lt;next-hop IP&gt;
+</code></pre>
+
+<p>Next configure router to propogate the static default route in RIP updates:</p>
+<pre><code>router rip
+default-information originate
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Miscellaneous/" class="btn btn-neutral float-right" title="Miscellaneous">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Basic_Configuration/" class="btn btn-neutral" title="Basic Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Basic_Configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Miscellaneous/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

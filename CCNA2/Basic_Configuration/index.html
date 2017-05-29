@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Basic Configuration - CCNA Reference</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Basic Configuration";
+    var mkdocs_page_input_path = "CCNA2/Basic_Configuration.md";
+    var mkdocs_page_url = "/CCNA2/Basic_Configuration/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Reference</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA1 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA2_Cmdline/">CCNA2 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA2</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Basic Configuration</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#switches-basic-configuration">Switches: Basic Configuration</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#enable-ip-on-a-switch">Enable IP on a Switch</a></li>
+        
+            <li><a class="toctree-l4" href="#configuring-switch-management-interface">Configuring Switch Management Interface</a></li>
+        
+            <li><a class="toctree-l4" href="#create-a-new-vlan">Create a new VLAN</a></li>
+        
+            <li><a class="toctree-l4" href="#configure-duplex-and-speed-auto-mdx">Configure Duplex and Speed, Auto-MDX</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#router-configuration">Router Configuration</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#configure-basic-router-settings">Configure Basic Router Settings</a></li>
+        
+            <li><a class="toctree-l4" href="#configure-an-ipv4-router-interface">Configure an IPv4 Router Interface</a></li>
+        
+            <li><a class="toctree-l4" href="#configure-an-ipv6-router-interface">Configure an IPv6 Router Interface</a></li>
+        
+            <li><a class="toctree-l4" href="#verify-interface-settings">Verify Interface Settings</a></li>
+        
+            <li><a class="toctree-l4" href="#verify-ipv6-interface-settings">Verify IPv6 Interface Settings</a></li>
+        
+            <li><a class="toctree-l4" href="#ipv6-packets">IPv6 Packets</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Miscellaneous/">Miscellaneous</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Reference</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNA2 &raquo;</li>
+        
+      
+    
+    <li>Basic Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="switches-basic-configuration">Switches: Basic Configuration</h1>
+<h3 id="enable-ip-on-a-switch">Enable IP on a Switch</h3>
+<pre><code>interface vlan 1
+ip address &lt;xxx.xxx.xxx.xxx&gt; &lt;subnet mask&gt;
+no shutdown
+exit
+ip default-gateway &lt;xxx.xxx.xxx.xxx&gt;
+</code></pre>
+
+<h3 id="configuring-switch-management-interface">Configuring Switch Management Interface</h3>
+<pre><code>interface vlan 99
+ip address &lt;network-address&gt; &lt;subnet-mask&gt;
+no shutdown
+end
+
+ip default-gateway &lt;ip-address&gt;                 # (GCM)
+</code></pre>
+
+<p>Note that above vlan99 will not be up until a new VLAN is created:</p>
+<h3 id="create-a-new-vlan">Create a new VLAN</h3>
+<pre><code>vlan &lt;vlan_id&gt;
+name &lt;vlan_name&gt;
+exit
+interface &lt;interface-id&gt;
+switchport mode access
+switchport access vlan &lt;vlan_id&gt;
+end
+
+# E.g.
+vlan 99
+name new99
+</code></pre>
+
+<h3 id="configure-duplex-and-speed-auto-mdx">Configure Duplex and Speed, Auto-MDX</h3>
+<pre><code>duplex full             # (Interface config)
+speed 100
+</code></pre>
+
+<p>Auto-MDX</p>
+<pre><code>duplex auto
+speed auto
+mdix auto               # Requires speed/duplex set to auto
+
+show controllers ethernet-controller int   # Show Auto-MDIX setting
+
+show controllers ethernet-controller fa 0/1 phy | include Auto-MDIX
+</code></pre>
+
+<ul>
+<li>Enabled by default on Catalyst 2960 and 3560 switches.</li>
+<li>Not available on older Catalyst 2950</li>
+</ul>
+<h1 id="router-configuration">Router Configuration</h1>
+<h3 id="configure-basic-router-settings">Configure Basic Router Settings</h3>
+<p>Always configure:</p>
+<ul>
+<li>Hostname</li>
+<li>Secure management access (privEXEC, userEXEC, remote access)</li>
+<li>Banner for legal notification of unauthorized access</li>
+</ul>
+<h3 id="configure-an-ipv4-router-interface">Configure an IPv4 Router Interface</h3>
+<ul>
+<li>Good practice to configure <code>description</code> on each interface.</li>
+<li>Additional parameters might be required on certain interfaces - e.g. the serial interface connecting to the serial cable end labeled DCE must be confgured with the <code>clock rate</code> command.</li>
+</ul>
+<pre><code>interface serial 0/0/0
+description Link to XX
+ip address &lt;ip_address&gt; &lt;subnet mask&gt;
+clock rate 128000
+no shutdown
+exit
+</code></pre>
+
+<h3 id="configure-an-ipv6-router-interface">Configure an IPv6 Router Interface</h3>
+<pre><code>interface GigabitEthernet 0/0
+ipv6 address &lt;ipv6_address&gt;/&lt;prefix-length&gt;
+ipv6 address &lt;link-local address&gt; link-local
+no shutdown
+exit
+</code></pre>
+
+<p>Note: An interface can generate its own IPv6 link-local address without having a global unicast address by using the <code>ipv6 enable</code> interface configuration command.</p>
+<p>IPv6 interfaces typically have more than one IPv6 address.</p>
+<ul>
+<li>IPv6 device must have an IPv6 link-local address at a minimum.</li>
+<li>Most would also have an IPv6 global unicast address.</li>
+<li>IPv6 also supports ability for an interface to have multiple IPv6 global unicast addresses from the same subnet.</li>
+</ul>
+<h4 id="statically-create-ipv6-global-unicastlink-local-addresses">Statically create IPv6 global unicast/link-local addresses</h4>
+<p>Create a global unicast IPv6 address:</p>
+<pre><code>ipv6 address &lt;ipv6-address&gt;/&lt;prefix-length&gt;
+</code></pre>
+
+<p>Configure global unicast IPv6 address with an interface ID in the low-order 64 bits of the IPv6 address using the EUI-64 process.</p>
+<pre><code>ipv6 address &lt;ipv6-address&gt;/&lt;prefix-length&gt; eui-64
+</code></pre>
+
+<p>Configure a static link-local address on the interface that is used instead of the link-local address that is automatically configured when the global unicast IPv6 address is assigned to the interface or enabled using the <code>ipv6 enable</code> interface command.</p>
+<pre><code>ipv6 address &lt;ipv6-address&gt;/&lt;prefix-length&gt; link-local
+</code></pre>
+
+<p>Configure IPv6 Unicast Routing</p>
+<pre><code>ipv6 unicast-routing
+</code></pre>
+
+<ul>
+<li>Router begins sending ICMPv6 Router Advertisement messages out of the interface.</li>
+<li>This allows connected PCs to automatically configure an IPv6 address and set a default gateway without needing the services of a DHCPv6 server.</li>
+</ul>
+<h4 id="enabling-and-assigning-a-loopback-address">Enabling and Assigning a Loopback Address</h4>
+<pre><code>interface loopback &lt;number&gt;
+ip address &lt;ip-address&gt; &lt;subnet-mask&gt;
+exit
+</code></pre>
+
+<h3 id="verify-interface-settings">Verify Interface Settings</h3>
+<pre><code>show ip interface brief
+show ip route
+show running-config interface &lt;interface-id&gt;
+show interfaces
+show ip interface
+</code></pre>
+
+<h3 id="verify-ipv6-interface-settings">Verify IPv6 Interface Settings</h3>
+<pre><code>show ipv6 interface brief
+</code></pre>
+
+<ul>
+<li><code>up/up</code> output on the same line as the interface name indicates the Layer1/Layer2 state - same as the Status and Protocol columns in the equivalent IPv4 command.</li>
+</ul>
+<pre><code>show ipv6 interface gigabitethernet 0/0
+show ipv6 route
+</code></pre>
+
+<ul>
+<li>"C" next to route: directly connected.</li>
+<li>When the router interface is configured with a global unicast address and is in the “up/up” state, the IPv6 prefix and prefix length is added to the IPv6 routing table as a connected route.</li>
+<li>The IPv6 global unicast address configured on the interface is also installed in the routing table as a local route. The local route has a /128 prefix. Local routes are used by the routing table to efficiently process packets with the interface address of the router as the destination.</li>
+<li>The <code>ping</code> command for IPv6 is identical to the command used with IPv4 except that an IPv6 address is used. As shown in Figure 4, the ping command is used to verify Layer 3 connectivity between R1 and PC1.</li>
+</ul>
+<h3 id="ipv6-packets">IPv6 Packets</h3>
+<ul>
+<li>Instead of the ARP process, IPv6 address resolution uses ICMP v6 Neighbor Solicitation (NS) and Neighbor Advertisement messages.</li>
+<li>IPv6-to-MAC address mapping are kept in a table similar to the ARP cache, called the <strong>neighbor cache</strong>.</li>
+<li>More info on <a href="https://keepingitclassless.net/2011/10/neighbor-solicitation-ipv6s-replacement-for-arp/">IPv6 neighbor solicitation</a></li>
+</ul>
+<pre><code>show ipv6 neighbors
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Dynamic_Routing/" class="btn btn-neutral float-right" title="Dynamic Routing">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../CCNA2_Cmdline/" class="btn btn-neutral" title="CCNA2 Cmdline"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../CCNA2_Cmdline/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Dynamic_Routing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
