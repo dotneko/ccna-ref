@@ -197,13 +197,8 @@
         }, 
         {
             "location": "/CCNA2_Cmdline/", 
-            "text": "CCNA2 Command Line Cheatsheet\n\n\n\n\nBasic Configuration of Switches and Routers\n\n\nStatic Routing\n\n\nDynamic Routing\n\n\nVLAN Configuration\n\n\nMiscellaneous", 
+            "text": "Basic Configuration of Switches and Routers\n\n\nStatic Routing\n\n\nDynamic Routing\n\n\nSSH and Port Security\n\n\nVLAN Configuration\n\n\nMiscellaneous", 
             "title": "CCNA2 Cmdline"
-        }, 
-        {
-            "location": "/CCNA2_Cmdline/#ccna2-command-line-cheatsheet", 
-            "text": "Basic Configuration of Switches and Routers  Static Routing  Dynamic Routing  VLAN Configuration  Miscellaneous", 
-            "title": "CCNA2 Command Line Cheatsheet"
         }, 
         {
             "location": "/CCNA2/Basic_Configuration/", 
