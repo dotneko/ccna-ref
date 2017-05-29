@@ -79,8 +79,6 @@ interface <interface-id>
 end
 ```
 
-# Troubleshooting
-
 ### Troubleshooting VLANs
 
 ```
@@ -114,6 +112,7 @@ show interfaces trunk
 ### Configure Legacy Inter-VLAN Routing
 
 Scenario:
+
 - R1 connected to switch ports: G0/0 -> F0/4 (VLAN 10), G0/1 -> F05 (VLAN 30)
 - S1 switch ports F0/4 and F0/11 belong to VLAN 10; F0/5 and F0/6 belong to VLAN 30.
 
@@ -154,6 +153,7 @@ show ip route
 ### Configure Router-on-a-Stick
 
 Scenario:
+
 - R1 is connected to switch S1 on trunk port F0/5
 - VLANs 10 and 30 are added to switch S1
 - Two subinterfaces are configured using the `interface <interface-id>.<subinterface-id>`
