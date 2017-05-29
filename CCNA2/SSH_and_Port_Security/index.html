@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>SSH and Port Security - CCNA Reference</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "SSH and Port Security";
+    var mkdocs_page_input_path = "CCNA2/SSH_and_Port_Security.md";
+    var mkdocs_page_url = "/CCNA2/SSH_and_Port_Security/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Reference</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA1 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA2_Cmdline/">CCNA2 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA2</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Miscellaneous/">Miscellaneous</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">SSH and Port Security</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#configuring-ssh">Configuring SSH</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#enable-ssh-protocol-on-vty-lines">Enable SSH protocol on VTY lines</a></li>
+        
+            <li><a class="toctree-l4" href="#to-delete-a-rsa-key-pair">To delete a RSA key pair</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#port-security">Port Security</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#disable-unused-ports">Disable Unused Ports</a></li>
+        
+            <li><a class="toctree-l4" href="#port-security-operation">Port Security: Operation</a></li>
+        
+            <li><a class="toctree-l4" href="#port-security-violation-modes">Port Security: Violation Modes</a></li>
+        
+            <li><a class="toctree-l4" href="#port-security-configuring">Port Security: Configuring</a></li>
+        
+            <li><a class="toctree-l4" href="#port-security-verifying">Port Security: Verifying</a></li>
+        
+            <li><a class="toctree-l4" href="#ports-in-error-disabled-state">Ports in Error Disabled State</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Reference</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNA2 &raquo;</li>
+        
+      
+    
+    <li>SSH and Port Security</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="configuring-ssh">Configuring SSH</h1>
+<pre><code>show ip ssh                     # Verify that switch supports SSH, shows version
+
+ip domain-name &lt;domain-name&gt;    # Device must be minimally configured with a hostname
+ip ssh version 2                # Recommended to only enable version 2 (more secure)
+crypto key generate rsa
+username &lt;username&gt; privilege &lt;level&gt; secret &lt;password&gt;
+</code></pre>
+
+<h3 id="enable-ssh-protocol-on-vty-lines">Enable SSH protocol on VTY lines</h3>
+<pre><code>line vty 0 15
+transport input ssh
+login local                      # Require local authentication from local username database
+</code></pre>
+
+<h3 id="to-delete-a-rsa-key-pair">To delete a RSA key pair</h3>
+<pre><code>crypto key zeroize rsa          # SSH automatically disabled when key pair is deleted.
+</code></pre>
+
+<h1 id="port-security">Port Security</h1>
+<h3 id="disable-unused-ports">Disable Unused Ports</h3>
+<ul>
+<li>Good practice to disable unused ports; can configure range:</li>
+</ul>
+<pre><code>interface range &lt;type module&gt;/&lt;first number&gt;-&lt;last number&gt;
+  shutdown
+</code></pre>
+
+<h3 id="port-security-operation">Port Security: Operation</h3>
+<ul>
+<li>All switch ports (interfaces) should be secured before the switch is deployed for production use.<ul>
+<li>Specify a single MAC address or a group of valid MAC addresses allowed on a port.</li>
+<li>Specify that a port automatically shuts down if unauthorized MAC addresses are detected.</li>
+</ul>
+</li>
+</ul>
+<p>Static Secure MAC Address:</p>
+<pre><code>interface &lt;interface-id&gt;
+  switchport port-security mac-address &lt;mac-address&gt;
+</code></pre>
+
+<p>Sticky secure MAC addresses - MAC addresses that can be dynamically learned or manually configured, then stored in the address table and added to the running configuration by stick learning:</p>
+<pre><code>switchport port-security mac-address sticky             # (Intf-config)
+</code></pre>
+
+<ul>
+<li><em>All sticky secure MAC addresses are added to the address table and to the running configuration</em>.</li>
+<li>Sticky secure MAC addresses can also be manually defined (also added to running-config):</li>
+</ul>
+<pre><code>switchport port-security mac-address sticky &lt;mac-address&gt;
+</code></pre>
+
+<p>If the sticky secure MAC addresses are saved to the startup configuration file, then when the switch restarts or the interface shuts down, the interface does not need to relearn the addresses. If the sticky secure addresses are not saved, they will be lost.</p>
+<p>If sticky learning is disabled by using the <code>no switchport port-security mac-address sticky</code> interface configuration mode command, the sticky secure MAC addresses remain part of the address table, but are removed from the running configuration.</p>
+<p>Characteristics of sticky secure MAC addresses:</p>
+<ul>
+<li>Learned dynamically, converted to sticky secure MAC addresses stored in the running-config.</li>
+<li>Removed from the running-config if port security is disabled.</li>
+<li>Lost when the switch reboots (power cycled).</li>
+<li>Saving sticky secure MAC addresses in the startup-config makes them permanent and the switch retains them after a reboot.</li>
+<li>Disabling sticky learning converts sticky MAC addresses to dynamic secure addresses and removes them from the running-config.</li>
+</ul>
+<p>Note: The port security feature will not work until port security is enabled on the interface using the <code>switchport port-security</code> command.</p>
+<h3 id="port-security-violation-modes">Port Security: Violation Modes</h3>
+<p>To change the violation mode on a switch port:</p>
+<pre><code>switchport port-security violation {protect | restrict | shutdown}
+</code></pre>
+
+<ul>
+<li><strong>Protect</strong> - When the number of secure MAC addresses reaches the limit allowed on the port, packets with unknown source addresses are dropped until a sufficient number of secure MAC addresses are removed, or the number of maximum allowable addresses is increased. There is no notification that a security violation has occurred.</li>
+<li><strong>Restrict</strong> - When the number of secure MAC addresses reaches the limit allowed on the port, packets with unknown source addresses are dropped until a sufficient number of secure MAC addresses are removed, or the number of maximum allowable addresses is increased. In this mode, there is a <em>notification that a security violation has occurred</em>.</li>
+<li><strong>Shutdown</strong> - In this (<em>default</em>) mode, a port security violation causes the <em>interface to immediately become error-disabled and turns off the port LED. It increments the violation counter</em>. When a secure port is in the error-disabled state, it can be brought out of this state by entering the <code>shutdown</code> interface configuration mode command followed by the <code>no shutdown</code> command.</li>
+</ul>
+<h3 id="port-security-configuring">Port Security: Configuring</h3>
+<h4 id="default-port-security-on-a-cisco-catalyst-switch">Default Port Security on a Cisco Catalyst Switch</h4>
+<ul>
+<li>Port security and Sticky address learning: Disabled</li>
+<li>Max number of secure MAC addresses: 1</li>
+<li>Violation mode: Shutdown (Port shuts down when max number of secure MAC addresses exceeded).</li>
+</ul>
+<h4 id="configure-port-security-on-an-interface">Configure Port Security on an Interface</h4>
+<pre><code>interface &lt;interface_id&gt;
+switchport mode access                              # Sets interface mode to access
+switchport port-security                            # Enables port security on the interface
+switchport port-security maximum 10                 # Max number of secure addresses allowed
+switchport port-security mac-address sticky         # Enables sticky learning
+</code></pre>
+
+<ul>
+<li>Violation mode is set to shutdown by default.</li>
+</ul>
+<h3 id="port-security-verifying">Port Security: Verifying</h3>
+<p>Verify Port Security Settings:</p>
+<pre><code>show port-security interface &lt;interface_id&gt;
+</code></pre>
+
+<p>Verify Secure MAC Addresses:</p>
+<pre><code>show port-security address
+</code></pre>
+
+<h3 id="ports-in-error-disabled-state">Ports in Error Disabled State</h3>
+<ul>
+<li>When a port is error disabled, it is effectively shut down and no traffic is sent or received on that port.</li>
+<li>Port protocol and link status is changed to down; port LED will turn off; port goes into the error disabled stated.</li>
+<li><code>show interfaces</code> identifies port status as <code>err-disabled</code></li>
+<li><code>show port-security interface</code> shows port status as <code>secure-shutdown</code></li>
+</ul>
+<p>The administrator should determine what caused the security violation before re-enabling the port. If an unauthorized device is connected to a secure port, the port should not be re-enabled until the security threat is eliminated. To re-enable the port, use the <code>shutdown</code> interface configuration mode command (Figure 3). Then, use the<code>no shutdown</code> interface configuration command to make the port operational.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Static_Routing/" class="btn btn-neutral float-right" title="Static Routing">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Miscellaneous/" class="btn btn-neutral" title="Miscellaneous"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Miscellaneous/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Static_Routing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
