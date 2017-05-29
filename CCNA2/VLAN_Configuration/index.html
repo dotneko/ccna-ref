@@ -112,13 +112,6 @@
         
             <li><a class="toctree-l4" href="#resetting-the-trunk-to-default-state">Resetting the Trunk to Default State</a></li>
         
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#troubleshooting">Troubleshooting</a></li>
-    
-        <ul>
-        
             <li><a class="toctree-l4" href="#troubleshooting-vlans">Troubleshooting VLANs</a></li>
         
             <li><a class="toctree-l4" href="#troubleshooting-trunks">Troubleshooting Trunks</a></li>
@@ -245,7 +238,6 @@ exit
 end
 </code></pre>
 
-<h1 id="troubleshooting">Troubleshooting</h1>
 <h3 id="troubleshooting-vlans">Troubleshooting VLANs</h3>
 <pre><code>show vlan
 show mac address-table
@@ -276,9 +268,11 @@ show interface &lt;interface-id&gt; switchport
 </ul>
 <h1 id="inter-vlan-routing">Inter-VLAN Routing</h1>
 <h3 id="configure-legacy-inter-vlan-routing">Configure Legacy Inter-VLAN Routing</h3>
-<p>Scenario:
-- R1 connected to switch ports: G0/0 -&gt; F0/4 (VLAN 10), G0/1 -&gt; F05 (VLAN 30)
-- S1 switch ports F0/4 and F0/11 belong to VLAN 10; F0/5 and F0/6 belong to VLAN 30.</p>
+<p>Scenario:</p>
+<ul>
+<li>R1 connected to switch ports: G0/0 -&gt; F0/4 (VLAN 10), G0/1 -&gt; F05 (VLAN 30)</li>
+<li>S1 switch ports F0/4 and F0/11 belong to VLAN 10; F0/5 and F0/6 belong to VLAN 30.</li>
+</ul>
 <p>Configure the switch:</p>
 <pre><code>vlan 10                 # Create VLAN 10
 vlan 30                 # Create VLAN 30
@@ -308,12 +302,16 @@ interface g0/1
 </code></pre>
 
 <h3 id="configure-router-on-a-stick">Configure Router-on-a-Stick</h3>
-<p>Scenario:
-- R1 is connected to switch S1 on trunk port F0/5
-- VLANs 10 and 30 are added to switch S1
-- Two subinterfaces are configured using the <code>interface &lt;interface-id&gt;.&lt;subinterface-id&gt;</code>
-    - G0/0.10: 172.17.10.1/24
-    - G0/0.30: 172.17.30.1/24</p>
+<p>Scenario:</p>
+<ul>
+<li>R1 is connected to switch S1 on trunk port F0/5</li>
+<li>VLANs 10 and 30 are added to switch S1</li>
+<li>Two subinterfaces are configured using the <code>interface &lt;interface-id&gt;.&lt;subinterface-id&gt;</code><ul>
+<li>G0/0.10: 172.17.10.1/24</li>
+<li>G0/0.30: 172.17.30.1/24</li>
+</ul>
+</li>
+</ul>
 <p>Configure the switch:</p>
 <pre><code>vlan 10
 vlan 30
