@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>NAT Port Forwarding - CCNA Reference</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "NAT Port Forwarding";
+    var mkdocs_page_input_path = "CCNA2/NAT_Port_Forwarding.md";
+    var mkdocs_page_url = "/CCNA2/NAT_Port_Forwarding/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Reference</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA1 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA2_Cmdline/">CCNA2 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA2</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Access_Control_Lists/">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../DHCP_Configuration/">DHCP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Miscellaneous/">Miscellaneous</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">NAT Port Forwarding</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#nat-terminology">NAT Terminology</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#three-types-of-nat">Three Types of NAT</a></li>
+        
+            <li><a class="toctree-l4" href="#static-nat-configuration">Static NAT Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#dynamic-nat-operation">Dynamic NAT Operation</a></li>
+        
+            <li><a class="toctree-l4" href="#dynamic-nat-configuration">Dynamic NAT Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#pat-configuration-for-a-pool-of-public-ipv4-address">PAT Configuration for a Pool of Public IPv4 Address</a></li>
+        
+            <li><a class="toctree-l4" href="#pat-configuration-for-a-single-address">PAT Configuration for a Single Address</a></li>
+        
+            <li><a class="toctree-l4" href="#verify-static-dynamic-nat-pat">Verify Static / Dynamic NAT / PAT</a></li>
+        
+            <li><a class="toctree-l4" href="#clearing-nat-translations">Clearing NAT Translations</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#port-forwarding">Port Forwarding</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#port-forwarding-configuration-with-ios">Port Forwarding Configuration with IOS</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../SSH_and_Port_Security/">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Reference</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNA2 &raquo;</li>
+        
+      
+    
+    <li>NAT Port Forwarding</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="nat-terminology">NAT Terminology</h1>
+<ul>
+<li><strong>Inside address</strong>: the address of the device which is being translated by NAT.</li>
+<li><strong>Outside address</strong>: the address of the destination device (on another network).</li>
+<li><strong>Local address</strong>: any address that appears on the inside portion of the network.</li>
+<li><strong>Global address</strong>: any addresss that appears on the outside portion of the network.</li>
+<li>NAT includes 4 types of addresses:<ul>
+<li>Inside local address</li>
+<li>Inside global address</li>
+<li>Outside local address</li>
+<li>Outside global address</li>
+</ul>
+</li>
+<li>The NAT router is the demarcation point between the inside and outside networks and as between local and global addresses.</li>
+</ul>
+<h3 id="three-types-of-nat">Three Types of NAT</h3>
+<ol>
+<li>Static NAT: one-to-one address mapping between local and global addresses.</li>
+<li>Dynamic NAT: many-to-many address mapping; translations on an as-available basis; limited by the availability of inside global addresses.</li>
+<li>Port address translation (PAT): many-to-one mapping between local and global addresses. Also known as <strong>overloading (NAT overloading)</strong>. Ports are used as an addiitonal parameter to provide a multiplier effect.</li>
+</ol>
+<h3 id="static-nat-configuration">Static NAT Configuration</h3>
+<ol>
+<li>Create a mapping between inside local and inside global addresses.</li>
+<li>Configure interfaces participating in the translation.</li>
+</ol>
+<pre><code>ip nat inside source static &lt;inside-local ip&gt; &lt;inside-global ip&gt;
+interface &lt;inside-interface-id&gt;
+  ip address &lt;inside-router-ip&gt; &lt;router-network-mask&gt;
+  ip nat inside
+  exit
+interface &lt;outside-interface-id&gt;
+  ip address &lt;outside-router-ip&gt; &lt;network-mask&gt;
+  ip nat outside
+</code></pre>
+
+<h3 id="dynamic-nat-operation">Dynamic NAT Operation</h3>
+<p>With dynamic NAT, a single inside address is translated to a single outside address. With this type of translation there must be enough addresses in the pool to accommodate all the inside devices needing access to the outside network at the same time. If all of the addresses in the pool have been used, a device must wait for an available address before it can access the outside network.</p>
+<h3 id="dynamic-nat-configuration">Dynamic NAT Configuration</h3>
+<ol>
+<li>Define the pool of addresses that will be used for translation.</li>
+<li>Configure a standard ACL to identify (permit) only those addresses to be translated.</li>
+<li>Bind the ACL to the pool.</li>
+<li>Identify which interfaces are inside/outside in relation to NAT.</li>
+</ol>
+<pre><code>ip nat pool &lt;nat-pool-name&gt; &lt;starting-ip-address&gt; &lt;ending-ip-address&gt; netmask &lt;netmask&gt;
+access-list 1 permit &lt;inside-network&gt; &lt;wildcard-mask&gt;
+ip nat inside source list &lt;access-list-num&gt; &lt;nat-pool-name&gt;
+interface &lt;inside-interface-id&gt;
+  ip nat inside
+interface &lt;outside-interface-id&gt;
+  ip nat outside
+</code></pre>
+
+<p>Two ways to configure PAT, depending on how ISP allocates public IPv4 addresses:</p>
+<ol>
+<li>ISP allocates more than one public IPv4 address</li>
+<li>ISP allocates a single public IPv4 address.</li>
+</ol>
+<h3 id="pat-configuration-for-a-pool-of-public-ipv4-address">PAT Configuration for a Pool of Public IPv4 Address</h3>
+<ul>
+<li>Similar to dynamic NAT, except that there are not enough for a one-to-one mapping of inside to outside addresses.</li>
+</ul>
+<pre><code>ip nat pool NAT-POOL2 &lt;start-ip&gt; &lt;end-ip&gt; netmask &lt;netmask&gt;
+access-list 1 permit &lt;local-inside-network&gt; &lt;wildcard-mask&gt;
+ip nat inside source list 1 pool NAT-POOL2 overload
+interface &lt;interface-id&gt;
+  ip nat inside
+interface &lt;interface-id&gt;
+  ip nat outside
+</code></pre>
+
+<h3 id="pat-configuration-for-a-single-address">PAT Configuration for a Single Address</h3>
+<ol>
+<li>Define a standard access list permitting the address that should be translated.</li>
+<li>Establish dynamic source translation, specifying the ACL, exit interface and overload options.</li>
+<li>Identify the inside interface.</li>
+<li>Identify the outside interface.</li>
+</ol>
+<pre><code>access-list &lt;access-list-num&gt; permit &lt;source&gt; [source-wildcard]
+ip nat inside source list &lt;access-list-num&gt; interface &lt;type-num&gt; overload
+interface &lt;inside-interface-id&gt;
+  ip nat inside
+interface &lt;outside-interface-id&gt;
+  ip nat outside
+</code></pre>
+
+<h3 id="verify-static-dynamic-nat-pat">Verify Static / Dynamic NAT / PAT</h3>
+<pre><code>show ip nat translations
+show ip nat translations verbose
+show ip nat statistics
+</code></pre>
+
+<ul>
+<li>Static translations, unlike dynamic translations, are always in the NAT table.</li>
+<li>To verify that NAT translation is working, it is best to clear statistics from past ranslations before testing:</li>
+</ul>
+<pre><code>clear ip nat statistics
+</code></pre>
+
+<p>Reconfigure translation entry time outs (usu 24hr):</p>
+<pre><code>ip nat translation timeout &lt;timeout-seconds&gt;
+</code></pre>
+
+<h3 id="clearing-nat-translations">Clearing NAT Translations</h3>
+<ul>
+<li>Dynamic translations are cleared; static translations cannot be cleared form the translation table.</li>
+</ul>
+<pre><code>clear ip nat translation *
+clear nat translation inside &lt;global-ip&gt; &lt;local-ip&gt; [ outside &lt;local-ip&gt; &lt;global-ip&gt; ]
+clear
+</code></pre>
+
+<h1 id="port-forwarding">Port Forwarding</h1>
+<p>Port forwarding can be enabled for applications by specifying the inside local address that requests should be forwarded to.</p>
+<p><a href="http://www.portforward.com">Port forwarding guide</a></p>
+<h3 id="port-forwarding-configuration-with-ios">Port Forwarding Configuration with IOS</h3>
+<ul>
+<li>Port forwarding is essentially a static NAT translation with a specified TCP or UDP port number.</li>
+<li>Similar to static NAT, the show ip nat translations command can be used to verify the port forwarding.</li>
+</ul>
+<pre><code>ip nat inside source static tcp &lt;inside-local-ip&gt; &lt;source-port&gt; &lt;outside-network-interface-ip&gt; &lt;dest-port&gt;
+interface &lt;inside-interface-id&gt;
+  ip nat inside
+interface &lt;outside-interface-id&gt;
+  ip nat outside
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../SSH_and_Port_Security/" class="btn btn-neutral float-right" title="SSH and Port Security">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Miscellaneous/" class="btn btn-neutral" title="Miscellaneous"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Miscellaneous/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../SSH_and_Port_Security/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

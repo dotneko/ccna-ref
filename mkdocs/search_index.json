@@ -316,6 +316,61 @@
             "title": "IPv6 Packets"
         }, 
         {
+            "location": "/CCNA2/DHCP_Configuration/", 
+            "text": "Display and Verify DHCPv4\n\n\nshow running-config | section dhcp      # Doesn't work in packet tracer\nshow ip dhcp binding\nshow ip dhcp server statistics\n\n\n\n\nDHCPv4: Basic Configuration\n\n\nSteps:\n\n\n\n\nExclude IPv4 Addresses: e.g. those assigned to devices that require static addresses - routers, servers, printers, other manually configured devices.\n\n\n\n\nip dhcp excluded-address \nsingle-ip\n\nip dhcp excluded-address \nlow-address\n \nhigh-address\n\n\n\n\n\n\n\nConfiguring a DHCPv4 Pool that will be used for assignment\n\n\n\n\nip dhcp pool \npool-name\n        # Enters DHCPv4 config mode\n\n\n\n\n\n\nConfiguring Specific Tasks\n\n\n\n\nRequired:\n\n\nnetwork \nnetwork-num\n [ mask | /prefix-length ]\ndefault-router \naddress [ address2 ... address8 ]\n\n\n\n\nOptional:\n\n\ndns-server \naddress\n [ address2 .. address8 ]\ndomain-name \nname\n\nlease ( days [hours] [minutes] | infinite )\nnetbios-name-server \naddress\n [ address2 ... address8 ]\n\n\n\n\nExample:\n\n\nip dhcp excluded-address 192.168.10.1 192.168.10.9\nip dhcp excluded-address 192.168.10.254\nip dhcp pool LAN-POOL-1\n  network 192.168.10.0 255.255.255.0\n  default-router 192.168.10.1\n  dns-server 192.168.11.5\n  domain-name example.com\n  exit\n\n\n\n\nRelease/Renew IP Address on Windows\n\n\nipconfig /release\nipconfig /renew         # PC will broadcast a DHCPDISCOVER message\n\n\n\n\nDHCPv4 Relay Configuration\n\n\ninterface \ninterface-id\n\n  ip helper-address \nDHCP-IPv4-server-address\n\n  exit\n\n\n\n\nExample:\n\n\n\n\nRouter1:\n\n\nG0/0 connected to network1 192.168.10.0/24 with PC1\n\n\nG0/1 connected to network2 192.168.20.0/24 with DHCP server at 192.168.20.5\n\n\n\n\n\n\nRouter1 will need to setup a DHCPv4 relay for PC1 to be able to use DHCP on network2.\n\n\n\n\ninterface g0/0\n  ip helper-address 192.168.20.5\n  end\n\nshow ip interface   # Verify configuration\n\n\n\n\nDHCPv4: Troubleshooting\n\n\n\n\nResolve IPv4 address conflicts\n\n\nVerify physical connectivity\n\n\nTest with a static IPv4 address\n\n\nVerify switch port configuration\n\n\nTest from the same subnet or VLAN\n\n\n\n\nshow ip dhcp conflict\n\n\n\n\nVerify Router DHCPv4 Configuration\n\n\nIf the IPv4 helper address is not configured properly (for when DHCPv4 server is located on a separate LAN from the client), client DHCPv4 requests are not forwarded to the DHCPv4 server.\n\n\nshow running-config | section interface \ninterface-id\n\nshow running-config | include no service dhcp\n\n\n\n\nDHCPv4 on Routers: Debugging\n\n\nVerify that the router is receiving the DHCPv4 request from the client:\n\n\n\n\nThe DHCPv4 process fails if the router is not receiving requests from the client.\n\n\nThis involves configuring an ACL for debugging output.\n\n\n\n\nconf t\n  access-list 100 permit udp any any eq 78\n  access-list 100 permit udp any any eq 68\n  end\n\ndebug ip packet 100\ndebug ip dhcp server events\n\n\n\n\nDHCPv6 Router Configuration\n\n\nIPv6 routing must b enabled before a router can send RA messages:\n\n\nipv6 unicast-routing\n\n\n\n\nRA messages are configured on an individual interface of a router. To re-enable an interface for SLAAC that might have been set to another option, the M and O flags need to be reset to their initial values of 0. This is done using the following interface configuration mode commands:\n\n\nRouter(config-if)# no ipv6 nd managed-config-flag \nRouter(config-if)# no ipv6 nd other-config-flag \n\n\n\n\nStateless DHCPv6\n\n\nFor stateless DHCPv6, the O flag is set to 1 and the M flag is left at the default setting of 0. The O flag value of 1 is used to inform the client that additional configuration information is available from a stateless DHCPv6 server.\n\n\nTo modify the RA message sent on the interface of a router to indicate stateless DHCPv6, use the following command:\n\n\nRouter(config-if)# ipv6 nd other-config-flag \n\n\n\n\nStateful DHCPv6\n\n\nThe M flag indicates whether or not to use stateful DHCPv6. The O flag is not involved. The following command is used to change the M flag from 0 to 1 to signify stateful DHCPv6:\n\n\nRouter(config-if)# ipv6 nd managed-config-flag", 
+            "title": "DHCP Configuration"
+        }, 
+        {
+            "location": "/CCNA2/DHCP_Configuration/#display-and-verify-dhcpv4", 
+            "text": "show running-config | section dhcp      # Doesn't work in packet tracer\nshow ip dhcp binding\nshow ip dhcp server statistics", 
+            "title": "Display and Verify DHCPv4"
+        }, 
+        {
+            "location": "/CCNA2/DHCP_Configuration/#dhcpv4-basic-configuration", 
+            "text": "Steps:   Exclude IPv4 Addresses: e.g. those assigned to devices that require static addresses - routers, servers, printers, other manually configured devices.   ip dhcp excluded-address  single-ip \nip dhcp excluded-address  low-address   high-address    Configuring a DHCPv4 Pool that will be used for assignment   ip dhcp pool  pool-name         # Enters DHCPv4 config mode   Configuring Specific Tasks   Required:  network  network-num  [ mask | /prefix-length ]\ndefault-router  address [ address2 ... address8 ]  Optional:  dns-server  address  [ address2 .. address8 ]\ndomain-name  name \nlease ( days [hours] [minutes] | infinite )\nnetbios-name-server  address  [ address2 ... address8 ]  Example:  ip dhcp excluded-address 192.168.10.1 192.168.10.9\nip dhcp excluded-address 192.168.10.254\nip dhcp pool LAN-POOL-1\n  network 192.168.10.0 255.255.255.0\n  default-router 192.168.10.1\n  dns-server 192.168.11.5\n  domain-name example.com\n  exit", 
+            "title": "DHCPv4: Basic Configuration"
+        }, 
+        {
+            "location": "/CCNA2/DHCP_Configuration/#releaserenew-ip-address-on-windows", 
+            "text": "ipconfig /release\nipconfig /renew         # PC will broadcast a DHCPDISCOVER message", 
+            "title": "Release/Renew IP Address on Windows"
+        }, 
+        {
+            "location": "/CCNA2/DHCP_Configuration/#dhcpv4-relay-configuration", 
+            "text": "interface  interface-id \n  ip helper-address  DHCP-IPv4-server-address \n  exit  Example:   Router1:  G0/0 connected to network1 192.168.10.0/24 with PC1  G0/1 connected to network2 192.168.20.0/24 with DHCP server at 192.168.20.5    Router1 will need to setup a DHCPv4 relay for PC1 to be able to use DHCP on network2.   interface g0/0\n  ip helper-address 192.168.20.5\n  end\n\nshow ip interface   # Verify configuration", 
+            "title": "DHCPv4 Relay Configuration"
+        }, 
+        {
+            "location": "/CCNA2/DHCP_Configuration/#dhcpv4-troubleshooting", 
+            "text": "Resolve IPv4 address conflicts  Verify physical connectivity  Test with a static IPv4 address  Verify switch port configuration  Test from the same subnet or VLAN   show ip dhcp conflict", 
+            "title": "DHCPv4: Troubleshooting"
+        }, 
+        {
+            "location": "/CCNA2/DHCP_Configuration/#verify-router-dhcpv4-configuration", 
+            "text": "If the IPv4 helper address is not configured properly (for when DHCPv4 server is located on a separate LAN from the client), client DHCPv4 requests are not forwarded to the DHCPv4 server.  show running-config | section interface  interface-id \nshow running-config | include no service dhcp", 
+            "title": "Verify Router DHCPv4 Configuration"
+        }, 
+        {
+            "location": "/CCNA2/DHCP_Configuration/#dhcpv4-on-routers-debugging", 
+            "text": "Verify that the router is receiving the DHCPv4 request from the client:   The DHCPv4 process fails if the router is not receiving requests from the client.  This involves configuring an ACL for debugging output.   conf t\n  access-list 100 permit udp any any eq 78\n  access-list 100 permit udp any any eq 68\n  end\n\ndebug ip packet 100\ndebug ip dhcp server events", 
+            "title": "DHCPv4 on Routers: Debugging"
+        }, 
+        {
+            "location": "/CCNA2/DHCP_Configuration/#dhcpv6-router-configuration", 
+            "text": "IPv6 routing must b enabled before a router can send RA messages:  ipv6 unicast-routing  RA messages are configured on an individual interface of a router. To re-enable an interface for SLAAC that might have been set to another option, the M and O flags need to be reset to their initial values of 0. This is done using the following interface configuration mode commands:  Router(config-if)# no ipv6 nd managed-config-flag \nRouter(config-if)# no ipv6 nd other-config-flag", 
+            "title": "DHCPv6 Router Configuration"
+        }, 
+        {
+            "location": "/CCNA2/DHCP_Configuration/#stateless-dhcpv6", 
+            "text": "For stateless DHCPv6, the O flag is set to 1 and the M flag is left at the default setting of 0. The O flag value of 1 is used to inform the client that additional configuration information is available from a stateless DHCPv6 server.  To modify the RA message sent on the interface of a router to indicate stateless DHCPv6, use the following command:  Router(config-if)# ipv6 nd other-config-flag", 
+            "title": "Stateless DHCPv6"
+        }, 
+        {
+            "location": "/CCNA2/DHCP_Configuration/#stateful-dhcpv6", 
+            "text": "The M flag indicates whether or not to use stateful DHCPv6. The O flag is not involved. The following command is used to change the M flag from 0 to 1 to signify stateful DHCPv6:  Router(config-if)# ipv6 nd managed-config-flag", 
+            "title": "Stateful DHCPv6"
+        }, 
+        {
             "location": "/CCNA2/Dynamic_Routing/", 
             "text": "Configuring Dynamic Routing\n\n\nAccess RIP configuration mode\n\n\nrouter rip\n\n\n\n\n\n\nPrompt will show up as \nRouter(config-router)#\n\n\nWhen enabling RIP, the default version is RIPv1.\n\n\nTo disable and eliminate RIP, use the \nno router rip\n global configuration command. This command stops the RIP process and erases all existing RIP configurations.\n\n\nUpon enabling, need to advertise networks with \nnetwork \nnetwork-address\n\n\n\n\nEnable and Verify RIPv2\n\n\nBy \ndefault, when a RIP process is configured on a Cisco router, it is running RIPv1\n, as shown in Figure 1. However, even though the router only sends RIPv1 messages, it can interpret both RIPv1 and RIPv2 messages. A \nRIPv1 router ignores the RIPv2 fields in the route entry\n.\n\n\nUse the \nversion 2\n router configuration mode command to enable RIPv2, as shown in Figure 2. Notice how the \nshow ip protocols\n command verifies that R2 is now configured to send and receive version 2 messages only. The RIP process now includes the subnet mask in all updates, making \nRIPv2 a classless routing protocol\n.\n\n\nNote: Configuring \nversion 1\n enables RIPv1 only, while configuring \nno version\n returns the router to the default setting of sending version 1 updates but listening for version 1 and version 2 updates.\n\n\nPropogate a Default Route\n\n\nThe \ndefault-information originate\n router configuration command. This instructs R1 to originate default information, by propagating the static default route in RIP updates.\n\n\nRIP Routing Configuration Mode Commands\n\n\nnetwork \nnetwork-address\n       # Enables RIP on all interfaces on that network.\nversion 2                       # Enables RIPv2\nversion 1                       # Enables RIPv1 only\nno version                      # Returns to default setting: send v1, listen v1+v2\nno auto-summary                 # Disables default automatic summarization (RIPv2)\n\npassive-interface \ninterface\n   # Prevent transmission of routing updates out interface\n                                # However, still allows network to be advertised\npassive-interface g0/0\npassive-interface default       # Makes all interfaces passive\nno passive-interface \nintf\n     # Re-enables passive transmission of routing updates\n\n\n\n\nVerify RIP Routing\n\n\nshow ip protocols\nshow ip route\n\n\n\n\nPropogate a Default Route\n\n\nTo propagate a default route in RIP, the edge router must be configured with a default static route using the \nip route 0.0.0.0 0.0.0.0\n command:\n\n\nip route 0.0.0.0 0.0.0.0 \nexit-interface\n \nnext-hop IP\n\n\n\n\n\nNext configure router to propogate the static default route in RIP updates:\n\n\nrouter rip\ndefault-information originate", 
             "title": "Dynamic Routing"
@@ -399,6 +454,66 @@
             "location": "/CCNA2/Miscellaneous/#configure-router-as-tftp-server", 
             "text": "tftp-server flash: ios_image_name.bin", 
             "title": "Configure Router as TFTP Server"
+        }, 
+        {
+            "location": "/CCNA2/NAT_Port_Forwarding/", 
+            "text": "NAT Terminology\n\n\n\n\nInside address\n: the address of the device which is being translated by NAT.\n\n\nOutside address\n: the address of the destination device (on another network).\n\n\nLocal address\n: any address that appears on the inside portion of the network.\n\n\nGlobal address\n: any addresss that appears on the outside portion of the network.\n\n\nNAT includes 4 types of addresses:\n\n\nInside local address\n\n\nInside global address\n\n\nOutside local address\n\n\nOutside global address\n\n\n\n\n\n\nThe NAT router is the demarcation point between the inside and outside networks and as between local and global addresses.\n\n\n\n\nThree Types of NAT\n\n\n\n\nStatic NAT: one-to-one address mapping between local and global addresses.\n\n\nDynamic NAT: many-to-many address mapping; translations on an as-available basis; limited by the availability of inside global addresses.\n\n\nPort address translation (PAT): many-to-one mapping between local and global addresses. Also known as \noverloading (NAT overloading)\n. Ports are used as an addiitonal parameter to provide a multiplier effect.\n\n\n\n\nStatic NAT Configuration\n\n\n\n\nCreate a mapping between inside local and inside global addresses.\n\n\nConfigure interfaces participating in the translation.\n\n\n\n\nip nat inside source static \ninside-local ip\n \ninside-global ip\n\ninterface \ninside-interface-id\n\n  ip address \ninside-router-ip\n \nrouter-network-mask\n\n  ip nat inside\n  exit\ninterface \noutside-interface-id\n\n  ip address \noutside-router-ip\n \nnetwork-mask\n\n  ip nat outside\n\n\n\n\nDynamic NAT Operation\n\n\nWith dynamic NAT, a single inside address is translated to a single outside address. With this type of translation there must be enough addresses in the pool to accommodate all the inside devices needing access to the outside network at the same time. If all of the addresses in the pool have been used, a device must wait for an available address before it can access the outside network.\n\n\nDynamic NAT Configuration\n\n\n\n\nDefine the pool of addresses that will be used for translation.\n\n\nConfigure a standard ACL to identify (permit) only those addresses to be translated.\n\n\nBind the ACL to the pool.\n\n\nIdentify which interfaces are inside/outside in relation to NAT.\n\n\n\n\nip nat pool \nnat-pool-name\n \nstarting-ip-address\n \nending-ip-address\n netmask \nnetmask\n\naccess-list 1 permit \ninside-network\n \nwildcard-mask\n\nip nat inside source list \naccess-list-num\n \nnat-pool-name\n\ninterface \ninside-interface-id\n\n  ip nat inside\ninterface \noutside-interface-id\n\n  ip nat outside\n\n\n\n\nTwo ways to configure PAT, depending on how ISP allocates public IPv4 addresses:\n\n\n\n\nISP allocates more than one public IPv4 address\n\n\nISP allocates a single public IPv4 address.\n\n\n\n\nPAT Configuration for a Pool of Public IPv4 Address\n\n\n\n\nSimilar to dynamic NAT, except that there are not enough for a one-to-one mapping of inside to outside addresses.\n\n\n\n\nip nat pool NAT-POOL2 \nstart-ip\n \nend-ip\n netmask \nnetmask\n\naccess-list 1 permit \nlocal-inside-network\n \nwildcard-mask\n\nip nat inside source list 1 pool NAT-POOL2 overload\ninterface \ninterface-id\n\n  ip nat inside\ninterface \ninterface-id\n\n  ip nat outside\n\n\n\n\nPAT Configuration for a Single Address\n\n\n\n\nDefine a standard access list permitting the address that should be translated.\n\n\nEstablish dynamic source translation, specifying the ACL, exit interface and overload options.\n\n\nIdentify the inside interface.\n\n\nIdentify the outside interface.\n\n\n\n\naccess-list \naccess-list-num\n permit \nsource\n [source-wildcard]\nip nat inside source list \naccess-list-num\n interface \ntype-num\n overload\ninterface \ninside-interface-id\n\n  ip nat inside\ninterface \noutside-interface-id\n\n  ip nat outside\n\n\n\n\nVerify Static / Dynamic NAT / PAT\n\n\nshow ip nat translations\nshow ip nat translations verbose\nshow ip nat statistics\n\n\n\n\n\n\nStatic translations, unlike dynamic translations, are always in the NAT table.\n\n\nTo verify that NAT translation is working, it is best to clear statistics from past ranslations before testing:\n\n\n\n\nclear ip nat statistics\n\n\n\n\nReconfigure translation entry time outs (usu 24hr):\n\n\nip nat translation timeout \ntimeout-seconds\n\n\n\n\n\nClearing NAT Translations\n\n\n\n\nDynamic translations are cleared; static translations cannot be cleared form the translation table.\n\n\n\n\nclear ip nat translation *\nclear nat translation inside \nglobal-ip\n \nlocal-ip\n [ outside \nlocal-ip\n \nglobal-ip\n ]\nclear\n\n\n\n\nPort Forwarding\n\n\nPort forwarding can be enabled for applications by specifying the inside local address that requests should be forwarded to.\n\n\nPort forwarding guide\n\n\nPort Forwarding Configuration with IOS\n\n\n\n\nPort forwarding is essentially a static NAT translation with a specified TCP or UDP port number.\n\n\nSimilar to static NAT, the show ip nat translations command can be used to verify the port forwarding.\n\n\n\n\nip nat inside source static tcp \ninside-local-ip\n \nsource-port\n \noutside-network-interface-ip\n \ndest-port\n\ninterface \ninside-interface-id\n\n  ip nat inside\ninterface \noutside-interface-id\n\n  ip nat outside", 
+            "title": "NAT Port Forwarding"
+        }, 
+        {
+            "location": "/CCNA2/NAT_Port_Forwarding/#nat-terminology", 
+            "text": "Inside address : the address of the device which is being translated by NAT.  Outside address : the address of the destination device (on another network).  Local address : any address that appears on the inside portion of the network.  Global address : any addresss that appears on the outside portion of the network.  NAT includes 4 types of addresses:  Inside local address  Inside global address  Outside local address  Outside global address    The NAT router is the demarcation point between the inside and outside networks and as between local and global addresses.", 
+            "title": "NAT Terminology"
+        }, 
+        {
+            "location": "/CCNA2/NAT_Port_Forwarding/#three-types-of-nat", 
+            "text": "Static NAT: one-to-one address mapping between local and global addresses.  Dynamic NAT: many-to-many address mapping; translations on an as-available basis; limited by the availability of inside global addresses.  Port address translation (PAT): many-to-one mapping between local and global addresses. Also known as  overloading (NAT overloading) . Ports are used as an addiitonal parameter to provide a multiplier effect.", 
+            "title": "Three Types of NAT"
+        }, 
+        {
+            "location": "/CCNA2/NAT_Port_Forwarding/#static-nat-configuration", 
+            "text": "Create a mapping between inside local and inside global addresses.  Configure interfaces participating in the translation.   ip nat inside source static  inside-local ip   inside-global ip \ninterface  inside-interface-id \n  ip address  inside-router-ip   router-network-mask \n  ip nat inside\n  exit\ninterface  outside-interface-id \n  ip address  outside-router-ip   network-mask \n  ip nat outside", 
+            "title": "Static NAT Configuration"
+        }, 
+        {
+            "location": "/CCNA2/NAT_Port_Forwarding/#dynamic-nat-operation", 
+            "text": "With dynamic NAT, a single inside address is translated to a single outside address. With this type of translation there must be enough addresses in the pool to accommodate all the inside devices needing access to the outside network at the same time. If all of the addresses in the pool have been used, a device must wait for an available address before it can access the outside network.", 
+            "title": "Dynamic NAT Operation"
+        }, 
+        {
+            "location": "/CCNA2/NAT_Port_Forwarding/#dynamic-nat-configuration", 
+            "text": "Define the pool of addresses that will be used for translation.  Configure a standard ACL to identify (permit) only those addresses to be translated.  Bind the ACL to the pool.  Identify which interfaces are inside/outside in relation to NAT.   ip nat pool  nat-pool-name   starting-ip-address   ending-ip-address  netmask  netmask \naccess-list 1 permit  inside-network   wildcard-mask \nip nat inside source list  access-list-num   nat-pool-name \ninterface  inside-interface-id \n  ip nat inside\ninterface  outside-interface-id \n  ip nat outside  Two ways to configure PAT, depending on how ISP allocates public IPv4 addresses:   ISP allocates more than one public IPv4 address  ISP allocates a single public IPv4 address.", 
+            "title": "Dynamic NAT Configuration"
+        }, 
+        {
+            "location": "/CCNA2/NAT_Port_Forwarding/#pat-configuration-for-a-pool-of-public-ipv4-address", 
+            "text": "Similar to dynamic NAT, except that there are not enough for a one-to-one mapping of inside to outside addresses.   ip nat pool NAT-POOL2  start-ip   end-ip  netmask  netmask \naccess-list 1 permit  local-inside-network   wildcard-mask \nip nat inside source list 1 pool NAT-POOL2 overload\ninterface  interface-id \n  ip nat inside\ninterface  interface-id \n  ip nat outside", 
+            "title": "PAT Configuration for a Pool of Public IPv4 Address"
+        }, 
+        {
+            "location": "/CCNA2/NAT_Port_Forwarding/#pat-configuration-for-a-single-address", 
+            "text": "Define a standard access list permitting the address that should be translated.  Establish dynamic source translation, specifying the ACL, exit interface and overload options.  Identify the inside interface.  Identify the outside interface.   access-list  access-list-num  permit  source  [source-wildcard]\nip nat inside source list  access-list-num  interface  type-num  overload\ninterface  inside-interface-id \n  ip nat inside\ninterface  outside-interface-id \n  ip nat outside", 
+            "title": "PAT Configuration for a Single Address"
+        }, 
+        {
+            "location": "/CCNA2/NAT_Port_Forwarding/#verify-static-dynamic-nat-pat", 
+            "text": "show ip nat translations\nshow ip nat translations verbose\nshow ip nat statistics   Static translations, unlike dynamic translations, are always in the NAT table.  To verify that NAT translation is working, it is best to clear statistics from past ranslations before testing:   clear ip nat statistics  Reconfigure translation entry time outs (usu 24hr):  ip nat translation timeout  timeout-seconds", 
+            "title": "Verify Static / Dynamic NAT / PAT"
+        }, 
+        {
+            "location": "/CCNA2/NAT_Port_Forwarding/#clearing-nat-translations", 
+            "text": "Dynamic translations are cleared; static translations cannot be cleared form the translation table.   clear ip nat translation *\nclear nat translation inside  global-ip   local-ip  [ outside  local-ip   global-ip  ]\nclear", 
+            "title": "Clearing NAT Translations"
+        }, 
+        {
+            "location": "/CCNA2/NAT_Port_Forwarding/#port-forwarding", 
+            "text": "Port forwarding can be enabled for applications by specifying the inside local address that requests should be forwarded to.  Port forwarding guide", 
+            "title": "Port Forwarding"
+        }, 
+        {
+            "location": "/CCNA2/NAT_Port_Forwarding/#port-forwarding-configuration-with-ios", 
+            "text": "Port forwarding is essentially a static NAT translation with a specified TCP or UDP port number.  Similar to static NAT, the show ip nat translations command can be used to verify the port forwarding.   ip nat inside source static tcp  inside-local-ip   source-port   outside-network-interface-ip   dest-port \ninterface  inside-interface-id \n  ip nat inside\ninterface  outside-interface-id \n  ip nat outside", 
+            "title": "Port Forwarding Configuration with IOS"
         }, 
         {
             "location": "/CCNA2/SSH_and_Port_Security/", 

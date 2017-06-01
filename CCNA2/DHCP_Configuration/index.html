@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>DHCP Configuration - CCNA Reference</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "DHCP Configuration";
+    var mkdocs_page_input_path = "CCNA2/DHCP_Configuration.md";
+    var mkdocs_page_url = "/CCNA2/DHCP_Configuration/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Reference</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA1 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA2_Cmdline/">CCNA2 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA2</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Access_Control_Lists/">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">DHCP Configuration</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#display-and-verify-dhcpv4">Display and Verify DHCPv4</a></li>
+    
+
+    <li class="toctree-l3"><a href="#dhcpv4-basic-configuration">DHCPv4: Basic Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#releaserenew-ip-address-on-windows">Release/Renew IP Address on Windows</a></li>
+    
+
+    <li class="toctree-l3"><a href="#dhcpv4-relay-configuration">DHCPv4 Relay Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#dhcpv4-troubleshooting">DHCPv4: Troubleshooting</a></li>
+    
+
+    <li class="toctree-l3"><a href="#verify-router-dhcpv4-configuration">Verify Router DHCPv4 Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#dhcpv4-on-routers-debugging">DHCPv4 on Routers: Debugging</a></li>
+    
+
+    <li class="toctree-l3"><a href="#dhcpv6-router-configuration">DHCPv6 Router Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#stateless-dhcpv6">Stateless DHCPv6</a></li>
+    
+
+    <li class="toctree-l3"><a href="#stateful-dhcpv6">Stateful DHCPv6</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Miscellaneous/">Miscellaneous</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../NAT_Port_Forwarding/">NAT Port Forwarding</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../SSH_and_Port_Security/">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Reference</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNA2 &raquo;</li>
+        
+      
+    
+    <li>DHCP Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="display-and-verify-dhcpv4">Display and Verify DHCPv4</h3>
+<pre><code>show running-config | section dhcp      # Doesn't work in packet tracer
+show ip dhcp binding
+show ip dhcp server statistics
+</code></pre>
+
+<h3 id="dhcpv4-basic-configuration">DHCPv4: Basic Configuration</h3>
+<p>Steps:</p>
+<ol>
+<li>Exclude IPv4 Addresses: e.g. those assigned to devices that require static addresses - routers, servers, printers, other manually configured devices.</li>
+</ol>
+<pre><code>ip dhcp excluded-address &lt;single-ip&gt;
+ip dhcp excluded-address &lt;low-address&gt; &lt;high-address&gt;
+</code></pre>
+
+<ol>
+<li>Configuring a DHCPv4 Pool that will be used for assignment</li>
+</ol>
+<pre><code>ip dhcp pool &lt;pool-name&gt;        # Enters DHCPv4 config mode
+</code></pre>
+
+<ol>
+<li>Configuring Specific Tasks</li>
+</ol>
+<p>Required:</p>
+<pre><code>network &lt;network-num&gt; [ mask | /prefix-length ]
+default-router &lt;address [ address2 ... address8 ]
+</code></pre>
+
+<p>Optional:</p>
+<pre><code>dns-server &lt;address&gt; [ address2 .. address8 ]
+domain-name &lt;name&gt;
+lease ( days [hours] [minutes] | infinite )
+netbios-name-server &lt;address&gt; [ address2 ... address8 ]
+</code></pre>
+
+<p>Example:</p>
+<pre><code>ip dhcp excluded-address 192.168.10.1 192.168.10.9
+ip dhcp excluded-address 192.168.10.254
+ip dhcp pool LAN-POOL-1
+  network 192.168.10.0 255.255.255.0
+  default-router 192.168.10.1
+  dns-server 192.168.11.5
+  domain-name example.com
+  exit
+</code></pre>
+
+<h3 id="releaserenew-ip-address-on-windows">Release/Renew IP Address on Windows</h3>
+<pre><code>ipconfig /release
+ipconfig /renew         # PC will broadcast a DHCPDISCOVER message
+</code></pre>
+
+<h3 id="dhcpv4-relay-configuration">DHCPv4 Relay Configuration</h3>
+<pre><code>interface &lt;interface-id&gt;
+  ip helper-address &lt;DHCP-IPv4-server-address&gt;
+  exit
+</code></pre>
+
+<p>Example:</p>
+<ul>
+<li>Router1:<ul>
+<li>G0/0 connected to network1 192.168.10.0/24 with PC1</li>
+<li>G0/1 connected to network2 192.168.20.0/24 with DHCP server at 192.168.20.5</li>
+</ul>
+</li>
+<li>Router1 will need to setup a DHCPv4 relay for PC1 to be able to use DHCP on network2.</li>
+</ul>
+<pre><code>interface g0/0
+  ip helper-address 192.168.20.5
+  end
+
+show ip interface   # Verify configuration
+</code></pre>
+
+<h3 id="dhcpv4-troubleshooting">DHCPv4: Troubleshooting</h3>
+<ol>
+<li>Resolve IPv4 address conflicts</li>
+<li>Verify physical connectivity</li>
+<li>Test with a static IPv4 address</li>
+<li>Verify switch port configuration</li>
+<li>Test from the same subnet or VLAN</li>
+</ol>
+<pre><code>show ip dhcp conflict
+</code></pre>
+
+<h3 id="verify-router-dhcpv4-configuration">Verify Router DHCPv4 Configuration</h3>
+<p>If the IPv4 helper address is not configured properly (for when DHCPv4 server is located on a separate LAN from the client), client DHCPv4 requests are not forwarded to the DHCPv4 server.</p>
+<pre><code>show running-config | section interface &lt;interface-id&gt;
+show running-config | include no service dhcp
+</code></pre>
+
+<h3 id="dhcpv4-on-routers-debugging">DHCPv4 on Routers: Debugging</h3>
+<p>Verify that the router is receiving the DHCPv4 request from the client:</p>
+<ul>
+<li>The DHCPv4 process fails if the router is not receiving requests from the client.</li>
+<li>This involves configuring an ACL for debugging output.</li>
+</ul>
+<pre><code>conf t
+  access-list 100 permit udp any any eq 78
+  access-list 100 permit udp any any eq 68
+  end
+
+debug ip packet 100
+debug ip dhcp server events
+</code></pre>
+
+<h3 id="dhcpv6-router-configuration">DHCPv6 Router Configuration</h3>
+<p>IPv6 routing must b enabled before a router can send RA messages:</p>
+<pre><code>ipv6 unicast-routing
+</code></pre>
+
+<p>RA messages are configured on an individual interface of a router. To re-enable an interface for SLAAC that might have been set to another option, the M and O flags need to be reset to their initial values of 0. This is done using the following interface configuration mode commands:</p>
+<pre><code>Router(config-if)# no ipv6 nd managed-config-flag 
+Router(config-if)# no ipv6 nd other-config-flag 
+</code></pre>
+
+<h3 id="stateless-dhcpv6">Stateless DHCPv6</h3>
+<p>For stateless DHCPv6, the O flag is set to 1 and the M flag is left at the default setting of 0. The O flag value of 1 is used to inform the client that additional configuration information is available from a stateless DHCPv6 server.</p>
+<p>To modify the RA message sent on the interface of a router to indicate stateless DHCPv6, use the following command:</p>
+<pre><code>Router(config-if)# ipv6 nd other-config-flag 
+</code></pre>
+
+<h3 id="stateful-dhcpv6">Stateful DHCPv6</h3>
+<p>The M flag indicates whether or not to use stateful DHCPv6. The O flag is not involved. The following command is used to change the M flag from 0 to 1 to signify stateful DHCPv6:</p>
+<pre><code>Router(config-if)# ipv6 nd managed-config-flag 
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Dynamic_Routing/" class="btn btn-neutral float-right" title="Dynamic Routing">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Basic_Configuration/" class="btn btn-neutral" title="Basic Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Basic_Configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Dynamic_Routing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
