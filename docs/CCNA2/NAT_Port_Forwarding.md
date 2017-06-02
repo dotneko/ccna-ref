@@ -47,7 +47,7 @@ With dynamic NAT, a single inside address is translated to a single outside addr
 ```
 ip nat pool <nat-pool-name> <starting-ip-address> <ending-ip-address> netmask <netmask>
 access-list 1 permit <inside-network> <wildcard-mask>
-ip nat inside source list <access-list-num> <nat-pool-name>
+ip nat inside source list <access-list-num> pool <nat-pool-name>
 interface <inside-interface-id>
   ip nat inside
 interface <outside-interface-id>
