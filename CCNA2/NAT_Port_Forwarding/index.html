@@ -80,6 +80,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../Device_Discovery_Mx/">Device Discovery Mx</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../Dynamic_Routing/">Dynamic Routing</a>
                 </li>
                 <li class="">
@@ -223,7 +227,7 @@ interface &lt;outside-interface-id&gt;
 </ol>
 <pre><code>ip nat pool &lt;nat-pool-name&gt; &lt;starting-ip-address&gt; &lt;ending-ip-address&gt; netmask &lt;netmask&gt;
 access-list 1 permit &lt;inside-network&gt; &lt;wildcard-mask&gt;
-ip nat inside source list &lt;access-list-num&gt; &lt;nat-pool-name&gt;
+ip nat inside source list &lt;access-list-num&gt; pool &lt;nat-pool-name&gt;
 interface &lt;inside-interface-id&gt;
   ip nat inside
 interface &lt;outside-interface-id&gt;

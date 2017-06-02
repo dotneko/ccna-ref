@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Device Discovery Mx - CCNA Reference</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Device Discovery Mx";
+    var mkdocs_page_input_path = "CCNA2/Device_Discovery_Mx.md";
+    var mkdocs_page_url = "/CCNA2/Device_Discovery_Mx/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Reference</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA1 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA2_Cmdline/">CCNA2 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA2</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Access_Control_Lists/">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../DHCP_Configuration/">DHCP Configuration</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Device Discovery Mx</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#cdp-configuration-and-verification">CDP Configuration and Verification</a></li>
+    
+
+    <li class="toctree-l3"><a href="#lldp-configuration-and-verification">LLDP Configuration and Verification</a></li>
+    
+
+    <li class="toctree-l3"><a href="#clock-command">clock Command</a></li>
+    
+
+    <li class="toctree-l3"><a href="#ntp-configuration-and-verification">NTP Configuration and Verification</a></li>
+    
+
+    <li class="toctree-l3"><a href="#default-logging">Default Logging</a></li>
+    
+
+    <li class="toctree-l3"><a href="#syslog-configuration">Syslog Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#verify-syslog">Verify Syslog</a></li>
+    
+
+    <li class="toctree-l3"><a href="#enable-logging-timestamps">Enable Logging Timestamps</a></li>
+    
+
+    <li class="toctree-l3"><a href="#router-file-systems">Router File Systems</a></li>
+    
+
+    <li class="toctree-l3"><a href="#backing-up-and-restoring-tftp">Backing up and Restoring TFTP</a></li>
+    
+
+    <li class="toctree-l3"><a href="#using-usb-ports-on-a-cisco-router">Using USB Ports on a Cisco Router</a></li>
+    
+
+    <li class="toctree-l3"><a href="#password-recovery">Password Recovery</a></li>
+    
+
+    <li class="toctree-l3"><a href="#license-verification-and-management">License Verification and Management</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#license-installation-and-backup">License Installation and Backup</a></li>
+        
+            <li><a class="toctree-l4" href="#removing-a-license">Removing a license</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Miscellaneous/">Miscellaneous</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../NAT_Port_Forwarding/">NAT Port Forwarding</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../SSH_and_Port_Security/">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Reference</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNA2 &raquo;</li>
+        
+      
+    
+    <li>Device Discovery Mx</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="cdp-configuration-and-verification">CDP Configuration and Verification</h3>
+<ul>
+<li>CDP is enabled by default on Cisco devices.</li>
+<li>Desirable to disable CDP on a network device globally or per interface.</li>
+</ul>
+<pre><code>show cdp                # Displays CDP status
+show cdp neighbors      # Shows information about CDP neighbors
+show cdp neighbors detail
+show cdp interface
+
+cdp run                 # Enable CDP globally
+no cdp run              # Disable CDP globally
+
+interface &lt;interface-id&gt;
+  no cdp enable   # Disable CDP on specific interface
+</code></pre>
+
+<h3 id="lldp-configuration-and-verification">LLDP Configuration and Verification</h3>
+<ul>
+<li>LLDP must be configured separately to transmit and receive LLDP packets.</li>
+</ul>
+<pre><code>lldp run
+interface &lt;interface-id&gt;
+  lldp transmit
+  lldp receive
+  exit
+
+show lldp
+show lldp neighbors
+show lldp neighbors detail
+</code></pre>
+
+<h3 id="clock-command"><code>clock</code> Command</h3>
+<pre><code>clock set hh:mm:ss mmm dd yyyy
+
+clock set 20:36:00 dec 12 2015
+clock timezone &lt;timezone&gt;
+clock summer-time PDT recurring
+
+</code></pre>
+
+<h3 id="ntp-configuration-and-verification">NTP Configuration and Verification</h3>
+<pre><code>show clock              # Displays current time on software clock
+show clock detail       # Displays additionally the time source
+</code></pre>
+
+<p>Configure NTP Server</p>
+<pre><code>ntp server &lt;ntp-server-ip&gt;
+</code></pre>
+
+<p>Verify configuration</p>
+<pre><code>show clock detail
+show ntp associations
+show ip ntp associations
+show ntp status
+</code></pre>
+
+<h3 id="default-logging">Default Logging</h3>
+<p>Enable logging</p>
+<pre><code>logging console         # Enables logging to console
+logging buffered        # Enables logging to buffer
+
+show logging            # Shows default logging service and messages in buffer
+</code></pre>
+
+<ul>
+<li>In most Cisco IOS routers, default severity level is 7, debugging.</li>
+</ul>
+<h3 id="syslog-configuration">Syslog Configuration</h3>
+<p>Three steps to configure router to send system messages to syslog server:</p>
+<ol>
+<li><code>logging &lt;ip-address&gt;</code> to configure desination of syslog server.</li>
+<li><code>logging trap &lt;level&gt;</code> to control messages that will be sent.</li>
+<li><code>logging source-interface &lt;interface-id&gt;</code> specifies syslog packets that contain the IPv4/IPv6 address of the interface will be logged.</li>
+</ol>
+<p>Example (Tftpd32 syslog server setup on 192.168.1.3):</p>
+<pre><code>logging 192.168.1.3
+logging trap 4
+logging source-interface g0/0
+
+interface loopback 0            # Force messages via loopback
+shutdown
+no shutdown
+</code></pre>
+
+<h3 id="verify-syslog">Verify Syslog</h3>
+<p>Examples:</p>
+<pre><code>show logging | include changed state to up
+show logging | begin June 12 22:35
+</code></pre>
+
+<h3 id="enable-logging-timestamps">Enable Logging Timestamps</h3>
+<pre><code>service timestamps log datetime msec
+</code></pre>
+
+<h3 id="router-file-systems">Router File Systems</h3>
+<p>Cisco IOS File System (IFS)</p>
+<pre><code>show file systems
+</code></pre>
+
+<ul>
+<li>Current file system is indicated by preceding asterisk.</li>
+<li>Pound symbol (#) is appended to the bootable disk.</li>
+</ul>
+<p>Flash File System</p>
+<pre><code>dir
+</code></pre>
+
+<p>NVRAM File System</p>
+<pre><code>cd nvram:
+pwd
+dir
+</code></pre>
+
+<h3 id="backing-up-and-restoring-tftp">Backing up and Restoring TFTP</h3>
+<p>Backup:</p>
+<pre><code>copy running-config tftp
+copy startup-config tftp
+</code></pre>
+
+<p>Restore:</p>
+<pre><code>copy tftp running-config
+copy tftp startup-config
+</code></pre>
+
+<h3 id="using-usb-ports-on-a-cisco-router">Using USB Ports on a Cisco Router</h3>
+<pre><code>dir usbflash0:
+copy running-config usbflash0:/
+copy usbflash:0/&lt;filename&gt; running-config
+more usbflash0:/&lt;filename&gt;
+</code></pre>
+
+<h3 id="password-recovery">Password Recovery</h3>
+<ol>
+<li>Enter ROMMON mode</li>
+<li><code>conf-reg 0x2142</code> to ignore startup-config</li>
+<li>Make necessary changes to original startup-config</li>
+<li>Save the new configuration</li>
+<li><code>config-register 0x2102</code> to re-enable startup-config</li>
+<li><code>reset</code></li>
+</ol>
+<h1 id="license-verification-and-management">License Verification and Management</h1>
+<h3 id="license-installation-and-backup">License Installation and Backup</h3>
+<p>Determine the UDI on router:</p>
+<pre><code>show license udi
+</code></pre>
+
+<p>Installing a license:</p>
+<pre><code>license install &lt;stored-location-url&gt;
+reload
+</code></pre>
+
+<p>License verification:</p>
+<pre><code>show version
+show license
+</code></pre>
+
+<p>Configure a one-time acceptance of the EULA:</p>
+<pre><code>license accept end user agreement
+</code></pre>
+
+<p>Activate an Evaluation RTU license:</p>
+<pre><code>license boot module &lt;module-name&gt; technology-package &lt;package-name&gt;
+reload              # Required to activate software package
+</code></pre>
+
+<p>Technology package names for Cisco ISR G2:</p>
+<ul>
+<li>ipbasek9</li>
+<li>securityk9</li>
+<li>datak9</li>
+<li>uck9</li>
+</ul>
+<h4 id="backup-the-license">Backup the license</h4>
+<pre><code>license save &lt;location:filename.lic&gt;
+</code></pre>
+
+<h3 id="removing-a-license">Removing a license</h3>
+<p>To clear an active permanent license from the Cisco 1900 series, 2900 series, and 3900 series routers, perform the following steps:</p>
+<p>Step 1. Disable the technology package active license with the command:</p>
+<pre><code>license boot module module-name technology-package package-name disable
+</code></pre>
+
+<p>Reload the router using the <code>reload</code> command. A reload is required to make the software package inactive.</p>
+<p>Step 2. Clear the license from license storage:</p>
+<pre><code>license clear feature-name
+</code></pre>
+
+<p>Clear the license boot module command used for disabling the active license:</p>
+<pre><code>no license boot module &lt;module-name&gt; technology-package &lt;package-name&gt; disable
+</code></pre>
+
+<p>Note: Some licenses, such as built-in licenses, cannot be cleared. Only licenses that have been added by using the license install command are removed. Evaluation licenses are not removed.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Dynamic_Routing/" class="btn btn-neutral float-right" title="Dynamic Routing">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../DHCP_Configuration/" class="btn btn-neutral" title="DHCP Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../DHCP_Configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Dynamic_Routing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
