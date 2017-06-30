@@ -809,6 +809,131 @@
             "location": "/CCNA2/VLAN_Configuration/#configure-router-on-a-stick", 
             "text": "Scenario:   R1 is connected to switch S1 on trunk port F0/5  VLANs 10 and 30 are added to switch S1  Two subinterfaces are configured using the  interface  interface-id . subinterface-id  G0/0.10: 172.17.10.1/24  G0/0.30: 172.17.30.1/24     Configure the switch:  vlan 10\nvlan 30\ninterface f0/5\n  switchport mode trunk\n  end  Configure the router:  interface g0/0.10\n  encapsulation dot1q 10\n  ip address 172.17.10.1 255.255.255.0\ninterface g0/0.30\n  encapsulation dot1q 30\n  ip address 172.17.30.1 255.255.255.0\ninterface g0/0\n  no shutdown  To set the IEEE 802.1Q native VLAN, use the  native  keyword option; by default, the native VLAN is VLAN 1.\nIf the physical interface is disabled, all subinterfaces are disabled.  Verify Subinterfaces:  show vlan\nshow ip route  Verify routing:  ping  ip-address \ntraceroute  ip-address      # UNIX\ntracert  ip-address         # Windows", 
             "title": "Configure Router-on-a-Stick"
+        }, 
+        {
+            "location": "/CCNAS/S02-1_Securing_Network_Devices/", 
+            "text": "Increasing Access Security\n\n\nsecurity passwords min-length \nlength\n\nservice password-encryption\nenable secret \npassword\n\nline vty 0 4\n exec-timeout \nmins\n \nseconds\n      ! Default is 10 minutes\nline console 0\n exec-timeout \nmins\n \nseconds\n\n\n\n\n\nDisable EXEC process for a specific line\n\n\n\n\nAllows only an outgoing connection on the line, disabling the EXEC process for connections that may attempt to send unsolicited data to the router.\n\n\n\n\nline aux 0\n no exec\n\n\n\n\nSecret Password Algorithms\n\n\nenable algorithm-type {md5 | scrypt | sha256} secret \nunencrypted-password\n\n\n\n\n\n\n\nmd5\n: type 5\n\n\nscrypt\n: type 9\n\n\nsha256\n: type 8 - Password-based key derivation function 2 (PBKDF2) with SHA-256\n\n\n\n\nusername \nusername\n algorithm-type {md5 | scrypt | sha256} secret \nunencrypted-password\n\n\n\n\n\nSecuring Line Access\n\n\nUse only \nlogin local\n and SSH for vty:\n\n\nusername Bob algorithm-type scrypt secret cisco54321\nline con 0\n login local\n exit\nline aux 0\n login local\n exit\nline vty 0 4\n login local\n transport input ssh\n\n\n\n\nBanner Configuration\n\n\nbanner {motd | exec | login} \ndelimiter\nmessage...\ndelimiter\n\n\n\n\n\nLogin Enhancement Configuration\n\n\nlogin block-for \nseconds\n attempts \ntries\n within \nseconds\n\nlogin quiet-mode access-class {acl-name|acl-number}\nlogin delay \nseconds\n       ! Default is 1 second\nlogin on-success log [every \nlogin\n]\nlogin on-failure log [every \nlogin\n]\n\n\n\n\n\n\nNote that \nlogin block-for\n should be issued before other login commands.\n\n\nHelps provide DoS detection and prevention.\n\n\n\n\nExamples\n\n\nlogin block-for 15 attempts 5 within 60\nip access-list standard PERMIT-ADMIN\n remark Permit only Administrative hosts\n permit 192.168.10.10\n permit 192.168.11.10\n exit\nlogin quiet-mode access-class PERMIT-ADMIN\nlogin delay 10\nlogin on-success log\nlogin on-failure log\n\n\n\n\n\n\nWhen quiet mode is enabled, all login attempts, including valid administrative access, are not permitted, but is overridden using \nlogin quiet-mode access-class \nACL\n for a created ACL.\n\n\n\n\nLogging Failed Attempts\n\n\nlogin on-success log [every \nlogin\n]\nlogin on-failure log [every \nlogin\n]\nsecurity authentication failure rate threshold-rate log\n\nshow login\nshow login failures", 
+            "title": "S02 1 Securing Network Devices"
+        }, 
+        {
+            "location": "/CCNAS/S02-1_Securing_Network_Devices/#increasing-access-security", 
+            "text": "security passwords min-length  length \nservice password-encryption\nenable secret  password \nline vty 0 4\n exec-timeout  mins   seconds       ! Default is 10 minutes\nline console 0\n exec-timeout  mins   seconds", 
+            "title": "Increasing Access Security"
+        }, 
+        {
+            "location": "/CCNAS/S02-1_Securing_Network_Devices/#disable-exec-process-for-a-specific-line", 
+            "text": "Allows only an outgoing connection on the line, disabling the EXEC process for connections that may attempt to send unsolicited data to the router.   line aux 0\n no exec", 
+            "title": "Disable EXEC process for a specific line"
+        }, 
+        {
+            "location": "/CCNAS/S02-1_Securing_Network_Devices/#secret-password-algorithms", 
+            "text": "enable algorithm-type {md5 | scrypt | sha256} secret  unencrypted-password    md5 : type 5  scrypt : type 9  sha256 : type 8 - Password-based key derivation function 2 (PBKDF2) with SHA-256   username  username  algorithm-type {md5 | scrypt | sha256} secret  unencrypted-password", 
+            "title": "Secret Password Algorithms"
+        }, 
+        {
+            "location": "/CCNAS/S02-1_Securing_Network_Devices/#securing-line-access", 
+            "text": "Use only  login local  and SSH for vty:  username Bob algorithm-type scrypt secret cisco54321\nline con 0\n login local\n exit\nline aux 0\n login local\n exit\nline vty 0 4\n login local\n transport input ssh", 
+            "title": "Securing Line Access"
+        }, 
+        {
+            "location": "/CCNAS/S02-1_Securing_Network_Devices/#banner-configuration", 
+            "text": "banner {motd | exec | login}  delimiter message... delimiter", 
+            "title": "Banner Configuration"
+        }, 
+        {
+            "location": "/CCNAS/S02-1_Securing_Network_Devices/#login-enhancement-configuration", 
+            "text": "login block-for  seconds  attempts  tries  within  seconds \nlogin quiet-mode access-class {acl-name|acl-number}\nlogin delay  seconds        ! Default is 1 second\nlogin on-success log [every  login ]\nlogin on-failure log [every  login ]   Note that  login block-for  should be issued before other login commands.  Helps provide DoS detection and prevention.   Examples  login block-for 15 attempts 5 within 60\nip access-list standard PERMIT-ADMIN\n remark Permit only Administrative hosts\n permit 192.168.10.10\n permit 192.168.11.10\n exit\nlogin quiet-mode access-class PERMIT-ADMIN\nlogin delay 10\nlogin on-success log\nlogin on-failure log   When quiet mode is enabled, all login attempts, including valid administrative access, are not permitted, but is overridden using  login quiet-mode access-class  ACL  for a created ACL.", 
+            "title": "Login Enhancement Configuration"
+        }, 
+        {
+            "location": "/CCNAS/S02-1_Securing_Network_Devices/#logging-failed-attempts", 
+            "text": "login on-success log [every  login ]\nlogin on-failure log [every  login ]\nsecurity authentication failure rate threshold-rate log\n\nshow login\nshow login failures", 
+            "title": "Logging Failed Attempts"
+        }, 
+        {
+            "location": "/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/", 
+            "text": "Cisco IOS Resilient Features\n\n\nsecure boot-image\nno secure boot-image\n\nsecure boot-config          ! Can be used repeatedly to update config files\nno secure boot-config\n\nshow secure bootset\n\n\n\n\nRestore a Primary Bootset Image\n\n\n\n\nreload\n (If necessary use break sequence to enter ROMmon)\n\n\ndir\n to list contents of device that contains secure bootset.\n\n\nboot \nlocation:bootsetimage.bin\n\n\nsecure boot-config restore \nlocation:filename, e.g. flash0:rescue-cfg\n (GCM#)\n\n\ncopy \nlocation:rescue-cfg\n running-config\n\n\n\n\nSecure Copy Configuration\n\n\nip domain-name \ndomain_name.com\n\ncrypto key generate rsa general-keys modulus 2048\nusername \nname\n privilege 15 algorithm-type scrypt secret \npassword\n\naaa new-model\naaa authentication login default local\naaa authorization exec default local\nip scp server enable\n\n\n\n\nUsing SCP\n\n\ncopy flash0:backup-file.cfg scp:\n ! ip-address\n ! username\n ! filename\n ! password\n\n\n\n\nDebugging SCP\n\n\ndebug ip scp\n\n\n\n\nNote: \nauthentication failure occurs if the username/password combination was not configured with the privilege 15 keyword on the SCP server\n.\n\n\nRecover Router Passwords\n\n\n\n\nConnect via console port\n\n\nRecord the configuration register setting (usually \n0x2102\n)\n\n\nPower cycle the router\n\n\nIssue the break sequence\n\n\nRomMON: Change default configuration register with \nconfreg 0x2142\n command (bypasses NVRAM)\n\n\nReboot the router\n\n\nPress \nCtrl-C\n to skip initial setup procedure\n\n\nPut router into privileged EXEC mode\n\n\nCopy startup configuration to running configuration\n\n\nVerify the configuration\n\n\nChange the enable secret password\n\n\nEnable all interfaces\n\n\nReturn configuration-register to original setting using \nconfig-register\n (Cisco IOS equiv of \nconfreg\n): e.g. \nconfig-register 0x2102\n\n\nSave configuration changes\n\n\n\n\nDisabling Password Recovery\n\n\nno service password-recovery\n\n\n\n\n\n\nHidden Cisco IOS command\n\n\nWhen configured, all access to ROMmon mode is disabled\n\n\n\n\nRecovering a device after \nno service password-recovery\n\n\n\n\nInitiate break sequence within 5 seconds after image decompresses during the boot.\n\n\nOnce confirming break, startup config is erased, password recovery procedure is enabled, and router boots with factory default configuration.\n\n\nCAUTION:\n If the router flash memory does not contain a valid Cisco IOS image because of corruption or deletion, the ROMmon xmodem command cannot be used to load a new flash image. To repair the router, an administrator must obtain a new Cisco IOS image on a flash SIMM or on a PCMCIA card. However, if an administrator has access to ROMmon they can restore an IOS file to flash memory using a TFTP server. Refer to Cisco.com for more information regarding backup flash images.\n\n\n\n\nSyslog Operation\n\n\nCommands to set memory thresholds for when router will send notifications when available free memory falls below:\n\n\nmemory free low-watermark threshold io\nmemory free low-watermark processor\n\n\n\n\nSyslog Messages\n\n\nservice sequence-numbers\nservice timestamps\n\n\n\n\nSystem Logging Configuration\n\n\nlogging host {hostname | ip-address}\nlogging trap \nlevel 0-7\n                        ! optional\nlogging source-interface \nint-type\nint-number\n ! optional\nlogging on\n\n\n\n\nExample:\n\n\nlogging host 10.2.2.6\nlogging trap informational\nlogging source-interface g0/1\nlogging on\n\n\n\n\nSecure SNMPv3 Configuration\n\n\nip access-list standard \nacl-name\n\n permit \nnetwork-address\n\n exit\nsnmp-server view \nview-name\n \noid-tree\n\nsnmp-server group \ngroup-name\n v3 priv read \nview-name\n access [acl-number |acl-name]\nsnmp-server user \nusername\n \ngroup-name\n v3 auth {md5 | sha} \nauth-password\n priv {des | 3des | aes {128 | 192 | 256}} \npriv-password\n\n\n\n\n\nExample:\n\n\nip access-list standard PERMIT-ADMIN\n permit 10.10.10.1 0.0.0.255\n exit\nsnmp-server view SNMP-RO iso included\nsnmp-server group ADMIN v3 priv read SNMP-RO access PERMIT-ADMIN\nsnmp-server user Bob ADMIN v3 auth sha cisco12345 priv aes 128 cisco54321\n\n\n\n\nVerify SNMPv3 Configuration:\n\n\nshow run | include snmp\nshow snmp user\n\n\n\n\n\nCan use a SNMP MIB Browser to verify that a SNMP manager can send get requests to a router:\nhttps://www.manageengine.com/products/mibbrowser-free-tool/\n\n\nKeith Barker's demonstration of configuring and verifying SNMPv3:https://www.youtube.com/watch?v=XoMuYWol-7s\n\n\nTime and NTP Servers\n\n\nClock Setting:\n\n\nshow clock\nclock set \n...\n\n\n\n\n\nConfigure device to be an authoritative NTP server:\n\n\nntp master [stratum-num]\n\n\n\n\nConfigure software clock to synchronize with an NTP time server:\n\n\nntp server {ip-address|hostname} [version \nnumber\n] [key \nkey-id\n] [source \ninterface\n] [prefer]\n\n\n\n\nConfigure device to receive NTP broadcast messages on the interface:\n\n\nntp broadcast client\n\n\n\n\nCheck status:\n\n\nshow ntp status\n\n\n\n\nNTP Authentication\n\n\nEnable authentication:\n\n\nntp authentication\n\n\n\n\nDefine authentication keys:\n\n\nntp authentication-key \nkey-num\n md5 \nkey-value\n\n\n\n\n\nAuthenticates identity of system to which NTP will synchronize:\n\n\nntp trusted-key \nkey-number\n\n\n\n\n\nVerify NTP settings:\n\n\nshow ntp associations detail\nshow ntp associations detail | include \nip address of ntp server\n\n\n\n\n\nExample:\n\n\nntp authenticate\nntp authentication-key 1 md5 cisco123\nntp trusted-key 1\n\n\n\n\nUpdate NTP Calendar:\n\n\nntp update-calendar\nntp calendar-valid      ! May be needed instead of above for some routers", 
+            "title": "S02 2 Securing Cisco IOS and Configuration"
+        }, 
+        {
+            "location": "/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/#cisco-ios-resilient-features", 
+            "text": "secure boot-image\nno secure boot-image\n\nsecure boot-config          ! Can be used repeatedly to update config files\nno secure boot-config\n\nshow secure bootset", 
+            "title": "Cisco IOS Resilient Features"
+        }, 
+        {
+            "location": "/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/#restore-a-primary-bootset-image", 
+            "text": "reload  (If necessary use break sequence to enter ROMmon)  dir  to list contents of device that contains secure bootset.  boot  location:bootsetimage.bin  secure boot-config restore  location:filename, e.g. flash0:rescue-cfg  (GCM#)  copy  location:rescue-cfg  running-config", 
+            "title": "Restore a Primary Bootset Image"
+        }, 
+        {
+            "location": "/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/#secure-copy-configuration", 
+            "text": "ip domain-name  domain_name.com \ncrypto key generate rsa general-keys modulus 2048\nusername  name  privilege 15 algorithm-type scrypt secret  password \naaa new-model\naaa authentication login default local\naaa authorization exec default local\nip scp server enable  Using SCP  copy flash0:backup-file.cfg scp:\n ! ip-address\n ! username\n ! filename\n ! password  Debugging SCP  debug ip scp  Note:  authentication failure occurs if the username/password combination was not configured with the privilege 15 keyword on the SCP server .", 
+            "title": "Secure Copy Configuration"
+        }, 
+        {
+            "location": "/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/#recover-router-passwords", 
+            "text": "Connect via console port  Record the configuration register setting (usually  0x2102 )  Power cycle the router  Issue the break sequence  RomMON: Change default configuration register with  confreg 0x2142  command (bypasses NVRAM)  Reboot the router  Press  Ctrl-C  to skip initial setup procedure  Put router into privileged EXEC mode  Copy startup configuration to running configuration  Verify the configuration  Change the enable secret password  Enable all interfaces  Return configuration-register to original setting using  config-register  (Cisco IOS equiv of  confreg ): e.g.  config-register 0x2102  Save configuration changes", 
+            "title": "Recover Router Passwords"
+        }, 
+        {
+            "location": "/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/#disabling-password-recovery", 
+            "text": "no service password-recovery   Hidden Cisco IOS command  When configured, all access to ROMmon mode is disabled   Recovering a device after  no service password-recovery   Initiate break sequence within 5 seconds after image decompresses during the boot.  Once confirming break, startup config is erased, password recovery procedure is enabled, and router boots with factory default configuration.  CAUTION:  If the router flash memory does not contain a valid Cisco IOS image because of corruption or deletion, the ROMmon xmodem command cannot be used to load a new flash image. To repair the router, an administrator must obtain a new Cisco IOS image on a flash SIMM or on a PCMCIA card. However, if an administrator has access to ROMmon they can restore an IOS file to flash memory using a TFTP server. Refer to Cisco.com for more information regarding backup flash images.", 
+            "title": "Disabling Password Recovery"
+        }, 
+        {
+            "location": "/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/#syslog-operation", 
+            "text": "Commands to set memory thresholds for when router will send notifications when available free memory falls below:  memory free low-watermark threshold io\nmemory free low-watermark processor", 
+            "title": "Syslog Operation"
+        }, 
+        {
+            "location": "/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/#syslog-messages", 
+            "text": "service sequence-numbers\nservice timestamps", 
+            "title": "Syslog Messages"
+        }, 
+        {
+            "location": "/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/#system-logging-configuration", 
+            "text": "logging host {hostname | ip-address}\nlogging trap  level 0-7                         ! optional\nlogging source-interface  int-type int-number  ! optional\nlogging on  Example:  logging host 10.2.2.6\nlogging trap informational\nlogging source-interface g0/1\nlogging on", 
+            "title": "System Logging Configuration"
+        }, 
+        {
+            "location": "/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/#secure-snmpv3-configuration", 
+            "text": "ip access-list standard  acl-name \n permit  network-address \n exit\nsnmp-server view  view-name   oid-tree \nsnmp-server group  group-name  v3 priv read  view-name  access [acl-number |acl-name]\nsnmp-server user  username   group-name  v3 auth {md5 | sha}  auth-password  priv {des | 3des | aes {128 | 192 | 256}}  priv-password   Example:  ip access-list standard PERMIT-ADMIN\n permit 10.10.10.1 0.0.0.255\n exit\nsnmp-server view SNMP-RO iso included\nsnmp-server group ADMIN v3 priv read SNMP-RO access PERMIT-ADMIN\nsnmp-server user Bob ADMIN v3 auth sha cisco12345 priv aes 128 cisco54321  Verify SNMPv3 Configuration:  show run | include snmp\nshow snmp user  Can use a SNMP MIB Browser to verify that a SNMP manager can send get requests to a router:\nhttps://www.manageengine.com/products/mibbrowser-free-tool/  Keith Barker's demonstration of configuring and verifying SNMPv3:https://www.youtube.com/watch?v=XoMuYWol-7s", 
+            "title": "Secure SNMPv3 Configuration"
+        }, 
+        {
+            "location": "/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/#time-and-ntp-servers", 
+            "text": "Clock Setting:  show clock\nclock set  ...   Configure device to be an authoritative NTP server:  ntp master [stratum-num]  Configure software clock to synchronize with an NTP time server:  ntp server {ip-address|hostname} [version  number ] [key  key-id ] [source  interface ] [prefer]  Configure device to receive NTP broadcast messages on the interface:  ntp broadcast client  Check status:  show ntp status", 
+            "title": "Time and NTP Servers"
+        }, 
+        {
+            "location": "/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/#ntp-authentication", 
+            "text": "Enable authentication:  ntp authentication  Define authentication keys:  ntp authentication-key  key-num  md5  key-value   Authenticates identity of system to which NTP will synchronize:  ntp trusted-key  key-number   Verify NTP settings:  show ntp associations detail\nshow ntp associations detail | include  ip address of ntp server   Example:  ntp authenticate\nntp authentication-key 1 md5 cisco123\nntp trusted-key 1  Update NTP Calendar:  ntp update-calendar\nntp calendar-valid      ! May be needed instead of above for some routers", 
+            "title": "NTP Authentication"
+        }, 
+        {
+            "location": "/CCNAS/S02-3_AutoSecure_and_Routing_Authentication/", 
+            "text": "Discovery Protocols CDP and LLDP\n\n\nshow cdp neighbors detail\nshow lldp neighbors detail\n\n\n\n\nCisco AutoSecure\n\n\nauto secure\n\nauto secure [no-interact|full] [forwarding|management] [ntp|login|ssh|firewall|tcp-intercept]\n\nauto secure full            ! Default interactive mode\nauto secure no-interact     ! Uses recommended Cisco default\n\n\n\n\nOSPF MD5 Routing Protocol Authentication\n\n\nCheck OSPF configuration:\n\n\nshow run | begin router ospf\n\n\n\n\nGlobal authentication on all OSPF enabled interfaces:\n\n\nip ospf message-digest-key \nkey\n md5 \npassword\n\narea \narea-id\n authentication message-digest\n\n\n\n\nExample, configure on both routers connected via s0/0/0:\n\n\ninterface s0/0/0\n ip ospf message-digest-key 1 md5 cisco12345\n ip ospf authentication message-digest\n\n\n\n\n\n\nNote that OSPF neighbors should have the same key and password.\n\n\n\n\nOSPF SHA Routing Protocol Authentication\n\n\nSpecify a SHA authentication key chain:\n\n\nkey chain \nname\n\n key \nkey-id\n\n  key-string \npassword-string\n\n  cryptographic-algorithm hmac-sha-256\n  exit\n\nsend-lifetime start-time {infinite|end-time|duration \nseconds\n}     ! Optional\n\n\n\n\nAssign the authentication key chain to the desired interfaces:\n\n\ninterface \ntype-number\n\n ip ospf authentication key-chain \nname", 
+            "title": "S02 3 AutoSecure and Routing Authentication"
+        }, 
+        {
+            "location": "/CCNAS/S02-3_AutoSecure_and_Routing_Authentication/#discovery-protocols-cdp-and-lldp", 
+            "text": "show cdp neighbors detail\nshow lldp neighbors detail", 
+            "title": "Discovery Protocols CDP and LLDP"
+        }, 
+        {
+            "location": "/CCNAS/S02-3_AutoSecure_and_Routing_Authentication/#cisco-autosecure", 
+            "text": "auto secure\n\nauto secure [no-interact|full] [forwarding|management] [ntp|login|ssh|firewall|tcp-intercept]\n\nauto secure full            ! Default interactive mode\nauto secure no-interact     ! Uses recommended Cisco default", 
+            "title": "Cisco AutoSecure"
+        }, 
+        {
+            "location": "/CCNAS/S02-3_AutoSecure_and_Routing_Authentication/#ospf-md5-routing-protocol-authentication", 
+            "text": "Check OSPF configuration:  show run | begin router ospf  Global authentication on all OSPF enabled interfaces:  ip ospf message-digest-key  key  md5  password \narea  area-id  authentication message-digest  Example, configure on both routers connected via s0/0/0:  interface s0/0/0\n ip ospf message-digest-key 1 md5 cisco12345\n ip ospf authentication message-digest   Note that OSPF neighbors should have the same key and password.", 
+            "title": "OSPF MD5 Routing Protocol Authentication"
+        }, 
+        {
+            "location": "/CCNAS/S02-3_AutoSecure_and_Routing_Authentication/#ospf-sha-routing-protocol-authentication", 
+            "text": "Specify a SHA authentication key chain:  key chain  name \n key  key-id \n  key-string  password-string \n  cryptographic-algorithm hmac-sha-256\n  exit\n\nsend-lifetime start-time {infinite|end-time|duration  seconds }     ! Optional  Assign the authentication key chain to the desired interfaces:  interface  type-number \n ip ospf authentication key-chain  name", 
+            "title": "OSPF SHA Routing Protocol Authentication"
         }
     ]
 }

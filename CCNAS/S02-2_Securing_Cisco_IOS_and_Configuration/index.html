@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>S02 2 Securing Cisco IOS and Configuration - CCNA Reference</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "S02 2 Securing Cisco IOS and Configuration";
+    var mkdocs_page_input_path = "CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration.md";
+    var mkdocs_page_url = "/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Reference</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA1 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA2_Cmdline/">CCNA2 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA2</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Access_Control_Lists/">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/DHCP_Configuration/">DHCP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Device_Discovery_Mx/">Device Discovery Mx</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Miscellaneous/">Miscellaneous</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/NAT_Port_Forwarding/">NAT Port Forwarding</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/SSH_and_Port_Security/">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNAS</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../S02-1_Securing_Network_Devices/">S02 1 Securing Network Devices</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">S02 2 Securing Cisco IOS and Configuration</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#cisco-ios-resilient-features">Cisco IOS Resilient Features</a></li>
+    
+
+    <li class="toctree-l3"><a href="#restore-a-primary-bootset-image">Restore a Primary Bootset Image</a></li>
+    
+
+    <li class="toctree-l3"><a href="#secure-copy-configuration">Secure Copy Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#recover-router-passwords">Recover Router Passwords</a></li>
+    
+
+    <li class="toctree-l3"><a href="#disabling-password-recovery">Disabling Password Recovery</a></li>
+    
+
+    <li class="toctree-l3"><a href="#syslog-operation">Syslog Operation</a></li>
+    
+
+    <li class="toctree-l3"><a href="#syslog-messages">Syslog Messages</a></li>
+    
+
+    <li class="toctree-l3"><a href="#system-logging-configuration">System Logging Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#secure-snmpv3-configuration">Secure SNMPv3 Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#time-and-ntp-servers">Time and NTP Servers</a></li>
+    
+
+    <li class="toctree-l3"><a href="#ntp-authentication">NTP Authentication</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-3_AutoSecure_and_Routing_Authentication/">S02 3 AutoSecure and Routing Authentication</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Reference</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNAS &raquo;</li>
+        
+      
+    
+    <li>S02 2 Securing Cisco IOS and Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="cisco-ios-resilient-features">Cisco IOS Resilient Features</h3>
+<pre><code>secure boot-image
+no secure boot-image
+
+secure boot-config          ! Can be used repeatedly to update config files
+no secure boot-config
+
+show secure bootset
+</code></pre>
+
+<h3 id="restore-a-primary-bootset-image">Restore a Primary Bootset Image</h3>
+<ol>
+<li><code>reload</code> (If necessary use break sequence to enter ROMmon)</li>
+<li><code>dir</code> to list contents of device that contains secure bootset.</li>
+<li><code>boot &lt;location:bootsetimage.bin&gt;</code></li>
+<li><code>secure boot-config restore &lt;location:filename, e.g. flash0:rescue-cfg&gt;</code> (GCM#)</li>
+<li><code>copy &lt;location:rescue-cfg&gt; running-config</code></li>
+</ol>
+<h3 id="secure-copy-configuration">Secure Copy Configuration</h3>
+<pre><code>ip domain-name &lt;domain_name.com&gt;
+crypto key generate rsa general-keys modulus 2048
+username &lt;name&gt; privilege 15 algorithm-type scrypt secret &lt;password&gt;
+aaa new-model
+aaa authentication login default local
+aaa authorization exec default local
+ip scp server enable
+</code></pre>
+
+<p>Using SCP</p>
+<pre><code>copy flash0:backup-file.cfg scp:
+ ! ip-address
+ ! username
+ ! filename
+ ! password
+</code></pre>
+
+<p>Debugging SCP</p>
+<pre><code>debug ip scp
+</code></pre>
+
+<p>Note: <em>authentication failure occurs if the username/password combination was not configured with the privilege 15 keyword on the SCP server</em>.</p>
+<h3 id="recover-router-passwords">Recover Router Passwords</h3>
+<ul>
+<li>Connect via console port</li>
+<li>Record the configuration register setting (usually <code>0x2102</code>)</li>
+<li>Power cycle the router</li>
+<li>Issue the break sequence</li>
+<li>RomMON: Change default configuration register with <code>confreg 0x2142</code> command (bypasses NVRAM)</li>
+<li>Reboot the router</li>
+<li>Press <code>Ctrl-C</code> to skip initial setup procedure</li>
+<li>Put router into privileged EXEC mode</li>
+<li>Copy startup configuration to running configuration</li>
+<li>Verify the configuration</li>
+<li>Change the enable secret password</li>
+<li>Enable all interfaces</li>
+<li>Return configuration-register to original setting using <code>config-register</code> (Cisco IOS equiv of <code>confreg</code>): e.g. <code>config-register 0x2102</code></li>
+<li>Save configuration changes</li>
+</ul>
+<h3 id="disabling-password-recovery">Disabling Password Recovery</h3>
+<pre><code>no service password-recovery
+</code></pre>
+
+<ul>
+<li>Hidden Cisco IOS command</li>
+<li>When configured, all access to ROMmon mode is disabled</li>
+</ul>
+<p>Recovering a device after <code>no service password-recovery</code></p>
+<ul>
+<li>Initiate break sequence within 5 seconds after image decompresses during the boot.</li>
+<li>Once confirming break, startup config is erased, password recovery procedure is enabled, and router boots with factory default configuration.</li>
+<li><em>CAUTION:</em> If the router flash memory does not contain a valid Cisco IOS image because of corruption or deletion, the ROMmon xmodem command cannot be used to load a new flash image. To repair the router, an administrator must obtain a new Cisco IOS image on a flash SIMM or on a PCMCIA card. However, if an administrator has access to ROMmon they can restore an IOS file to flash memory using a TFTP server. Refer to Cisco.com for more information regarding backup flash images.</li>
+</ul>
+<h3 id="syslog-operation">Syslog Operation</h3>
+<p>Commands to set memory thresholds for when router will send notifications when available free memory falls below:</p>
+<pre><code>memory free low-watermark threshold io
+memory free low-watermark processor
+</code></pre>
+
+<h3 id="syslog-messages">Syslog Messages</h3>
+<pre><code>service sequence-numbers
+service timestamps
+</code></pre>
+
+<h3 id="system-logging-configuration">System Logging Configuration</h3>
+<pre><code>logging host {hostname | ip-address}
+logging trap &lt;level 0-7&gt;                        ! optional
+logging source-interface &lt;int-type&gt;&lt;int-number&gt; ! optional
+logging on
+</code></pre>
+
+<p>Example:</p>
+<pre><code>logging host 10.2.2.6
+logging trap informational
+logging source-interface g0/1
+logging on
+</code></pre>
+
+<h3 id="secure-snmpv3-configuration">Secure SNMPv3 Configuration</h3>
+<pre><code>ip access-list standard &lt;acl-name&gt;
+ permit &lt;network-address&gt;
+ exit
+snmp-server view &lt;view-name&gt; &lt;oid-tree&gt;
+snmp-server group &lt;group-name&gt; v3 priv read &lt;view-name&gt; access [acl-number |acl-name]
+snmp-server user &lt;username&gt; &lt;group-name&gt; v3 auth {md5 | sha} &lt;auth-password&gt; priv {des | 3des | aes {128 | 192 | 256}} &lt;priv-password&gt;
+</code></pre>
+
+<p>Example:</p>
+<pre><code>ip access-list standard PERMIT-ADMIN
+ permit 10.10.10.1 0.0.0.255
+ exit
+snmp-server view SNMP-RO iso included
+snmp-server group ADMIN v3 priv read SNMP-RO access PERMIT-ADMIN
+snmp-server user Bob ADMIN v3 auth sha cisco12345 priv aes 128 cisco54321
+</code></pre>
+
+<p>Verify SNMPv3 Configuration:</p>
+<pre><code>show run | include snmp
+show snmp user
+
+</code></pre>
+
+<p>Can use a SNMP MIB Browser to verify that a SNMP manager can send get requests to a router:
+https://www.manageengine.com/products/mibbrowser-free-tool/</p>
+<p>Keith Barker's demonstration of configuring and verifying SNMPv3:https://www.youtube.com/watch?v=XoMuYWol-7s</p>
+<h3 id="time-and-ntp-servers">Time and NTP Servers</h3>
+<p>Clock Setting:</p>
+<pre><code>show clock
+clock set &lt;...&gt;
+</code></pre>
+
+<p>Configure device to be an authoritative NTP server:</p>
+<pre><code>ntp master [stratum-num]
+</code></pre>
+
+<p>Configure software clock to synchronize with an NTP time server:</p>
+<pre><code>ntp server {ip-address|hostname} [version &lt;number&gt;] [key &lt;key-id&gt;] [source &lt;interface&gt;] [prefer]
+</code></pre>
+
+<p>Configure device to receive NTP broadcast messages on the interface:</p>
+<pre><code>ntp broadcast client
+</code></pre>
+
+<p>Check status:</p>
+<pre><code>show ntp status
+</code></pre>
+
+<h3 id="ntp-authentication">NTP Authentication</h3>
+<p>Enable authentication:</p>
+<pre><code>ntp authentication
+</code></pre>
+
+<p>Define authentication keys:</p>
+<pre><code>ntp authentication-key &lt;key-num&gt; md5 &lt;key-value&gt;
+</code></pre>
+
+<p>Authenticates identity of system to which NTP will synchronize:</p>
+<pre><code>ntp trusted-key &lt;key-number&gt;
+</code></pre>
+
+<p>Verify NTP settings:</p>
+<pre><code>show ntp associations detail
+show ntp associations detail | include &lt;ip address of ntp server&gt;
+</code></pre>
+
+<p>Example:</p>
+<pre><code>ntp authenticate
+ntp authentication-key 1 md5 cisco123
+ntp trusted-key 1
+</code></pre>
+
+<p>Update NTP Calendar:</p>
+<pre><code>ntp update-calendar
+ntp calendar-valid      ! May be needed instead of above for some routers
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../S02-3_AutoSecure_and_Routing_Authentication/" class="btn btn-neutral float-right" title="S02 3 AutoSecure and Routing Authentication">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../S02-1_Securing_Network_Devices/" class="btn btn-neutral" title="S02 1 Securing Network Devices"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../S02-1_Securing_Network_Devices/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../S02-3_AutoSecure_and_Routing_Authentication/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

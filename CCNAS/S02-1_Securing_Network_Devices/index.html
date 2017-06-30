@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>S02 1 Securing Network Devices - CCNA Reference</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "S02 1 Securing Network Devices";
+    var mkdocs_page_input_path = "CCNAS/S02-1_Securing_Network_Devices.md";
+    var mkdocs_page_url = "/CCNAS/S02-1_Securing_Network_Devices/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Reference</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA1 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA2_Cmdline/">CCNA2 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA2</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Access_Control_Lists/">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/DHCP_Configuration/">DHCP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Device_Discovery_Mx/">Device Discovery Mx</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Miscellaneous/">Miscellaneous</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/NAT_Port_Forwarding/">NAT Port Forwarding</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/SSH_and_Port_Security/">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNAS</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">S02 1 Securing Network Devices</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#increasing-access-security">Increasing Access Security</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#disable-exec-process-for-a-specific-line">Disable EXEC process for a specific line</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#secret-password-algorithms">Secret Password Algorithms</a></li>
+    
+
+    <li class="toctree-l3"><a href="#securing-line-access">Securing Line Access</a></li>
+    
+
+    <li class="toctree-l3"><a href="#banner-configuration">Banner Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#login-enhancement-configuration">Login Enhancement Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#logging-failed-attempts">Logging Failed Attempts</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-2_Securing_Cisco_IOS_and_Configuration/">S02 2 Securing Cisco IOS and Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-3_AutoSecure_and_Routing_Authentication/">S02 3 AutoSecure and Routing Authentication</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Reference</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNAS &raquo;</li>
+        
+      
+    
+    <li>S02 1 Securing Network Devices</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="increasing-access-security">Increasing Access Security</h3>
+<pre><code>security passwords min-length &lt;length&gt;
+service password-encryption
+enable secret &lt;password&gt;
+line vty 0 4
+ exec-timeout &lt;mins&gt; &lt;seconds&gt;      ! Default is 10 minutes
+line console 0
+ exec-timeout &lt;mins&gt; &lt;seconds&gt;
+</code></pre>
+
+<h5 id="disable-exec-process-for-a-specific-line">Disable EXEC process for a specific line</h5>
+<ul>
+<li>Allows only an outgoing connection on the line, disabling the EXEC process for connections that may attempt to send unsolicited data to the router.</li>
+</ul>
+<pre><code>line aux 0
+ no exec
+</code></pre>
+
+<h3 id="secret-password-algorithms">Secret Password Algorithms</h3>
+<pre><code>enable algorithm-type {md5 | scrypt | sha256} secret &lt;unencrypted-password&gt;
+</code></pre>
+
+<ul>
+<li><code>md5</code>: type 5</li>
+<li><code>scrypt</code>: type 9</li>
+<li><code>sha256</code>: type 8 - Password-based key derivation function 2 (PBKDF2) with SHA-256</li>
+</ul>
+<pre><code>username &lt;username&gt; algorithm-type {md5 | scrypt | sha256} secret &lt;unencrypted-password&gt;
+</code></pre>
+
+<h3 id="securing-line-access">Securing Line Access</h3>
+<p>Use only <code>login local</code> and SSH for vty:</p>
+<pre><code>username Bob algorithm-type scrypt secret cisco54321
+line con 0
+ login local
+ exit
+line aux 0
+ login local
+ exit
+line vty 0 4
+ login local
+ transport input ssh
+</code></pre>
+
+<h3 id="banner-configuration">Banner Configuration</h3>
+<pre><code>banner {motd | exec | login} &lt;delimiter&gt;&lt;message...&gt;&lt;delimiter&gt;
+</code></pre>
+
+<h3 id="login-enhancement-configuration">Login Enhancement Configuration</h3>
+<pre><code>login block-for &lt;seconds&gt; attempts &lt;tries&gt; within &lt;seconds&gt;
+login quiet-mode access-class {acl-name|acl-number}
+login delay &lt;seconds&gt;       ! Default is 1 second
+login on-success log [every &lt;login&gt;]
+login on-failure log [every &lt;login&gt;]
+</code></pre>
+
+<ul>
+<li>Note that <code>login block-for</code> should be issued before other login commands.</li>
+<li>Helps provide DoS detection and prevention.</li>
+</ul>
+<p>Examples</p>
+<pre><code>login block-for 15 attempts 5 within 60
+ip access-list standard PERMIT-ADMIN
+ remark Permit only Administrative hosts
+ permit 192.168.10.10
+ permit 192.168.11.10
+ exit
+login quiet-mode access-class PERMIT-ADMIN
+login delay 10
+login on-success log
+login on-failure log
+</code></pre>
+
+<ul>
+<li>When quiet mode is enabled, all login attempts, including valid administrative access, are not permitted, but is overridden using <code>login quiet-mode access-class &lt;ACL&gt;</code> for a created ACL.</li>
+</ul>
+<h3 id="logging-failed-attempts">Logging Failed Attempts</h3>
+<pre><code>login on-success log [every &lt;login&gt;]
+login on-failure log [every &lt;login&gt;]
+security authentication failure rate threshold-rate log
+
+show login
+show login failures
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../S02-2_Securing_Cisco_IOS_and_Configuration/" class="btn btn-neutral float-right" title="S02 2 Securing Cisco IOS and Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../CCNA2/VLAN_Configuration/" class="btn btn-neutral" title="VLAN Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../CCNA2/VLAN_Configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../S02-2_Securing_Cisco_IOS_and_Configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
