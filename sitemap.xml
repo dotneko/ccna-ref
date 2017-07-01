@@ -18,59 +18,9 @@
     
 
     
-    <url>
-     <loc>/CCNA2_Cmdline/</loc>
-     <lastmod>2017-06-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-        
-    <url>
-     <loc>/CCNA2/Access_Control_Lists/</loc>
-     <lastmod>2017-06-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
         
     <url>
      <loc>/CCNA2/Basic_Configuration/</loc>
-     <lastmod>2017-06-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/CCNA2/DHCP_Configuration/</loc>
-     <lastmod>2017-06-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/CCNA2/Device_Discovery_Mx/</loc>
-     <lastmod>2017-06-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/CCNA2/Dynamic_Routing/</loc>
-     <lastmod>2017-06-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/CCNA2/Miscellaneous/</loc>
-     <lastmod>2017-06-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/CCNA2/NAT_Port_Forwarding/</loc>
-     <lastmod>2017-06-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/CCNA2/SSH_and_Port_Security/</loc>
      <lastmod>2017-06-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -82,11 +32,61 @@
     </url>
         
     <url>
+     <loc>/CCNA2/Dynamic_Routing/</loc>
+     <lastmod>2017-06-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/CCNA2/SSH_and_Port_Security/</loc>
+     <lastmod>2017-06-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/CCNA2/VLAN_Configuration/</loc>
      <lastmod>2017-06-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/CCNA2/Access_Control_Lists/</loc>
+     <lastmod>2017-06-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/CCNA2/DHCP_Configuration/</loc>
+     <lastmod>2017-06-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/CCNA2/NAT_Port_Forwarding/</loc>
+     <lastmod>2017-06-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/CCNA2/Device_Discovery_Mx/</loc>
+     <lastmod>2017-06-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/CCNA2/Miscellaneous/</loc>
+     <lastmod>2017-06-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>/Cisco_Voice-Notes/</loc>
+     <lastmod>2017-06-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
     
 
     

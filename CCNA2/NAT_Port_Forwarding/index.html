@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>NAT Port Forwarding - CCNA Reference</title>
+  <title>NAT and Port Forwarding for IPv4 - CCNA Journal</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "NAT Port Forwarding";
+    var mkdocs_page_name = "NAT and Port Forwarding for IPv4";
     var mkdocs_page_input_path = "CCNA2/NAT_Port_Forwarding.md";
     var mkdocs_page_url = "/CCNA2/NAT_Port_Forwarding/";
   </script>
@@ -35,7 +35,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> CCNA Reference</a>
+        <a href="../.." class="icon icon-home"> CCNA Journal</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -54,33 +54,20 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../CCNA1_Cmdline/">CCNA1 Cmdline</a>
+    <a class="" href="../../CCNA1_Cmdline/">CCNA 1 Commands</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../CCNA2_Cmdline/">CCNA2 Cmdline</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">CCNA2</span>
+    <span class="caption-text">CCNA 2 Commands</span>
     <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../Access_Control_Lists/">Access Control Lists</a>
-                </li>
                 <li class="">
                     
     <a class="" href="../Basic_Configuration/">Basic Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../DHCP_Configuration/">DHCP Configuration</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../Device_Discovery_Mx/">Device Discovery Mx</a>
+    <a class="" href="../Static_Routing/">Static Routing</a>
                 </li>
                 <li class="">
                     
@@ -88,11 +75,23 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../Miscellaneous/">Miscellaneous</a>
+    <a class="" href="../SSH_and_Port_Security/">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Access_Control_Lists/">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../DHCP_Configuration/">DHCP</a>
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">NAT Port Forwarding</a>
+    <a class="current" href="./">NAT and Port Forwarding for IPv4</a>
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#nat-terminology">NAT Terminology</a></li>
@@ -131,38 +130,39 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../SSH_and_Port_Security/">SSH and Port Security</a>
+    <a class="" href="../Device_Discovery_Mx/">Device Discovery and Management</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Static_Routing/">Static Routing</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../VLAN_Configuration/">VLAN Configuration</a>
+    <a class="" href="../Miscellaneous/">Miscellaneous</a>
                 </li>
     </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">CCNAS</span>
+    <a class="" href="../../Cisco_Voice-Notes/">Cisco Voice Basics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA Security</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../CCNAS/S02-1_Securing_Network_Devices/">S02 1 Securing Network Devices</a>
+    <a class="" href="../../CCNAS/S02-1_Securing_Network_Devices/">Securing Network Devices</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/">S02 2 Securing Cisco IOS and Configuration</a>
+    <a class="" href="../../CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/">Securing Cisco IOS and Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../CCNAS/S02-3_AutoSecure_and_Routing_Authentication/">S02 3 AutoSecure and Routing Authentication</a>
+    <a class="" href="../../CCNAS/S02-3_AutoSecure_and_Routing_Authentication/">AutoSecure and Routing Authentication</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../CCNAS/S03_Basic_AAA_Configuration/">S03 Basic AAA Configuration</a>
+    <a class="" href="../../CCNAS/S03_Basic_AAA_Configuration/">Basic AAA Configuration</a>
                 </li>
     </ul>
 	    </li>
@@ -177,7 +177,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">CCNA Reference</a>
+        <a href="../..">CCNA Journal</a>
       </nav>
 
       
@@ -189,11 +189,11 @@
     
       
         
-          <li>CCNA2 &raquo;</li>
+          <li>CCNA 2 Commands &raquo;</li>
         
       
     
-    <li>NAT Port Forwarding</li>
+    <li>NAT and Port Forwarding for IPv4</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -337,10 +337,10 @@ interface &lt;outside-interface-id&gt;
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../SSH_and_Port_Security/" class="btn btn-neutral float-right" title="SSH and Port Security">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Device_Discovery_Mx/" class="btn btn-neutral float-right" title="Device Discovery and Management">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../Miscellaneous/" class="btn btn-neutral" title="Miscellaneous"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../DHCP_Configuration/" class="btn btn-neutral" title="DHCP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -366,10 +366,10 @@ interface &lt;outside-interface-id&gt;
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../Miscellaneous/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../DHCP_Configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../SSH_and_Port_Security/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Device_Discovery_Mx/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Cisco Voice Basics - CCNA Journal</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Cisco Voice Basics";
+    var mkdocs_page_input_path = "Cisco_Voice-Notes.md";
+    var mkdocs_page_url = "/Cisco_Voice-Notes/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> CCNA Journal</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../CCNA1_Cmdline/">CCNA 1 Commands</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA 2 Commands</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../CCNA2/Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CCNA2/Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CCNA2/Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CCNA2/SSH_and_Port_Security/">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CCNA2/VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CCNA2/Access_Control_Lists/">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CCNA2/DHCP_Configuration/">DHCP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CCNA2/NAT_Port_Forwarding/">NAT and Port Forwarding for IPv4</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CCNA2/Device_Discovery_Mx/">Device Discovery and Management</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CCNA2/Miscellaneous/">Miscellaneous</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Cisco Voice Basics</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#vlan-concepts-and-configuration">VLAN Concepts and Configuration</a></li>
+    
+
+    <li class="toctree-l2"><a href="#understanding-voice-vlans">Understanding Voice VLANs</a></li>
+    
+
+    <li class="toctree-l2"><a href="#understanding-the-cisco-ip-phone-boot-process">Understanding the Cisco IP Phone Boot Process</a></li>
+    
+
+    <li class="toctree-l2"><a href="#vlan-configuration">VLAN Configuration</a></li>
+    
+
+    <li class="toctree-l2"><a href="#configuring-a-router-based-dhcp-server">Configuring a Router-based DHCP Server</a></li>
+    
+
+    <li class="toctree-l2"><a href="#setting-the-time">Setting the Time</a></li>
+    
+
+    <li class="toctree-l2"><a href="#set-the-clock-via-ntp">Set the Clock via NTP</a></li>
+    
+
+    <li class="toctree-l2"><a href="#ip-phone-registration">IP Phone Registration</a></li>
+    
+
+    <li class="toctree-l2"><a href="#preparing-the-cme-router-for-cisco-configuration-professional">Preparing the CME Router for Cisco Configuration Professional</a></li>
+    
+
+    <li class="toctree-l2"><a href="#enable-the-cme-gui">Enable the CME GUI</a></li>
+    
+
+    <li class="toctree-l2"><a href="#concepts-of-ephones-and-ephone-dns">Concepts of Ephones and Ephone-DNs</a></li>
+    
+
+    <li class="toctree-l2"><a href="#sccp-versus-sip">SCCP versus SIP</a></li>
+    
+
+    <li class="toctree-l2"><a href="#managing-the-telephony-service-via-the-command-line">Managing the Telephony Service via the Command Line</a></li>
+    
+
+    <li class="toctree-l2"><a href="#basic-configuration-of-cme-router-to-support-cisco-ip-phones">Basic configuration of CME router to support Cisco IP Phones</a></li>
+    
+
+    <li class="toctree-l2"><a href="#configure-auto-registration-and-auto-dn-assignment">Configure auto-registration and auto-dn-assignment:</a></li>
+    
+
+    <li class="toctree-l2"><a href="#configuring-e-phone-directory-numbers-ephone-dn">Configuring E-Phone Directory Numbers (ephone-dn)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#configuring-ephones">Configuring Ephones</a></li>
+    
+
+    <li class="toctree-l2"><a href="#miscellaneous-commands">Miscellaneous Commands</a></li>
+    
+
+    <li class="toctree-l2"><a href="#verification-and-troubleshooting">Verification and Troubleshooting</a></li>
+    
+
+    <li class="toctree-l2"><a href="#understanding-the-cme-dial-plan">Understanding the CME Dial Plan</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#configuring-physical-voice-port-characteristics">Configuring Physical Voice Port Characteristics</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#configuring-analog-voice-ports">Configuring Analog Voice Ports</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#fxs-foreign-exchange-station-ports">FXS (Foreign Exchange Station) Ports</a></li>
+        
+            <li><a class="toctree-l3" href="#fxo-foreign-exchange-office-ports">FXO (Foreign Exchange Office) Ports</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#configuring-digital-voice-ports">Configuring Digital Voice Ports</a></li>
+    
+
+    <li class="toctree-l2"><a href="#understanding-and-configuring-dial-peers">Understanding and Configuring Dial Peers</a></li>
+    
+
+    <li class="toctree-l2"><a href="#voice-call-legs">Voice Call Legs</a></li>
+    
+
+    <li class="toctree-l2"><a href="#configuring-pots-dial-peers">Configuring POTS Dial Peers</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#dealing-with-automatic-digit-stripping-of-pots-dial-peers">Dealing with automatic digit-stripping of POTS dial peers</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#configuring-voip-dial-peers">Configuring VoIP Dial Peers</a></li>
+    
+
+    <li class="toctree-l2"><a href="#using-dial-peer-wildcards">Using Dial Peer Wildcards</a></li>
+    
+
+    <li class="toctree-l2"><a href="#private-line-automatic-ringdown-plar">Private Line Automatic Ringdown (PLAR)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#understanding-router-call-processing-and-digit-manipulation">Understanding Router Call Processing and Digit Manipulation</a></li>
+    
+
+    <li class="toctree-l2"><a href="#matching-inbound-and-outbound-dial-peers">Matching Inbound and Outbound Dial Peers</a></li>
+    
+
+    <li class="toctree-l2"><a href="#failover-implementation">Failover Implementation</a></li>
+    
+
+    <li class="toctree-l2"><a href="#transforming-dialed-numbers">Transforming Dialed Numbers</a></li>
+    
+
+    <li class="toctree-l2"><a href="#specific-pots-lines-for-emergency-calls">Specific POTS Lines for Emergency Calls</a></li>
+    
+
+    <li class="toctree-l2"><a href="#using-ccp-to-configure-a-cme-dial-plan">Using CCP to Configure a CME Dial Plan</a></li>
+    
+
+    <li class="toctree-l2"><a href="#understanding-and-implementing-cme-class-of-restriction-cor">Understanding and Implementing CME Class of Restriction (COR)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#quality-of-service">Quality of Service</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#using-cisco-autoqos">Using Cisco AutoQoS</a></li>
+        
+            <li><a class="toctree-l3" href="#configuring-manual-local-directory-entries">Configuring Manual Local Directory Entries</a></li>
+        
+            <li><a class="toctree-l3" href="#forwarding-calls">Forwarding Calls</a></li>
+        
+            <li><a class="toctree-l3" href="#configuring-call-transfers">Configuring Call Transfers</a></li>
+        
+            <li><a class="toctree-l3" href="#configuring-call-park">Configuring Call Park</a></li>
+        
+            <li><a class="toctree-l3" href="#misc-enabling-voice-in-router-2911-packet-tracer">Misc: Enabling Voice in Router 2911 (Packet Tracer)</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../CCNAS/S02-1_Securing_Network_Devices/">Securing Network Devices</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/">Securing Cisco IOS and Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CCNAS/S02-3_AutoSecure_and_Routing_Authentication/">AutoSecure and Routing Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../CCNAS/S03_Basic_AAA_Configuration/">Basic AAA Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">CCNA Journal</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Cisco Voice Basics</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="vlan-concepts-and-configuration">VLAN Concepts and Configuration</h3>
+<ul>
+<li><strong>VLAN</strong>: a layer 3 segmentation performed at layer 2 (by a switch).</li>
+<li>A VLAN = a broadcast domain = an IP subnet</li>
+<li>Recommended to isolate IP phones in VLANs dedicated to voice devices.</li>
+<li>Trunk ports (tagged ports) facilitate transmission of VLAN-tagged frames between switches.</li>
+<li>Protocol in common usage for VLANs is IEEE 802.1Q.</li>
+</ul>
+<h3 id="understanding-voice-vlans">Understanding Voice VLANs</h3>
+<ul>
+<li>Recommended practice to separate voice and data traffic using VLANs:<ul>
+<li>Provides additional security layer.</li>
+<li>Simpler method to deploy Qos - prioritizing voice traffic over data.</li>
+</ul>
+</li>
+<li>Secure Real-Time Protocol (SRTP) can be used to encrypt audo.</li>
+<li>Cisco IP Phones:<ul>
+<li>Hardware similar to a full Cisco switch.</li>
+<li>Incoming switchport able to receive and send 802.1Q tagged packets - provides capability to establish a special <strong>multi-VLAN access port</strong>.</li>
+<li>Connection between switch and IP phone is like a <em>"mini-trunk"</em>: the IP phone tags its own packets with the correct voice VLAN, while in-transit data packets from the PC to switch are untagged. Switch would assign the untagged packets to whatever VLAN you have configured on the switchport for data traffic, at ingress.</li>
+</ul>
+</li>
+</ul>
+<h3 id="understanding-the-cisco-ip-phone-boot-process">Understanding the Cisco IP Phone Boot Process</h3>
+<ol>
+<li>Cisco IP phone connects to ethernet switch port; receives power via PoE if available.</li>
+<li>After powering on, Cisco switch delivers voice VLAN information to IP phone using <em>CDP</em>.</li>
+<li>Cisco IP phone broadcasts a <em>DHCP</em> request (within voice VLAN).</li>
+<li>DHCP server responds with an IP address offer. <code>Option 150</code> is required for Cisco IP phones, which directs it to a TFTP server.</li>
+<li>Cisco IP phone contacts the <em>TFTP server and downloads a .XML configuration file</em>, which  includes a list of valid call processing agents. (e.g. CUCM or CME). The configuration file contains a list of up to three CUCM server or CME IP addresses the Cisco IP phone uses for registration.</li>
+<li>Cisco IP phone <em>attempts to register</em> with a call processing server from those listed in the configuration file (e.g. CUCM or CME).</li>
+</ol>
+<h3 id="vlan-configuration">VLAN Configuration</h3>
+<p>Add VLANs to the switch:</p>
+<pre><code>vlan 10
+  name VOICE
+vlan 50
+  name DATA
+end
+</code></pre>
+
+<p>Assign ports connecting to Cisco IP phones:</p>
+<pre><code>interface range f0/2-24
+  switchport mode access
+  spanning-tree portfast
+  switchport access vlan 50
+  switchport voice vlan 10
+end
+</code></pre>
+
+<ul>
+<li>Note that the assumption above is that interface f0/1 is a trunk port to the router.</li>
+</ul>
+<h3 id="configuring-a-router-based-dhcp-server">Configuring a Router-based DHCP Server</h3>
+<pre><code>ip dhcp excluded-address 172.16.1.1 172.16.1.9
+ip dhcp excluded-address 172.16.2.1 172.16.2.9
+
+ip dhcp pool DATA_SCOPE
+  network 172.16.2.0 255.255.255.0
+  default-router 172.16.2.1
+  option 150 ip 172.16.1.1
+  dns-server 4.2.2.2
+exit
+ip dhcp pool VOICE_SCOPE
+  network 172.16.1.0 255.255.255.0
+  default-router 172.16.1.1
+  option 150 ip 172.16.1.1      ! IP address of TFTP server for config-files
+  dns-server 4.2.2.2
+exit
+</code></pre>
+
+<ul>
+<li>Use <code>ip helper-address &lt;central DHCP server IP address&gt;</code> on the interface for case of when want the router to forward DHCP requests to a central DHCP server for the voice VLAN devices.</li>
+<li>XML configuration files are named <code>SEP&lt;IP Phone MAC Address&gt;.cnf.xml</code>; if none exist, a <em>base configuration file</em> named <code>XMLDefault.cnf.xml</code> is requested for <em>Auto-Registration</em>.</li>
+<li>To store cnf-file on an external TFTP server in CME 4.0+:</li>
+</ul>
+<pre><code>cnf-file location tftp://&lt;ip address of TFTP server&gt;
+</code></pre>
+
+<h3 id="setting-the-time">Setting the Time</h3>
+<pre><code>clock set hh:mm:ss MMM DD YYYY
+</code></pre>
+
+<h3 id="set-the-clock-via-ntp">Set the Clock via NTP</h3>
+<pre><code>ntp server &lt;ip address of NTP server&gt;
+clock timezone &lt;name&gt; &lt;hours from UTC&gt;
+
+show ntp associations
+show clock
+</code></pre>
+
+<p>To allow other devices such as a CUCM server to pull date and time information from a Cisco router using NTP:</p>
+<pre><code>ntp master &lt;stratum number&gt;
+</code></pre>
+
+<ul>
+<li>Stratum 1 time server is one that has a radio or atomic clock directly attached.</li>
+<li>Stratum 2 time server is one that receives its time from the stratum 1 time server.</li>
+</ul>
+<h3 id="ip-phone-registration">IP Phone Registration</h3>
+<ul>
+<li>If IP phone finds an active server in the list from the configuration file, it goes through the registration process using either of (depending on firmware of IP phone):<ul>
+<li>Skinny Client Control Protocol (SCCP)</li>
+<li>Session Initiation Protocol (SIP)</li>
+</ul>
+</li>
+</ul>
+<p>Registration process:</p>
+<ol>
+<li>Cisco IP phone contacts call processing server and identifies itself via MAC address.</li>
+<li>Call processing server looks at database and sends <em>operating configuration</em> to the phone: contains items such as directory/line numbers, ring tones, softkey layout.</li>
+<li>Signaling protocol is then used for majority of phone functionality following registration (SCCP or SIP).</li>
+</ol>
+<h3 id="preparing-the-cme-router-for-cisco-configuration-professional">Preparing the CME Router for Cisco Configuration Professional</h3>
+<p>Check for telephony service and registered ephones</p>
+<pre><code>show telephony-service
+show ephone registered
+
+!! Enable or enter telephony configuration
+
+configure terminal
+ telephony-service
+</code></pre>
+
+<p>Four key elements for getting CCP to work:</p>
+<ul>
+<li>Reachable IP address</li>
+<li>Level username and password</li>
+<li>Integrated HTTP services</li>
+<li>Local authentication for Telnet/SSH</li>
+</ul>
+<pre><code>configure terminal
+interface g0/0
+  ip address &lt;ip-address&gt; &lt;netmask&gt;
+  no shutdown
+  exit
+username &lt;name&gt; privilege 15 secret &lt;password&gt;
+
+ip http server
+ip http secure-server
+
+line vty 0 15
+  login local
+  transport input telnet ssh
+  end
+</code></pre>
+
+<ul>
+<li><a href="https://software.cisco.com/download/release.html?mdfid=281795035&amp;softwareid=282159854&amp;release=3.3.1&amp;relind=AVAILABLE&amp;rellifecycle=&amp;reltype=latest">Latest version of Cisco Configuration Professional 3.x</a></li>
+</ul>
+<h3 id="enable-the-cme-gui">Enable the CME GUI</h3>
+<pre><code>ip http server
+ip http path &lt;location of CME GUI, e.g. flash:&gt;
+ip http authentication local
+telephony-service
+  web admin system name &lt;username&gt; password &lt;password&gt;  # Configure CME System Administrator
+  dn-webedit            # Enables add directory numbers through web interface
+  time-webedit          # Enables ability to set phone time for CME system
+</code></pre>
+
+<h3 id="concepts-of-ephones-and-ephone-dns">Concepts of Ephones and Ephone-DNs</h3>
+<ul>
+<li><code>ephone</code>: "Ethernet phone"; refers to physical phone hardware, identified by device type and MAC address.</li>
+<li><code>ephone-dn</code>: an extension and association with the user that is required to:<ul>
+<li>provide caller ID for internal calls</li>
+<li>build the system directory</li>
+<li>Allow presence status monitoring of the ephone-dn</li>
+<li>Apply the ephone-dn configuration to the ephone.</li>
+<li>Configuration as either single-line or dual-line:<ul>
+<li>Single-line: make or receive only one call at a time.</li>
+<li>Dual-line: can handle two simultaneous calls; required for call waiting, conference calls, consultative transfers.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="sccp-versus-sip">SCCP versus SIP</h3>
+<ul>
+<li>SCP phone is defined by creating an <code>ephone</code>, associated with an <code>ephone-dn</code>, configured with <code>telephony service</code>.</li>
+<li>SIP phone is defined using a <code>voice register pool</code>, associated with a <code>voice register dn</code>, configured with <code>voice register global</code>.</li>
+</ul>
+<h3 id="managing-the-telephony-service-via-the-command-line">Managing the Telephony Service via the Command Line</h3>
+<pre><code>show telephony-service tftp-bindings
+telephony-service ?
+
+telephony-service   ! Enters config-telephony mode
+</code></pre>
+
+<h3 id="basic-configuration-of-cme-router-to-support-cisco-ip-phones">Basic configuration of CME router to support Cisco IP Phones</h3>
+<pre><code>telephony-service
+ max-dn &lt;max dn-numbers&gt;
+ max-ephones &lt;max number of phones&gt;
+ ip source-address &lt;ipv4 address of Voice VLAN default-router; used by CUCME&gt; port 2000
+ create cnf-files
+</code></pre>
+
+<ul>
+<li>For <code>ip source-address</code> the default TCP port of 200 is used; can be specified with the <code>port 2000</code> option (required in Packet Tracer)</li>
+<li>Best option for the source address is a loopback address, as loopback interfaces are always up.</li>
+</ul>
+<h3 id="configure-auto-registration-and-auto-dn-assignment">Configure auto-registration and auto-dn-assignment:</h3>
+<pre><code>telephony-service
+ auto assign &lt;start-dn&gt; to &lt;end-dn&gt;
+ auto-reg-ephone
+</code></pre>
+
+<h3 id="configuring-e-phone-directory-numbers-ephone-dn">Configuring E-Phone Directory Numbers (ephone-dn)</h3>
+<ul>
+<li><code>Ephone-dn</code>s can be single-line, dual-line or in CUCME 4.1, octo-line.</li>
+<li>Most desk phones use dual-lines to allow call waiting and transferring a caller to a third party, as need 2 audio channels.</li>
+</ul>
+<pre><code>ephone-dn 1 dual-line
+  number &lt;extension number&gt;
+  name &lt;firstname&gt; &lt;lastname&gt;       # Optional
+  exit
+</code></pre>
+
+<pre><code>ephone-dn &lt;ephone-dn-tag-num&gt;     # Enters configuration mode for ephone-dn
+
+ephone-dn 1
+ number 1001
+ exit
+ephone-dn 2 dual-line
+ number 1002 secondary 2041112222
+ exit
+ephone-dn 3
+ number 1003
+ label &lt;name&gt;
+ description &lt;e.g Primary Line&gt;
+ exit
+</code></pre>
+
+<p>Configure ePhone Text Display (config-ephone-dn)</p>
+<pre><code>ephone-dn &lt;tag-num&gt;
+ description &lt;Phone Description&gt;            # Information in header bar
+ label &lt;username&gt; (extension-number)        # Assignes label to text for the line button
+</code></pre>
+
+<h3 id="configuring-ephones">Configuring Ephones</h3>
+<pre><code>ephone &lt;ephone-tag-num&gt;        # Enters configuration mode for ephone
+ mac-address &lt;mac-address-of-phone&gt;
+ button &lt;line-button&gt;:&lt;ephone-dn num&gt;   # Ties first line button to first ephone-dn
+
+! Additional options
+
+ button &lt;line-button&gt;&lt;option&gt;&lt;ephone-dn num&gt;        # Can add options
+ username &lt;username&gt; password &lt;password&gt;            # Assigns user/pass
+</code></pre>
+
+<ul>
+<li>Options for <code>&lt;option&gt;</code> above:</li>
+<li><code>f</code>: feature ring - stutter triple ring</li>
+<li><code>s</code>: silent ring - allows to answer or use a line without having it ring</li>
+<li><code>m</code>: monitor line - allows to monitor status of an extension; button can be used to transfer a call to the extension</li>
+<li>e.g. <code>button 2f4</code>: assigns button 2 to have feature ring for ephone-dn 4's extension.</li>
+</ul>
+<p>Example Ephone Configuration:</p>
+<pre><code>ephone 1
+ mac-address &lt;xxxx.xxxx.xxxx&gt;
+ type 7940
+ auto-line
+ button 1:1         # Associates physical button 1 on phone to ephone-dn 1
+ exit
+
+ephone 1
+ button 1:2 2:1     # Line 1 button assigned to ephone-dn2; Line 2 to ephone-dn1
+ restart            # Updates the phone configuration
+ reset              # Tells phone to completely reboot
+</code></pre>
+
+<p>Assign Users to the Phones</p>
+<pre><code>ephone &lt;num-tag&gt;
+ username &lt;username&gt; password &lt;password&gt;
+ pin 1234
+</code></pre>
+
+<h3 id="miscellaneous-commands">Miscellaneous Commands</h3>
+<p>Resetting default template files manually - if changes to config do not show on the phones:</p>
+<pre><code>no create cnf-files
+create cnf-files
+</code></pre>
+
+<p>To inspect IP Phone Generic Config File</p>
+<pre><code>show telephony-service tftp-bindings
+</code></pre>
+
+<ul>
+<li>Look for <code>XMLDefault.cnf.xml</code> file</li>
+<li>Phone usually requests an <code>SEP&lt;phone-mac-address&gt;.cnf.xml</code> file that contains settings the phone should use.</li>
+</ul>
+<p>Configure System Time in Telephony-Service</p>
+<pre><code>telephony-service
+ time-zone ?            # Displays list of timezones
+ time-zone &lt;timezone num&gt;
+</code></pre>
+
+<p>Configure Banner Message for Phones with a Display</p>
+<pre><code>telephony-service
+ system message ?
+ system message Pod 1   # Displays pod number (config-telephony)
+</code></pre>
+
+<h3 id="verification-and-troubleshooting">Verification and Troubleshooting</h3>
+<pre><code>show ephone attempted-registrations
+show ephone registered
+show ephone
+</code></pre>
+
+<h3 id="understanding-the-cme-dial-plan">Understanding the CME Dial Plan</h3>
+<h5 id="configuring-physical-voice-port-characteristics">Configuring Physical Voice Port Characteristics</h5>
+<p>Show what voice ports router is equipped with:</p>
+<pre><code>show voice port summary
+</code></pre>
+
+<ul>
+<li>Each <code>ephone-dn</code> shows up as an EXFS port.</li>
+</ul>
+<h3 id="configuring-analog-voice-ports">Configuring Analog Voice Ports</h3>
+<h5 id="fxs-foreign-exchange-station-ports">FXS (Foreign Exchange Station) Ports</h5>
+<ul>
+<li>Connect to end-stations: typical analog devices such as telephones, fax machines, modems.</li>
+<li>Three common areas of configuration:<ul>
+<li>Signaling (<code>signal</code>):<ul>
+<li><strong>Loop start</strong>: default; typically used for connecting to analog devices.</li>
+<li><strong>Ground start</strong>: needs to be configured; typically for connecting to PBX equipment.</li>
+</ul>
+</li>
+<li>Call progress tones (<code>cptone</code>): default is US</li>
+<li>Call ID information (<code>station id</code>)</li>
+</ul>
+</li>
+</ul>
+<pre><code>voice-port 0/2/0
+  signal &lt;signaling method&gt;
+
+  cptone ?                      # Displays call progress tone countries
+  cptone &lt;country code&gt;         # Sets call progress tone to country
+
+  station id name &lt;name/description&gt;
+  station id number &lt;number&gt;
+</code></pre>
+
+<h5 id="fxo-foreign-exchange-office-ports">FXO (Foreign Exchange Office) Ports</h5>
+<ul>
+<li>Acts as a trunk to the PSTN central office (CO) or PBX systems.</li>
+<li>Use same commands as FXS ports such as <code>signal</code> and <code>station-id</code>.</li>
+<li>Additional commands: <code>dial-type</code>, <code>ring number</code></li>
+</ul>
+<pre><code>voice-port 0/3/0
+  dial-type &lt; dtmf / pulse &gt;
+  ring number &lt;number&gt;          # Number of rings before router answers incoming call to the FXO port (default = 1)
+</code></pre>
+
+<h3 id="configuring-digital-voice-ports">Configuring Digital Voice Ports</h3>
+<p>Cisco provides digital T1 and E1 ports in the form of voice and WAN interface cards (VWICs) for routers).</p>
+<p>Two types of voice network configurations:</p>
+<ul>
+<li><code>ds0-group</code> for T1/E1 channel associated signalling (CAS).</li>
+<li><code>pri-group</code> for T1/E1 common channel signalling (CCS) connections (commonly referred to as ISDN Primary Rate Interface [PRI]).</li>
+</ul>
+<p>Display configuration for T1:</p>
+<pre><code>show controllers t1
+</code></pre>
+
+<p>Example configuration of a T1 CAS PSTN Interface:</p>
+<pre><code>configure terminal
+controller t1 1/0
+ framing esf        !! esf or sf
+ linecode b8zs      !! b8zs is encoding common in US
+ clock source line  !! free-running | internal | line
+ ds0-group 1 timeslots 1-24 type ?
+</code></pre>
+
+<p>Example configuration of a T1 CCS PSTN Interface:</p>
+<pre><code>isdn switch-type primary-5ess
+controller t1 1/0
+ pri-group timeslots 1-24
+
+</code></pre>
+
+<p>Verify configuration with <code>show voice port summary</code></p>
+<h3 id="understanding-and-configuring-dial-peers">Understanding and Configuring Dial Peers</h3>
+<ul>
+<li><strong>Dial peers</strong>: similar to static routes but for the voice network - by default, the CME router only knows how to reach the <code>ephone dn</code>s you configure for Cisco IP phones.<ul>
+<li>Define voice reachability information, i.e. phone numbers you can dial.</li>
+<li>Using a dial peer, you can assign one or more phone numbers to a device.</li>
+<li>Allows wildcards to define ranges of phone numbers.</li>
+</ul>
+</li>
+<li>One can connect the CME router to any number of FXS, FXO, or digital T1/E1 connections.</li>
+<li>Internal dialing is through <code>ephone</code>, external dialing is through <em>dial-peers</em>.</li>
+</ul>
+<p>Two primary types of dial peers:</p>
+<ul>
+<li><strong>Plain old telephone service (POTS) dial peer</strong>: defines voice reachability information for any traditional voice connection.</li>
+<li><strong>Voice over IP (VoIP) dial peer</strong>: voice reachability information for any VoIP connection.</li>
+</ul>
+<h3 id="voice-call-legs">Voice Call Legs</h3>
+<ul>
+<li>A call leg represents a connection to or from a voice gateway from a POTS or VoIP source.</li>
+<li>Each call leg represents a dial peer that must exist on the router; these dial peers define not only the reachability information (phone numbers) for the devices, but also the path the audio must travel.</li>
+<li>Call legs are matched on both the inbound and outbound directions; dial peers must be configured to match voice traffic in both inbound and outbound directions.</li>
+</ul>
+<h3 id="configuring-pots-dial-peers">Configuring POTS Dial Peers</h3>
+<ul>
+<li>Defines reachability information for anything from traditional telephony: devices connected to FXO, FXS, E&amp;M, and digital BRI/T1/E1. These connected devices do not have an IP address.</li>
+</ul>
+<pre><code>dial-peer voice &lt;number-tag&gt; pots
+ destination-pattern &lt;prefix or full telephone number&gt;
+ port 0/0/0
+ exit
+</code></pre>
+
+<p>Verifying dial-peers:</p>
+<pre><code>show dial-peer voice
+show dial-peer voice summary
+</code></pre>
+
+<p>Debugging dial-peers:</p>
+<pre><code>debug voip dialpeer
+</code></pre>
+
+<p>Configuring a POTS Dial Peer for a T1 interface</p>
+<pre><code>dial-peer voice 2000 pots
+ destination-pattern 2...
+ no digit-strip
+ port 1/0:23
+</code></pre>
+
+<ul>
+<li>With POTS dial peers, the router automatically strips any explicitly defined digits before forwarding the call. E.g. 9....... =&gt; 9 is stripped before forwarding the remaining digits to the PSTN.</li>
+<li>VoIP dial peers do not automatically strip digits.</li>
+</ul>
+<h5 id="dealing-with-automatic-digit-stripping-of-pots-dial-peers">Dealing with automatic digit-stripping of POTS dial peers</h5>
+<p>Example of configuration of a North American PSTN dial plan on a router, where the T1 CAS voice port 1/0:1 is connected to the PSTN, and internal users must dial 9 for outside PSTN access.</p>
+<pre><code>dial-peer voice 90 pots
+ description Service dialing
+ destination-pattern 9[469]11
+ forward-digits 3
+ port 1/0:1
+ exit
+
+dial-peer voice 91 pots
+ description 10-digit dialing
+ destination-pattern 9[2-9]..[2..9]......
+ port 1/0:1
+ exit
+
+dial-peer voice 92 pots
+ description 11-digit dialing
+ destination-pattern 91[2-9]..[2-9]......
+ forward-digits 11
+ port 1/0:1
+ exit
+
+dial-peer voice 93 pots
+ description International dialing
+ destination-pattern 9011T
+ prefix 011
+ port 1/0:1
+ exit
+</code></pre>
+
+<ul>
+<li><code>forward-digits &lt;number&gt;</code> specifies number of right-justified digits to forward.</li>
+<li><code>prefix &lt;number&gt;</code> adds specified digits before forwarding.</li>
+</ul>
+<h3 id="configuring-voip-dial-peers">Configuring VoIP Dial Peers</h3>
+<p>Example:</p>
+<pre><code>dial-peer voice 2000 voip
+ destination-pattern 2...
+ session target ipv4:&lt;ip address of next-hop&gt;
+ codec g711ulaw         ! Optional; default is G.729
+
+</code></pre>
+
+<ul>
+<li>Note that calls will fail if there is a <strong>codec mismatch</strong> - when codec values do not match between two routers.</li>
+</ul>
+<h3 id="using-dial-peer-wildcards">Using Dial Peer Wildcards</h3>
+<pre><code>.   Period      Matches any dialed digit or the * key on telephone keypad
++   Plus        Matches one or more instances of the preceding digit
+[]  Brackets    Matches a range of digits; ^ before a digit designates &quot;do not match&quot;
+T   Any         Matches any number of dialed digits (from 0-32)
+,   Comma       Inserts a 1-second pause between dialed digits.
+</code></pre>
+
+<ul>
+<li>To match a destination pattern of any using T, the destination should be created as <code>.T</code>,</li>
+</ul>
+<p>See P.134 Table 6-4 and 6-5 for example bracket wildcards / PSTN destination patterns for North America.</p>
+<h3 id="private-line-automatic-ringdown-plar">Private Line Automatic Ringdown (PLAR)</h3>
+<ul>
+<li>PLAR configurations rely heavily on existing dial peers to complete a call.</li>
+<li>Ports configured with PLAR capabilities automatically dial a number as soon as the port detects an off-hook signal.</li>
+<li>Configuring PLAR connections are useful for <em>incoming calls for analog FXO trunks</em></li>
+</ul>
+<p>Example to hard-code FXS voice port 0/0/0 to dial 1102 when the user lifts the handset:</p>
+<pre><code>voice-port 0/0/0
+ connection plar 1102
+
+ connection plar opx 1101
+</code></pre>
+
+<ul>
+<li>With <code>plar opx</code>, voice port does not answer until the remote side has answered. If you are transferring to an extension over which you have no control (an off premise extension), it's beneficial for the port to wait to answer the call until it knows the far end is going to answer. This keeps the gateway from answering a call and then having nowhere to route it. (<a href="https://supportforums.cisco.com/discussion/10072041/connection-plar-vs-connection-plar-opx">Source</a>)</li>
+</ul>
+<h3 id="understanding-router-call-processing-and-digit-manipulation">Understanding Router Call Processing and Digit Manipulation</h3>
+<p>Two primary rules:</p>
+<ul>
+<li>The most specific destination pattern always wins.</li>
+<li>When a match is found, the router immediately processes the call.</li>
+</ul>
+<p>To test which dial peer will match a specific string:</p>
+<pre><code>show dialplan number &lt;number to test&gt;
+</code></pre>
+
+<h3 id="matching-inbound-and-outbound-dial-peers">Matching Inbound and Outbound Dial Peers</h3>
+<p>When a router receives a voice call, it must always match a dial peer in some way for the router to process the call.</p>
+<p>A router matches inbound dial peers through the following five methods:</p>
+<ol>
+<li>Match the dialed number (DNIS) using the <code>incoming called-number</code> dial-peer config.</li>
+<li>Match the caller ID info (ANI) using the <code>answer-address</code> dial-peer config.</li>
+<li>Match the caller ID info (ANI) using the <code>destination-pattern</code> dial-peer config.</li>
+<li>Match an incoming POTS dial peer using the <code>port dial-peer configuration</code> command.</li>
+<li>If no match has been found using the previous four methods, use <em>dial peer 0</em>.</li>
+</ol>
+<p><strong>Dial peer 0</strong> is like a default gateway dial peer that appears when there is no dial peer match (only for inbound dial peers, not for outbound dial peers).</p>
+<h3 id="failover-implementation">Failover Implementation</h3>
+<p>Using the <code>preference</code> command allows the router to determine which dial peer to use when destination patterns are identical.</p>
+<pre><code>dial-peer voice 10 voip
+ destination-pattern 6...
+ ! ...
+ preference 0
+ exit
+dial-peer voice 11 pots
+ destination-pattern 6...
+ ! ...
+ preference 1
+ exit
+</code></pre>
+
+<h3 id="transforming-dialed-numbers">Transforming Dialed Numbers</h3>
+<p>Using <code>num-exp</code> global configuration command universally transforms the dialed number 0 (anywhere in an organization) to 5000, then would search for a dial peer allowing it to reach 5000.</p>
+<pre><code>voice-port 1/0/1
+ connection plar 0
+ exit
+num-exp 0 5000
+</code></pre>
+
+<h3 id="specific-pots-lines-for-emergency-calls">Specific POTS Lines for Emergency Calls</h3>
+<p>Configure a dedicated FXO port for one local PSTN connection for emergency calling:</p>
+<pre><code>dial-peer voice 10 pots
+ destination-pattern 911
+ port 1/0/0
+ no digit-strip
+ exit
+
+! Second dial-peer for those accustomed to dialing 9 before 911
+dial-peer voice 11 pots
+ destination-pattern 9911
+ port 1/0/0
+ forward-digits 3
+</code></pre>
+
+<h3 id="using-ccp-to-configure-a-cme-dial-plan">Using CCP to Configure a CME Dial Plan</h3>
+<h1 id="understanding-and-implementing-cme-class-of-restriction-cor">Understanding and Implementing CME Class of Restriction (COR)</h1>
+<p>Calling restrictions on users of the VoIP network are carried out through:</p>
+<ul>
+<li><strong>Partitions &amp; Calling Search Spaces (CCS)</strong> when using the full CUCM platform.</li>
+<li><strong>Class of Restriction</strong> lists (incoming and outcoming) in the CME environment.</li>
+</ul>
+<p>Steps in COR List Implementations</p>
+<ol>
+<li>Define the COR tags to be used for restrictions.</li>
+<li>Create the outbound COR lists.</li>
+<li>Create the inbound COR lists.</li>
+<li>Assign the outbound COR lists.</li>
+<li>Assign the inbound COR lists.</li>
+</ol>
+<p>Example:</p>
+<pre><code>configure terminal
+dial-peer cor custom
+ name 911
+ name LOCAL
+ name LD
+exit
+</code></pre>
+
+<p>Create Outgoing COR Lists:</p>
+<ul>
+<li>"For this COR list to allow the call, the caller must be assigned the <em>member xxx</em> tag."</li>
+</ul>
+<pre><code>dial-peer cor list 911-CALL
+ member 911
+ exit
+dial-peer cor list LOCAL-CALL
+ member LOCAL
+ exit
+dial-peer cor list LD-CALL
+ member LD
+ exit
+</code></pre>
+
+<p>Create Incoming COR Lists:</p>
+<ul>
+<li>"Anyone assigned to this COR list can call dial peers requiring the <em>member xxx</em> tag."</li>
+<li>"I will assign these <em>member xxx tags</em> to a caller, which grant the ability to place a call."</li>
+</ul>
+<pre><code>dial-peer cor list 911-ONLY
+ member 911
+ exit
+dial-peer cor list 911-LOCAL
+ member 911
+ member LOCAL
+ exit
+dial-peer cor list 911-LOCAL-LD
+ member 911
+ member LOCAL
+ member LD
+ exit
+</code></pre>
+
+<p>Assigning Outbound and Inbound COR Lists:</p>
+<pre><code>dial-peer voice 10 pots
+ corlist outgoing 911-CALL
+ exit
+dial-peer voice 11 pots
+ corlist outgoing LOCAL-CALL
+ exit
+dial-peer voice 12 pots
+ corlist outgoing LD-CALL
+ exit
+ephone-dn1
+ corlist incoming 911-ONLY
+ exit
+ephone-dn2
+ corlist incoming 911-LOCAL
+ exit
+ephone-dn3
+ corlist incoming 911-LOCAL-LD
+ exit
+</code></pre>
+
+<h1 id="quality-of-service">Quality of Service</h1>
+<ul>
+<li>Definition of QoS: the ability of the network to provide better or special service to a set of users and applications at the expense of other users and applications.</li>
+<li>Voice traffic must have priority over data traffic for VoIP network operations.</li>
+</ul>
+<h3 id="using-cisco-autoqos">Using Cisco AutoQoS</h3>
+<ul>
+<li>Deploys a template QoS configuration in line with Cisco QoS best practices, based on the bandwidth and encapsulation you configured under each of your router or switch interfaces.</li>
+<li>Uses CDP to detect Cisco IP phones on Cisco switches and properly configure QoS settings.</li>
+<li>Uses LLQ</li>
+</ul>
+<p>Multiple advantages of AutoQoS to manual QoS configuration:</p>
+<ul>
+<li>Reduces time of deployment</li>
+<li>Provides configuration consistency</li>
+<li>Reduces deployment cost</li>
+<li>Allows manual tuning</li>
+</ul>
+<p>A <strong>trust boundary</strong> must first be established before deployment of AutoQoS.</p>
+<ul>
+<li>A trust boundary is the point of the tnetwork where you begin trusting that the network traffic is accurately identified with the correct QoS marking.</li>
+<li>Cisco IP phones have the ability to mark their own traffic as high priority and strip any high priority markings from traffic sent by the attached PC.</li>
+</ul>
+<h5 id="configuring-autoqos">Configuring AutoQoS</h5>
+<ul>
+<li>Identify interface to which applying QoS makes sense: <code>interface &lt;interface-id&gt;</code></li>
+<li>For router serial interfaces, ensure correct bandwidth statement is entered, as the router cannot auto-detect the actual speed of a WAN connection.</li>
+</ul>
+<pre><code>auto qos ?
+</code></pre>
+
+<p>Enable trust boundary if CDP detects a Cisco IP phone or Cisco IP Communicator (Switch):</p>
+<pre><code>auto qos voip cisco-phone
+auto qos voip cisco-softphone
+</code></pre>
+
+<p>Trust markings from interface no matter what device (e.g. router - switch); does not rely on CDP:</p>
+<pre><code>auto qos voip trust
+</code></pre>
+
+<p>Use AutoQoS without trusting any existing markings on packets; router would re-mark all traffic using access lists or Network-Based Application Recognition (NBAR) to identify traffic (higher processor-utilization tasks):</p>
+<pre><code>auto qos voip     # Router or Layer 3 switch
+</code></pre>
+
+<p>CoS: Class of Service - marking that exists in the layer 2 header of a frame.
+ToS: Type of Service - marking that exists in the layer 3 header of a packet.</p>
+<h3 id="configuring-manual-local-directory-entries">Configuring Manual Local Directory Entries</h3>
+<pre><code>telephony-service
+ directory ?
+
+ directory first-name-last
+ directory last-name-first
+
+ directory entry &lt;directory-entry-tag&gt; &lt;ephone-dn&gt; name &lt;dir-name&gt;
+</code></pre>
+
+<h3 id="forwarding-calls">Forwarding Calls</h3>
+<pre><code>ephone-dn &lt;tag&gt;
+ call-forward all               ! forward all calls
+ call-forward busy              ! forward calls on busy
+ call-forward max-length        ! num digits allowed for CFwdAll
+ call-forward night-service     ! on activated night service
+ call-forward noan              ! no answer
+</code></pre>
+
+<h3 id="configuring-call-transfers">Configuring Call Transfers</h3>
+<pre><code>telephony-service
+ transfer-system ?
+ transfer-system full-blind     ! call transfers without consultation
+ transfer-system full-consult   ! H.4502/SIP call transfers with consultation
+ transfer-system local-consult  ! call transfers with local consultation
+
+ transfer-pattern ?
+ transfer-pattern 5...          ! allow transfers to 5xxx extensions
+ transfer-pattern 9..........   ! allow transfers to local 10-digit PSTN nums
+</code></pre>
+
+<h3 id="configuring-call-park">Configuring Call Park</h3>
+<ul>
+<li>Parks the caller on hold at an extension rather than on a specific line.</li>
+<li>Works by finding free ephone-dns that have not been assigned to an IP phone and have specifically designated as a call park slot.</li>
+</ul>
+<pre><code>ephone-dn &lt;tag&gt;
+ number 3001
+ name Maintenance
+ park-slot
+ exit
+ephone-dn &lt;tag&gt;
+ number 3002
+ name Sales
+ park-slot timeout 60 limit 10 recall
+</code></pre>
+
+<h3 id="misc-enabling-voice-in-router-2911-packet-tracer">Misc: Enabling Voice in Router 2911 (Packet Tracer)</h3>
+<p>In (config)#:</p>
+<pre><code>license boot module c2900 technology-package uck9
+
+# ... Accept license, save config and reload
+
+do copy run s
+do reload
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../CCNAS/S02-1_Securing_Network_Devices/" class="btn btn-neutral float-right" title="Securing Network Devices">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../CCNA2/Miscellaneous/" class="btn btn-neutral" title="Miscellaneous"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../CCNA2/Miscellaneous/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../CCNAS/S02-1_Securing_Network_Devices/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
