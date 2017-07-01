@@ -2,12 +2,12 @@
     "docs": [
         {
             "location": "/", 
-            "text": "CCNA Cisco IOS Commandline Notes\n\n\n\n\nCCNA1 Command Line Notes\n\n\nCCNA2 Command Line Notes\n\n\n\n\nOther\n\n\n\n\nIngmar's Cisco Study Notes", 
+            "text": "CCNA Cisco IOS Commandline Notes\n\n\n\n\nCCNA1 Command Line Notes\n\n\nCCNA2 Command Line Notes\n\n\nCCNA Security Notes\n\n\n\n\nOther\n\n\n\n\nIngmar's Cisco Study Notes", 
             "title": "Home"
         }, 
         {
             "location": "/#ccna-cisco-ios-commandline-notes", 
-            "text": "CCNA1 Command Line Notes  CCNA2 Command Line Notes", 
+            "text": "CCNA1 Command Line Notes  CCNA2 Command Line Notes  CCNA Security Notes", 
             "title": "CCNA Cisco IOS Commandline Notes"
         }, 
         {
@@ -934,6 +934,71 @@
             "location": "/CCNAS/S02-3_AutoSecure_and_Routing_Authentication/#ospf-sha-routing-protocol-authentication", 
             "text": "Specify a SHA authentication key chain:  key chain  name \n key  key-id \n  key-string  password-string \n  cryptographic-algorithm hmac-sha-256\n  exit\n\nsend-lifetime start-time {infinite|end-time|duration  seconds }     ! Optional  Assign the authentication key chain to the desired interfaces:  interface  type-number \n ip ospf authentication key-chain  name", 
             "title": "OSPF SHA Routing Protocol Authentication"
+        }, 
+        {
+            "location": "/CCNAS/S03_Basic_AAA_Configuration/", 
+            "text": "Local Authentication Methods\n\n\nExample:\n\n\nusername JR-ADMIN algorithm-type scrypt secret \nstrong_password\n\nusername ADMIN algorithm-type scrypt secret \nstrong_password\n\naaa new-model\naaa authentication login default local-case\n\n\n\n\nAuthentication Methods\n\n\naaa authentication login {default|list-name} method1...[method4]\n\n\n\n\nMethod type keywords:\n\n\n\n\nenable\n: uses enable password\n\n\nlocal\n: uses local username database\n\n\nlocal-case\n: uses case-sensitive local username authentication.\n\n\nnone\n: uses no authentication\n\n\ngroup radius\n: uses list of all RADIUS servers\n\n\ngroup tacacs+\n: uses list of all TACACS+ servers\n\n\ngroup \ngroup-name\n: uses subset of RADIUS/TACACS+ servers defined by:\n\n\naaa group server radius\n or \naaa group server tacacs+\n\n\n\n\n\n\n\n\nDefault and Named Authentication Methods\n\n\n! (Assume local database created)\n\naaa new-model\naaa authentication login default local-case enable\naaa authentication login SSH-LOGIN local-case\naaa local authentication attempts max-fail 3\n\nline vty 0 4\n login authentication SSH-LOGIN\n\n\n\n\nFine-Tuning the Authentication Configuration\n\n\naaa local authentications attempts max-fail \nnum-unsuccessful-attempts\n\n\nshow aaa local user lockout\nshow aaa sessions\n\n\n\n\nUnlock locked user:\n\n\nclear aaa local \nuser\n lockout\n\n\n\n\nShowing and Debugging AAA Authentication\n\n\nshow aaa sessions\ndebug aaa authentication\n\n\n\n\nDisabling debugging:\n\n\nno debug aaa authentication\nundebug all\n\n\n\n\nTACACS+ Server Configuration\n\n\naaa new-model\ntacacs server \nname\n\n address ipv4 \nip-address\n\n single-connection\n key \npass-key\n\n exit\n\n\n\n\nRADIUS Server Configuration\n\n\naaa new-model\nradius server \nname\n\n address ipv4 \nip-address\n auth-port \nport-num\n acct-port \nport-num\n\n key \npass-key\n\n exit\n\n\n\n\nNote: By default, Cisco routers use port 1645 for the authentication and port 1646 for the accounting. However, IANA has reserved ports 1812 for the RADIUS authentication port and 1813 for the RADIUS accounting port. It is important to make sure these ports match between the Cisco router and the RADIUS server.\n\n\nAuthentication to use the AAA Server\n\n\naaa authentication login default ?\naaa authentication login default \nmethod1\n [\nmethod2\n \nmethod3\n \nmethod4\n]\n\n\n\n\n\n\ngroups can be specified in priority, e.g. \ngroup tacacs+\n, \ngroup radius\n, \nlocal-case\n etc.\n\n\n\n\nExample:\n\n\naaa new-model\n\ntacacs server Server-T\n address ipv4 \nip-address\n\n single-connection\n key \nTACACS-Password\n\n exit\n\nradius server Server-R\n address ipv4 \nip-address\n auth-port 1812 acct-port 1813\n key \nRADIUS-Password\n\n exit\n\naaa authentication login default group tacacs+ group radius local-case\n\n\n\n\nTroubleshooting Server-Based AAA Authentication\n\n\ndebug aaa authentication\ndebug tacacs\ndebug tacacs events\ndebug radius\n\n\n\n\nAAA Authorization Configuration\n\n\naaa authorization {network|exec|commands \nlevel\n} {default|\nlist-name\n} \nmethod1...[method4]\n\n\naaa authorization exec default ?\naaa authorization exec default group ?\n\n\n\n\nExample:\n\n\nusername jr-admin algorithm-type scrypt secret \npassword\n\nusername admin algorithm-type scrypt secret \npassword\n\naaa new-model\naaa authorization exec default group tacacs+\naaa authorization network default group tacacs+\n\n\n\n\nAAA Accounting Configuration\n\n\naaa accounting {network|exec|connection} {default|\nlist-name\n} {start-stop|stop-only|none} [broadcast] \nmethod1...[method4]\n\n\n\n\nExample:\n\n\n! Assume usernames already created\n\naaa new-model\naaa authentication login default group tacacs+\naaa authorization exec default group tacacs+\naaa authorization network default group tacacs+\naaa accounting exec default start-stop default group tacacs+\naaa accounting network default start-stop group tacacs+\n\n\n\n\nConfiguring 802.1X\n\n\naaa new-model\nradius server CCNAS\n address ipv4 10.1.1.1 auth-port 1812 acct-port 1813\n key RADIUS-Password\n exit\n\naaa authentication dot1x default group radius\ndot1x system-auth-control\ninterface f0/1\n description Access Port\n switchport mode access\n authentication port-control auto\n dot1x pae authenticator", 
+            "title": "S03 Basic AAA Configuration"
+        }, 
+        {
+            "location": "/CCNAS/S03_Basic_AAA_Configuration/#local-authentication-methods", 
+            "text": "Example:  username JR-ADMIN algorithm-type scrypt secret  strong_password \nusername ADMIN algorithm-type scrypt secret  strong_password \naaa new-model\naaa authentication login default local-case", 
+            "title": "Local Authentication Methods"
+        }, 
+        {
+            "location": "/CCNAS/S03_Basic_AAA_Configuration/#authentication-methods", 
+            "text": "aaa authentication login {default|list-name} method1...[method4]  Method type keywords:   enable : uses enable password  local : uses local username database  local-case : uses case-sensitive local username authentication.  none : uses no authentication  group radius : uses list of all RADIUS servers  group tacacs+ : uses list of all TACACS+ servers  group  group-name : uses subset of RADIUS/TACACS+ servers defined by:  aaa group server radius  or  aaa group server tacacs+", 
+            "title": "Authentication Methods"
+        }, 
+        {
+            "location": "/CCNAS/S03_Basic_AAA_Configuration/#default-and-named-authentication-methods", 
+            "text": "! (Assume local database created)\n\naaa new-model\naaa authentication login default local-case enable\naaa authentication login SSH-LOGIN local-case\naaa local authentication attempts max-fail 3\n\nline vty 0 4\n login authentication SSH-LOGIN", 
+            "title": "Default and Named Authentication Methods"
+        }, 
+        {
+            "location": "/CCNAS/S03_Basic_AAA_Configuration/#fine-tuning-the-authentication-configuration", 
+            "text": "aaa local authentications attempts max-fail  num-unsuccessful-attempts \n\nshow aaa local user lockout\nshow aaa sessions  Unlock locked user:  clear aaa local  user  lockout", 
+            "title": "Fine-Tuning the Authentication Configuration"
+        }, 
+        {
+            "location": "/CCNAS/S03_Basic_AAA_Configuration/#showing-and-debugging-aaa-authentication", 
+            "text": "show aaa sessions\ndebug aaa authentication  Disabling debugging:  no debug aaa authentication\nundebug all", 
+            "title": "Showing and Debugging AAA Authentication"
+        }, 
+        {
+            "location": "/CCNAS/S03_Basic_AAA_Configuration/#tacacs-server-configuration", 
+            "text": "aaa new-model\ntacacs server  name \n address ipv4  ip-address \n single-connection\n key  pass-key \n exit", 
+            "title": "TACACS+ Server Configuration"
+        }, 
+        {
+            "location": "/CCNAS/S03_Basic_AAA_Configuration/#radius-server-configuration", 
+            "text": "aaa new-model\nradius server  name \n address ipv4  ip-address  auth-port  port-num  acct-port  port-num \n key  pass-key \n exit  Note: By default, Cisco routers use port 1645 for the authentication and port 1646 for the accounting. However, IANA has reserved ports 1812 for the RADIUS authentication port and 1813 for the RADIUS accounting port. It is important to make sure these ports match between the Cisco router and the RADIUS server.", 
+            "title": "RADIUS Server Configuration"
+        }, 
+        {
+            "location": "/CCNAS/S03_Basic_AAA_Configuration/#authentication-to-use-the-aaa-server", 
+            "text": "aaa authentication login default ?\naaa authentication login default  method1  [ method2   method3   method4 ]   groups can be specified in priority, e.g.  group tacacs+ ,  group radius ,  local-case  etc.   Example:  aaa new-model\n\ntacacs server Server-T\n address ipv4  ip-address \n single-connection\n key  TACACS-Password \n exit\n\nradius server Server-R\n address ipv4  ip-address  auth-port 1812 acct-port 1813\n key  RADIUS-Password \n exit\n\naaa authentication login default group tacacs+ group radius local-case", 
+            "title": "Authentication to use the AAA Server"
+        }, 
+        {
+            "location": "/CCNAS/S03_Basic_AAA_Configuration/#troubleshooting-server-based-aaa-authentication", 
+            "text": "debug aaa authentication\ndebug tacacs\ndebug tacacs events\ndebug radius", 
+            "title": "Troubleshooting Server-Based AAA Authentication"
+        }, 
+        {
+            "location": "/CCNAS/S03_Basic_AAA_Configuration/#aaa-authorization-configuration", 
+            "text": "aaa authorization {network|exec|commands  level } {default| list-name }  method1...[method4] \n\naaa authorization exec default ?\naaa authorization exec default group ?  Example:  username jr-admin algorithm-type scrypt secret  password \nusername admin algorithm-type scrypt secret  password \naaa new-model\naaa authorization exec default group tacacs+\naaa authorization network default group tacacs+", 
+            "title": "AAA Authorization Configuration"
+        }, 
+        {
+            "location": "/CCNAS/S03_Basic_AAA_Configuration/#aaa-accounting-configuration", 
+            "text": "aaa accounting {network|exec|connection} {default| list-name } {start-stop|stop-only|none} [broadcast]  method1...[method4]  Example:  ! Assume usernames already created\n\naaa new-model\naaa authentication login default group tacacs+\naaa authorization exec default group tacacs+\naaa authorization network default group tacacs+\naaa accounting exec default start-stop default group tacacs+\naaa accounting network default start-stop group tacacs+", 
+            "title": "AAA Accounting Configuration"
+        }, 
+        {
+            "location": "/CCNAS/S03_Basic_AAA_Configuration/#configuring-8021x", 
+            "text": "aaa new-model\nradius server CCNAS\n address ipv4 10.1.1.1 auth-port 1812 acct-port 1813\n key RADIUS-Password\n exit\n\naaa authentication dot1x default group radius\ndot1x system-auth-control\ninterface f0/1\n description Access Port\n switchport mode access\n authentication port-control auto\n dot1x pae authenticator", 
+            "title": "Configuring 802.1X"
         }
     ]
 }

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>S03 Basic AAA Configuration - CCNA Reference</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "S03 Basic AAA Configuration";
+    var mkdocs_page_input_path = "CCNAS/S03_Basic_AAA_Configuration.md";
+    var mkdocs_page_url = "/CCNAS/S03_Basic_AAA_Configuration/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Reference</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA1 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA2_Cmdline/">CCNA2 Cmdline</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA2</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Access_Control_Lists/">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/DHCP_Configuration/">DHCP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Device_Discovery_Mx/">Device Discovery Mx</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Miscellaneous/">Miscellaneous</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/NAT_Port_Forwarding/">NAT Port Forwarding</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/SSH_and_Port_Security/">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNAS</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../S02-1_Securing_Network_Devices/">S02 1 Securing Network Devices</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-2_Securing_Cisco_IOS_and_Configuration/">S02 2 Securing Cisco IOS and Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-3_AutoSecure_and_Routing_Authentication/">S02 3 AutoSecure and Routing Authentication</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">S03 Basic AAA Configuration</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#local-authentication-methods">Local Authentication Methods</a></li>
+    
+
+    <li class="toctree-l3"><a href="#authentication-methods">Authentication Methods</a></li>
+    
+
+    <li class="toctree-l3"><a href="#default-and-named-authentication-methods">Default and Named Authentication Methods</a></li>
+    
+
+    <li class="toctree-l3"><a href="#fine-tuning-the-authentication-configuration">Fine-Tuning the Authentication Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#showing-and-debugging-aaa-authentication">Showing and Debugging AAA Authentication</a></li>
+    
+
+    <li class="toctree-l3"><a href="#tacacs-server-configuration">TACACS+ Server Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#radius-server-configuration">RADIUS Server Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#authentication-to-use-the-aaa-server">Authentication to use the AAA Server</a></li>
+    
+
+    <li class="toctree-l3"><a href="#troubleshooting-server-based-aaa-authentication">Troubleshooting Server-Based AAA Authentication</a></li>
+    
+
+    <li class="toctree-l3"><a href="#aaa-authorization-configuration">AAA Authorization Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#aaa-accounting-configuration">AAA Accounting Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#configuring-8021x">Configuring 802.1X</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Reference</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNAS &raquo;</li>
+        
+      
+    
+    <li>S03 Basic AAA Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="local-authentication-methods">Local Authentication Methods</h3>
+<p>Example:</p>
+<pre><code>username JR-ADMIN algorithm-type scrypt secret &lt;strong_password&gt;
+username ADMIN algorithm-type scrypt secret &lt;strong_password&gt;
+aaa new-model
+aaa authentication login default local-case
+</code></pre>
+
+<h3 id="authentication-methods">Authentication Methods</h3>
+<pre><code>aaa authentication login {default|list-name} method1...[method4]
+</code></pre>
+
+<p>Method type keywords:</p>
+<ul>
+<li><code>enable</code>: uses enable password</li>
+<li><code>local</code>: uses local username database</li>
+<li><code>local-case</code>: uses case-sensitive local username authentication.</li>
+<li><code>none</code>: uses no authentication</li>
+<li><code>group radius</code>: uses list of all RADIUS servers</li>
+<li><code>group tacacs+</code>: uses list of all TACACS+ servers</li>
+<li><code>group &lt;group-name&gt;</code>: uses subset of RADIUS/TACACS+ servers defined by:<ul>
+<li><code>aaa group server radius</code> or <code>aaa group server tacacs+</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="default-and-named-authentication-methods">Default and Named Authentication Methods</h3>
+<pre><code>! (Assume local database created)
+
+aaa new-model
+aaa authentication login default local-case enable
+aaa authentication login SSH-LOGIN local-case
+aaa local authentication attempts max-fail 3
+
+line vty 0 4
+ login authentication SSH-LOGIN
+</code></pre>
+
+<h3 id="fine-tuning-the-authentication-configuration">Fine-Tuning the Authentication Configuration</h3>
+<pre><code>aaa local authentications attempts max-fail &lt;num-unsuccessful-attempts&gt;
+
+show aaa local user lockout
+show aaa sessions
+</code></pre>
+
+<p>Unlock locked user:</p>
+<pre><code>clear aaa local &lt;user&gt; lockout
+</code></pre>
+
+<h3 id="showing-and-debugging-aaa-authentication">Showing and Debugging AAA Authentication</h3>
+<pre><code>show aaa sessions
+debug aaa authentication
+</code></pre>
+
+<p>Disabling debugging:</p>
+<pre><code>no debug aaa authentication
+undebug all
+</code></pre>
+
+<h3 id="tacacs-server-configuration">TACACS+ Server Configuration</h3>
+<pre><code>aaa new-model
+tacacs server &lt;name&gt;
+ address ipv4 &lt;ip-address&gt;
+ single-connection
+ key &lt;pass-key&gt;
+ exit
+</code></pre>
+
+<h3 id="radius-server-configuration">RADIUS Server Configuration</h3>
+<pre><code>aaa new-model
+radius server &lt;name&gt;
+ address ipv4 &lt;ip-address&gt; auth-port &lt;port-num&gt; acct-port &lt;port-num&gt;
+ key &lt;pass-key&gt;
+ exit
+</code></pre>
+
+<p>Note: By default, Cisco routers use port 1645 for the authentication and port 1646 for the accounting. However, IANA has reserved ports 1812 for the RADIUS authentication port and 1813 for the RADIUS accounting port. It is important to make sure these ports match between the Cisco router and the RADIUS server.</p>
+<h3 id="authentication-to-use-the-aaa-server">Authentication to use the AAA Server</h3>
+<pre><code>aaa authentication login default ?
+aaa authentication login default &lt;method1&gt; [&lt;method2&gt; &lt;method3&gt; &lt;method4&gt;]
+</code></pre>
+
+<ul>
+<li>groups can be specified in priority, e.g. <code>group tacacs+</code>, <code>group radius</code>, <code>local-case</code> etc.</li>
+</ul>
+<p>Example:</p>
+<pre><code>aaa new-model
+
+tacacs server Server-T
+ address ipv4 &lt;ip-address&gt;
+ single-connection
+ key &lt;TACACS-Password&gt;
+ exit
+
+radius server Server-R
+ address ipv4 &lt;ip-address&gt; auth-port 1812 acct-port 1813
+ key &lt;RADIUS-Password&gt;
+ exit
+
+aaa authentication login default group tacacs+ group radius local-case
+</code></pre>
+
+<h3 id="troubleshooting-server-based-aaa-authentication">Troubleshooting Server-Based AAA Authentication</h3>
+<pre><code>debug aaa authentication
+debug tacacs
+debug tacacs events
+debug radius
+</code></pre>
+
+<h3 id="aaa-authorization-configuration">AAA Authorization Configuration</h3>
+<pre><code>aaa authorization {network|exec|commands &lt;level&gt;} {default|&lt;list-name&gt;} &lt;method1...[method4]&gt;
+
+aaa authorization exec default ?
+aaa authorization exec default group ?
+</code></pre>
+
+<p>Example:</p>
+<pre><code>username jr-admin algorithm-type scrypt secret &lt;password&gt;
+username admin algorithm-type scrypt secret &lt;password&gt;
+aaa new-model
+aaa authorization exec default group tacacs+
+aaa authorization network default group tacacs+
+</code></pre>
+
+<h3 id="aaa-accounting-configuration">AAA Accounting Configuration</h3>
+<pre><code>aaa accounting {network|exec|connection} {default|&lt;list-name&gt;} {start-stop|stop-only|none} [broadcast] &lt;method1...[method4]
+</code></pre>
+
+<p>Example:</p>
+<pre><code>! Assume usernames already created
+
+aaa new-model
+aaa authentication login default group tacacs+
+aaa authorization exec default group tacacs+
+aaa authorization network default group tacacs+
+aaa accounting exec default start-stop default group tacacs+
+aaa accounting network default start-stop group tacacs+
+</code></pre>
+
+<h3 id="configuring-8021x">Configuring 802.1X</h3>
+<pre><code>aaa new-model
+radius server CCNAS
+ address ipv4 10.1.1.1 auth-port 1812 acct-port 1813
+ key RADIUS-Password
+ exit
+
+aaa authentication dot1x default group radius
+dot1x system-auth-control
+interface f0/1
+ description Access Port
+ switchport mode access
+ authentication port-control auto
+ dot1x pae authenticator
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../S02-3_AutoSecure_and_Routing_Authentication/" class="btn btn-neutral" title="S02 3 AutoSecure and Routing Authentication"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../S02-3_AutoSecure_and_Routing_Authentication/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
