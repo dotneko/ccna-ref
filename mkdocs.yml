@@ -1,2 +1,22 @@
-site_name: CCNA Reference
+site_name: CCNA Journal
 theme: readthedocs
+pages:
+- Home: index.md
+- CCNA 1 Commands: 'CCNA1_Cmdline.md'
+- CCNA 2 Commands:
+    - 'Basic Configuration': 'CCNA2/Basic_Configuration.md'
+    - 'Static Routing': 'CCNA2/Static_Routing.md'
+    - 'Dynamic Routing': 'CCNA2/Dynamic_Routing.md'
+    - 'SSH and Port Security': 'CCNA2/SSH_and_Port_Security.md'
+    - 'VLAN Configuration': 'CCNA2/VLAN_Configuration.md'
+    - 'Access Control Lists': 'CCNA2/Access_Control_Lists.md'
+    - 'DHCP': 'CCNA2/DHCP_Configuration.md'
+    - 'NAT and Port Forwarding for IPv4': 'CCNA2/NAT_Port_Forwarding.md'
+    - 'Device Discovery and Management': 'CCNA2/Device_Discovery_Mx.md'
+    - 'Miscellaneous': 'CCNA2/Miscellaneous.md'
+- Cisco Voice Basics: 'Cisco_Voice-Notes.md'
+- CCNA Security:
+    - 'Securing Network Devices': 'CCNAS/S02-1_Securing_Network_Devices.md'
+    - 'Securing Cisco IOS and Configuration': 'CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration.md'
+    - 'AutoSecure and Routing Authentication': 'CCNAS/S02-3_AutoSecure_and_Routing_Authentication.md'
+    - 'Basic AAA Configuration': 'CCNAS/S03_Basic_AAA_Configuration.md'
