@@ -12,7 +12,7 @@ Current notes available and accessible from the menu are:
 *Last updated on 2017-06-30*
 
 # Useful Links
-- [Cisco NetAcademy](https:/netacad.com)
+- [Cisco NetAcademy](https://netacad.com)
 - [Ingmar's Cisco Study Notes](https://sites.google.com/view/ingmar/)
 - [Ingmar's Cisco Security Page](https://sites.google.com/view/ingmar/ccna-security)
 
