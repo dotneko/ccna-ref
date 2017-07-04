@@ -20,3 +20,6 @@ pages:
     - 'Securing Cisco IOS and Configuration': 'CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration.md'
     - 'AutoSecure and Routing Authentication': 'CCNAS/S02-3_AutoSecure_and_Routing_Authentication.md'
     - 'Basic AAA Configuration': 'CCNAS/S03_Basic_AAA_Configuration.md'
+    - 'Numbered and Named ACLs': 'CCNAS/S04-1_Numbered_and_Named_ACLs.md'
+    - 'IPv6 ACLs': 'CCNAS/S04-2_IPv6_ACLs.md'
+    - 'ZPF Configuration': 'CCNAS/S04-3_ZPF_Configuration.md'
