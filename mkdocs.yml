@@ -23,3 +23,4 @@ pages:
     - 'Numbered and Named ACLs': 'CCNAS/S04-1_Numbered_and_Named_ACLs.md'
     - 'IPv6 ACLs': 'CCNAS/S04-2_IPv6_ACLs.md'
     - 'ZPF Configuration': 'CCNAS/S04-3_ZPF_Configuration.md'
+    - 'IPS Configuration': 'CCNAS/S05_IPS_Configuration.md'
