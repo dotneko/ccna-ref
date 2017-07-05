@@ -51,7 +51,7 @@ show aaa sessions
 Unlock locked user:
 
 ```
-clear aaa local <user> lockout
+clear aaa local user lockout <username>
 ```
 
 ### Showing and Debugging AAA Authentication
@@ -115,7 +115,7 @@ radius server Server-R
  address ipv4 <ip-address> auth-port 1812 acct-port 1813
  key <RADIUS-Password>
  exit
- 
+
 aaa authentication login default group tacacs+ group radius local-case
 ```
 

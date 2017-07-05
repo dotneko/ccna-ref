@@ -23,7 +23,7 @@ ipv6 access-list <ACL name>
 
 An IPv6 ACL contains an **implicit** `deny ipv6 any`. Each IPv6 ACL also contains implicit permit rules to enable **IPv6 neighbor discovery**. The IPv6 NDP requires the use of the IPv6 network layer to send neighbor advertisements (NAs) and neighbor solicitations (NSs). If an administrator configures the `deny ipv6 any` command *without explicitly permitting neighbor discovery, then the NDP will be disabled*.
 
-Example: R1 (connects to the Internet) is permitting inbound traffic on G0/0 from the 2001:DB8:1:1::/64 network:
+Example: R1 (connects to the Internet) is permitting inbound traffic on G0/0 from the `2001:DB8:1:1::/64` network:
 
 ```
 ipv6 access-list LAN_ONLY
@@ -31,9 +31,21 @@ ipv6 access-list LAN_ONLY
   permit icmp any any nd-na
   permit icmp any any nd-ns
   deny ipv6 any any
-  end
+  exit
+
+interface G0/0
+  ipv6 traffic-filter LAN_ONLY in
 ```
+
 - Any NA and NS packets are explicitly permitted. Traffic sourced from any other IPv6 address is explicitly denied. If the administrator only configured the first permit statement, the ACL would have the same effect. However, it is a good practice to document the implicit statements by explicitly configuring them.
+
+Note that the ACEs in the above example allow for IPv6 neighbor discovery traffic and explicitly any other IPv6 addresses:
+
+```
+permit icmp any any nd-na
+permit icmp any any nd-ns
+deny ipv6 any any
+```
 
 Display/verify access-list:
 
