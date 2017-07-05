@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>AutoSecure and Routing Authentication - CCNA Journal</title>
+  <title>IPv6 ACLs - CCNA Journal</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "AutoSecure and Routing Authentication";
-    var mkdocs_page_input_path = "CCNAS/S02-3_AutoSecure_and_Routing_Authentication.md";
-    var mkdocs_page_url = "/CCNAS/S02-3_AutoSecure_and_Routing_Authentication/";
+    var mkdocs_page_name = "IPv6 ACLs";
+    var mkdocs_page_input_path = "CCNAS/S04-2_IPv6_ACLs.md";
+    var mkdocs_page_url = "/CCNAS/S04-2_IPv6_ACLs/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -121,24 +121,9 @@
                     
     <a class="" href="../S02-2_Securing_Cisco_IOS_and_Configuration/">Securing Cisco IOS and Configuration</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">AutoSecure and Routing Authentication</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#discovery-protocols-cdp-and-lldp">Discovery Protocols CDP and LLDP</a></li>
-    
-
-    <li class="toctree-l3"><a href="#cisco-autosecure">Cisco AutoSecure</a></li>
-    
-
-    <li class="toctree-l3"><a href="#ospf-md5-routing-protocol-authentication">OSPF MD5 Routing Protocol Authentication</a></li>
-    
-
-    <li class="toctree-l3"><a href="#ospf-sha-routing-protocol-authentication">OSPF SHA Routing Protocol Authentication</a></li>
-    
-
-    </ul>
+    <a class="" href="../S02-3_AutoSecure_and_Routing_Authentication/">AutoSecure and Routing Authentication</a>
                 </li>
                 <li class="">
                     
@@ -148,9 +133,18 @@
                     
     <a class="" href="../S04-1_Numbered_and_Named_ACLs/">Numbered and Named ACLs</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../S04-2_IPv6_ACLs/">IPv6 ACLs</a>
+    <a class="current" href="./">IPv6 ACLs</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#ipv6-acl-syntax">IPv6 ACL Syntax</a></li>
+    
+
+    <li class="toctree-l3"><a href="#configure-ipv6-acls">Configure IPv6 ACLs</a></li>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -185,7 +179,7 @@
         
       
     
-    <li>AutoSecure and Routing Authentication</li>
+    <li>IPv6 ACLs</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -195,53 +189,52 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="discovery-protocols-cdp-and-lldp">Discovery Protocols CDP and LLDP</h3>
-<pre><code>show cdp neighbors detail
-show lldp neighbors detail
-</code></pre>
-
-<h3 id="cisco-autosecure">Cisco AutoSecure</h3>
-<pre><code>auto secure
-
-auto secure [no-interact|full] [forwarding|management] [ntp|login|ssh|firewall|tcp-intercept]
-
-auto secure full            ! Default interactive mode
-auto secure no-interact     ! Uses recommended Cisco default
-</code></pre>
-
-<h3 id="ospf-md5-routing-protocol-authentication">OSPF MD5 Routing Protocol Authentication</h3>
-<p>Check OSPF configuration:</p>
-<pre><code>show run | begin router ospf
-</code></pre>
-
-<p>Global authentication on all OSPF enabled interfaces:</p>
-<pre><code>ip ospf message-digest-key &lt;key&gt; md5 &lt;password&gt;
-area &lt;area-id&gt; authentication message-digest
-</code></pre>
-
-<p>Example, configure on both routers connected via s0/0/0:</p>
-<pre><code>interface s0/0/0
- ip ospf message-digest-key 1 md5 cisco12345
- ip ospf authentication message-digest
+                <h3 id="ipv6-acl-syntax">IPv6 ACL Syntax</h3>
+<p>The ACL functionality in IPv6 is similar to ACLs in IPv4. However, there is no equivalent to the IPv4 standard ACLs and <strong>all IPv6 ACLs must be configured with a name</strong>. IPv6 ACLs allow filtering based on <em>source and destination addresses</em> that are traveling inbound and outbound to a specific interface. They also support traffic filtering based on <em>IPv6 option headers and optional, upper-layer protocol type information</em> for finer granularity of control, similar to extended ACLs in IPv4. To configure an IPv6 ACL, use the <code>ipv6 access-list</code> command to enter into IPv6 ACL configuration mode. Next, use the syntax shown in the figure to configure each access list entry to specifically permit or deny traffic. Apply an IPv6 ACL to an interface with the <code>ipv6 traffic-filter</code> command.</p>
+<pre><code>ipv6 access-list &lt;ACL name&gt;
+  deny | permit &lt;protocol&gt; \
+  {&lt;source-ipv6-prefix/prefix-length&gt; | any | host &lt;source-ipv6-address&gt;} \
+  [operator [port-number]] \
+  {&lt;destination-ipv6-prefix/prefix-length&gt; | any | host &lt;destination-ipv6-address&gt;} \
+  [operator [port-number]]
 </code></pre>
 
 <ul>
-<li>Note that OSPF neighbors should have the same key and password.</li>
+<li>Operator: compares source/destination ports<ul>
+<li><code>lt</code>: less than</li>
+<li><code>gt</code>: greater than</li>
+<li><code>eq</code>: equal</li>
+<li><code>neq</code>: not equal</li>
+<li><code>range</code></li>
 </ul>
-<h3 id="ospf-sha-routing-protocol-authentication">OSPF SHA Routing Protocol Authentication</h3>
-<p>Specify a SHA authentication key chain:</p>
-<pre><code>key chain &lt;name&gt;
- key &lt;key-id&gt;
-  key-string &lt;password-string&gt;
-  cryptographic-algorithm hmac-sha-256
+</li>
+<li>Port-number: decimal number or name of TCP/UDP port for filtering TCP or UDP, respectively.</li>
+</ul>
+<h3 id="configure-ipv6-acls">Configure IPv6 ACLs</h3>
+<p>An IPv6 ACL contains an <strong>implicit</strong> <code>deny ipv6 any</code>. Each IPv6 ACL also contains implicit permit rules to enable <strong>IPv6 neighbor discovery</strong>. The IPv6 NDP requires the use of the IPv6 network layer to send neighbor advertisements (NAs) and neighbor solicitations (NSs). If an administrator configures the <code>deny ipv6 any</code> command <em>without explicitly permitting neighbor discovery, then the NDP will be disabled</em>.</p>
+<p>Example: R1 (connects to the Internet) is permitting inbound traffic on G0/0 from the <code>2001:DB8:1:1::/64</code> network:</p>
+<pre><code>ipv6 access-list LAN_ONLY
+  permit 2001:db8:1:1::/64 any
+  permit icmp any any nd-na
+  permit icmp any any nd-ns
+  deny ipv6 any any
   exit
 
-send-lifetime start-time {infinite|end-time|duration &lt;seconds&gt;}     ! Optional
+interface G0/0
+  ipv6 traffic-filter LAN_ONLY in
 </code></pre>
 
-<p>Assign the authentication key chain to the desired interfaces:</p>
-<pre><code>interface &lt;type-number&gt;
- ip ospf authentication key-chain &lt;name&gt;
+<ul>
+<li>Any NA and NS packets are explicitly permitted. Traffic sourced from any other IPv6 address is explicitly denied. If the administrator only configured the first permit statement, the ACL would have the same effect. However, it is a good practice to document the implicit statements by explicitly configuring them.</li>
+</ul>
+<p>Note that the ACEs in the above example allow for IPv6 neighbor discovery traffic and explicitly any other IPv6 addresses:</p>
+<pre><code>permit icmp any any nd-na
+permit icmp any any nd-ns
+deny ipv6 any any
+</code></pre>
+
+<p>Display/verify access-list:</p>
+<pre><code>show ipv6 access-list LAN_ONLY
 </code></pre>
               
             </div>
@@ -250,10 +243,10 @@ send-lifetime start-time {infinite|end-time|duration &lt;seconds&gt;}     ! Opti
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../S03_Basic_AAA_Configuration/" class="btn btn-neutral float-right" title="Basic AAA Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../S04-3_ZPF_Configuration/" class="btn btn-neutral float-right" title="ZPF Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../S02-2_Securing_Cisco_IOS_and_Configuration/" class="btn btn-neutral" title="Securing Cisco IOS and Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../S04-1_Numbered_and_Named_ACLs/" class="btn btn-neutral" title="Numbered and Named ACLs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -279,10 +272,10 @@ send-lifetime start-time {infinite|end-time|duration &lt;seconds&gt;}     ! Opti
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../S02-2_Securing_Cisco_IOS_and_Configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../S04-1_Numbered_and_Named_ACLs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../S03_Basic_AAA_Configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../S04-3_ZPF_Configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

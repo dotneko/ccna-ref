@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Numbered and Named ACLs - CCNA Journal</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Numbered and Named ACLs";
+    var mkdocs_page_input_path = "CCNAS/S04-1_Numbered_and_Named_ACLs.md";
+    var mkdocs_page_url = "/CCNAS/S04-1_Numbered_and_Named_ACLs/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Journal</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA 1 Commands</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA 2 Commands</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/SSH_and_Port_Security/">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Access_Control_Lists/">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/DHCP_Configuration/">DHCP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/NAT_Port_Forwarding/">NAT and Port Forwarding for IPv4</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Device_Discovery_Mx/">Device Discovery and Management</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Miscellaneous/">Miscellaneous</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../Cisco_Voice-Notes/">Cisco Voice Basics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../S02-1_Securing_Network_Devices/">Securing Network Devices</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-2_Securing_Cisco_IOS_and_Configuration/">Securing Cisco IOS and Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-3_AutoSecure_and_Routing_Authentication/">AutoSecure and Routing Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S03_Basic_AAA_Configuration/">Basic AAA Configuration</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Numbered and Named ACLs</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#configuring-numbered-and-named-acls">Configuring Numbered and Named ACLs</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#standard-acl-syntax">Standard ACL Syntax</a></li>
+        
+            <li><a class="toctree-l4" href="#extended-acl-syntax">Extended ACL Syntax</a></li>
+        
+            <li><a class="toctree-l4" href="#named-acl-syntax">Named ACL Syntax:</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#applying-and-acl">Applying and ACL</a></li>
+    
+
+    <li class="toctree-l3"><a href="#acl-configuration-guidelines">ACL Configuration Guidelines</a></li>
+    
+
+    <li class="toctree-l3"><a href="#antispoofing-with-acls">Antispoofing with ACLs</a></li>
+    
+
+    <li class="toctree-l3"><a href="#permitting-necessary-traffic-through-a-firewall">Permitting Necessary Traffic through a Firewall</a></li>
+    
+
+    <li class="toctree-l3"><a href="#mitigating-icmp-abuse">Mitigating ICMP Abuse</a></li>
+    
+
+    <li class="toctree-l3"><a href="#mitigating-snmp-exploits">Mitigating SNMP Exploits</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S04-2_IPv6_ACLs/">IPv6 ACLs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S04-3_ZPF_Configuration/">ZPF Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Journal</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNA Security &raquo;</li>
+        
+      
+    
+    <li>Numbered and Named ACLs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="configuring-numbered-and-named-acls">Configuring Numbered and Named ACLs</h3>
+<h5 id="standard-acl-syntax">Standard ACL Syntax</h5>
+<pre><code>access-list &lt;acl-#&gt; {permit|deny|remark} source-addr [source-wildcard] [log]
+</code></pre>
+
+<h5 id="extended-acl-syntax">Extended ACL Syntax</h5>
+<pre><code>access-list &lt;acl-#&gt; {permit|deny|remark} &lt;protocol&gt; &lt;source-addr&gt; [source-wildcard] &lt;dest-addr&gt; [dest-wildcard][operator port] [established]
+</code></pre>
+
+<p>Examples:</p>
+<ul>
+<li>On R2 S0/0/0 that connects to web server at 10.1.3.8, allow only users on 10.1.1.0/24 network to have HTTP access</li>
+</ul>
+<pre><code>access-list 101 permit tcp 10.1.1.0 0.0.0.255 host 10.1.3.8 eq 80
+</code></pre>
+
+<ul>
+<li>On R2 G0/1 that connects to 10.1.2.0/24, block host 10.1.2.9 from having FTP access to 10.1.1.0/24 network (G0/0)</li>
+</ul>
+<pre><code>access-list 122 deny tcp host 10.1.2.9 10.1.1.0 0.0.0.255 eq 21
+</code></pre>
+
+<ul>
+<li>On R1 G0/0 (inbound) that connects to 10.1.3.0/24, allow only host 10.1.3.8 to reach destinations beyond that network (S0/0/0)</li>
+</ul>
+<pre><code>access-list 150 permit ip host 10.1.3.8 any
+</code></pre>
+
+<h5 id="named-acl-syntax">Named ACL Syntax:</h5>
+<pre><code>! Name ACL
+ip access-list [standard|extended] &lt;ACL name&gt;
+
+! Configure ACEs
+[permit|deny|remark] {source [source-wildcard] |any}
+[permit|deny|remark] &lt;protocol&gt; &lt;source-addr [source-wildcard]
+</code></pre>
+
+<h3 id="applying-and-acl">Applying and ACL</h3>
+<p>After creating an ACL, the administrator can apply it in a number of different ways.</p>
+<p>Syntax for Applying an ACL to an Interface:</p>
+<pre><code>interface &lt;interface-id&gt;
+  ip access-group {acl-#|name} {in|out}
+</code></pre>
+
+<p>Syntax for Applying an ACL to the VTY Lines:</p>
+<pre><code>line vty 0 4
+  access-class {acl-#|name} {in|out}
+</code></pre>
+
+<p>Named Standard ACL Example:</p>
+<pre><code>ip access-list standard NO_ACCESS
+  deny host 192.168.11.10
+  permit any
+  exit
+interface g0/0
+  ip access-group NO_ACCESS out
+</code></pre>
+
+<p>Named Extended ACl Example:</p>
+<ul>
+<li>The SURFING ACL is applied to inbound traffic and the BROWSING ACL is applied to outbound traffic.</li>
+</ul>
+<pre><code>ip access-list extended SURFING
+  permit tcp 192.168.10.0 0.0.0.255 any eq 80
+  permit tcp 192.168.10.0 0.0.0.255 any eq 443
+  exit
+ip access-list extended BROWSING
+  permit tcp any 192.168.10.0 0.0.0.255 established
+  exit
+interface g0/0
+  ip access-group SURFING in
+  ip access-group BROWSING out
+</code></pre>
+
+<p>Named ACL on VTY Lines with Logging:</p>
+<pre><code>ip access-list standard VTY_ACCESS
+  permit 192.168.10.10 log
+  deny any
+  exit
+line vty 0 4
+  access-class VTY_ACCESS in
+  end
+
+! Matches to VTY access on subsequent logging can be viewed by:
+
+show access-lists
+</code></pre>
+
+<ul>
+<li>Logging has been enabled with the <code>log</code> parameter. Log messages are generated on the first packet match and then at five minute intervals after that first packet match. You can use the <code>show access-list</code> command to see how many packets have matched a statement.</li>
+</ul>
+<h3 id="acl-configuration-guidelines">ACL Configuration Guidelines</h3>
+<ul>
+<li>Create an ACL globally and then apply it.</li>
+<li>Ensure the last statement is an implicit <code>deny any</code> or <code>deny any any</code></li>
+<li>Remember that statement order is important because ACLs are processed top-down. As soon as a statement is matched the ACL is exited.</li>
+<li>Ensure that the most specific statements are at the top of the list.</li>
+<li>Remember that only one ACL is allowed per interface, per protocol, per direction.</li>
+<li>Remember that new statements for an existing ACL are added to the bottom of the ACL by default.</li>
+<li>Remember that router generated packets are not filtered by outbound ACLs.</li>
+<li>Place standard ACLs as close to the destination as possible.</li>
+<li>Place extended ACLs as close to the source as possible.</li>
+</ul>
+<h3 id="antispoofing-with-acls">Antispoofing with ACLs</h3>
+<p>Where the interface is attached to the Internet, it should never accept inbound packets from the following addresses:</p>
+<ul>
+<li>All zeros addresses</li>
+<li>Broadcast addresses</li>
+<li>Local host addresses (127.0.0.0/8)</li>
+<li>Reserved private addresses (RFC 1918)</li>
+<li>IP multicast address range (224.0.0.0/4)</li>
+</ul>
+<p><strong>Example:</strong> The 192.168.1.0/24 network is attached to the R1 G0/0 interface, while R1 S0/0/0 connects to the Internet The interface G0/0 should only allow inbound packets with a source address from that network. The ACL for G0/0 shown in the figure will only permit inbound packets from the 192.168.1.0/24 network. All others will be discarded.</p>
+<pre><code>! Inbound s0/0/0
+
+access-list 150 deny ip host 0.0.0.0 any
+access-list 150 deny ip 10.0.0.0 0.255.255.255 any
+access-list 150 deny ip 127.0.0.0 0.255.255.255 any
+access-list 150 deny ip 172.16.0.0 0.15.255.255 any
+access-list 150 deny ip 192.168.0.0 0.0.255.255 any
+access-list 150 deny ip 224.0.0.0 15.255.255.255 any
+access-list 150 deny ip host 255.255.255.255 any
+
+! Inbound g0/0
+
+access-list 105 permit ip 192.168.1.0 0.0.0.255 any
+</code></pre>
+
+<h3 id="permitting-necessary-traffic-through-a-firewall">Permitting Necessary Traffic through a Firewall</h3>
+<p>An effective strategy for mitigating attacks is to <strong>explicitly permit only certain types of traffic through a firewall</strong>.</p>
+<p><strong>Example:</strong> sample topology with possible ACL configurations to permit specific services on the Serial 0/0/0 interface.</p>
+<ul>
+<li>R1 S0/0/0: Internet via 10.0.1.1</li>
+<li>R1 G0/1: PC1</li>
+<li>R1 G0/0: Server 192.16.8.20.2/24 for DNS, SMTP, FTP</li>
+<li>Remote Access from 200.5.5.5/24 via Internet</li>
+</ul>
+<pre><code>! Inbound on S0/0/0
+access-list 180 permit udp any host 192.168.20.2 eq domain
+access-list 180 permit tcp any host 192.168.20.2 eq smtp
+access-list 180 permit tcp any host 192.168.20.2 eq ftp
+access-list 180 permit tcp host 200.5.5.5 host 10.1.1 eq 22
+access-list 180 permit udp host 200.5.5.5 host 10.0.1.1 eq syslog
+access-list 180 permit udp host 200.5.5.5 host 10.0.1.1. eq snmptrap
+</code></pre>
+
+<h3 id="mitigating-icmp-abuse">Mitigating ICMP Abuse</h3>
+<p>Hackers can use <em>Internet Control Message Protocol (ICMP) echo packets (pings) to discover subnets and hosts on a protected network and to generate DoS flood attacks</em>. Hackers can use ICMP redirect messages to alter host routing tables. <strong>Both ICMP echo and redirect messages should be blocked inbound by the router</strong>.</p>
+<p>Several ICMP messages are recommended for proper network operation and should be allowed into the internal network:</p>
+<ul>
+<li><strong>Echo reply</strong> - Allows users to ping external hosts.</li>
+<li><strong>Source quench</strong> - Requests that the sender decrease the traffic rate of messages.</li>
+<li><strong>Unreachable</strong> - Generated for packets that are administratively denied by an ACL.</li>
+</ul>
+<p>Several ICMP messages are required for proper network operation and should be allowed to exit the network:</p>
+<ul>
+<li><strong>Echo</strong> - Allows users to ping external hosts.
+Parameter problem - Informs the host of packet header problems.</li>
+<li><strong>Packet too big</strong> – Enables packet maximum transmission unit (MTU) discovery.</li>
+<li><strong>Source quench</strong> - Throttles down traffic when necessary.</li>
+</ul>
+<p>As a rule, block all other ICMP message types outbound.</p>
+<p>ACLs are used to block IP address spoofing, selectively permit specific services through a firewall, and to allow only required ICMP messages.</p>
+<p><strong>Example:</strong> The figure shows a sample topology and possible ACL configurations to permit specific ICMP services on the G0/0 and S0/0/0 interfaces.</p>
+<ul>
+<li>R1 S0/0/0: Internet to Remote 209.16.201.3/24</li>
+<li>R1 G0/0: PC 192.168.1.2/24</li>
+</ul>
+<pre><code>! Inbound on S0/0
+
+access-list 112 permit icmp any any echo-reply
+access-list 112 permit icmp any any source-quench
+access-list 112 deny icmp any any
+access-list 112 pemit ip any any
+
+! Inbound on G0/0
+access-list 114 permit icmp 192.168.1.0 0.0.0.255 any echo
+access-list 114 permit icmp 192.168.1.0 0.0.0.255 any parameter-problem
+access-list 114 permit icmp 192.168.1.0 0.0.0.255 any packet-too-big
+access-list 114 permit icmp 192.168.1.0 0.0.0.255 any source-quench
+access-list 114 deny icmp any any
+</code></pre>
+
+<h3 id="mitigating-snmp-exploits">Mitigating SNMP Exploits</h3>
+<p>Management protocols, such as SNMP, are useful for remote monitoring and management of networked devices. However, they can still be exploited. <strong>If SNMP is necessary</strong>, <em>exploitation of SNMP vulnerabilities can be mitigated by applying interface ACLs to filter SNMP packets from non-authorized systems</em>. An exploit may still be possible if the SNMP packet is sourced from an address that has been spoofed and is permitted by the ACL.</p>
+<p>These security measures are helpful, but the <strong>most effective means of exploitation prevention is to disable the SNMP server on IOS devices for which it is not required</strong>. As shown in the figure, use the command <code>no snmp-server</code> to disable SNMP processing on the Cisco IOS devices.</p>
+<pre><code>no snmp-server
+</code></pre>
+
+<h1 id="_1"></h1>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../S04-2_IPv6_ACLs/" class="btn btn-neutral float-right" title="IPv6 ACLs">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../S03_Basic_AAA_Configuration/" class="btn btn-neutral" title="Basic AAA Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../S03_Basic_AAA_Configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../S04-2_IPv6_ACLs/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
