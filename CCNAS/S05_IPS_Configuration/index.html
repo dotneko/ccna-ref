@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>IPS Configuration - CCNA Journal</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "IPS Configuration";
+    var mkdocs_page_input_path = "CCNAS/S05_IPS_Configuration.md";
+    var mkdocs_page_url = "/CCNAS/S05_IPS_Configuration/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Journal</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA 1 Commands</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA 2 Commands</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/SSH_and_Port_Security/">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Access_Control_Lists/">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/DHCP_Configuration/">DHCP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/NAT_Port_Forwarding/">NAT and Port Forwarding for IPv4</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Device_Discovery_Mx/">Device Discovery and Management</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Miscellaneous/">Miscellaneous</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../Cisco_Voice-Notes/">Cisco Voice Basics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../S02-1_Securing_Network_Devices/">Securing Network Devices</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-2_Securing_Cisco_IOS_and_Configuration/">Securing Cisco IOS and Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-3_AutoSecure_and_Routing_Authentication/">AutoSecure and Routing Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S03_Basic_AAA_Configuration/">Basic AAA Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S04-1_Numbered_and_Named_ACLs/">Numbered and Named ACLs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S04-2_IPv6_ACLs/">IPv6 ACLs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S04-3_ZPF_Configuration/">ZPF Configuration</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">IPS Configuration</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#implement-ios-ips">Implement IOS IPS</a></li>
+    
+
+    <li class="toctree-l3"><a href="#retire-and-unretire-signatures">Retire and Unretire Signatures</a></li>
+    
+
+    <li class="toctree-l3"><a href="#enable-signature">Enable Signature</a></li>
+    
+
+    <li class="toctree-l3"><a href="#change-signature-actions">Change Signature Actions</a></li>
+    
+
+    <li class="toctree-l3"><a href="#verify-ios-ips">Verify IOS IPS</a></li>
+    
+
+    <li class="toctree-l3"><a href="#report-ips-alerts">Report IPS Alerts</a></li>
+    
+
+    <li class="toctree-l3"><a href="#enable-sdee">Enable SDEE</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Journal</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNA Security &raquo;</li>
+        
+      
+    
+    <li>IPS Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="implement-ios-ips">Implement IOS IPS</h3>
+<p>Step 1. Download the IOS IPS files.
+Step 2. Create an IOS IPS configuration directory in Flash.
+Step 3. Configure an IOS IPS crypto key.
+Step 4. Enable IOS IPS.
+Step 5. Load the IOS IPS signature package to the router.</p>
+<p><strong>Step 1. Download the IOS IPS files.</strong></p>
+<p><a href="https://software.cisco.com/download/type.html?mdfid=281442967&amp;catid=null">Cisco IOS Intrusion Prevention System Feature Software: Signature Data Files</a></p>
+<ul>
+<li><code>IOS-Sxxx-CLI.pkg</code> - The latest signature package.</li>
+<li><code>realm-cisco.pub.key.txt</code> - The public crypto key used by IOS IPS.</li>
+</ul>
+<p><strong>Step 2. Create an IOS IPS configuration directory in Flash.</strong></p>
+<pre><code>mkdir IPSDIR
+dir flash:
+</code></pre>
+
+<p><strong>Step 3. Configure an IOS IPS Crypto Key</strong></p>
+<p>Located in the <code>realm-cisco.pub.key.txt</code> file that was obtained in Step 1.</p>
+<p>The crypto key verifies the digital signature for the master signature file (<code>sigdef-default.xml</code>). The content of the file is signed by a Cisco private key to guarantee its authenticity and integrity.</p>
+<p>Open the text file to configure the IOS IPS crypto key, as shown in Figure 1. Copy the contents of the file, and paste the contents to the router at the global configuration prompt. The <em>text file issues the various commands to generate the RSA key</em>.</p>
+<p>At the time of signature compilation, an error message is generated if the public crypto key is invalid.</p>
+<p>Example Error Message:</p>
+<pre><code>%IPS-3-INVALID_DIGITAL_SIGNATURE: Invalid Digital Signature found (key not found)
+</code></pre>
+
+<p>If the key is configured incorrectly, the key must be removed and then reconfigured. Use the <code>no crypto key pubkey-chain rsa</code> and the<code>no named-key realm-cisco.pub signature</code> commands. Then repeat the procedure in Step 3 to reconfigure the key.</p>
+<p><strong>Step 4. Enable IOS IPS</strong></p>
+<p><strong>a. Identify the IPS rule name and specify the location.</strong></p>
+<p>Create a rule name. An optional extended or standard ACL can be configured to filter the scanned traffic. All traffic that is permitted by the ACL is subject to inspection by the IPS. Traffic that is denied by the ACL is not inspected by the IPS.</p>
+<pre><code>ip ips name &lt;rule-name&gt;
+ip ips name &lt;rule-name&gt; list &lt;extended or standard acl&gt;
+ip ips config location flash:IPS
+</code></pre>
+
+<p>Note: Prior to IOS 12.4(11)T, the <code>ip ips sdf</code> location command was used instead of <code>ip ips config location</code>.</p>
+<p><strong>b. Enable SDEE and logging event notification.</strong></p>
+<p>To use SDEE, the HTTP or HTTPS server must first be enabled with the <code>ip http server</code> or <code>ip https server</code> command. If the HTTP server is not enabled, the router cannot respond to the SDEE clients because it cannot see the requests. </p>
+<p>Note:
+- <strong>SDEE notification is disabled by default and must be explicitly enabled</strong>. 
+- SDEE and logging can be used independently or enabled at the same time.
+- Logging notification is enabled by default. </p>
+<pre><code>ip http server
+ip ips notify ?
+ip ips notify sdee  ! Send msgs in SDEE format
+ip ips notify log   ! Send msgs in syslog format (default)
+</code></pre>
+
+<p><strong>c. Configure the signature category.</strong></p>
+<p>All signatures are grouped into categories, and the categories are hierarchical. This helps classify signatures for easy grouping and tuning. The three most common categories are <code>all</code>, <code>basic</code>, and <code>advanced</code>.</p>
+<p><em>When IOS IPS is first configured, all signatures in the all category should be retired</em>. Then, selected signatures should be unretired in a less memory-intensive category.</p>
+<pre><code>ip ips signature-category
+  category all
+    retired true
+    exit
+  category ios_ips ?
+  category ios_ips basic
+    retired false
+    end
+
+  ! Need to confirm changes
+</code></pre>
+
+<p>CAUTION:
+- <strong>Do not unretire the all category</strong>. The all signature category contains all signatures in a signature release. The IOS IPS cannot compile and use all the signatures at one time because it will run out of memory.
+- The order in which the signature categories are configured on the router is also important.</p>
+<p><strong>d. Apply the IPS rule to a desired interface, and specify the direction.</strong></p>
+<p>Use the <code>ip ips interface configuration</code> command to apply the IPS rule, shown in Figure 4.</p>
+<p>In the example, the IPS rule IOSIPS is applied to incoming traffic on the G0/0 interface. It is also applied to the incoming and outgoing traffic on the G0/1 interface.</p>
+<pre><code>interface g0/0
+  ip ips IOSIPS in
+  exit
+interface g0/1
+  ip ips IOSIPS in
+  ip ips IOSIPS out
+  end
+</code></pre>
+
+<p><strong>Step 5. Loading IOS IPS Signature Package to the Router</strong></p>
+<p>Example:</p>
+<pre><code>copy tftp://192.168.1.3/IOS-S415-CLI.pkg idconf
+copy ftp://ftp_user:password@&lt;server-ip-address&gt;/signaturefile.pkg idconf
+</code></pre>
+
+<p>To verify that the signature package is properly compiled:</p>
+<pre><code>show ip ips signature count
+</code></pre>
+
+<h3 id="retire-and-unretire-signatures">Retire and Unretire Signatures</h3>
+<p>Example, the signature 6130 with subsig ID of 10 is retired:</p>
+<pre><code>ip ips signature-definition
+  signature 6130 10
+    status
+      retired true
+      exit
+    exit
+  exit
+
+! Prompt: Confirm changes ?
+</code></pre>
+
+<p>In this example, all signatures that belong to the IOSIPS Basic category are unretired:</p>
+<pre><code>ip ips signature-category
+  category ios_ips basic
+    retired false
+    exit
+  exit
+
+! Prompt: Confirm changes ?
+</code></pre>
+
+<h3 id="enable-signature">Enable Signature</h3>
+<pre><code>ip ips signature-definition
+  signature &lt;id&gt; &lt;sub-id&gt;
+    status
+      enabled true
+    exit
+  exit
+exit
+</code></pre>
+
+<h3 id="change-signature-actions">Change Signature Actions</h3>
+<p>To change an action, the <code>event-action</code> command must be used in IPS Category Action mode or Signature Definition Engine mode.</p>
+<p>The <code>event-action</code> command has several parameters:</p>
+<pre><code>event-action &lt;action&gt;
+</code></pre>
+
+<ul>
+<li><code>deny-attacker-inline</code>: Terminates current/future packets from this attacker addr</li>
+<li><code>deny-connection-inline</code>: Terminates current/future packets on this TCP flow</li>
+<li><code>deny-packet-inline</code>: Terminates the packet</li>
+<li><code>produce-alert</code>: Writes event to the Event Store as an alert</li>
+<li><code>reset-tcp-connection</code>: Sends TCP resets to hijack and terminate TCP flow</li>
+</ul>
+<p>Example - Change Actions for Specific Signature:</p>
+<pre><code>ip ips signature-definition
+  signature 6130 10
+    engine
+      event-action produce-alert
+      event-action deny-packet-inline
+      event-action reset-tcp-connection
+      exit
+    exit
+  exit
+
+! Prompt: Confirm changes ?
+</code></pre>
+
+<p>Example - Change Actions for a Category:</p>
+<pre><code>ip ips signature-category
+  category ios_ips basic
+    event-action produce-alert
+    event-action deny-packet-inline
+    event-action reset-tcp-connection
+    exit
+  exit
+! Prompt: Confirm changes ?
+</code></pre>
+
+<h3 id="verify-ios-ips">Verify IOS IPS</h3>
+<p>After IPS is implemented, it is necessary to verify the configuration to ensure correct operation. There are several <code>show</code> commands that can be used to verify the IOS IPS configuration:</p>
+<p>The <code>show ip ips</code> privileged EXEC command can be used with other parameters to provide specific IPS information.
+The <code>show ip ips all</code> command displays all IPS configuration data, as shown in Figures 1 and 2. The output can be lengthy depending on the IPS configuration.
+The <code>show ip ips configuration</code> command displays additional configuration data that is not displayed with the show running-config command. Figure 3 displays example output of the command.
+The <code>show ip ips interfaces</code> command displays interface configuration data, as shown in Figure 4. The output shows inbound and outbound rules applied to specific interfaces.
+The <code>show ip ips signatures</code> command verifies the signature configuration, as shown in Figure 5. The command can also be used with the keyword detail to provide more explicit output.
+The <code>show ip ips statistics</code> command displays the number of packets audited, and the number of alarms sent, as shown in Figure 6. The optional <code>reset</code> keyword resets output to reflect the latest statistics.
+Use the <code>clear ip ips</code> configuration command to disable IPS, remove all IPS configuration entries, and release dynamic resources. The <code>clear ip ips statistics</code> command resets statistics on packets analyzed, and alarms sent.</p>
+<pre><code>show ip ips ?
+show ip ips all
+show ip ips configuration
+show ip ips interfaces
+show ip ips signatures
+show ip ips signatures | begin SigID
+show ip ips statistics
+show ip ips statistics reset
+clear ip ips
+clear ip ips statistics
+</code></pre>
+
+<h3 id="report-ips-alerts">Report IPS Alerts</h3>
+<p>To specify the method of event notification, use the <code>ip ips notify</code> global configuration mode command. The <code>log</code> keyword sends messages in syslog format. The <code>sdee</code> keyword sends messages in SDEE format.</p>
+<p>The example in the figure enables syslog reporting.</p>
+<pre><code>config t
+  logging 192.168.10.100
+  ip ips notify log
+  logging on
+</code></pre>
+
+<h3 id="enable-sdee">Enable SDEE</h3>
+<p>SDEE is the preferred method of reporting IPS activity. SDEE uses <em>HTTP and XML</em> to provide a standardized approach. It can be enabled on an IOS IPS router using the <code>ip ips notify sdee</code> command. The Cisco IOS IPS router can still send IPS alerts via syslog.</p>
+<p>The figure shows an example of enabling SDEE reporting.</p>
+<pre><code>ip http server
+ip http server-secure
+ip ips notify sdee
+ip sdee events &lt;buffer-size, default:200, max:1000&gt;
+</code></pre>
+
+<p>Clearing SDEE events/subscriptions:</p>
+<pre><code>clear ip ips sdee { events | subscriptions }
+</code></pre>
+
+<p>Note: The<code>ip ips notify</code> command replaces the older <code>ip audit notify</code> command. If the <code>ip audit notify</code> command is part of an existing configuration, the IPS interprets it as the <code>ip ips notify</code> command.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../S04-3_ZPF_Configuration/" class="btn btn-neutral" title="ZPF Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../S04-3_ZPF_Configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
