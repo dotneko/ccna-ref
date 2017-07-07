@@ -72,7 +72,7 @@ __Step 2.__ Create a view using the `parser view <view-name>` global configurati
 
 __Step 3.__ Assign a secret password to the view using the `secret <encrypted-password>` view configuration mode command. Figure 2 displays the command syntax for the parser view and the secret commands.
 
-__Step 4.__ Assign commands to the selected view using the `commands parser-mode` command in view configuration mode. Figure 3 displays the command syntax for the commands command.
+__Step 4.__ Assign commands to the selected view using the `commands <parser-mode> [include] <command1> <command2...>` in view configuration mode. Figure 3 displays the command syntax for the commands command.
 
 __Step 5.__ Exit view configuration mode by typing the `exit` command.
 
@@ -100,7 +100,7 @@ There are four steps to create and manage a superview:
 
 __Step 1.__ Create a view using the `parser view <view-name> superview` command and enter superview configuration mode.
 
-__Step 2.__ Assign a secret password to the view using the `secret encrypted-password` command. Figure 1 displays the command syntax for the parser view superview and the secret commands.
+__Step 2.__ Assign a secret password to the view using the `secret <encrypted-password>` command. Figure 1 displays the command syntax for the parser view superview and the secret commands.
 
 __Step 3.__ Assign an existing view using the `view <view-name> command` in view configuration mode. Figure 2 displays the command syntax for the view command.
 
