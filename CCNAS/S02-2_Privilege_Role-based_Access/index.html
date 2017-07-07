@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Privilege and Role-Based Views - CCNA Journal</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Privilege and Role-Based Views";
+    var mkdocs_page_input_path = "CCNAS/S02-2_Privilege_Role-based_Access.md";
+    var mkdocs_page_url = "/CCNAS/S02-2_Privilege_Role-based_Access/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Journal</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA 1 Commands</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA 2 Commands</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/SSH_and_Port_Security/">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Access_Control_Lists/">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/DHCP_Configuration/">DHCP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/NAT_Port_Forwarding/">NAT and Port Forwarding for IPv4</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Device_Discovery_Mx/">Device Discovery and Management</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Miscellaneous/">Miscellaneous</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../Cisco_Voice-Notes/">Cisco Voice Basics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../S02-1_Securing_Network_Devices/">Securing Network Devices</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Privilege and Role-Based Views</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#privilege-level-control">Privilege Level Control</a></li>
+    
+
+    <li class="toctree-l3"><a href="#configuring-and-assigning-privilege-levels">Configuring and Assigning Privilege Levels</a></li>
+    
+
+    <li class="toctree-l3"><a href="#role-based-view-configuration">Role-Based View Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#configuring-role-based-cli-superviews">Configuring Role-Based CLI Superviews</a></li>
+    
+
+    <li class="toctree-l3"><a href="#verify-role-based-cli-views">Verify Role-Based CLI Views</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-2_Securing_Cisco_IOS_and_Configuration/">Securing Cisco IOS and Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-3_AutoSecure_and_Routing_Authentication/">AutoSecure and Routing Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S03_Basic_AAA_Configuration/">Basic AAA Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S04-1_Numbered_and_Named_ACLs/">Numbered and Named ACLs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S04-2_IPv6_ACLs/">IPv6 ACLs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S04-3_ZPF_Configuration/">ZPF Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S05_IPS_Configuration/">IPS Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Journal</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNA Security &raquo;</li>
+        
+      
+    
+    <li>Privilege and Role-Based Views</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="privilege-level-control">Privilege Level Control</h3>
+<p>By default, the Cisco IOS software CLI has two levels of access to commands:</p>
+<ul>
+<li>User EXEC mode (privilege level 1) - Provides the lowest EXEC mode user privileges and allows only user-level commands available at the router&gt; prompt.</li>
+<li>Privileged EXEC mode (privilege level 15) - Includes all enable-level commands at the router# prompt.</li>
+</ul>
+<p>There are 16 privilege levels in total, as shown in Figure 3:</p>
+<ul>
+<li>Level 0: predefined for user-level access privileges; includes 5 commands: <code>disable, enable, exit, help</code> and <code>logout</code>.</li>
+<li>Level 1: default level for login with router prompt of <code>Router&gt;</code></li>
+<li>Levels 2-14: may be customized for user-level privileges.</li>
+<li>Level 15: Reserved for <code>enable</code> mode privileges.</li>
+</ul>
+<pre><code>privilege &lt;mode&gt; {level &lt;level&gt; | reset} [command]
+</code></pre>
+
+<h3 id="configuring-and-assigning-privilege-levels">Configuring and Assigning Privilege Levels</h3>
+<p>To configure a privilege level with specific commands, use the <code>privilege exec level &lt;level&gt; [command]</code>.</p>
+<p>There are two methods for assigning passwords to the different privilege levels:</p>
+<ul>
+<li>To a user that is granted a specific privilege level, use the <code>username &lt;name&gt; privilege level secret &lt;password&gt;</code> global configuration mode command</li>
+<li>To the privilege level, use the <code>enable secret level &lt;level&gt; &lt;password&gt;</code> global configuration mode command</li>
+</ul>
+<pre><code>show privilege      ! Displays current privilege
+
+privilege &lt;mode&gt; {level &lt;level&gt; | reset} [command]
+</code></pre>
+
+<p>To configure a privilege level with specific commands:</p>
+<pre><code>privilege exec level &lt;level&gt; [command]
+</code></pre>
+
+<p><strong>Examples</strong>:</p>
+<p>Level 5 and SUPPORT user configuration:</p>
+<pre><code>privilege exec level 5 ping
+enable algorithm-type scrypt secret level5 cisco5
+username SUPPORT privilege 5 algorithm-type scrypt secret cisco5
+</code></pre>
+
+<p>Level 10 and JR-ADMIN user configuration:</p>
+<pre><code>privilege exec level 10 reload
+enable algorithm-type scrypt secret level 10 cisco10
+username JR-ADMIN privilege 10 algorithm-type scrypt secret cisco10
+</code></pre>
+
+<p>Level 15 and ADMIN user configuration:</p>
+<pre><code>enable algorithm-type scrypt secret level 15 cisco123
+username ADMIN privilege 15 algorithm-type scrypt secret cisco123
+</code></pre>
+
+<h3 id="role-based-view-configuration">Role-Based View Configuration</h3>
+<p>There are five steps to create and manage a specific view:</p>
+<p><strong>Step 1.</strong> Enable AAA with the <code>aaa new-model</code> global configuration mode command. Exit and enter the root view with the <code>enable view</code> or <code>enable view root</code> command.</p>
+<p><strong>Step 2.</strong> Create a view using the <code>parser view &lt;view-name&gt;</code> global configuration mode command. This enables the view configuration mode. Excluding the root view, there is a maximum limit of 15 views in total.</p>
+<p><strong>Step 3.</strong> Assign a secret password to the view using the <code>secret encrypted-password view</code> configuration mode command. Figure 2 displays the command syntax for the parser view and the secret commands.</p>
+<p><strong>Step 4.</strong> Assign commands to the selected view using the <code>commands parser-mode</code> command in view configuration mode. Figure 3 displays the command syntax for the commands command.</p>
+<p><strong>Step 5.</strong> Exit view configuration mode by typing the <code>exit</code> command.</p>
+<p>Example:</p>
+<pre><code>aaa new-model
+parser view SHOWVIEW
+ secret cisco
+ commands exec include show
+ exit
+parser view VERIFYVIEW
+ secret cisco5
+ commands exec include ping
+ exit
+parser view REBOOTVIEW
+ secret cisco10
+ commands exec include reload
+ exit
+</code></pre>
+
+<h3 id="configuring-role-based-cli-superviews">Configuring Role-Based CLI Superviews</h3>
+<p>There are four steps to create and manage a superview:</p>
+<p><strong>Step 1.</strong> Create a view using the <code>parser view &lt;view-name&gt; superview</code> command and enter superview configuration mode.</p>
+<p><strong>Step 2.</strong> Assign a secret password to the view using the <code>secret encrypted-password</code> command. Figure 1 displays the command syntax for the parser view superview and the secret commands.</p>
+<p><strong>Step 3.</strong> Assign an existing view using the <code>view &lt;view-name&gt; command</code> in view configuration mode. Figure 2 displays the command syntax for the view command.</p>
+<p><strong>Step 4.</strong> Exit superview configuration mode by typing the <code>exit</code> command.</p>
+<p>To access existing views, enter the <code>enable view &lt;view-name&gt;</code> command in user mode and enter the password that was assigned to the custom view. Use the same command to switch from one view to another.</p>
+<h3 id="verify-role-based-cli-views">Verify Role-Based CLI Views</h3>
+<pre><code>enable view &lt;view-name&gt;
+?
+enable view root
+show parser view all
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../S02-2_Securing_Cisco_IOS_and_Configuration/" class="btn btn-neutral float-right" title="Securing Cisco IOS and Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../S02-1_Securing_Network_Devices/" class="btn btn-neutral" title="Securing Network Devices"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../S02-1_Securing_Network_Devices/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../S02-2_Securing_Cisco_IOS_and_Configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

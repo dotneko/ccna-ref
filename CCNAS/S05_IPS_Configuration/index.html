@@ -119,6 +119,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../S02-2_Privilege_Role-based_Access/">Privilege and Role-Based Views</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../S02-2_Securing_Cisco_IOS_and_Configuration/">Securing Cisco IOS and Configuration</a>
                 </li>
                 <li class="">
@@ -146,7 +150,7 @@
     <a class="current" href="./">IPS Configuration</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#implement-ios-ips">Implement IOS IPS</a></li>
+    <li class="toctree-l3"><a href="#steps-in-implementng-ios-ips">Steps in Implementng IOS IPS</a></li>
     
 
     <li class="toctree-l3"><a href="#retire-and-unretire-signatures">Retire and Unretire Signatures</a></li>
@@ -208,12 +212,14 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="implement-ios-ips">Implement IOS IPS</h3>
-<p>Step 1. Download the IOS IPS files.
-Step 2. Create an IOS IPS configuration directory in Flash.
-Step 3. Configure an IOS IPS crypto key.
-Step 4. Enable IOS IPS.
-Step 5. Load the IOS IPS signature package to the router.</p>
+                <h3 id="steps-in-implementng-ios-ips">Steps in Implementng IOS IPS</h3>
+<ol>
+<li>Download the IOS IPS files.</li>
+<li>Create an IOS IPS configuration directory in Flash.</li>
+<li>Configure an IOS IPS crypto key.</li>
+<li>Enable IOS IPS.</li>
+<li>Load the IOS IPS signature package to the router.</li>
+</ol>
 <p><strong>Step 1. Download the IOS IPS files.</strong></p>
 <p><a href="https://software.cisco.com/download/type.html?mdfid=281442967&amp;catid=null">Cisco IOS Intrusion Prevention System Feature Software: Signature Data Files</a></p>
 <ul>
@@ -245,11 +251,11 @@ ip ips config location flash:IPS
 
 <p>Note: Prior to IOS 12.4(11)T, the <code>ip ips sdf</code> location command was used instead of <code>ip ips config location</code>.</p>
 <p><strong>b. Enable SDEE and logging event notification.</strong></p>
-<p>To use SDEE, the HTTP or HTTPS server must first be enabled with the <code>ip http server</code> or <code>ip https server</code> command. If the HTTP server is not enabled, the router cannot respond to the SDEE clients because it cannot see the requests. </p>
+<p>To use SDEE, the HTTP or HTTPS server must first be enabled with the <code>ip http server</code> or <code>ip https server</code> command. If the HTTP server is not enabled, the router cannot respond to the SDEE clients because it cannot see the requests.</p>
 <p>Note:
-- <strong>SDEE notification is disabled by default and must be explicitly enabled</strong>. 
+- <strong>SDEE notification is disabled by default and must be explicitly enabled</strong>.
 - SDEE and logging can be used independently or enabled at the same time.
-- Logging notification is enabled by default. </p>
+- Logging notification is enabled by default.</p>
 <pre><code>ip http server
 ip ips notify ?
 ip ips notify sdee  ! Send msgs in SDEE format
@@ -267,8 +273,7 @@ ip ips notify log   ! Send msgs in syslog format (default)
   category ios_ips basic
     retired false
     end
-
-  ! Need to confirm changes
+! Prompt: Confirm changes ?
 </code></pre>
 
 <p>CAUTION:
@@ -305,7 +310,6 @@ copy ftp://ftp_user:password@&lt;server-ip-address&gt;/signaturefile.pkg idconf
       exit
     exit
   exit
-
 ! Prompt: Confirm changes ?
 </code></pre>
 
@@ -315,7 +319,6 @@ copy ftp://ftp_user:password@&lt;server-ip-address&gt;/signaturefile.pkg idconf
     retired false
     exit
   exit
-
 ! Prompt: Confirm changes ?
 </code></pre>
 

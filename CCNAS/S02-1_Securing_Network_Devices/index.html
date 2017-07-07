@@ -142,7 +142,14 @@
     <li class="toctree-l3"><a href="#logging-failed-attempts">Logging Failed Attempts</a></li>
     
 
+    <li class="toctree-l3"><a href="#ssh-configuration">SSH Configuration</a></li>
+    
+
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-2_Privilege_Role-based_Access/">Privilege and Role-Based Views</a>
                 </li>
                 <li class="">
                     
@@ -295,6 +302,30 @@ security authentication failure rate threshold-rate log
 show login
 show login failures
 </code></pre>
+
+<h3 id="ssh-configuration">SSH Configuration</h3>
+<pre><code>ip domain-name &lt;domain.com&gt;
+crypto key generate rsa general-keys modulus &lt;modulus-size&gt;
+ip ssh version 2
+username &lt;name&gt; algorithm-type scrypt secret &lt;password&gt;
+line vty 0 15
+ login local
+ transport input ssh
+</code></pre>
+
+<p>Display generated keys:</p>
+<pre><code>show crypto key mypubkey rsa
+</code></pre>
+
+<p>Removing a key:</p>
+<pre><code>crypto key zeroize rsa
+</code></pre>
+
+<p>Additional commands:</p>
+<pre><code>show ip ssh
+ip ssh timeout &lt;seconds; default:120&gt;
+ip ssh authentication-retries &lt;integer&gt;
+</code></pre>
               
             </div>
           </div>
@@ -302,7 +333,7 @@ show login failures
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../S02-2_Securing_Cisco_IOS_and_Configuration/" class="btn btn-neutral float-right" title="Securing Cisco IOS and Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../S02-2_Privilege_Role-based_Access/" class="btn btn-neutral float-right" title="Privilege and Role-Based Views">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../../Cisco_Voice-Notes/" class="btn btn-neutral" title="Cisco Voice Basics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -334,7 +365,7 @@ show login failures
         <span><a href="../../Cisco_Voice-Notes/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../S02-2_Securing_Cisco_IOS_and_Configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../S02-2_Privilege_Role-based_Access/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

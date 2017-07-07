@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>/CCNA1_Cmdline/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -21,61 +21,61 @@
         
     <url>
      <loc>/CCNA2/Basic_Configuration/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNA2/Static_Routing/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNA2/Dynamic_Routing/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNA2/SSH_and_Port_Security/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNA2/VLAN_Configuration/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNA2/Access_Control_Lists/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNA2/DHCP_Configuration/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNA2/NAT_Port_Forwarding/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNA2/Device_Discovery_Mx/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNA2/Miscellaneous/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -84,7 +84,7 @@
     
     <url>
      <loc>/Cisco_Voice-Notes/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -93,49 +93,55 @@
         
     <url>
      <loc>/CCNAS/S02-1_Securing_Network_Devices/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/CCNAS/S02-2_Privilege_Role-based_Access/</loc>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNAS/S02-3_AutoSecure_and_Routing_Authentication/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNAS/S03_Basic_AAA_Configuration/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNAS/S04-1_Numbered_and_Named_ACLs/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNAS/S04-2_IPv6_ACLs/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNAS/S04-3_ZPF_Configuration/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CCNAS/S05_IPS_Configuration/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
