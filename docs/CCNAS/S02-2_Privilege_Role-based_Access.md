@@ -70,7 +70,7 @@ __Step 1.__ Enable AAA with the `aaa new-model` global configuration mode comman
 
 __Step 2.__ Create a view using the `parser view <view-name>` global configuration mode command. This enables the view configuration mode. Excluding the root view, there is a maximum limit of 15 views in total.
 
-__Step 3.__ Assign a secret password to the view using the `secret encrypted-password view` configuration mode command. Figure 2 displays the command syntax for the parser view and the secret commands.
+__Step 3.__ Assign a secret password to the view using the `secret <encrypted-password>` view configuration mode command. Figure 2 displays the command syntax for the parser view and the secret commands.
 
 __Step 4.__ Assign commands to the selected view using the `commands parser-mode` command in view configuration mode. Figure 3 displays the command syntax for the commands command.
 
