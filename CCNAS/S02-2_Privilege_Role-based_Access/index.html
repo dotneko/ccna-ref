@@ -260,8 +260,8 @@ username ADMIN privilege 15 algorithm-type scrypt secret cisco123
 <p>There are five steps to create and manage a specific view:</p>
 <p><strong>Step 1.</strong> Enable AAA with the <code>aaa new-model</code> global configuration mode command. Exit and enter the root view with the <code>enable view</code> or <code>enable view root</code> command.</p>
 <p><strong>Step 2.</strong> Create a view using the <code>parser view &lt;view-name&gt;</code> global configuration mode command. This enables the view configuration mode. Excluding the root view, there is a maximum limit of 15 views in total.</p>
-<p><strong>Step 3.</strong> Assign a secret password to the view using the <code>secret encrypted-password view</code> configuration mode command. Figure 2 displays the command syntax for the parser view and the secret commands.</p>
-<p><strong>Step 4.</strong> Assign commands to the selected view using the <code>commands parser-mode</code> command in view configuration mode. Figure 3 displays the command syntax for the commands command.</p>
+<p><strong>Step 3.</strong> Assign a secret password to the view using the <code>secret &lt;encrypted-password&gt;</code> view configuration mode command. Figure 2 displays the command syntax for the parser view and the secret commands.</p>
+<p><strong>Step 4.</strong> Assign commands to the selected view using the <code>commands &lt;parser-mode&gt; [include] &lt;command1&gt; &lt;command2...&gt;</code> in view configuration mode. Figure 3 displays the command syntax for the commands command.</p>
 <p><strong>Step 5.</strong> Exit view configuration mode by typing the <code>exit</code> command.</p>
 <p>Example:</p>
 <pre><code>aaa new-model
@@ -282,7 +282,7 @@ parser view REBOOTVIEW
 <h3 id="configuring-role-based-cli-superviews">Configuring Role-Based CLI Superviews</h3>
 <p>There are four steps to create and manage a superview:</p>
 <p><strong>Step 1.</strong> Create a view using the <code>parser view &lt;view-name&gt; superview</code> command and enter superview configuration mode.</p>
-<p><strong>Step 2.</strong> Assign a secret password to the view using the <code>secret encrypted-password</code> command. Figure 1 displays the command syntax for the parser view superview and the secret commands.</p>
+<p><strong>Step 2.</strong> Assign a secret password to the view using the <code>secret &lt;encrypted-password&gt;</code> command. Figure 1 displays the command syntax for the parser view superview and the secret commands.</p>
 <p><strong>Step 3.</strong> Assign an existing view using the <code>view &lt;view-name&gt; command</code> in view configuration mode. Figure 2 displays the command syntax for the view command.</p>
 <p><strong>Step 4.</strong> Exit superview configuration mode by typing the <code>exit</code> command.</p>
 <p>To access existing views, enter the <code>enable view &lt;view-name&gt;</code> command in user mode and enter the password that was assigned to the custom view. Use the same command to switch from one view to another.</p>
