@@ -96,3 +96,35 @@ security authentication failure rate threshold-rate log
 show login
 show login failures
 ```
+
+### SSH Configuration
+
+```
+ip domain-name <domain.com>
+crypto key generate rsa general-keys modulus <modulus-size>
+ip ssh version 2
+username <name> algorithm-type scrypt secret <password>
+line vty 0 15
+ login local
+ transport input ssh
+```
+
+Display generated keys:
+
+```
+show crypto key mypubkey rsa
+```
+
+Removing a key:
+
+```
+crypto key zeroize rsa
+```
+
+Additional commands:
+
+```
+show ip ssh
+ip ssh timeout <seconds; default:120>
+ip ssh authentication-retries <integer>
+```

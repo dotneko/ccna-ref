@@ -17,6 +17,7 @@ pages:
 - Cisco Voice Basics: 'Cisco_Voice-Notes.md'
 - CCNA Security:
     - 'Securing Network Devices': 'CCNAS/S02-1_Securing_Network_Devices.md'
+    - 'Privilege and Role-Based Views': 'CCNAS/S02-2_Privilege_Role-based_Access.md'
     - 'Securing Cisco IOS and Configuration': 'CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration.md'
     - 'AutoSecure and Routing Authentication': 'CCNAS/S02-3_AutoSecure_and_Routing_Authentication.md'
     - 'Basic AAA Configuration': 'CCNAS/S03_Basic_AAA_Configuration.md'

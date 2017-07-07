@@ -1,10 +1,10 @@
-### Implement IOS IPS
+### Steps in Implementng IOS IPS
 
-Step 1. Download the IOS IPS files.
-Step 2. Create an IOS IPS configuration directory in Flash.
-Step 3. Configure an IOS IPS crypto key.
-Step 4. Enable IOS IPS.
-Step 5. Load the IOS IPS signature package to the router.
+1. Download the IOS IPS files.
+2. Create an IOS IPS configuration directory in Flash.
+3. Configure an IOS IPS crypto key.
+4. Enable IOS IPS.
+5. Load the IOS IPS signature package to the router.
 
 __Step 1. Download the IOS IPS files.__
 
@@ -54,12 +54,12 @@ Note: Prior to IOS 12.4(11)T, the `ip ips sdf` location command was used instead
 
 **b. Enable SDEE and logging event notification.**
 
-To use SDEE, the HTTP or HTTPS server must first be enabled with the `ip http server` or `ip https server` command. If the HTTP server is not enabled, the router cannot respond to the SDEE clients because it cannot see the requests. 
+To use SDEE, the HTTP or HTTPS server must first be enabled with the `ip http server` or `ip https server` command. If the HTTP server is not enabled, the router cannot respond to the SDEE clients because it cannot see the requests.
 
 Note:
-- **SDEE notification is disabled by default and must be explicitly enabled**. 
+- **SDEE notification is disabled by default and must be explicitly enabled**.
 - SDEE and logging can be used independently or enabled at the same time.
-- Logging notification is enabled by default. 
+- Logging notification is enabled by default.
 
 ```
 ip http server
@@ -83,8 +83,7 @@ ip ips signature-category
   category ios_ips basic
     retired false
     end
-
-  ! Need to confirm changes
+! Prompt: Confirm changes ?
 ```
 
 CAUTION:
@@ -134,7 +133,6 @@ ip ips signature-definition
       exit
     exit
   exit
-
 ! Prompt: Confirm changes ?
 ```
 
@@ -146,7 +144,6 @@ ip ips signature-category
     retired false
     exit
   exit
-
 ! Prompt: Confirm changes ?
 ```
 
@@ -190,7 +187,7 @@ ip ips signature-definition
       exit
     exit
   exit
-  
+
 ! Prompt: Confirm changes ?
 ```
 
