@@ -6,6 +6,7 @@ Current notes available and accessible from the menu are:
 
 - CCNA 1
 - CCNA 2
+- CCNA 3 (Ongoing)
 - Cisco Voice Basic Telephony
 - CCNA Security (Up to Chapter 5)
 

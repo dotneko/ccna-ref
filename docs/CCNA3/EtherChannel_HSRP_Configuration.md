@@ -8,7 +8,7 @@ interface range f0/1-2
   channel-group <identifier> mode active
   !channel-group <identifier> mode desirable
   no shutdown
-  
+
 interface port-channel <identifier>
   switchport mode trunk
   switchport trunk allowed vlan 1,2,20
@@ -60,7 +60,7 @@ standby [group-num] priority [priority-value; default=100]
 - Preemption is the ability of an HSRP router to trigger the re-election process. With preemption enabled, a router that comes online with a higher HSRP priority will assume the role of the active router.
 
 ```
-standby [group-num] premept
+standby [group-num] preempt
 ```
 
 **Example:**
