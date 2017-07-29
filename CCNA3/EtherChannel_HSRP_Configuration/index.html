@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>AutoSecure and Routing Authentication - CCNA Journal</title>
+  <title>EtherChannel and HSRP Configuration - CCNA Journal</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "AutoSecure and Routing Authentication";
-    var mkdocs_page_input_path = "CCNAS/S02-3_AutoSecure_and_Routing_Authentication.md";
-    var mkdocs_page_url = "/CCNAS/S02-3_AutoSecure_and_Routing_Authentication/";
+    var mkdocs_page_name = "EtherChannel and HSRP Configuration";
+    var mkdocs_page_input_path = "CCNA3/EtherChannel_HSRP_Configuration.md";
+    var mkdocs_page_url = "/CCNA3/EtherChannel_HSRP_Configuration/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -110,15 +110,36 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../CCNA3/VTP_Configuration/">VTP Configuration</a>
+    <a class="" href="../VTP_Configuration/">VTP Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../CCNA3/STP_Configuration/">STP Configuration</a>
+    <a class="" href="../STP_Configuration/">STP Configuration</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../CCNA3/EtherChannel_HSRP_Configuration/">EtherChannel and HSRP Configuration</a>
+    <a class="current" href="./">EtherChannel and HSRP Configuration</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#etherchannel-with-lacp-configuration">EtherChannel with LACP Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#verifying-etherchannel">Verifying EtherChannel</a></li>
+    
+
+    <li class="toctree-l3"><a href="#troubleshooting-etherchannel">Troubleshooting EtherChannel</a></li>
+    
+
+    <li class="toctree-l3"><a href="#hsrp-configuration-commands">HSRP Configuration Commands</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#verifydebug-hsrp-state">Verify/Debug HSRP State</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -134,54 +155,39 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../S02-1_Securing_Network_Devices/">Securing Network Devices</a>
+    <a class="" href="../../CCNAS/S02-1_Securing_Network_Devices/">Securing Network Devices</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S02-2_Privilege_Role-based_Access/">Privilege and Role-Based Views</a>
+    <a class="" href="../../CCNAS/S02-2_Privilege_Role-based_Access/">Privilege and Role-Based Views</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S02-2_Securing_Cisco_IOS_and_Configuration/">Securing Cisco IOS and Configuration</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">AutoSecure and Routing Authentication</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#discovery-protocols-cdp-and-lldp">Discovery Protocols CDP and LLDP</a></li>
-    
-
-    <li class="toctree-l3"><a href="#cisco-autosecure">Cisco AutoSecure</a></li>
-    
-
-    <li class="toctree-l3"><a href="#ospf-md5-routing-protocol-authentication">OSPF MD5 Routing Protocol Authentication</a></li>
-    
-
-    <li class="toctree-l3"><a href="#ospf-sha-routing-protocol-authentication">OSPF SHA Routing Protocol Authentication</a></li>
-    
-
-    </ul>
+    <a class="" href="../../CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/">Securing Cisco IOS and Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S03_Basic_AAA_Configuration/">Basic AAA Configuration</a>
+    <a class="" href="../../CCNAS/S02-3_AutoSecure_and_Routing_Authentication/">AutoSecure and Routing Authentication</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S04-1_Numbered_and_Named_ACLs/">Numbered and Named ACLs</a>
+    <a class="" href="../../CCNAS/S03_Basic_AAA_Configuration/">Basic AAA Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S04-2_IPv6_ACLs/">IPv6 ACLs</a>
+    <a class="" href="../../CCNAS/S04-1_Numbered_and_Named_ACLs/">Numbered and Named ACLs</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S04-3_ZPF_Configuration/">ZPF Configuration</a>
+    <a class="" href="../../CCNAS/S04-2_IPv6_ACLs/">IPv6 ACLs</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S05_IPS_Configuration/">IPS Configuration</a>
+    <a class="" href="../../CCNAS/S04-3_ZPF_Configuration/">ZPF Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S05_IPS_Configuration/">IPS Configuration</a>
                 </li>
     </ul>
 	    </li>
@@ -208,11 +214,11 @@
     
       
         
-          <li>CCNA Security &raquo;</li>
+          <li>CCNA3 &raquo;</li>
         
       
     
-    <li>AutoSecure and Routing Authentication</li>
+    <li>EtherChannel and HSRP Configuration</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -222,53 +228,83 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="discovery-protocols-cdp-and-lldp">Discovery Protocols CDP and LLDP</h3>
-<pre><code>show cdp neighbors detail
-show lldp neighbors detail
+                <h3 id="etherchannel-with-lacp-configuration">EtherChannel with LACP Configuration</h3>
+<p>Configure FastEthernet 0/1 and 0/2 as an EtherChannel in trunk mode:</p>
+<pre><code>interface range f0/1-2
+  shutdown
+  channel-group &lt;identifier&gt; mode active
+  !channel-group &lt;identifier&gt; mode desirable
+  no shutdown
+
+interface port-channel &lt;identifier&gt;
+  switchport mode trunk
+  switchport trunk allowed vlan 1,2,20
 </code></pre>
 
-<h3 id="cisco-autosecure">Cisco AutoSecure</h3>
-<pre><code>auto secure
-
-auto secure [no-interact|full] [forwarding|management] [ntp|login|ssh|firewall|tcp-intercept]
-
-auto secure full            ! Default interactive mode
-auto secure no-interact     ! Uses recommended Cisco default
+<h3 id="verifying-etherchannel">Verifying EtherChannel</h3>
+<pre><code>show interfaces port-channel &lt;identifier&gt;
+show etherchannel summary
+show etherchannel port-channel
+show interfaces etherchannel
 </code></pre>
 
-<h3 id="ospf-md5-routing-protocol-authentication">OSPF MD5 Routing Protocol Authentication</h3>
-<p>Check OSPF configuration:</p>
-<pre><code>show run | begin router ospf
+<h3 id="troubleshooting-etherchannel">Troubleshooting EtherChannel</h3>
+<pre><code>show etherchannel summary
+show run | begin interface port-channel
 </code></pre>
 
-<p>Global authentication on all OSPF enabled interfaces:</p>
-<pre><code>ip ospf message-digest-key &lt;key&gt; md5 &lt;password&gt;
-area &lt;area-id&gt; authentication message-digest
+<h1 id="hsrp-configuration-commands">HSRP Configuration Commands</h1>
+<p>Complete the following steps to configure HSRP in interface command mode:</p>
+<p><strong>Step 1.</strong> Configure HSRP version 2.</p>
+<pre><code>standby version 2
 </code></pre>
 
-<p>Example, configure on both routers connected via s0/0/0:</p>
-<pre><code>interface s0/0/0
- ip ospf message-digest-key 1 md5 cisco12345
- ip ospf authentication message-digest
+<p><strong>Step 2.</strong> Configure the virtual IP address for the group.</p>
+<pre><code>standby [group-num; default=0] &lt;ip-address&gt;
+</code></pre>
+
+<p><strong>Step 3.</strong> Configure the priority for the desired active router to be greater than 100.</p>
+<pre><code>standby [group-num] priority [priority-value; default=100]
 </code></pre>
 
 <ul>
-<li>Note that OSPF neighbors should have the same key and password.</li>
+<li>HSRP priority can be used to determine the active router. The router with the highest HSRP priority will become the active router. <strong>By default, the HSRP priority is 100</strong>. If the priorities are equal, the router with the numerically highest IPv4 address is elected as the active router.</li>
+<li>By default, <strong>after a router becomes the active router, it will remain the active router even if another router comes online with a higher HSRP priority</strong>.</li>
 </ul>
-<h3 id="ospf-sha-routing-protocol-authentication">OSPF SHA Routing Protocol Authentication</h3>
-<p>Specify a SHA authentication key chain:</p>
-<pre><code>key chain &lt;name&gt;
- key &lt;key-id&gt;
-  key-string &lt;password-string&gt;
-  cryptographic-algorithm hmac-sha-256
-  exit
-
-send-lifetime start-time {infinite|end-time|duration &lt;seconds&gt;}     ! Optional
+<p><strong>Step 4.</strong> Configure the active router to preempt the standby router in cases where the active router comes online after the standby router.</p>
+<ul>
+<li>Preemption is the ability of an HSRP router to trigger the re-election process. With preemption enabled, a router that comes online with a higher HSRP priority will assume the role of the active router.</li>
+</ul>
+<pre><code>standby [group-num] premept
 </code></pre>
 
-<p>Assign the authentication key chain to the desired interfaces:</p>
-<pre><code>interface &lt;type-number&gt;
- ip ospf authentication key-chain &lt;name&gt;
+<p><strong>Example:</strong></p>
+<p>R1 (Active Router):</p>
+<pre><code>interface g0/1
+  ip address 172.16.10.2 255.255.255.0
+  standby version 2
+  standby 1 ip 172.16.10.1
+  standby 1 priority 150
+  standby 1 preempt
+  no shut
+</code></pre>
+
+<p>R2 (Standby Router):</p>
+<pre><code>interface g0/1
+  ip address 172.16.10.3 255.255.255.0
+  standby version 2
+  standby 1 ip 172.16.10.1
+  no shut
+</code></pre>
+
+<h3 id="verifydebug-hsrp-state">Verify/Debug HSRP State</h3>
+<pre><code>show standby
+show standby brief
+
+debug standby errors
+debug standby events
+debug standby packets
+debug standby terse
 </code></pre>
               
             </div>
@@ -277,10 +313,10 @@ send-lifetime start-time {infinite|end-time|duration &lt;seconds&gt;}     ! Opti
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../S03_Basic_AAA_Configuration/" class="btn btn-neutral float-right" title="Basic AAA Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../Cisco_Voice-Notes/" class="btn btn-neutral float-right" title="Cisco Voice Basics">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../S02-2_Securing_Cisco_IOS_and_Configuration/" class="btn btn-neutral" title="Securing Cisco IOS and Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../STP_Configuration/" class="btn btn-neutral" title="STP Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -306,10 +342,10 @@ send-lifetime start-time {infinite|end-time|duration &lt;seconds&gt;}     ! Opti
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../S02-2_Securing_Cisco_IOS_and_Configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../STP_Configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../S03_Basic_AAA_Configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../Cisco_Voice-Notes/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

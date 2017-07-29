@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>STP Configuration - CCNA Journal</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "STP Configuration";
+    var mkdocs_page_input_path = "CCNA3/STP_Configuration.md";
+    var mkdocs_page_url = "/CCNA3/STP_Configuration/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Journal</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA 1 Commands</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA 2 Commands</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/SSH_and_Port_Security/">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Access_Control_Lists/">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/DHCP_Configuration/">DHCP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/NAT_Port_Forwarding/">NAT and Port Forwarding for IPv4</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Device_Discovery_Mx/">Device Discovery and Management</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Miscellaneous/">Miscellaneous</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA3</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../VTP_Configuration/">VTP Configuration</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">STP Configuration</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#spanning-tree-configuration">Spanning Tree Configuration</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#spanning-tree-modes">Spanning Tree Modes</a></li>
+        
+            <li><a class="toctree-l4" href="#stp-port-cost-configuration">STP Port Cost Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#edge-port-configuration">Edge Port Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#bridge-id-configuration">Bridge ID Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#root-bridge-configuration">Root Bridge Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#showverify-spanning-tree-configuration">Show/Verify Spanning Tree Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#examine-spanning-tree-convergence">Examine Spanning Tree Convergence</a></li>
+        
+            <li><a class="toctree-l4" href="#analyzing-the-stp-topology">Analyzing the STP Topology</a></li>
+        
+            <li><a class="toctree-l4" href="#portfast-and-bpdu-guard">PortFast and BPDU Guard</a></li>
+        
+            <li><a class="toctree-l4" href="#rapid-pvst-configuration">Rapid PVST+ Configuration</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../EtherChannel_HSRP_Configuration/">EtherChannel and HSRP Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../Cisco_Voice-Notes/">Cisco Voice Basics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S02-1_Securing_Network_Devices/">Securing Network Devices</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S02-2_Privilege_Role-based_Access/">Privilege and Role-Based Views</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/">Securing Cisco IOS and Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S02-3_AutoSecure_and_Routing_Authentication/">AutoSecure and Routing Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S03_Basic_AAA_Configuration/">Basic AAA Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S04-1_Numbered_and_Named_ACLs/">Numbered and Named ACLs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S04-2_IPv6_ACLs/">IPv6 ACLs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S04-3_ZPF_Configuration/">ZPF Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S05_IPS_Configuration/">IPS Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Journal</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNA3 &raquo;</li>
+        
+      
+    
+    <li>STP Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="spanning-tree-configuration">Spanning Tree Configuration</h1>
+<h3 id="spanning-tree-modes">Spanning Tree Modes</h3>
+<pre><code>spanning-tree mode pvst
+spanning-tree mode rapid-pvst
+</code></pre>
+
+<h3 id="stp-port-cost-configuration">STP Port Cost Configuration</h3>
+<p>Default Port Cost Values:</p>
+<p><img alt="Figure" src="../img/ccna3-03.1.2.4a.png" /></p>
+<p>Configure Cost:</p>
+<pre><code>interface &lt;interface-id&gt;
+ spanning-tree cost &lt;value; 1-200,000,000&gt;
+</code></pre>
+
+<p>Restore Default:</p>
+<pre><code> no spanning-tree cost &lt;value&gt;
+</code></pre>
+
+<h3 id="edge-port-configuration">Edge Port Configuration</h3>
+<p>The RSTP edge port concept <em>corresponds to the PVST+ PortFast feature</em>. An edge port is directly connected to an end station and assumes that no switch device is connected to it. RSTP edge ports should immediately transition to the forwarding state, thereby skipping the time-consuming original 802.1D listening and learning port states.</p>
+<pre><code>spanning-tree portfast
+</code></pre>
+
+<p>The link type is automatically determined, but can be overridden with an explicit port configuration using the <code>spanning-tree link-type { point-to-point | shared }</code> command.</p>
+<h3 id="bridge-id-configuration">Bridge ID Configuration</h3>
+<p>To ensure that the switch has the lowest bridge priority value, use:</p>
+<pre><code>spanning-tree vlan &lt;vlan-id&gt; root primary
+</code></pre>
+
+<ul>
+<li>The priority for the switch is set to the predefined value of 24,576 or to the highest multiple of 4,096, less than the lowest bridge priority detected on the network.</li>
+</ul>
+<p>If an alternate root bridge is desired, use:</p>
+<pre><code>spanning-tree vlan &lt;vlan-id&gt; root secondary
+</code></pre>
+
+<ul>
+<li>This command sets the priority for the switch to the predefined value of 28,672. This ensures that the alternate switch becomes the root bridge if the primary root bridge fails. This assumes that the rest of the switches in the network have the default 32,768 priority value defined.</li>
+</ul>
+<h3 id="root-bridge-configuration">Root Bridge Configuration</h3>
+<p>The steps to configure PVST+ on this example topology are:</p>
+<p>Step 1. Select the switches you want for the primary and secondary root bridges for each VLAN. For example, in Figure 1, S3 is the primary bridge for VLAN 20 and S1 is the secondary bridge for VLAN 20.</p>
+<p>Step 2. Configure the switch to be a primary bridge for the VLAN by using the <code>spanning-tree vlan &lt;number&gt; root primary</code> command, as shown in Figure 2.</p>
+<p>Step 3. Configure the switch to be a secondary bridge for the VLAN by using the <code>spanning-tree vlan &lt;number&gt; root secondary</code> command.</p>
+<pre><code>! S3(config)#:
+spanning-tree vlan 20 root primary
+spanning-tree vlan 10 root secondary
+
+! S1(config)#:
+spanning-tree vlan 10 root primary
+spanning-tree vlan 20 root secondary
+</code></pre>
+
+<p>Another way to specify the root bridge is to set the spanning tree priority on each switch to the lowest value so that the switch is selected as the primary bridge for its associated VLAN:</p>
+<pre><code>! S3(config)#:
+spanning-tree vlan 20 priority 4096
+
+! S1(config)#:
+spanning-tree vlan 10 priority 4096
+</code></pre>
+
+<p>Display spanning tree configuration details for active interfaces only:</p>
+<pre><code>show spanning-tree active
+</code></pre>
+
+<h3 id="showverify-spanning-tree-configuration">Show/Verify Spanning Tree Configuration</h3>
+<pre><code>show spanning tree
+show spanning tree summary
+</code></pre>
+
+<h3 id="examine-spanning-tree-convergence">Examine Spanning Tree Convergence</h3>
+<pre><code>debug spanning-tree events
+</code></pre>
+
+<h3 id="analyzing-the-stp-topology">Analyzing the STP Topology</h3>
+<p><img alt="Analyzing the STP Topology" src="../img/ccna3-03.3.3.1.png" /></p>
+<p>To analyze the STP topology, follow these steps:</p>
+<p>Step 1. Discover the Layer 2 topology. Use network documentation if it exists or use the <code>show cdp neighbors</code> command to discover the Layer 2 topology.</p>
+<p>Step 2. After discovering the Layer 2 topology, use STP knowledge to determine the expected Layer 2 path. It is necessary to know which switch is the root bridge.</p>
+<p>Step 3. Use the <code>show spanning-tree vlan</code> command to determine which switch is the root bridge.</p>
+<p>Step 4. Use the <code>show spanning-tree vlan</code> command on all switches to find out which ports are in blocking or forwarding state and confirm your expected Layer 2 path.</p>
+<h3 id="portfast-and-bpdu-guard">PortFast and BPDU Guard</h3>
+<pre><code>interface &lt;intf-id&gt;
+  spanning-tree portfast
+  spanning-tree bpduguard enable
+
+! To enable on all nontrunking interfaces:
+spanning-tree portfast default
+spanning-tree portfast bpduguard default
+</code></pre>
+
+<h3 id="rapid-pvst-configuration">Rapid PVST+ Configuration</h3>
+<pre><code>configure terminal
+spanning-tree mode rapid-pvst
+interface &lt;interface-id&gt;
+  spanning-tree link-type point-to-point
+  end
+clear spanning-tree detected protocols
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../EtherChannel_HSRP_Configuration/" class="btn btn-neutral float-right" title="EtherChannel and HSRP Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../VTP_Configuration/" class="btn btn-neutral" title="VTP Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../VTP_Configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../EtherChannel_HSRP_Configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
