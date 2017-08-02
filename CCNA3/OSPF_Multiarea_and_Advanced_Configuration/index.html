@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>OSPF Multiarea & Advanced - CCNA Journal</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "OSPF Multiarea & Advanced";
+    var mkdocs_page_input_path = "CCNA3/OSPF_Multiarea_and_Advanced_Configuration.md";
+    var mkdocs_page_url = "/CCNA3/OSPF_Multiarea_and_Advanced_Configuration/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Journal</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA 1 Commands</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA 2 Commands</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/SSH_and_Port_Security/">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Access_Control_Lists/">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/DHCP_Configuration/">DHCP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/NAT_Port_Forwarding/">NAT and Port Forwarding for IPv4</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Device_Discovery_Mx/">Device Discovery and Management</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Miscellaneous/">Miscellaneous</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA 3</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../VTP_Configuration/">VTP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../STP_Configuration/">STP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../EtherChannel_HSRP_Configuration/">EtherChannel and HSRP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../EIGRP_Configuration/">EIGRP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../OSPF_Configuration/">OSPF Configuration</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">OSPF Multiarea & Advanced</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#multiarea-ospfv2">Multiarea OSPFv2</a></li>
+    
+
+    <li class="toctree-l3"><a href="#multiarea-ospfv3-ipv6">Multiarea OSPFv3 (IPv6)</a></li>
+    
+
+    <li class="toctree-l3"><a href="#verifying-multiarea-ospfv2">Verifying Multiarea OSPFv2</a></li>
+    
+
+    <li class="toctree-l3"><a href="#using-a-loopback-interface-for-a-simulated-ospf-network-lab-9229">Using a Loopback Interface for a Simulated OSPF Network (Lab 9.2.2.9)</a></li>
+    
+
+    <li class="toctree-l3"><a href="#ospf-in-multiaccess-networks">OSPF in MultiAccess Networks</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#verify-ospf-router-roles-and-neighbor-adjacencies">Verify OSPF Router Roles and Neighbor Adjacencies</a></li>
+        
+            <li><a class="toctree-l4" href="#ospf-priority-configuration">OSPF Priority Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#propagating-a-default-static-route-in-ospfv2">Propagating a Default Static Route in OSPFv2</a></li>
+        
+            <li><a class="toctree-l4" href="#propagating-a-default-static-route-in-ospfv3">Propagating a Default Static Route in OSPFv3</a></li>
+        
+            <li><a class="toctree-l4" href="#modify-ospfv2-intervals">Modify OSPFv2 Intervals</a></li>
+        
+            <li><a class="toctree-l4" href="#modify-ospfv3-intervals-ipv6">Modify OSPFv3 Intervals (IPv6)</a></li>
+        
+            <li><a class="toctree-l4" href="#fix-mismatched-mtu-sizes">Fix Mismatched MTU Sizes</a></li>
+        
+            <li><a class="toctree-l4" href="#troubleshooting-commands">Troubleshooting Commands</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#additional-commands">Additional Commands</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#configuring-interarea-route-summarization">Configuring Interarea Route Summarization</a></li>
+        
+            <li><a class="toctree-l4" href="#ospfv2-authentication-with-md5">OSPFv2 Authentication with MD5</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../Cisco_Voice-Notes/">Cisco Voice Basics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S02-1_Securing_Network_Devices/">Securing Network Devices</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S02-2_Privilege_Role-based_Access/">Privilege and Role-Based Views</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/">Securing Cisco IOS and Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S02-3_AutoSecure_and_Routing_Authentication/">AutoSecure and Routing Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S03_Basic_AAA_Configuration/">Basic AAA Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S04-1_Numbered_and_Named_ACLs/">Numbered and Named ACLs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S04-2_IPv6_ACLs/">IPv6 ACLs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S04-3_ZPF_Configuration/">ZPF Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S05_IPS_Configuration/">IPS Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Journal</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNA 3 &raquo;</li>
+        
+      
+    
+    <li>OSPF Multiarea & Advanced</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="multiarea-ospfv2">Multiarea OSPFv2</h3>
+<p>ABR Example through interface advertisement:</p>
+<pre><code>router ospf 10
+  router-id 1.1.1.1
+  network 10.1.1.1 0.0.0.0 area 1
+  network 10.1.2.1 0.0.0.0 area 1
+  network 192.168.10.1 0.0.0.0 area 0
+  end
+</code></pre>
+
+<h3 id="multiarea-ospfv3-ipv6">Multiarea OSPFv3 (IPv6)</h3>
+<p>Example:</p>
+<pre><code>ipv6 router ospf 10
+  router-id 1.1.1.1
+  exit
+
+interface GigabitEthernet 0/0
+  ipv6 ospf 10 area 1
+
+interface Serial 0/0/0
+  ipv6 ospf 10 area 0
+  end
+</code></pre>
+
+<h3 id="verifying-multiarea-ospfv2">Verifying Multiarea OSPFv2</h3>
+<p>The same verification commands used to verify single-area OSPFv2 also can be used to verify the multiarea OSPF topology:</p>
+<pre><code>show ip ospf neighbor
+show ip ospf
+show ip ospf interface
+</code></pre>
+
+<p>Commands that verify specific multiarea OSPFv2 information include:</p>
+<pre><code>show ip protocols
+show ip ospf interface brief
+show ip route ospf
+show ip ospf database
+</code></pre>
+
+<p>Note: For the equivalent OSPFv3 command, simply substitute <code>ip</code> with <code>ipv6</code>.</p>
+<h3 id="using-a-loopback-interface-for-a-simulated-ospf-network-lab-9229">Using a Loopback Interface for a Simulated OSPF Network (Lab 9.2.2.9)</h3>
+<pre><code>ipv6 router ospf 1
+ router-id 1.1.1.1
+
+interface lo0
+ ipv6 ospf 1 area 1
+ ipv6 ospf network point-to-point
+</code></pre>
+
+<h1 id="ospf-in-multiaccess-networks">OSPF in MultiAccess Networks</h1>
+<h3 id="verify-ospf-router-roles-and-neighbor-adjacencies">Verify OSPF Router Roles and Neighbor Adjacencies</h3>
+<pre><code>show ip ospf interface &lt;intf-id&gt;
+show ip ospf neighbor
+</code></pre>
+
+<h3 id="ospf-priority-configuration">OSPF Priority Configuration</h3>
+<pre><code>ip ospf priority &lt;value&gt;    ! OSPFv2 interface command
+ipv6 ospf priority &lt;value&gt;  ! OSPFv3 interface command
+</code></pre>
+
+<p>The value can be:</p>
+<ul>
+<li><code>0</code> - Does not become a DR or BDR.</li>
+<li><code>1–255</code> - The higher the priority value, the more likely the router becomes the DR or BDR on the interface.</li>
+</ul>
+<h3 id="propagating-a-default-static-route-in-ospfv2">Propagating a Default Static Route in OSPFv2</h3>
+<p>To propagate a default route, the edge router must be configured with:</p>
+<ul>
+<li>Default static route: <code>ip route 0.0.0.0 0.0.0.0 {&lt;ip-address&gt; | &lt;exit-intf&gt;}</code></li>
+<li>Propagate in SPF updates: <code>default-information originate</code></li>
+</ul>
+<p>Example:</p>
+<pre><code>ip router 0.0.0.0 0.0.0.0 209.165.200.226
+
+router ospf 10
+  default-information originate
+  end
+</code></pre>
+
+<h3 id="propagating-a-default-static-route-in-ospfv3">Propagating a Default Static Route in OSPFv3</h3>
+<p>To propagate a default route, the edge router must be configured with:</p>
+<ul>
+<li>Default static route: <code>ipv6 route ::/0 {&lt;ipv6-address&gt; | &lt;exit-intf&gt;}</code></li>
+<li>Propagate route: <code>default-information originate</code> </li>
+</ul>
+<p>Example:</p>
+<pre><code>ipv6 route ::/0 201:db8:feed:1::2
+
+ipv6 router ospf 10
+  default-information originate
+  end
+</code></pre>
+
+<h3 id="modify-ospfv2-intervals">Modify OSPFv2 Intervals</h3>
+<p>Note: The <em>default Hello and Dead intervals are based on best practices and should only be altered in rare situations</em>.</p>
+<p>OSPFv2 Hello and Dead intervals can be modified manually using the following interface configuration mode commands:</p>
+<pre><code>ip ospf hello-interval &lt;seconds&gt;
+ip ospf dead-interval &lt;seconds&gt;
+</code></pre>
+
+<p>Use the <code>no ip ospf hello-interval</code> and <code>no ip ospf dead-interval</code> commands to reset the intervals to their default.</p>
+<p>Immediately after changing the Hello interval, the <strong>Cisco IOS automatically modifies the Dead interval to four times the Hello interval</strong>. However, it is <em>always good practice to explicitly modify the timer instead of relying on an automatic IOS feature so that modifications are documented in the configuration</em>.</p>
+<h3 id="modify-ospfv3-intervals-ipv6">Modify OSPFv3 Intervals (IPv6)</h3>
+<p>OSPFv3 Hello and Dead intervals can be modified manually using the following interface configuration mode commands:</p>
+<pre><code>ipv6 ospf hello-interval &lt;seconds&gt;
+ipv6 ospf dead-interval &lt;seconds&gt;
+</code></pre>
+
+<p>Note: Use the <code>no ipv6 ospf hello-interval</code> and <code>no ipv6 ospf dead-interval</code> commands to reset the intervals to their default.</p>
+<h3 id="fix-mismatched-mtu-sizes">Fix Mismatched MTU Sizes</h3>
+<p>If two connecting routers had mismatched MTU values, they would still attempt to form an adjacency but they would not exchange their LSDBs and the neighbor relationship would fail.</p>
+<pre><code>ip mtu &lt;size&gt;
+ipv6 mtu &lt;size&gt;
+</code></pre>
+
+<h3 id="troubleshooting-commands">Troubleshooting Commands</h3>
+<pre><code>show ip protocols
+show ip ospf neighbor
+show ip ospf interface
+show ip ospf
+show ip route ospf
+clear ip ospf [&lt;process-id&gt;] process
+</code></pre>
+
+<p>Troubleshooting OSPFv3 is similar to OSPFv2. The following commands are the equivalent commands used with OSPFv3: </p>
+<pre><code>show ipv6 protocols
+show ipv6 ospf neighbor
+show ipv6 ospf interface
+show ipv6 ospf
+show ipv6 route ospf
+clear ipv6 ospf [&lt;process-id&gt;] process
+</code></pre>
+
+<h1 id="additional-commands">Additional Commands</h1>
+<h3 id="configuring-interarea-route-summarization">Configuring Interarea Route Summarization</h3>
+<p>Example - given 4 loopback interfaces with sequential network addresses</p>
+<p>a.  List the network addresses for the loopback interfaces and identify the hextet section where the addresses differ.</p>
+<pre><code>2001:DB8:ACAD:0000::1/64
+2001:DB8:ACAD:0001::1/64
+2001:DB8:ACAD:0002::1/64
+2001:DB8:ACAD:0003::1/64
+</code></pre>
+
+<p>b.  Convert the differing section from hex to binary.</p>
+<pre><code>2001:DB8:ACAD: 0000 0000 0000 0000::1/64
+2001:DB8:ACAD: 0000 0000 0000 0001::1/64
+2001:DB8:ACAD: 0000 0000 0000 0010::1/64
+2001:DB8:ACAD: 0000 0000 0000 0011::1/64
+</code></pre>
+
+<p>c.  Count the number of leftmost matching bits to determine the prefix for the summary route.</p>
+<pre><code>2001:DB8:ACAD: 0000 0000 0000 0000::1/64
+2001:DB8:ACAD: 0000 0000 0000 0001::1/64
+2001:DB8:ACAD: 0000 0000 0000 0010::1/64
+2001:DB8:ACAD: 0000 0000 0000 0011::1/64
+</code></pre>
+
+<p>To summarize configure interarea route summarization:</p>
+<pre><code>ipv6 router ospf 1
+ area 1 range 2001:db8:acad::/62
+</code></pre>
+
+<h3 id="ospfv2-authentication-with-md5">OSPFv2 Authentication with MD5</h3>
+<p>Can see <a href="http://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/13697-25.html">Sample Configuration from Cisco.com</a> for further details.</p>
+<pre><code>! Router Interface configuration:
+interface &lt;intf-id&gt;
+  ip ospf message-digest-key &lt;key-num&gt; md5 &lt;password&gt;
+  ip ospf authentication message-digest
+  exit
+
+! To use authentication for all interfaces in an area:
+router ospf &lt;process-id&gt;
+  area &lt;area-id&gt; authentication message-digest
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../Cisco_Voice-Notes/" class="btn btn-neutral float-right" title="Cisco Voice Basics">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../OSPF_Configuration/" class="btn btn-neutral" title="OSPF Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../OSPF_Configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../Cisco_Voice-Notes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

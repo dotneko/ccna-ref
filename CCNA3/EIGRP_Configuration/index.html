@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>EIGRP Configuration - CCNA Journal</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "EIGRP Configuration";
+    var mkdocs_page_input_path = "CCNA3/EIGRP_Configuration.md";
+    var mkdocs_page_url = "/CCNA3/EIGRP_Configuration/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CCNA Journal</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/">CCNA 1 Commands</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA 2 Commands</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Basic_Configuration/">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Static_Routing/">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Dynamic_Routing/">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/SSH_and_Port_Security/">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/VLAN_Configuration/">VLAN Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Access_Control_Lists/">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/DHCP_Configuration/">DHCP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/NAT_Port_Forwarding/">NAT and Port Forwarding for IPv4</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Device_Discovery_Mx/">Device Discovery and Management</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Miscellaneous/">Miscellaneous</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA 3</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../VTP_Configuration/">VTP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../STP_Configuration/">STP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../EtherChannel_HSRP_Configuration/">EtherChannel and HSRP Configuration</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">EIGRP Configuration</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#eigrp-configuration">EIGRP Configuration</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#configure-eigrp-notification-messages">Configure EIGRP Notification Messages</a></li>
+        
+            <li><a class="toctree-l4" href="#enable-eigrp-routing-on-an-interface">Enable EIGRP routing on an interface</a></li>
+        
+            <li><a class="toctree-l4" href="#prevent-neighbor-adjacencies">Prevent Neighbor Adjacencies</a></li>
+        
+            <li><a class="toctree-l4" href="#automatic-summarization">Automatic summarization</a></li>
+        
+            <li><a class="toctree-l4" href="#verify-the-eigrp-process">Verify the EIGRP Process</a></li>
+        
+            <li><a class="toctree-l4" href="#eigrp-composite-metric-configuration">EIGRP Composite Metric Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#calculating-the-eigrp-metric">Calculating the EIGRP Metric</a></li>
+        
+            <li><a class="toctree-l4" href="#view-eigrp-topology-table">View EIGRP Topology Table</a></li>
+        
+            <li><a class="toctree-l4" href="#debug-the-eigrp-finite-state-machine">Debug the EIGRP Finite State Machine</a></li>
+        
+            <li><a class="toctree-l4" href="#eigrp-for-ipv6">EIGRP for IPv6</a></li>
+        
+            <li><a class="toctree-l4" href="#eigrp-automatic-summarization">EIGRP Automatic Summarization</a></li>
+        
+            <li><a class="toctree-l4" href="#verify-eigrp-automatic-summarization-status">Verify EIGRP Automatic Summarization Status</a></li>
+        
+            <li><a class="toctree-l4" href="#propagate-a-default-static-route">Propagate a Default Static Route</a></li>
+        
+            <li><a class="toctree-l4" href="#eigrp-bandwidth-utilization-configuration">EIGRP Bandwidth Utilization Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#hello-and-hold-timers">Hello and Hold Timers</a></li>
+        
+            <li><a class="toctree-l4" href="#load-balancing-configuration">Load Balancing Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#unequal-cost-load-balancing">Unequal Cost Load Balancing</a></li>
+        
+            <li><a class="toctree-l4" href="#basic-eigrp-troubleshooting-commands">Basic EIGRP Troubleshooting Commands</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../OSPF_Configuration/">OSPF Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../OSPF_Multiarea_and_Advanced_Configuration/">OSPF Multiarea & Advanced</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../Cisco_Voice-Notes/">Cisco Voice Basics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S02-1_Securing_Network_Devices/">Securing Network Devices</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S02-2_Privilege_Role-based_Access/">Privilege and Role-Based Views</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/">Securing Cisco IOS and Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S02-3_AutoSecure_and_Routing_Authentication/">AutoSecure and Routing Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S03_Basic_AAA_Configuration/">Basic AAA Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S04-1_Numbered_and_Named_ACLs/">Numbered and Named ACLs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S04-2_IPv6_ACLs/">IPv6 ACLs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S04-3_ZPF_Configuration/">ZPF Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S05_IPS_Configuration/">IPS Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CCNA Journal</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNA 3 &raquo;</li>
+        
+      
+    
+    <li>EIGRP Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="eigrp-configuration">EIGRP Configuration</h1>
+<p>To configure an EIGRP autonomous system and assign a router ID:</p>
+<pre><code>router eigrp &lt;autonomous-system-number between 1-65535&gt;
+  eigrp router-id &lt;ipv4-address&gt;
+</code></pre>
+
+<p>Example:</p>
+<pre><code># R1:
+router eigrp 1
+  eigrp router-id 1.1.1.1
+
+# R2:
+router eigrp 1
+  eigrp router-id 2.2.2.2
+</code></pre>
+
+<p>If a router ID is not explicitly configured, then the router would use its highest IPv4 address configured on a <strong>loopback interface</strong>. The advantage of using a loopback interface is that unlike physical interfaces, loopbacks cannot fail. There are no actual cables or adjacent devices on which the loopback interface depends for being in the up state. Therefore, using a <strong>loopback address for the router ID can provide a more consistent router ID than using an interface address</strong>.</p>
+<p>If the <code>eigrp router-id</code> command is not used and loopback interfaces are configured, EIGRP chooses the highest IPv4 address of any of its loopback interfaces. To enable and configure a loopback interface:</p>
+<pre><code>interface loopback &lt;number&gt;
+  ip address &lt;ipv4-address&gt; 255.255.255.255
+</code></pre>
+
+<p>To remove an EIGRP autonomous system:</p>
+<pre><code>no router eigrp &lt;autonomous-system-number&gt;
+</code></pre>
+
+<h3 id="configure-eigrp-notification-messages">Configure EIGRP Notification Messages</h3>
+<p>By default, this is enabled:</p>
+<pre><code>eigrp log-neighbor-changes
+</code></pre>
+
+<h3 id="enable-eigrp-routing-on-an-interface">Enable EIGRP routing on an interface</h3>
+<p>Enables all interfaces on the router that belong to the classful network address:</p>
+<pre><code>router eigrp &lt;as-number&gt;
+  network &lt;ipv4-address&gt;
+</code></pre>
+
+<p>Configure advertisement of specific subnets only:</p>
+<pre><code>router eigrp &lt;as-number&gt;
+  network &lt;ipv4-address&gt; [&lt;wildcard-mask&gt;]
+</code></pre>
+
+<p>Cisco IOS versions also accepts subnet mask to be used instead, but will store the wildcard mask in the <code>running-config</code>.</p>
+<h3 id="prevent-neighbor-adjacencies">Prevent Neighbor Adjacencies</h3>
+<pre><code>router eigrp &lt;AS-number&gt;
+  passive-interface &lt;interface-type&gt; &lt;interface-number&gt;
+</code></pre>
+
+<p>Configure all interfaces as passive:</p>
+<pre><code>  passive-interface default
+</code></pre>
+
+<h3 id="automatic-summarization">Automatic summarization</h3>
+<p>Disabled by default since IOS 15; For router with IOS verions prior to 15, disable using:</p>
+<pre><code>router eigrp &lt;AS-number&gt;
+  no auto-summary
+</code></pre>
+
+<h3 id="verify-the-eigrp-process">Verify the EIGRP Process</h3>
+<pre><code>show ip protocols
+show ip eigrp neighbors
+show ip eigrp topology
+show ip route eigrp
+</code></pre>
+
+<h3 id="eigrp-composite-metric-configuration">EIGRP Composite Metric Configuration</h3>
+<p>The default k values can be changed with the <code>metric weights</code> router configuration mode command:</p>
+<pre><code>router eigrp &lt;as-number&gt;
+  metric weights &lt;tos&gt; &lt;k1&gt; &lt;k2&gt; &lt;k3&gt; &lt;k4&gt; &lt;k5&gt;
+</code></pre>
+
+<p>Examine interface metric values:</p>
+<pre><code>show interfaces &lt;interface-type&gt; &lt;interface-number&gt;
+</code></pre>
+
+<ul>
+<li><strong>BW</strong> - Bandwidth of the interface (in kilobits per second).</li>
+<li><strong>DLY</strong> - Delay of the interface (in microseconds).</li>
+<li><strong>Reliability</strong> - Reliability of the interface as a fraction of 255 (255/255 is 100% reliability), calculated as an exponential average over five minutes. By default, EIGRP does not include its value in computing its metric.</li>
+<li><strong>Txload</strong>, <strong>Rxload</strong> - Transmit and receive load on the interface as a fraction of 255 (255/255 is completely saturated), calculated as an exponential average over five minutes. By default, EIGRP does not include its value in computing its metric.</li>
+</ul>
+<h5 id="bandwidth-configuration">Bandwidth Configuration</h5>
+<p>Always verify bandwidth with the <code>show interfaces</code> command. The default value of the bandwidth may or may not reflect the actual physical bandwidth of the interface. If actual bandwidth of the link differs from the default bandwidth value, the bandwidth value should be modified.</p>
+<p>To modify the bandwidth metric (note that it does not change the actual bandwidth of the link):</p>
+<pre><code>bandwidth &lt;kilobits-bandwidth-value&gt;
+</code></pre>
+
+<p>Use the <code>no bandwidth</code> command to restore the default value.</p>
+<h5 id="delay-dly-metric">Delay (DLY) Metric</h5>
+<p>By default, Cisco recommends not modifying the delay parameter, unless the network administrator has a specific reason to do so.</p>
+<h3 id="calculating-the-eigrp-metric">Calculating the EIGRP Metric</h3>
+<ol>
+<li>Determine the link with the slowest bandwidth. Use that value to calculate <strong>bandwidth</strong> (Reference value of 10,000,000/slowest bandwidth).</li>
+<li>Determine the <strong>delay value</strong> for each outgoing interface on the way to the destination. Add the delay values and divide by 10 (sum of delay/10).</li>
+<li>This composite metric produces a 24-bit value; however, EIGRP uses a 32-bit value. Multiplying the 24-bit value with 256 extends the composite metric into 32 bits. Therefore, <strong>add the computed values for bandwidth and delay, and multiply the sum by 256 to obtain the EIGRP metric</strong>.</li>
+</ol>
+<h3 id="view-eigrp-topology-table">View EIGRP Topology Table</h3>
+<pre><code>show ip eigrp topology
+</code></pre>
+
+<p>Lists all successors and FSs that DUAL has calculated to destination networks. Only the successor is installed into the IP routing table.</p>
+<p>To view all links regardless of whether they satisfy the FC or not:</p>
+<pre><code>show ip eigrp topology all-links
+</code></pre>
+
+<h3 id="debug-the-eigrp-finite-state-machine">Debug the EIGRP Finite State Machine</h3>
+<p>Use to examine what DUAL does when a route is removed from the routing table:</p>
+<pre><code>debug eigrp fsm
+</code></pre>
+
+<h3 id="eigrp-for-ipv6">EIGRP for IPv6</h3>
+<p>Configure Interfaces:</p>
+<pre><code>interface s0/0/0
+  ipv6 address fe80::1 link-local
+  exit
+interface s0/0/1
+  ipv6 address fe80::1 link-local
+  exit
+interface g0/0
+  ipv6 address fe80::1 link-local
+</code></pre>
+
+<p>Enable IPv6 Unicast Routing and configure EIGRP AS:</p>
+<pre><code>ipv6 unicast-routing
+ipv6 router eigrp 1
+  eigrp router-id 1.0.0.0 ! Takes precedence over loopback/physical IPv4 addresses; required if no active IPv4 address
+  no shutdown
+</code></pre>
+
+<p>Assign interface to EIGRP AS</p>
+<pre><code>interface &lt;interface-id&gt;
+  ipv6 eigrp &lt;AS-number&gt;
+  exit
+</code></pre>
+
+<p>Passive Interface:</p>
+<pre><code>ipv6 router eigrp &lt;AS-number&gt;
+  passive-interface &lt;interface-id&gt;
+  end
+
+show ipv6 protocols
+</code></pre>
+
+<p>Verify:</p>
+<pre><code>show ipv6 interface brief   ! Check status of both ends of link
+show ipv6 eigrp neighbors   ! Verify neighbor table and establishment of adjacencies.
+show ipv6 protocols         ! Verify EIGRP enabled and correct AS number
+show ipv6 route             ! EIGRP for IPv6 routes are denoted with &quot;D&quot;
+</code></pre>
+
+<h3 id="eigrp-automatic-summarization">EIGRP Automatic Summarization</h3>
+<pre><code>router eigrp &lt;as-number&gt;
+  auto-summary
+
+  no auto-summary
+</code></pre>
+
+<p><strong>N.B. When manually summarizing routes, configure as follows (see 7.3.1.2 Packet Tracer):</strong></p>
+<p>Example:</p>
+<p>When configuring EIGRP on a router that has 4 subnets 10.10.0.1/24, 10.10.1.0/24, 10.10.2.0/23, 10.10.4.1/22 apart from setting <code>no auto-summary</code> and specifying the classful address under router configuration, also need to use <code>ip summary address &lt;ip-addr&gt; &lt;netmask&gt;</code> in the interface configuration to specify the range of IP addresses to be summarized.</p>
+<pre><code>router eigrp 1
+ no auto-summary
+ network 10.0.0.0
+
+interface s0/0/0
+ ip summary-address 10.10.0.0 255.255.248.0
+</code></pre>
+
+<h3 id="verify-eigrp-automatic-summarization-status">Verify EIGRP Automatic Summarization Status</h3>
+<pre><code>show ip protocols
+show ip route eigrp
+show ip eigrp topology all-links    ! View all incoming routes
+</code></pre>
+
+<ul>
+<li>The <code>all-links</code> option shows all received updates, including routes from feasible successor (FS). </li>
+</ul>
+<h3 id="propagate-a-default-static-route">Propagate a Default Static Route</h3>
+<pre><code>ip route 0.0.0.0 0.0.0.0 serial 0/1/0
+router eigrp 1
+  redistribute static
+  exit
+
+! Verify
+
+show ip route | include 0.0.0.0
+show ip protocols
+</code></pre>
+
+<p><strong>For IPv6:</strong> There is no specific IPv6 command to redistribute the IPv6 default static route. The IPv6 default static route is redistributed into the EIGRP for the IPv6 domain using the same <code>redistribute static</code> command used in EIGRP for IPv4.</p>
+<h3 id="eigrp-bandwidth-utilization-configuration">EIGRP Bandwidth Utilization Configuration</h3>
+<pre><code>  ip bandwidth-percent eigrp &lt;as-number&gt; &lt;percent&gt;
+  ipv6 bandwidth-percent eigrp &lt;as-number&gt; &lt;percent&gt;
+</code></pre>
+
+<p>Example:</p>
+<pre><code>! R1 and R2
+interface serial 0/0/0
+  ip bandwidth-percent eigrp 1 40
+</code></pre>
+
+<h3 id="hello-and-hold-timers">Hello and Hold Timers</h3>
+<p>Configure in interface configuration mode (config-if):</p>
+<p><strong>IPv4:</strong></p>
+<pre><code>ip hello-interval eigrp &lt;as-number&gt; &lt;seconds&gt;
+ip hold-time eigrp &lt;as-number&gt; &lt;seconds&gt;
+</code></pre>
+
+<p><strong>IPv6:</strong></p>
+<pre><code>ipv6 hello-interval eigrp &lt;as-number&gt; &lt;seconds&gt;
+ipv6 hold-time eigrp &lt;as-number&gt; &lt;seconds&gt;
+</code></pre>
+
+<ul>
+<li>If the Hello interval is changed, <strong>ensure that the hold time value is equal to, or greater than, the Hello interval</strong>. Otherwise, neighbor adjacency goes down after the hold time expires and before the next Hello interval.</li>
+<li>The seconds value for both Hello and hold time intervals can range from 1 to 65,535.</li>
+</ul>
+<h3 id="load-balancing-configuration">Load Balancing Configuration</h3>
+<p>In EIGRP router configuration mode:</p>
+<pre><code>maximum-paths &lt;value&gt;
+</code></pre>
+
+<ul>
+<li>The <code>&lt;value&gt;</code> argument refers to the number of paths that should be maintained for load balancing. If the value is set to 1, load balancing is disabled.</li>
+</ul>
+<h3 id="unequal-cost-load-balancing">Unequal Cost Load Balancing</h3>
+<p>In EIGRP router configuration mode:</p>
+<pre><code>variance &lt;value&gt;
+</code></pre>
+
+<ul>
+<li><strong>If the variance is set to 1</strong>, only routes with the same metric as the successor are installed in the local routing table.</li>
+<li><strong>If the variance is set to 2</strong>, any EIGRP-learned route with a metric less than 2 times the successor metric will be installed in the local routing table.</li>
+</ul>
+<p>To control how trafﬁc is distributed among routes when there are multiple routes for the same destination network that have different costs, use the <code>trafﬁc-share balanced</code> command. Trafﬁc is then distributed proportionately to the ratio of the costs.</p>
+<h3 id="basic-eigrp-troubleshooting-commands">Basic EIGRP Troubleshooting Commands</h3>
+<pre><code>show ip eigrp neighbors
+show ip route
+show ip protocols
+
+show ipv6 eigrp neighbors
+show ipv6 route
+show ipv6 protocols
+</code></pre>
+
+<p>If unsuccessful ping between routers, verify Layer 1 and 2 connections to the neighbor:</p>
+<pre><code>show cdp neighbor
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../OSPF_Configuration/" class="btn btn-neutral float-right" title="OSPF Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../EtherChannel_HSRP_Configuration/" class="btn btn-neutral" title="EtherChannel and HSRP Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../EtherChannel_HSRP_Configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../OSPF_Configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
