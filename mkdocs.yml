@@ -14,10 +14,13 @@ pages:
     - 'NAT and Port Forwarding for IPv4': 'CCNA2/NAT_Port_Forwarding.md'
     - 'Device Discovery and Management': 'CCNA2/Device_Discovery_Mx.md'
     - 'Miscellaneous': 'CCNA2/Miscellaneous.md'
-- CCNA3:
+- CCNA 3:
     - 'VTP Configuration': 'CCNA3/VTP_Configuration.md'
     - 'STP Configuration': 'CCNA3/STP_Configuration.md'
     - 'EtherChannel and HSRP Configuration': 'CCNA3/EtherChannel_HSRP_Configuration.md'
+    - 'EIGRP Configuration': 'CCNA3/EIGRP_Configuration.md'
+    - 'OSPF Configuration': 'CCNA3/OSPF_Configuration.md'
+    - 'OSPF Multiarea/Advanced': 'OSFP_Multiarea_and_Advanced_Configuration.md'
 - Cisco Voice Basics: 'Cisco_Voice-Notes.md'
 - CCNA Security:
     - 'Securing Network Devices': 'CCNAS/S02-1_Securing_Network_Devices.md'
