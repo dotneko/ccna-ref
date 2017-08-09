@@ -1,5 +1,6 @@
 site_name: CCNA Journal
 theme: readthedocs
+google_analytics: ['UA-104298040-1', 'gavchan.github.io/ccna-ref/']
 pages:
 - Home: index.md
 - CCNA 1 Commands: 'CCNA1_Cmdline.md'
@@ -21,6 +22,9 @@ pages:
     - 'EIGRP Configuration': 'CCNA3/EIGRP_Configuration.md'
     - 'OSPF Configuration': 'CCNA3/OSPF_Configuration.md'
     - 'OSPF Multiarea & Advanced': 'CCNA3/OSPF_Multiarea_and_Advanced_Configuration.md'
+- CCNA 4:
+    - 'PPP Configuration': 'CCNA4/PPP_Configuration.md'
+      'PPPoE, GRE, BGP Configuration': 'CCNA4/PPPoE,GRE,BGP_Configuration.md'
 - Cisco Voice Basics: 'Cisco_Voice-Notes.md'
 - CCNA Security:
     - 'Securing Network Devices': 'CCNAS/S02-1_Securing_Network_Devices.md'
