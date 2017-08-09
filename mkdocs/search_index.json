@@ -2,12 +2,12 @@
     "docs": [
         {
             "location": "/", 
-            "text": "About\n\n\nThis site contains a compilation of Cisco IOS commands from Cisco's CCNA NetAcademy Course.\n\n\nCurrent notes available and accessible from the menu are:\n\n\n\n\nCCNA 1\n\n\nCCNA 2\n\n\nCCNA 3 (Ongoing)\n\n\nCisco Voice Basic Telephony\n\n\nCCNA Security (Up to Chapter 5)\n\n\n\n\nLast updated on 2017-07-07\n\n\nUseful Links\n\n\n\n\nCisco NetAcademy\n\n\nIngmar's Cisco Study Notes\n\n\nIngmar's Cisco Security Page\n\n\n\n\nGood luck!", 
+            "text": "About\n\n\nThis site contains a compilation of Cisco IOS commands from Cisco's CCNA NetAcademy Course.\n\n\nCurrent notes available and accessible from the menu are:\n\n\n\n\nCCNA 1\n\n\nCCNA 2\n\n\nCCNA 3\n\n\nCCNA 4 (Ongoing)\n\n\nCisco Voice Basic Telephony\n\n\nCCNA Security (Up to Chapter 5)\n\n\n\n\nLast updated on 2017-08-08\n\n\nUseful Links\n\n\n\n\nCisco NetAcademy\n\n\nIngmar's Cisco Study Notes\n\n\nIngmar's Cisco Security Page\n\n\n\n\nGood luck!", 
             "title": "Home"
         }, 
         {
             "location": "/#about", 
-            "text": "This site contains a compilation of Cisco IOS commands from Cisco's CCNA NetAcademy Course.  Current notes available and accessible from the menu are:   CCNA 1  CCNA 2  CCNA 3 (Ongoing)  Cisco Voice Basic Telephony  CCNA Security (Up to Chapter 5)   Last updated on 2017-07-07", 
+            "text": "This site contains a compilation of Cisco IOS commands from Cisco's CCNA NetAcademy Course.  Current notes available and accessible from the menu are:   CCNA 1  CCNA 2  CCNA 3  CCNA 4 (Ongoing)  Cisco Voice Basic Telephony  CCNA Security (Up to Chapter 5)   Last updated on 2017-08-08", 
             "title": "About"
         }, 
         {
@@ -1209,6 +1209,81 @@
             "location": "/CCNA3/OSPF_Multiarea_and_Advanced_Configuration/#ospfv2-authentication-with-md5", 
             "text": "Can see  Sample Configuration from Cisco.com  for further details.  ! Router Interface configuration:\ninterface  intf-id \n  ip ospf message-digest-key  key-num  md5  password \n  ip ospf authentication message-digest\n  exit\n\n! To use authentication for all interfaces in an area:\nrouter ospf  process-id \n  area  area-id  authentication message-digest", 
             "title": "OSPFv2 Authentication with MD5"
+        }, 
+        {
+            "location": "/CCNA4/PPP_Configuration/", 
+            "text": "HDLC Encapsulation\n\n\n\n\nDefault encapsulation method used by Cisco devices on synchronous serial lines.\n\n\nFor connecting non-Cisco devices, uses synchronous PPP.\n\n\n\n\ninterface s0/0/0\n  encapsulation hdlc\n\n\n\n\nPPP Configuration\n\n\nSet PPP for encapsulation:\n\n\ninterface s0/0/0\n  encapsulation ppp\n\n\n\n\nConfigure optional compression:\n\n\n  compress [predictor | stac]\n\n\n\n\n\n\npredictor\n specifies predictor compression algorithm to be used.\n\n\nstac\n specifies Stacker (LZS) c\n\n\n\n\nConfigure optional link quality monitoring:\n\n\n  ppp quality \npercentage\n\n\n\n\n\n\n\nLine will go down if the \n\n\n\n\nPPP Multilink Configuration\n\n\nCreate a multilink bundle:\n\n\ninterface Multilink 1\n ip address \n...\n\n ipv6 address \n...\n\n ppp multilink\n ppp multilink group \nnumber\n\n\n\n\n\nAssign interfaces to multilink bundle:\n\n\ninterface \nintf-id\n\n no ip address\n encapsulation ppp\n ppp multilink\n ppp multilink group \nnumber\n\n\n\n\n\nDisable PPP multilink:\n\n\nno ppp multlink   ! On each bundled interfaces\n\n\n\n\nPPP Authentication\n\n\nppp authentication { chap | pap | \\\n                     pap chap | chap pap }\n\n\n\n\nNote that the hostname and password of target router must match the username-password of the communicating router for it to work.\n\n\nPPP PAP Authentication\n\n\nR1:\n\n\nusername R3 secret class\ninterface s0/0/0\n  encapsulation ppp\n  ppp authentication pap\n  ppp pap sent-username R1 password cisco\n\n\n\n\nR3:\n\n\nusername R1 secret cisco\ninterface s0/0/0\n  encapsulation ppp\n  ppp authentication pap\n  ppp pap sent-username R3 password class\n\n\n\n\nPPP CHAP Authentication\n\n\nR1:\n\n\nhostname R1\nusername R2 password \npassword\n\n\ninterface \nintf-id\n\n ip address ...\n ipv6 address ...\n encapsulation ppp\n ppp authentication chap\n\n\n\n\nR2:\n\n\nhostname R2\nusername R1 password \npassword\n\n\ninterface \nintf-id\n\n ip address ...\n ipv6 address ...\n encapsulation ppp\n ppp authentication chap\n\n\n\n\nTroubleshooting PPP Serial Encapsulation\n\n\ndebug ppp { packet |\n            negotiation |\n            error |\n            authentication |\n            compression |\n            cbcp }", 
+            "title": "PPP Configuration"
+        }, 
+        {
+            "location": "/CCNA4/PPP_Configuration/#hdlc-encapsulation", 
+            "text": "Default encapsulation method used by Cisco devices on synchronous serial lines.  For connecting non-Cisco devices, uses synchronous PPP.   interface s0/0/0\n  encapsulation hdlc", 
+            "title": "HDLC Encapsulation"
+        }, 
+        {
+            "location": "/CCNA4/PPP_Configuration/#ppp-configuration", 
+            "text": "Set PPP for encapsulation:  interface s0/0/0\n  encapsulation ppp  Configure optional compression:    compress [predictor | stac]   predictor  specifies predictor compression algorithm to be used.  stac  specifies Stacker (LZS) c   Configure optional link quality monitoring:    ppp quality  percentage    Line will go down if the", 
+            "title": "PPP Configuration"
+        }, 
+        {
+            "location": "/CCNA4/PPP_Configuration/#ppp-multilink-configuration", 
+            "text": "Create a multilink bundle:  interface Multilink 1\n ip address  ... \n ipv6 address  ... \n ppp multilink\n ppp multilink group  number   Assign interfaces to multilink bundle:  interface  intf-id \n no ip address\n encapsulation ppp\n ppp multilink\n ppp multilink group  number   Disable PPP multilink:  no ppp multlink   ! On each bundled interfaces", 
+            "title": "PPP Multilink Configuration"
+        }, 
+        {
+            "location": "/CCNA4/PPP_Configuration/#ppp-authentication", 
+            "text": "ppp authentication { chap | pap | \\\n                     pap chap | chap pap }  Note that the hostname and password of target router must match the username-password of the communicating router for it to work.", 
+            "title": "PPP Authentication"
+        }, 
+        {
+            "location": "/CCNA4/PPP_Configuration/#ppp-pap-authentication", 
+            "text": "R1:  username R3 secret class\ninterface s0/0/0\n  encapsulation ppp\n  ppp authentication pap\n  ppp pap sent-username R1 password cisco  R3:  username R1 secret cisco\ninterface s0/0/0\n  encapsulation ppp\n  ppp authentication pap\n  ppp pap sent-username R3 password class", 
+            "title": "PPP PAP Authentication"
+        }, 
+        {
+            "location": "/CCNA4/PPP_Configuration/#ppp-chap-authentication", 
+            "text": "R1:  hostname R1\nusername R2 password  password \n\ninterface  intf-id \n ip address ...\n ipv6 address ...\n encapsulation ppp\n ppp authentication chap  R2:  hostname R2\nusername R1 password  password \n\ninterface  intf-id \n ip address ...\n ipv6 address ...\n encapsulation ppp\n ppp authentication chap", 
+            "title": "PPP CHAP Authentication"
+        }, 
+        {
+            "location": "/CCNA4/PPP_Configuration/#troubleshooting-ppp-serial-encapsulation", 
+            "text": "debug ppp { packet |\n            negotiation |\n            error |\n            authentication |\n            compression |\n            cbcp }", 
+            "title": "Troubleshooting PPP Serial Encapsulation"
+        }, 
+        {
+            "location": "/CCNA4/PPPoE,GRE,BGP_Configuration/", 
+            "text": "PPPoE Configuration\n\n\nCustomer Router:\n\n\ninterface dialer 2\n  encapsulation ppp\n  ip address negotiated\n\n  ! Authenticate inbound only:\n  ppp chap hostname \nUsername on ISP Router\n\n  ppp chap password \nPassword\n\n\n  ip mtu 1492\n  dialer pool \nnumber\n\n\n  no shutdown\n\ninterface GigabitEthernet0/1\n  no ip address\n  pppoe enable\n  pppoe-client dial-pool-number \nnumber\n\n  no shutdown\n\n\n\n\nPPPoE Verification\n\n\nshow interface dialer \nnumber\n\nshow ip route\nshow pppoe session\n\n\n\n\nGRE Configuration\n\n\nTo implement a GRE tunnel, the network administrator must first learn the IP addresses of the endpoints. After that, there are five steps to configuring a GRE tunnel:\n\n\n\n\nCreate a tunnel interface using the \ninterface tunnel \nnumber\n command.\n\n\nConfigure an IP address for the tunnel interface. This is normally a private IP address.\n\n\nSpecify the tunnel source IP address.\n\n\nSpecify the tunnel destination IP address.\n\n\n(Optional) Specify GRE tunnel mode as the tunnel interface mode. GRE tunnel mode is the default tunnel interface mode for Cisco IOS software.\n\n\n\n\ninterface Tunnel 0\n  tunnel mode gre ip\n  ip address \nipv4-addr\n \nnetmask\n\n  tunnel source \nipv4-addr\n\n  tunnel destination \nipv4-addr\n\n\nrouter ospf \nprocess-id\n\n  network \nipv4-network\n \nwildcard\n area \narea\n\n\n\n\n\nVerify GRE\n\n\nshow ip interface brief | include Tunnel\nshow interface Tunnel \nnum\n\n\n\n\n\nBGP Configuration\n\n\nrouter bgp \nas-number\n\n  neighbor \nip-address\n remote-as \nas-number\n\n  network \nnetwork-address\n [mask \nnetwork-mask\n]\n\n\n\n\nTo advertise a default route:\n\n\n  network 0.0.0.0\n\n\n\n\nNote that above method is not the best way to advertise a default route in eBGP but the better ways are beyond the scope of CCNA4.\n\n\nVerify BGP\n\n\nshow ip route\nshow ip bgp\nshow ip bgp summary", 
+            "title": "PPPoE, GRE, BGP Configuration"
+        }, 
+        {
+            "location": "/CCNA4/PPPoE,GRE,BGP_Configuration/#pppoe-configuration", 
+            "text": "Customer Router:  interface dialer 2\n  encapsulation ppp\n  ip address negotiated\n\n  ! Authenticate inbound only:\n  ppp chap hostname  Username on ISP Router \n  ppp chap password  Password \n\n  ip mtu 1492\n  dialer pool  number \n\n  no shutdown\n\ninterface GigabitEthernet0/1\n  no ip address\n  pppoe enable\n  pppoe-client dial-pool-number  number \n  no shutdown", 
+            "title": "PPPoE Configuration"
+        }, 
+        {
+            "location": "/CCNA4/PPPoE,GRE,BGP_Configuration/#pppoe-verification", 
+            "text": "show interface dialer  number \nshow ip route\nshow pppoe session", 
+            "title": "PPPoE Verification"
+        }, 
+        {
+            "location": "/CCNA4/PPPoE,GRE,BGP_Configuration/#gre-configuration", 
+            "text": "To implement a GRE tunnel, the network administrator must first learn the IP addresses of the endpoints. After that, there are five steps to configuring a GRE tunnel:   Create a tunnel interface using the  interface tunnel  number  command.  Configure an IP address for the tunnel interface. This is normally a private IP address.  Specify the tunnel source IP address.  Specify the tunnel destination IP address.  (Optional) Specify GRE tunnel mode as the tunnel interface mode. GRE tunnel mode is the default tunnel interface mode for Cisco IOS software.   interface Tunnel 0\n  tunnel mode gre ip\n  ip address  ipv4-addr   netmask \n  tunnel source  ipv4-addr \n  tunnel destination  ipv4-addr \n\nrouter ospf  process-id \n  network  ipv4-network   wildcard  area  area", 
+            "title": "GRE Configuration"
+        }, 
+        {
+            "location": "/CCNA4/PPPoE,GRE,BGP_Configuration/#verify-gre", 
+            "text": "show ip interface brief | include Tunnel\nshow interface Tunnel  num", 
+            "title": "Verify GRE"
+        }, 
+        {
+            "location": "/CCNA4/PPPoE,GRE,BGP_Configuration/#bgp-configuration", 
+            "text": "router bgp  as-number \n  neighbor  ip-address  remote-as  as-number \n  network  network-address  [mask  network-mask ]  To advertise a default route:    network 0.0.0.0  Note that above method is not the best way to advertise a default route in eBGP but the better ways are beyond the scope of CCNA4.", 
+            "title": "BGP Configuration"
+        }, 
+        {
+            "location": "/CCNA4/PPPoE,GRE,BGP_Configuration/#verify-bgp", 
+            "text": "show ip route\nshow ip bgp\nshow ip bgp summary", 
+            "title": "Verify BGP"
         }, 
         {
             "location": "/Cisco_Voice-Notes/", 

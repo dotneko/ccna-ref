@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>ZPF Configuration - CCNA Journal</title>
+  <title>PPPoE, GRE, BGP Configuration - CCNA Journal</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "ZPF Configuration";
-    var mkdocs_page_input_path = "CCNAS/S04-3_ZPF_Configuration.md";
-    var mkdocs_page_url = "/CCNAS/S04-3_ZPF_Configuration/";
+    var mkdocs_page_name = "PPPoE, GRE, BGP Configuration";
+    var mkdocs_page_input_path = "CCNA4/PPPoE,GRE,BGP_Configuration.md";
+    var mkdocs_page_url = "/CCNA4/PPPoE,GRE,BGP_Configuration/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -151,11 +151,32 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../CCNA4/PPP_Configuration/">PPP Configuration</a>
+    <a class="" href="../PPP_Configuration/">PPP Configuration</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../CCNA4/PPPoE,GRE,BGP_Configuration/">PPPoE, GRE, BGP Configuration</a>
+    <a class="current" href="./">PPPoE, GRE, BGP Configuration</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#pppoe-configuration">PPPoE Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#pppoe-verification">PPPoE Verification</a></li>
+    
+
+    <li class="toctree-l3"><a href="#gre-configuration">GRE Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#verify-gre">Verify GRE</a></li>
+    
+
+    <li class="toctree-l3"><a href="#bgp-configuration">BGP Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#verify-bgp">Verify BGP</a></li>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -171,66 +192,39 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../S02-1_Securing_Network_Devices/">Securing Network Devices</a>
+    <a class="" href="../../CCNAS/S02-1_Securing_Network_Devices/">Securing Network Devices</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S02-2_Privilege_Role-based_Access/">Privilege and Role-Based Views</a>
+    <a class="" href="../../CCNAS/S02-2_Privilege_Role-based_Access/">Privilege and Role-Based Views</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S02-2_Securing_Cisco_IOS_and_Configuration/">Securing Cisco IOS and Configuration</a>
+    <a class="" href="../../CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/">Securing Cisco IOS and Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S02-3_AutoSecure_and_Routing_Authentication/">AutoSecure and Routing Authentication</a>
+    <a class="" href="../../CCNAS/S02-3_AutoSecure_and_Routing_Authentication/">AutoSecure and Routing Authentication</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S03_Basic_AAA_Configuration/">Basic AAA Configuration</a>
+    <a class="" href="../../CCNAS/S03_Basic_AAA_Configuration/">Basic AAA Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S04-1_Numbered_and_Named_ACLs/">Numbered and Named ACLs</a>
+    <a class="" href="../../CCNAS/S04-1_Numbered_and_Named_ACLs/">Numbered and Named ACLs</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S04-2_IPv6_ACLs/">IPv6 ACLs</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">ZPF Configuration</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#configure-zpf">Configure ZPF</a></li>
-    
-
-    <li class="toctree-l3"><a href="#1-create-zones">1. Create Zones</a></li>
-    
-
-    <li class="toctree-l3"><a href="#2-identify-traffic">2. Identify Traffic</a></li>
-    
-
-    <li class="toctree-l3"><a href="#3-define-an-action">3. Define an Action</a></li>
-    
-
-    <li class="toctree-l3"><a href="#4-identify-a-zone-pair-and-match-to-a-policy">4. Identify a Zone-Pair and Match to a Policy</a></li>
-    
-
-    <li class="toctree-l3"><a href="#5-assign-zones-to-interfaces">5. Assign Zones to Interfaces</a></li>
-    
-
-    <li class="toctree-l3"><a href="#verify-zpf-configurations">Verify ZPF Configurations</a></li>
-    
-
-    <li class="toctree-l3"><a href="#important-features-of-zone-based-policy-firewalls">Important Features of Zone-Based Policy Firewalls</a></li>
-    
-
-    </ul>
+    <a class="" href="../../CCNAS/S04-2_IPv6_ACLs/">IPv6 ACLs</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S05_IPS_Configuration/">IPS Configuration</a>
+    <a class="" href="../../CCNAS/S04-3_ZPF_Configuration/">ZPF Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S05_IPS_Configuration/">IPS Configuration</a>
                 </li>
     </ul>
 	    </li>
@@ -257,11 +251,11 @@
     
       
         
-          <li>CCNA Security &raquo;</li>
+          <li>CCNA 4 &raquo;</li>
         
       
     
-    <li>ZPF Configuration</li>
+    <li>PPPoE, GRE, BGP Configuration</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -271,93 +265,74 @@
           <div role="main">
             <div class="section">
               
-                <p><strong>Zone-based Policy Firewalls (ZPF)</strong> - The new configuration mode in which interfaces are assigned to security zones, and firewall policy is applied to traffic moving between the zones.</p>
-<h3 id="configure-zpf">Configure ZPF</h3>
-<p>Steps:</p>
+                <h3 id="pppoe-configuration">PPPoE Configuration</h3>
+<p>Customer Router:</p>
+<pre><code>interface dialer 2
+  encapsulation ppp
+  ip address negotiated
+
+  ! Authenticate inbound only:
+  ppp chap hostname &lt;Username on ISP Router&gt;
+  ppp chap password &lt;Password&gt;
+
+  ip mtu 1492
+  dialer pool &lt;number&gt;
+
+  no shutdown
+
+interface GigabitEthernet0/1
+  no ip address
+  pppoe enable
+  pppoe-client dial-pool-number &lt;number&gt;
+  no shutdown
+</code></pre>
+
+<h3 id="pppoe-verification">PPPoE Verification</h3>
+<pre><code>show interface dialer &lt;number&gt;
+show ip route
+show pppoe session
+</code></pre>
+
+<h3 id="gre-configuration">GRE Configuration</h3>
+<p>To implement a GRE tunnel, the network administrator must first learn the IP addresses of the endpoints. After that, there are five steps to configuring a GRE tunnel:</p>
 <ol>
-<li>Create the zones.</li>
-<li>Identify traffic with a class map.</li>
-<li>Define an action with a policy-map.</li>
-<li>Identify a zone pair and match it to a policy map.</li>
-<li>Assign zones to the appropriate interface.</li>
+<li>Create a tunnel interface using the <code>interface tunnel &lt;number&gt;</code> command.</li>
+<li>Configure an IP address for the tunnel interface. This is normally a private IP address.</li>
+<li>Specify the tunnel source IP address.</li>
+<li>Specify the tunnel destination IP address.</li>
+<li>(Optional) Specify GRE tunnel mode as the tunnel interface mode. GRE tunnel mode is the default tunnel interface mode for Cisco IOS software.</li>
 </ol>
-<h3 id="1-create-zones">1. Create Zones</h3>
-<pre><code>zone security &lt;zone-name&gt;
+<pre><code>interface Tunnel 0
+  tunnel mode gre ip
+  ip address &lt;ipv4-addr&gt; &lt;netmask&gt;
+  tunnel source &lt;ipv4-addr&gt;
+  tunnel destination &lt;ipv4-addr&gt;
+
+router ospf &lt;process-id&gt;
+  network &lt;ipv4-network&gt; &lt;wildcard&gt; area &lt;area&gt;
 </code></pre>
 
-<h3 id="2-identify-traffic">2. Identify Traffic</h3>
-<pre><code>class-map type inspect [match-any|match-all] &lt;class-map-name&gt;
-
-class-map &lt;name&gt;
-  match access-group {acl#|acl-name}
-  match protocol &lt;protocol-name&gt;
-  match class-map &lt;class-map-name&gt;
+<h3 id="verify-gre">Verify GRE</h3>
+<pre><code>show ip interface brief | include Tunnel
+show interface Tunnel &lt;num&gt;
 </code></pre>
 
-<p>Example:</p>
-<pre><code>class-map type inspect match-any HTTP-TRAFFIC
-  match protocol http
-  match protocol https
-  match protocol dns
-exit
+<h3 id="bgp-configuration">BGP Configuration</h3>
+<pre><code>router bgp &lt;as-number&gt;
+  neighbor &lt;ip-address&gt; remote-as &lt;as-number&gt;
+  network &lt;network-address&gt; [mask &lt;network-mask&gt;]
 </code></pre>
 
-<h3 id="3-define-an-action">3. Define an Action</h3>
-<pre><code>policy-map inspect &lt;policy-map-name&gt;
-  class type inspect &lt;class-map-name&gt;
-    {inspect|drop|pass}
+<p>To advertise a default route:</p>
+<pre><code>  network 0.0.0.0
 </code></pre>
 
-<ul>
-<li><code>inspect</code> - This action offers <em>state-based traffic control</em>. For example, if traffic traveling from the PRIVATE zone to the PUBLIC zone is inspected, the router maintains connection or session information for TCP and UDP traffic. The router would then permit return traffic sent from PUBLIC zone hosts in reply to PRIVATE zone connection requests.</li>
-<li><code>drop</code> - This is the default action for all traffic. Similar to the implicit deny any at the end of every ACL, there is an <strong>explicit drop applied by the IOS to the end of every policy−map</strong>. It is listed as <code>class class-default</code> in the last section of any policy-map configuration. Other class−maps within a policy−map can also be configured to drop unwanted traffic. Unlike ACLs, traffic is silently dropped, and no ICMP unreachable messages are sent to the source of the traffic.</li>
-<li><code>pass</code> - This action allows the router to forward traffic from one zone to another. The pass action does not track the state of connections. <em>Pass only allows the traffic in one direction</em>. A corresponding policy must be applied to allow return traffic to pass in the opposite direction. The pass action is ideal for secure protocols with predictable behavior, such as IPsec. However, most application traffic is better handled in the ZPF with the inspect action.</li>
-</ul>
-<p>Example:</p>
-<pre><code>policy-map type inspec PRIV-TO-PUB-POLICY
-  class type inspect HTTP-TRAFFIC
-    inspect
+<p>Note that above method is not the best way to advertise a default route in eBGP but the better ways are beyond the scope of CCNA4.</p>
+<h3 id="verify-bgp">Verify BGP</h3>
+<pre><code>show ip route
+show ip bgp
+show ip bgp summary
 </code></pre>
-
-<h3 id="4-identify-a-zone-pair-and-match-to-a-policy">4. Identify a Zone-Pair and Match to a Policy</h3>
-<pre><code>zone-pair security &lt;zone-pair-name&gt; \
-  source {&lt;source-zone-name&gt;|self} \
-  destination {&lt;destination-zone-name&gt;|self}
-
-  service-policy type inspect &lt;policy-map-name&gt;
-</code></pre>
-
-<p>Example of a zone-pair configuration. A zone-pair named PRIV-PUB is created with PRIVATE assigned as the source zone and PUBLIC assigned as the destination zone. Then the policy-map created in the previous step is associated to the zone-pair.</p>
-<pre><code>zone-pair security PRIV-PUB source PRIVATE destination PUBLIC
-  service-policy type inspect PRIV-TO-PUB-POLICY
-</code></pre>
-
-<h3 id="5-assign-zones-to-interfaces">5. Assign Zones to Interfaces</h3>
-<p>Example:</p>
-<pre><code>interface g0/0
-  zone-member security PRIVATE
-  interface s0/0/0
-  zone-member security PUBLIC
-</code></pre>
-
-<h3 id="verify-zpf-configurations">Verify ZPF Configurations</h3>
-<pre><code>show policy-map type inspect zone-pair sessions
-
-show class-map type inspect
-show zone security
-show zone-pair security
-show policy-map type inspect
-</code></pre>
-
-<h3 id="important-features-of-zone-based-policy-firewalls">Important Features of Zone-Based Policy Firewalls</h3>
-<ul>
-<li>No filtering is applied for intra-zone traffic.</li>
-<li>Only one zone is allowed per interface.</li>
-<li>No Classic Firewall and Zone-Based Policy Firewall configuration on same interface.</li>
-<li>If only one zone member is assigned, all traffic is dropped.</li>
-<li>Only explicitly allowed traffic is forwarded between zones.</li>
-<li>Traffic to the self zone is not filtered.</li>
-</ul>
               
             </div>
           </div>
@@ -365,10 +340,10 @@ show policy-map type inspect
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../S05_IPS_Configuration/" class="btn btn-neutral float-right" title="IPS Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../Cisco_Voice-Notes/" class="btn btn-neutral float-right" title="Cisco Voice Basics">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../S04-2_IPv6_ACLs/" class="btn btn-neutral" title="IPv6 ACLs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../PPP_Configuration/" class="btn btn-neutral" title="PPP Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -394,10 +369,10 @@ show policy-map type inspect
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../S04-2_IPv6_ACLs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../PPP_Configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../S05_IPS_Configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../Cisco_Voice-Notes/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
