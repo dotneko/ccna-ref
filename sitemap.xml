@@ -3,16 +3,16 @@
 
     
     <url>
-     <loc>/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>/CCNA1_Cmdline/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNA1_Cmdline/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,102 +20,62 @@
     
         
     <url>
-     <loc>/CCNA2/Basic_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNA2/Basic_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNA2/Static_Routing/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNA2/Static_Routing/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNA2/Dynamic_Routing/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNA2/Dynamic_Routing/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNA2/SSH_and_Port_Security/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNA2/SSH_and_Port_Security/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNA2/VLAN_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNA2/VLAN_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNA2/Access_Control_Lists/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNA2/Access_Control_Lists/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNA2/DHCP_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNA2/DHCP_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNA2/NAT_Port_Forwarding/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNA2/NAT_Port_Forwarding/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNA2/Device_Discovery_Mx/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNA2/Device_Discovery_Mx/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNA2/Miscellaneous/</loc>
-     <lastmod>2017-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>/CCNA3/VTP_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/CCNA3/STP_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/CCNA3/EtherChannel_HSRP_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/CCNA3/EIGRP_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/CCNA3/OSPF_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/CCNA3/OSPF_Multiarea_and_Advanced_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNA2/Miscellaneous/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -124,14 +84,54 @@
     
         
     <url>
-     <loc>/CCNA4/PPP_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNA3/VTP_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNA4/PPPoE,GRE,BGP_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNA3/STP_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/CCNA3/EtherChannel_HSRP_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/CCNA3/EIGRP_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/CCNA3/OSPF_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/CCNA3/OSPF_Multiarea_and_Advanced_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/CCNA4/PPP_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/CCNA4/PPPoE,GRE,BGP_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -139,8 +139,8 @@
 
     
     <url>
-     <loc>/Cisco_Voice-Notes/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/Cisco_Voice-Notes/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -148,56 +148,56 @@
     
         
     <url>
-     <loc>/CCNAS/S02-1_Securing_Network_Devices/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNAS/S02-1_Securing_Network_Devices/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNAS/S02-2_Privilege_Role-based_Access/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNAS/S02-2_Privilege_Role-based_Access/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNAS/S02-3_AutoSecure_and_Routing_Authentication/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNAS/S02-3_AutoSecure_and_Routing_Authentication/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNAS/S03_Basic_AAA_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNAS/S03_Basic_AAA_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNAS/S04-1_Numbered_and_Named_ACLs/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNAS/S04-1_Numbered_and_Named_ACLs/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNAS/S04-2_IPv6_ACLs/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNAS/S04-2_IPv6_ACLs/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNAS/S04-3_ZPF_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNAS/S04-3_ZPF_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/CCNAS/S05_IPS_Configuration/</loc>
-     <lastmod>2017-08-08</lastmod>
+     <loc>/CCNAS/S05_IPS_Configuration/index.html</loc>
+     <lastmod>2017-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
