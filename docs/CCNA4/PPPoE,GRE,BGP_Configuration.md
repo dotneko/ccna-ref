@@ -1,5 +1,28 @@
 ### PPPoE Configuration
 
+ISP Router (based on Lab 3.2.2.7):
+
+```
+username <Used for ppp chap hostname, eg.Cust1> password <Password>
+ip local pool PPPoEPOOL <begin-ipv4-addr> <end-ipv4-addr>
+
+interface virtual-template 1
+  ip address <IPv4-addr> <net-mask>
+  mtu 1492
+  peer default ip address pool PPPoEPOOL
+  ppp authentication chap callin
+  
+bba-group pppoe global
+  virtual-template 1
+  exit
+  
+int g0/1
+  pppoe enable group global
+  no shut
+
+```
+
+
 Customer Router:
 
 ```
@@ -8,8 +31,8 @@ interface dialer 2
   ip address negotiated
 
   ! Authenticate inbound only:
-  ppp chap hostname <Username on ISP Router>
-  ppp chap password <Password>
+  ppp chap hostname <Username on ISP Router, eg.Cust1>
+  ppp chap password <Password on ISP Router>
 
   ip mtu 1492
   dialer pool <number>
@@ -21,6 +44,13 @@ interface GigabitEthernet0/1
   pppoe enable
   pppoe-client dial-pool-number <number>
   no shutdown
+```
+
+Note that The PPPoE header adds an additional 8 bytes to each segment. To prevent TCP sessions from being dropped, the maximum segment size (MSS) needs to be adjusted to its optimum value on the physical interface.
+
+```
+interface <intf-id>
+  ip tcp adjust-mss 1452
 ```
 
 ### PPPoE Verification

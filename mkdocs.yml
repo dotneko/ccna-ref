@@ -1,6 +1,7 @@
 site_name: CCNA Journal
 theme: readthedocs
 google_analytics: ['UA-104298040-1', 'gavchan.github.io/ccna-ref/']
+use_directory_urls: false
 pages:
 - Home: index.md
 - CCNA 1 Commands: 'CCNA1_Cmdline.md'
