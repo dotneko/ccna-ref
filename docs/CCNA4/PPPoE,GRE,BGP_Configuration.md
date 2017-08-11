@@ -3,7 +3,7 @@
 ISP Router (based on Lab 3.2.2.7):
 
 ```
-username <Used for ppp chap hostname, eg.Cust1> password <Password>
+username <Username, eg.Cust1> password <Password>
 ip local pool PPPoEPOOL <begin-ipv4-addr> <end-ipv4-addr>
 
 interface virtual-template 1
@@ -11,17 +11,16 @@ interface virtual-template 1
   mtu 1492
   peer default ip address pool PPPoEPOOL
   ppp authentication chap callin
-  
+
 bba-group pppoe global
   virtual-template 1
   exit
-  
+
 int g0/1
   pppoe enable group global
   no shut
 
 ```
-
 
 Customer Router:
 
@@ -34,15 +33,15 @@ interface dialer 2
   ppp chap hostname <Username on ISP Router, eg.Cust1>
   ppp chap password <Password on ISP Router>
 
-  ip mtu 1492
-  dialer pool <number>
+  mtu 1492
+  dialer pool <dial-pool-num>
 
   no shutdown
 
 interface GigabitEthernet0/1
   no ip address
   pppoe enable
-  pppoe-client dial-pool-number <number>
+  pppoe-client dial-pool-number <dial-pool-num>
   no shutdown
 ```
 
@@ -59,6 +58,9 @@ interface <intf-id>
 show interface dialer <number>
 show ip route
 show pppoe session
+
+debug ppp negotiation
+debug ppp authentication
 ```
 
 ### GRE Configuration
@@ -113,5 +115,3 @@ show ip route
 show ip bgp
 show ip bgp summary
 ```
-
-

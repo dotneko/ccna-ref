@@ -25,7 +25,7 @@ Configure optional compression:
 ```
 
 - `predictor` specifies predictor compression algorithm to be used.
-- `stac` specifies Stacker (LZS) c
+- `stac` specifies Stacker (LZS) compression algorithm will be used.
 
 Configure optional link quality monitoring:
 
@@ -33,7 +33,8 @@ Configure optional link quality monitoring:
   ppp quality <percentage>
 ```
 
-- Line will go down if the 
+- Line will go down if the link quality percentage is not being maintained.
+- Link quality is calculated by comparing the total number of packets and bytes sent, to the total number of packets and bytes received by the destination node.
 
 ### PPP Multilink Configuration
 
@@ -120,6 +121,38 @@ interface <intf-id>
  ipv6 address ...
  encapsulation ppp
  ppp authentication chap
+```
+
+##### PPP CHAP Authentication through the interface:
+
+R1:
+
+```
+hostname R1
+
+username AuthUser2 password cisco
+
+interface <intf-id>
+ ip address ...
+ encapsulation ppp
+ ppp authentication chap
+ ppp chap hostname AuthUser1
+ ppp chap password cisco
+```
+
+R2:
+
+```
+hostname R2
+
+username AuthUser1 password cisco
+
+interface <intf-id>
+ ip address ...
+ encapsulation ppp
+ ppp authentication chap
+ ppp chap hostname AuthUser2
+ ppp chap password cisco
 ```
 
 ### Troubleshooting PPP Serial Encapsulation
