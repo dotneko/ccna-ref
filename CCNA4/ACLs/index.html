@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Miscellaneous - CCNA Journal</title>
+  <title>Access Control Lists - CCNA Journal</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Miscellaneous";
-    var mkdocs_page_input_path = "CCNA2/Miscellaneous.md";
-    var mkdocs_page_url = "/CCNA2/Miscellaneous/index.html";
+    var mkdocs_page_name = "Access Control Lists";
+    var mkdocs_page_input_path = "CCNA4/ACLs.md";
+    var mkdocs_page_url = "/CCNA4/ACLs/index.html";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -73,74 +73,43 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../Basic_Configuration/index.html">Basic Configuration</a>
+    <a class="" href="../../CCNA2/Basic_Configuration/index.html">Basic Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Static_Routing/index.html">Static Routing</a>
+    <a class="" href="../../CCNA2/Static_Routing/index.html">Static Routing</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Dynamic_Routing/index.html">Dynamic Routing</a>
+    <a class="" href="../../CCNA2/Dynamic_Routing/index.html">Dynamic Routing</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../SSH_and_Port_Security/index.html">SSH and Port Security</a>
+    <a class="" href="../../CCNA2/SSH_and_Port_Security/index.html">SSH and Port Security</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../VLAN_Configuration/index.html">VLAN Configuration</a>
+    <a class="" href="../../CCNA2/VLAN_Configuration/index.html">VLAN Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Access_Control_Lists/index.html">Access Control Lists</a>
+    <a class="" href="../../CCNA2/Access_Control_Lists/index.html">Access Control Lists</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../DHCP_Configuration/index.html">DHCP</a>
+    <a class="" href="../../CCNA2/DHCP_Configuration/index.html">DHCP</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../NAT_Port_Forwarding/index.html">NAT and Port Forwarding for IPv4</a>
+    <a class="" href="../../CCNA2/NAT_Port_Forwarding/index.html">NAT and Port Forwarding for IPv4</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Device_Discovery_Mx/index.html">Device Discovery and Management</a>
+    <a class="" href="../../CCNA2/Device_Discovery_Mx/index.html">Device Discovery and Management</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="index.html">Miscellaneous</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#show-commands-filtering-output">Show Commands: Filtering Output</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#command-history">Command History</a></li>
-        
-            <li><a class="toctree-l4" href="#change-size-of-history-buffer">Change size of history buffer</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#boot-environment">Boot Environment</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#configure-boot-environment-variable">Configure BOOT Environment Variable</a></li>
-        
-            <li><a class="toctree-l4" href="#accessing-the-boot-loader">Accessing the Boot Loader</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#cisco-software-upgrade-procedure">Cisco Software Upgrade Procedure</a></li>
-    
-
-    <li class="toctree-l3"><a href="#configure-router-as-tftp-server">Configure Router as TFTP Server</a></li>
-    
-
-    </ul>
+    <a class="" href="../../CCNA2/Miscellaneous/index.html">Miscellaneous</a>
                 </li>
     </ul>
 	    </li>
@@ -182,15 +151,18 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../CCNA4/PPP_Configuration/index.html">PPP Configuration</a>
+    <a class="" href="../PPP_Configuration/index.html">PPP Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../CCNA4/PPPoE,GRE,BGP_Configuration/index.html">PPPoE, GRE, BGP Configuration</a>
+    <a class="" href="../PPPoE,GRE,BGP_Configuration/index.html">PPPoE, GRE, BGP Configuration</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../CCNA4/ACLs/index.html">Access Control Lists</a>
+    <a class="current" href="index.html">Access Control Lists</a>
+    <ul class="subnav">
+            
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -265,11 +237,11 @@
     
       
         
-          <li>CCNA 2 Commands &raquo;</li>
+          <li>CCNA 4 &raquo;</li>
         
       
     
-    <li>Miscellaneous</li>
+    <li>Access Control Lists</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -279,66 +251,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="show-commands-filtering-output">Show Commands: Filtering Output</h1>
-<p>Configure number of lines to display during <code>show</code></p>
-<pre><code>terminal length &lt;number of lines&gt;
-terminal length 0     # No pause
-</code></pre>
-
-<p>Pipe after the <code>show</code> then <code>&lt;filter parameter&gt; &lt;filter expression&gt;</code>
-Can be used in combination with any <code>show</code> command.</p>
-<pre><code>show running-config | section line vty
-</code></pre>
-
-<p>Filtering parameters:</p>
-<ul>
-<li><code>section</code>: entire section that starts with expression</li>
-<li><code>include</code>: all output lines that match expression</li>
-<li><code>exclude</code>: excludes all output lines that match expression</li>
-<li><code>begin</code>: all output lines from a certain point, starting with the line that matches the filtering expression.</li>
-</ul>
-<p>Useful examples:</p>
-<pre><code>show ip interface brief | include up
-show ip interface brief | exclude unassigned
-show ip route | begin Gateway
-</code></pre>
-
-<h3 id="command-history">Command History</h3>
-<ul>
-<li>Ctrl-P or Up-Arrow</li>
-<li>Ctrl-N or Down-Arrow</li>
-</ul>
-<pre><code>show history    # (PrivExec)
-</code></pre>
-
-<h3 id="change-size-of-history-buffer">Change size of history buffer</h3>
-<pre><code>terminal history size &lt;num&gt;   # (UserExec)
-</code></pre>
-
-<h1 id="boot-environment">Boot Environment</h1>
-<h3 id="configure-boot-environment-variable">Configure BOOT Environment Variable</h3>
-<pre><code>show boot                                       #  Displays current IOS boot file
-boot system flash:/&lt;path&gt;/&lt;IOS_filename.bin&gt;    # (GCM)
-</code></pre>
-
-<h3 id="accessing-the-boot-loader">Accessing the Boot Loader</h3>
-<p>The boot loader can be accessed through a console connection following these steps:</p>
-<ol>
-<li>Connect a PC by console cable to the switch console port. Configure terminal emulation software to connect to the switch.</li>
-<li>Unplug the switch power cord.</li>
-<li>Reconnect the power cord to the switch and, within 15 seconds, press and hold down the Mode button while the System LED is still flashing green.</li>
-<li>Continue pressing the Mode button until the System LED turns briefly amber and then solid green; then release the Mode button.</li>
-<li>The boot loader switch: prompt appears in the terminal emulation software on the PC.</li>
-</ol>
-<p>Basic directory listing in the boot loader:</p>
-<pre><code>dir flash:
-</code></pre>
-
-<h1 id="cisco-software-upgrade-procedure">Cisco Software Upgrade Procedure</h1>
-<p>See: <a href="http://www.cisco.com/c/en/us/support/docs/routers/3800-series-integrated-services-routers/49044-sw-upgrade-proc-ram.html">Cisco Access Routers Software Upgrade Procedures</a></p>
-<h1 id="configure-router-as-tftp-server">Configure Router as TFTP Server</h1>
-<pre><code>tftp-server flash:&lt;ios_image_name.bin&gt;
-</code></pre>
+                <p>Cisco.com Reference: <a href="https://www.cisco.com/c/en/us/support/docs/ip/access-lists/26448-ACLsamples.html">Configure Commonly Used IP ACLs</a></p>
+<p><a href="../../CCNA2/Access_Control_Lists/index.html">IPv4 ACLs (CCNA2)</a></p>
+<p><a href="../../CCNAS/S04-2_IPv6_ACLs/index.html">IPv6 ACLs (CCNAS)</a></p>
               
             </div>
           </div>
@@ -346,10 +261,10 @@ boot system flash:/&lt;path&gt;/&lt;IOS_filename.bin&gt;    # (GCM)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../CCNA3/VTP_Configuration/index.html" class="btn btn-neutral float-right" title="VTP Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../Cisco_Voice-Notes/index.html" class="btn btn-neutral float-right" title="Cisco Voice Basics">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../Device_Discovery_Mx/index.html" class="btn btn-neutral" title="Device Discovery and Management"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../PPPoE,GRE,BGP_Configuration/index.html" class="btn btn-neutral" title="PPPoE, GRE, BGP Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -375,10 +290,10 @@ boot system flash:/&lt;path&gt;/&lt;IOS_filename.bin&gt;    # (GCM)
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../Device_Discovery_Mx/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../PPPoE,GRE,BGP_Configuration/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../CCNA3/VTP_Configuration/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../Cisco_Voice-Notes/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

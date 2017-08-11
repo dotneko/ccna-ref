@@ -171,6 +171,8 @@
         
             <li><a class="toctree-l4" href="#ppp-chap-authentication">PPP CHAP Authentication</a></li>
         
+            <li><a class="toctree-l4" href="#ppp-chap-authentication-through-the-interface">PPP CHAP Authentication through the interface:</a></li>
+        
         </ul>
     
 
@@ -182,6 +184,10 @@
                 <li class="">
                     
     <a class="" href="../PPPoE,GRE,BGP_Configuration/index.html">PPPoE, GRE, BGP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ACLs/index.html">Access Control Lists</a>
                 </li>
     </ul>
 	    </li>
@@ -291,14 +297,15 @@
 
 <ul>
 <li><code>predictor</code> specifies predictor compression algorithm to be used.</li>
-<li><code>stac</code> specifies Stacker (LZS) c</li>
+<li><code>stac</code> specifies Stacker (LZS) compression algorithm will be used.</li>
 </ul>
 <p>Configure optional link quality monitoring:</p>
 <pre><code>  ppp quality &lt;percentage&gt;
 </code></pre>
 
 <ul>
-<li>Line will go down if the </li>
+<li>Line will go down if the link quality percentage is not being maintained.</li>
+<li>Link quality is calculated by comparing the total number of packets and bytes sent, to the total number of packets and bytes received by the destination node.</li>
 </ul>
 <h3 id="ppp-multilink-configuration">PPP Multilink Configuration</h3>
 <p>Create a multilink bundle:</p>
@@ -365,6 +372,33 @@ interface &lt;intf-id&gt;
  ipv6 address ...
  encapsulation ppp
  ppp authentication chap
+</code></pre>
+
+<h5 id="ppp-chap-authentication-through-the-interface">PPP CHAP Authentication through the interface:</h5>
+<p>R1:</p>
+<pre><code>hostname R1
+
+username AuthUser2 password cisco
+
+interface &lt;intf-id&gt;
+ ip address ...
+ encapsulation ppp
+ ppp authentication chap
+ ppp chap hostname AuthUser1
+ ppp chap password cisco
+</code></pre>
+
+<p>R2:</p>
+<pre><code>hostname R2
+
+username AuthUser1 password cisco
+
+interface &lt;intf-id&gt;
+ ip address ...
+ encapsulation ppp
+ ppp authentication chap
+ ppp chap hostname AuthUser2
+ ppp chap password cisco
 </code></pre>
 
 <h3 id="troubleshooting-ppp-serial-encapsulation">Troubleshooting PPP Serial Encapsulation</h3>
