@@ -27,6 +27,7 @@ pages:
     - 'PPP Configuration': 'CCNA4/PPP_Configuration.md'
     - 'PPPoE, GRE, BGP Configuration': 'CCNA4/PPPoE,GRE,BGP_Configuration.md'
     - 'Access Control Lists': 'CCNA4/ACLs.md'
+    - 'Network Security, Monitoring, SNMP': 'CCNA4/Network_Security_Monitoring_SNMP.md'
 - Cisco Voice Basics: 'Cisco_Voice-Notes.md'
 - CCNA Security:
     - 'Securing Network Devices': 'CCNAS/S02-1_Securing_Network_Devices.md'
