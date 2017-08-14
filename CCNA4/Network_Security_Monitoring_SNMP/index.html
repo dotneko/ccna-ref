@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>PPP Configuration - CCNA Journal</title>
+  <title>Network Security, Monitoring, SNMP - CCNA Journal</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "PPP Configuration";
-    var mkdocs_page_input_path = "CCNA4/PPP_Configuration.md";
-    var mkdocs_page_url = "/CCNA4/PPP_Configuration/index.html";
+    var mkdocs_page_name = "Network Security, Monitoring, SNMP";
+    var mkdocs_page_input_path = "CCNA4/Network_Security_Monitoring_SNMP.md";
+    var mkdocs_page_url = "/CCNA4/Network_Security_Monitoring_SNMP/index.html";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -149,37 +149,9 @@
 		
     <span class="caption-text">CCNA 4</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="index.html">PPP Configuration</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#hdlc-encapsulation">HDLC Encapsulation</a></li>
-    
-
-    <li class="toctree-l3"><a href="#ppp-configuration">PPP Configuration</a></li>
-    
-
-    <li class="toctree-l3"><a href="#ppp-multilink-configuration">PPP Multilink Configuration</a></li>
-    
-
-    <li class="toctree-l3"><a href="#ppp-authentication">PPP Authentication</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#ppp-pap-authentication">PPP PAP Authentication</a></li>
-        
-            <li><a class="toctree-l4" href="#ppp-chap-authentication">PPP CHAP Authentication</a></li>
-        
-            <li><a class="toctree-l4" href="#ppp-chap-authentication-through-the-interface">PPP CHAP Authentication through the interface:</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#troubleshooting-ppp-serial-encapsulation">Troubleshooting PPP Serial Encapsulation</a></li>
-    
-
-    </ul>
+    <a class="" href="../PPP_Configuration/index.html">PPP Configuration</a>
                 </li>
                 <li class="">
                     
@@ -189,9 +161,57 @@
                     
     <a class="" href="../ACLs/index.html">Access Control Lists</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../Network_Security_Monitoring_SNMP/index.html">Network Security, Monitoring, SNMP</a>
+    <a class="current" href="index.html">Network Security, Monitoring, SNMP</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#mitigate-cdplldp-reconnaissance-attacks">Mitigate CDP/LLDP reconnaissance attacks</a></li>
+    
+
+    <li class="toctree-l3"><a href="#mitigate-telnet-attacks">Mitigate Telnet attacks</a></li>
+    
+
+    <li class="toctree-l3"><a href="#mitigate-mac-address-table-flooding-attacks">Mitigate MAC Address Table flooding attacks</a></li>
+    
+
+    <li class="toctree-l3"><a href="#mitigate-vlan-attacks">Mitigate VLAN Attacks</a></li>
+    
+
+    <li class="toctree-l3"><a href="#dhcp-attacks">DHCP Attacks</a></li>
+    
+
+    <li class="toctree-l3"><a href="#strategies-to-help-secure-layer-2-of-a-network">Strategies to help secure Layer 2 of a network:</a></li>
+    
+
+    <li class="toctree-l3"><a href="#secure-admin-access-using-aaa">Secure Admin Access using AAA</a></li>
+    
+
+    <li class="toctree-l3"><a href="#snmp">SNMP</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#snmpv2-configuration">SNMPv2 Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#verify-snmp">Verify SNMP</a></li>
+        
+            <li><a class="toctree-l4" href="#best-practices">Best Practices</a></li>
+        
+            <li><a class="toctree-l4" href="#snmpv3-configuration">SNMPv3 Configuration</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#switched-port-analyzer-span-configuration">Switched Port Analyzer (SPAN) Configuration</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#local-span-configuration">Local SPAN Configuration</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -270,7 +290,7 @@
         
       
     
-    <li>PPP Configuration</li>
+    <li>Network Security, Monitoring, SNMP</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -280,138 +300,139 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="hdlc-encapsulation">HDLC Encapsulation</h3>
-<ul>
-<li>Default encapsulation method used by Cisco devices on synchronous serial lines.</li>
-<li>For connecting non-Cisco devices, uses synchronous PPP.</li>
-</ul>
-<pre><code>interface s0/0/0
-  encapsulation hdlc
+                <h3 id="mitigate-cdplldp-reconnaissance-attacks">Mitigate CDP/LLDP reconnaissance attacks</h3>
+<p>Disable CDP/LLDP globally:</p>
+<pre><code>no cdp run
+no lldp run
 </code></pre>
 
-<h3 id="ppp-configuration">PPP Configuration</h3>
-<p>Set PPP for encapsulation:</p>
-<pre><code>interface s0/0/0
-  encapsulation ppp
-</code></pre>
-
-<p>Configure optional compression:</p>
-<pre><code>  compress [predictor | stac]
-</code></pre>
-
-<ul>
-<li><code>predictor</code> specifies predictor compression algorithm to be used.</li>
-<li><code>stac</code> specifies Stacker (LZS) compression algorithm will be used.</li>
-</ul>
-<p>Configure optional link quality monitoring:</p>
-<pre><code>  ppp quality &lt;percentage&gt;
-</code></pre>
-
-<ul>
-<li>Line will go down if the link quality percentage is not being maintained.</li>
-<li>Link quality is calculated by comparing the total number of packets and bytes sent, to the total number of packets and bytes received by the destination node.</li>
-</ul>
-<h3 id="ppp-multilink-configuration">PPP Multilink Configuration</h3>
-<p>Create a multilink bundle:</p>
-<pre><code>interface Multilink 1
- ip address &lt;...&gt;
- ipv6 address &lt;...&gt;
- ppp multilink
- ppp multilink group &lt;number&gt;
-</code></pre>
-
-<p>Assign interfaces to multilink bundle:</p>
+<p>Disable CDP/LLDP on a port:</p>
 <pre><code>interface &lt;intf-id&gt;
- no ip address
- encapsulation ppp
- ppp multilink
- ppp multilink group &lt;number&gt;
+  no cdp enable
+  no lldp transmit
+  no lldp receive
 </code></pre>
 
-<p>Disable PPP multilink:</p>
-<pre><code>no ppp multlink   ! On each bundled interfaces
+<h3 id="mitigate-telnet-attacks">Mitigate Telnet attacks</h3>
+<ul>
+<li>Use SSH and strong passwords</li>
+<li>Limit access to vty lines with ACLs</li>
+<li>Authenticate and authorize admin access with AAA (TACACS+ or RADIUS)</li>
+</ul>
+<h3 id="mitigate-mac-address-table-flooding-attacks">Mitigate MAC Address Table flooding attacks</h3>
+<p>Show MAC address table:</p>
+<pre><code>show mac address-table
 </code></pre>
 
-<h3 id="ppp-authentication">PPP Authentication</h3>
-<pre><code>ppp authentication { chap | pap | \
-                     pap chap | chap pap }
+<p>Configure port security to mitigate MAC address table overflow attacks.</p>
+<pre><code>interface &lt;intf-id&gt;
+  switchport mode access
+  switchport port-security
+  switchport port-security maximum 5
+  switchport port-security mac-address sticky
+  switchport port-security violation [ protect|restrict|shutdown ]
 </code></pre>
 
-<p>Note that the hostname and password of target router must match the username-password of the communicating router for it to work.</p>
-<h5 id="ppp-pap-authentication">PPP PAP Authentication</h5>
-<p>R1:</p>
-<pre><code>username R3 secret class
-interface s0/0/0
-  encapsulation ppp
-  ppp authentication pap
-  ppp pap sent-username R1 password cisco
+<h3 id="mitigate-vlan-attacks">Mitigate VLAN Attacks</h3>
+<p>Ways to mitigate VLAN attacks:</p>
+<ul>
+<li>Explicitly configure access links</li>
+<li>Explicitly disable auto trunking</li>
+<li>Manually enable trunk links</li>
+<li>Disable unused ports, make them access ports, and assign them to a black hole VLAN</li>
+<li>Change the default native VLAN</li>
+<li>Implement port security</li>
+</ul>
+<p>Prevent basic VLAN attacks:</p>
+<pre><code>switchport mode access  ! For non-trunking ports
+switchport mode trunk   ! Manually enable trunk link
+switchport nonegotiate  ! Disable DTP (autotrunking) negotations
+switchport tunk native vlan &lt;unused vlan num&gt;
+
+interface range &lt;intf-range&gt;
+  switchport mode access
+  switchport access vlan &lt;unused VLAN number&gt;
+  shutdown              ! Disable unused ports
+
 </code></pre>
 
-<p>R3:</p>
-<pre><code>username R1 secret cisco
-interface s0/0/0
-  encapsulation ppp
-  ppp authentication pap
-  ppp pap sent-username R3 password class
+<h3 id="dhcp-attacks">DHCP Attacks</h3>
+<ul>
+<li>DHCP starvation is often used before a DHCP spoofing attack to deny service to the legitimate DHCP server.</li>
+<li>Configure DHCP snooping and port security on the switch to mitigate DHCP attacks.</li>
+</ul>
+<h3 id="strategies-to-help-secure-layer-2-of-a-network">Strategies to help secure Layer 2 of a network:</h3>
+<ul>
+<li>Always use secure variants of these protocols such as SSH, SCP, SSL, SNMPv3, and SFTP.</li>
+<li>Always use strong passwords and change them often.</li>
+<li>Enable CDP on select ports only.</li>
+<li>Secure Telnet access.</li>
+<li>Use a dedicated management VLAN where nothing but management traffic resides.</li>
+<li>Use ACLs to filter unwanted access.</li>
+</ul>
+<h3 id="secure-admin-access-using-aaa">Secure Admin Access using AAA</h3>
+<p>See <a href="../../CCNAS/S03_Basic_AAA_Configuration/index.html">CCNA Security:AAA</a></p>
+<h1 id="snmp">SNMP</h1>
+<h3 id="snmpv2-configuration">SNMPv2 Configuration</h3>
+<pre><code>snmp-server community &lt;string&gt; ro|rw [SNMP_ACL]
+snmp-server location &lt;text, e.g. NOC_SNMP_MANAGER&gt;
+snmp-server contact John Doe
+snmp-server host &lt;host-id&gt; [version {1| 2c | 3 \
+          [auth | noauth | priv]}] &lt;community-string&gt;
 </code></pre>
 
-<h5 id="ppp-chap-authentication">PPP CHAP Authentication</h5>
-<p>R1:</p>
-<pre><code>hostname R1
-username R2 password &lt;password&gt;
-
-interface &lt;intf-id&gt;
- ip address ...
- ipv6 address ...
- encapsulation ppp
- ppp authentication chap
+<p>To restrict SNMP access to NMS hosts, define ACL and reference it as above:</p>
+<pre><code>ip access-list standard SNMP_ACL
+  permit 192.168.1.3
 </code></pre>
 
-<p>R2:</p>
-<pre><code>hostname R2
-username R1 password &lt;password&gt;
-
-interface &lt;intf-id&gt;
- ip address ...
- ipv6 address ...
- encapsulation ppp
- ppp authentication chap
+<p>To enable traps on an SNMP agent (none set by default):</p>
+<pre><code>snmp-server enable traps &lt;notification-types&gt;
 </code></pre>
 
-<h5 id="ppp-chap-authentication-through-the-interface">PPP CHAP Authentication through the interface:</h5>
-<p>R1:</p>
-<pre><code>hostname R1
-
-username AuthUser2 password cisco
-
-interface &lt;intf-id&gt;
- ip address ...
- encapsulation ppp
- ppp authentication chap
- ppp chap hostname AuthUser1
- ppp chap password cisco
+<h3 id="verify-snmp">Verify SNMP</h3>
+<pre><code>show snmp
+show snmp community
 </code></pre>
 
-<p>R2:</p>
-<pre><code>hostname R2
-
-username AuthUser1 password cisco
-
-interface &lt;intf-id&gt;
- ip address ...
- encapsulation ppp
- ppp authentication chap
- ppp chap hostname AuthUser2
- ppp chap password cisco
+<h3 id="best-practices">Best Practices</h3>
+<ul>
+<li>Choose community strings careful; SNMPv1 and SNMPv2c rely on SNMP community strings in plaintext to authenticate access to MIB objects.</li>
+<li>If SNMP is used only to monitor devices, use read-only communities.</li>
+<li>Ensure that SNMP messages do not spread beyond management consoles; use ACLs.</li>
+<li>Use SNMPv3 as it provides security authentication and encryption.</li>
+</ul>
+<h3 id="snmpv3-configuration">SNMPv3 Configuration</h3>
+<p>Create a new SNMP group and add a new user to it:</p>
+<pre><code>snmp-server group &lt;groupname&gt; {v1|v2c|v3 {auth|noauth|priv}}
+snmp-server user &lt;username&gt; &lt;groupname&gt; v3 [encrypted] \
+            [auth {md5|sha} &lt;auth-password&gt;] \
+            [priv {des|3des|aes {128|192|256}} &lt;priv-password&gt;]
 </code></pre>
 
-<h3 id="troubleshooting-ppp-serial-encapsulation">Troubleshooting PPP Serial Encapsulation</h3>
-<pre><code>debug ppp { packet |
-            negotiation |
-            error |
-            authentication |
-            compression |
-            cbcp }
+<p>Example:</p>
+<pre><code>ip access-list standard PERMIT-ADMIN
+  permit 192.168.1.0 0.0.0.255
+  exit
+
+snmp-server view SNMP-RO iso included
+snmp-server group ADMIN v3 priv read SNMP-RO access PERMIT-ADMIN
+snmp-server user BOB ADMIN v3 auth sha cisco12345 priv aes 128 cisco54321
+</code></pre>
+
+<h1 id="switched-port-analyzer-span-configuration">Switched Port Analyzer (SPAN) Configuration</h1>
+<ul>
+<li>The destination port cannot be a source port, and the source port cannot be a destination port.</li>
+<li>The number of destination ports is platform-dependent. Some platforms allow for more than one destination port.</li>
+<li>The destination port is no longer a normal switch port. Only monitored traffic passes through that port.</li>
+</ul>
+<h3 id="local-span-configuration">Local SPAN Configuration</h3>
+<pre><code>monitor session &lt;number&gt; source [interface &lt;interface&gt;|vlan &lt;vlan-id&gt;]
+monitor session &lt;number&gt; destination [interface &lt;interface&gt;|vlan &lt;vlan-id&gt;]
+</code></pre>
+
+<p>Verify:</p>
+<pre><code>show monitor
 </code></pre>
               
             </div>
@@ -420,10 +441,10 @@ interface &lt;intf-id&gt;
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../PPPoE,GRE,BGP_Configuration/index.html" class="btn btn-neutral float-right" title="PPPoE, GRE, BGP Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../Cisco_Voice-Notes/index.html" class="btn btn-neutral float-right" title="Cisco Voice Basics">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../CCNA3/OSPF_Multiarea_and_Advanced_Configuration/index.html" class="btn btn-neutral" title="OSPF Multiarea & Advanced"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ACLs/index.html" class="btn btn-neutral" title="Access Control Lists"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -449,10 +470,10 @@ interface &lt;intf-id&gt;
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../CCNA3/OSPF_Multiarea_and_Advanced_Configuration/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../ACLs/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../PPPoE,GRE,BGP_Configuration/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../Cisco_Voice-Notes/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
