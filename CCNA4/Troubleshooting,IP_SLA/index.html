@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>ZPF Configuration - CCNA Journal</title>
+  <title>Troubleshooting and IP SLAs - CCNA Journal</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "ZPF Configuration";
-    var mkdocs_page_input_path = "CCNAS/S04-3_ZPF_Configuration.md";
-    var mkdocs_page_url = "/CCNAS/S04-3_ZPF_Configuration/index.html";
+    var mkdocs_page_name = "Troubleshooting and IP SLAs";
+    var mkdocs_page_input_path = "CCNA4/Troubleshooting,IP_SLA.md";
+    var mkdocs_page_url = "/CCNA4/Troubleshooting,IP_SLA/index.html";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -151,23 +151,38 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../CCNA4/PPP_Configuration/index.html">PPP Configuration</a>
+    <a class="" href="../PPP_Configuration/index.html">PPP Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../CCNA4/PPPoE,GRE,BGP_Configuration/index.html">PPPoE, GRE, BGP Configuration</a>
+    <a class="" href="../PPPoE,GRE,BGP_Configuration/index.html">PPPoE, GRE, BGP Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../CCNA4/ACLs/index.html">Access Control Lists</a>
+    <a class="" href="../ACLs/index.html">Access Control Lists</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../CCNA4/Network_Security_Monitoring_SNMP/index.html">Network Security, Monitoring, SNMP</a>
+    <a class="" href="../Network_Security_Monitoring_SNMP/index.html">Network Security, Monitoring, SNMP</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../CCNA4/Troubleshooting,IP_SLA/index.html">Troubleshooting and IP SLAs</a>
+    <a class="current" href="index.html">Troubleshooting and IP SLAs</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#troubleshooting-commands">Troubleshooting Commands</a></li>
+    
+
+    <li class="toctree-l3"><a href="#ip-sla-configuration">IP SLA Configuration</a></li>
+    
+
+    <li class="toctree-l3"><a href="#windows-addressing-and-mappings">Windows Addressing and Mappings</a></li>
+    
+
+    <li class="toctree-l3"><a href="#linuxunix-addressing-and-mappings">Linux/Unix Addressing and Mappings</a></li>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -189,66 +204,39 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../S02-1_Securing_Network_Devices/index.html">Securing Network Devices</a>
+    <a class="" href="../../CCNAS/S02-1_Securing_Network_Devices/index.html">Securing Network Devices</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S02-2_Privilege_Role-based_Access/index.html">Privilege and Role-Based Views</a>
+    <a class="" href="../../CCNAS/S02-2_Privilege_Role-based_Access/index.html">Privilege and Role-Based Views</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S02-2_Securing_Cisco_IOS_and_Configuration/index.html">Securing Cisco IOS and Configuration</a>
+    <a class="" href="../../CCNAS/S02-2_Securing_Cisco_IOS_and_Configuration/index.html">Securing Cisco IOS and Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S02-3_AutoSecure_and_Routing_Authentication/index.html">AutoSecure and Routing Authentication</a>
+    <a class="" href="../../CCNAS/S02-3_AutoSecure_and_Routing_Authentication/index.html">AutoSecure and Routing Authentication</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S03_Basic_AAA_Configuration/index.html">Basic AAA Configuration</a>
+    <a class="" href="../../CCNAS/S03_Basic_AAA_Configuration/index.html">Basic AAA Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S04-1_Numbered_and_Named_ACLs/index.html">Numbered and Named ACLs</a>
+    <a class="" href="../../CCNAS/S04-1_Numbered_and_Named_ACLs/index.html">Numbered and Named ACLs</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S04-2_IPv6_ACLs/index.html">IPv6 ACLs</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="index.html">ZPF Configuration</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#configure-zpf">Configure ZPF</a></li>
-    
-
-    <li class="toctree-l3"><a href="#1-create-zones">1. Create Zones</a></li>
-    
-
-    <li class="toctree-l3"><a href="#2-identify-traffic">2. Identify Traffic</a></li>
-    
-
-    <li class="toctree-l3"><a href="#3-define-an-action">3. Define an Action</a></li>
-    
-
-    <li class="toctree-l3"><a href="#4-identify-a-zone-pair-and-match-to-a-policy">4. Identify a Zone-Pair and Match to a Policy</a></li>
-    
-
-    <li class="toctree-l3"><a href="#5-assign-zones-to-interfaces">5. Assign Zones to Interfaces</a></li>
-    
-
-    <li class="toctree-l3"><a href="#verify-zpf-configurations">Verify ZPF Configurations</a></li>
-    
-
-    <li class="toctree-l3"><a href="#important-features-of-zone-based-policy-firewalls">Important Features of Zone-Based Policy Firewalls</a></li>
-    
-
-    </ul>
+    <a class="" href="../../CCNAS/S04-2_IPv6_ACLs/index.html">IPv6 ACLs</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../S05_IPS_Configuration/index.html">IPS Configuration</a>
+    <a class="" href="../../CCNAS/S04-3_ZPF_Configuration/index.html">ZPF Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNAS/S05_IPS_Configuration/index.html">IPS Configuration</a>
                 </li>
     </ul>
 	    </li>
@@ -275,11 +263,11 @@
     
       
         
-          <li>CCNA Security &raquo;</li>
+          <li>CCNA 4 &raquo;</li>
         
       
     
-    <li>ZPF Configuration</li>
+    <li>Troubleshooting and IP SLAs</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -289,93 +277,70 @@
           <div role="main">
             <div class="section">
               
-                <p><strong>Zone-based Policy Firewalls (ZPF)</strong> - The new configuration mode in which interfaces are assigned to security zones, and firewall policy is applied to traffic moving between the zones.</p>
-<h3 id="configure-zpf">Configure ZPF</h3>
-<p>Steps:</p>
-<ol>
-<li>Create the zones.</li>
-<li>Identify traffic with a class map.</li>
-<li>Define an action with a policy-map.</li>
-<li>Identify a zone pair and match it to a policy map.</li>
-<li>Assign zones to the appropriate interface.</li>
-</ol>
-<h3 id="1-create-zones">1. Create Zones</h3>
-<pre><code>zone security &lt;zone-name&gt;
+                <h3 id="troubleshooting-commands">Troubleshooting Commands</h3>
+<pre><code>show processes cpu
+show memory
+show interfaces
+show interfaces &lt;intf-id&gt;
+
+show version
+show ip interface [brief]
+show ipv6 interface [brief]
+show interfaces [&lt;intf-id&gt;]
+show arp
+show ipv6 neighbors
+show running-config
+show port
+show vlan
+show tech-supprot
+show ip cache flow
+
+[no] debug ?
+show protocols
 </code></pre>
 
-<h3 id="2-identify-traffic">2. Identify Traffic</h3>
-<pre><code>class-map type inspect [match-any|match-all] &lt;class-map-name&gt;
+<h3 id="ip-sla-configuration">IP SLA Configuration</h3>
+<pre><code>ip sla &lt;operation-num&gt;
+  icmp-echo { &lt;dest-ip-address&gt; | &lt;dest-hostname&gt; } \
+            [ source-ip &lt;source-ip-addr&gt; | &lt;hostname&gt; } | \
+            source-interface &lt;intf-id&gt;
+ip sla schedule &lt;operation-num&gt; [ life { forever | &lt;seconds&gt; }] \
+            [ start-time { &lt;hh&gt;:&lt;mm&gt;:[:&lt;ss&gt;] { &lt;month&gt;] \
+            | pending | now | after &lt;hh:mm:ss&gt; ] \
+            [ ageout &lt;seconds&gt; ] [ recurring ]
 
-class-map &lt;name&gt;
-  match access-group {acl#|acl-name}
-  match protocol &lt;protocol-name&gt;
-  match class-map &lt;class-map-name&gt;
+no ip sla &lt;operation-num&gt;
+</code></pre>
+
+<p>Verify/Check statistics:</p>
+<pre><code>show ip sla application
+show ip sla configuration [&lt;operation-num&gt;]
+show ip sla statistics [&lt;operation-num&gt;]
 </code></pre>
 
 <p>Example:</p>
-<pre><code>class-map type inspect match-any HTTP-TRAFFIC
-  match protocol http
-  match protocol https
-  match protocol dns
-exit
+<pre><code>conf t
+ip sla 1
+  icmp-echo 192.168.1.5   ! Monitor interface at 192.168.1.5
+    frequency 30
+    exit
+ip sla schedule 1 start-time now life forever
 </code></pre>
 
-<h3 id="3-define-an-action">3. Define an Action</h3>
-<pre><code>policy-map inspect &lt;policy-map-name&gt;
-  class type inspect &lt;class-map-name&gt;
-    {inspect|drop|pass}
+<h3 id="windows-addressing-and-mappings">Windows Addressing and Mappings</h3>
+<pre><code>arp
+arp -d      ! Clears cache for repopulation
 </code></pre>
 
-<ul>
-<li><code>inspect</code> - This action offers <em>state-based traffic control</em>. For example, if traffic traveling from the PRIVATE zone to the PUBLIC zone is inspected, the router maintains connection or session information for TCP and UDP traffic. The router would then permit return traffic sent from PUBLIC zone hosts in reply to PRIVATE zone connection requests.</li>
-<li><code>drop</code> - This is the default action for all traffic. Similar to the implicit deny any at the end of every ACL, there is an <strong>explicit drop applied by the IOS to the end of every policy−map</strong>. It is listed as <code>class class-default</code> in the last section of any policy-map configuration. Other class−maps within a policy−map can also be configured to drop unwanted traffic. Unlike ACLs, traffic is silently dropped, and no ICMP unreachable messages are sent to the source of the traffic.</li>
-<li><code>pass</code> - This action allows the router to forward traffic from one zone to another. The pass action does not track the state of connections. <em>Pass only allows the traffic in one direction</em>. A corresponding policy must be applied to allow return traffic to pass in the opposite direction. The pass action is ideal for secure protocols with predictable behavior, such as IPsec. However, most application traffic is better handled in the ZPF with the inspect action.</li>
-</ul>
-<p>Example:</p>
-<pre><code>policy-map type inspec PRIV-TO-PUB-POLICY
-  class type inspect HTTP-TRAFFIC
-    inspect
+<p>Check IPv6 Neighbor Table</p>
+<pre><code>netsh interface ipv6 show neighbor
 </code></pre>
 
-<h3 id="4-identify-a-zone-pair-and-match-to-a-policy">4. Identify a Zone-Pair and Match to a Policy</h3>
-<pre><code>zone-pair security &lt;zone-pair-name&gt; \
-  source {&lt;source-zone-name&gt;|self} \
-  destination {&lt;destination-zone-name&gt;|self}
+<h3 id="linuxunix-addressing-and-mappings">Linux/Unix Addressing and Mappings</h3>
+<pre><code>ifconfig
 
-  service-policy type inspect &lt;policy-map-name&gt;
+ip neigh show
 </code></pre>
-
-<p>Example of a zone-pair configuration. A zone-pair named PRIV-PUB is created with PRIVATE assigned as the source zone and PUBLIC assigned as the destination zone. Then the policy-map created in the previous step is associated to the zone-pair.</p>
-<pre><code>zone-pair security PRIV-PUB source PRIVATE destination PUBLIC
-  service-policy type inspect PRIV-TO-PUB-POLICY
-</code></pre>
-
-<h3 id="5-assign-zones-to-interfaces">5. Assign Zones to Interfaces</h3>
-<p>Example:</p>
-<pre><code>interface g0/0
-  zone-member security PRIVATE
-  interface s0/0/0
-  zone-member security PUBLIC
-</code></pre>
-
-<h3 id="verify-zpf-configurations">Verify ZPF Configurations</h3>
-<pre><code>show policy-map type inspect zone-pair sessions
-
-show class-map type inspect
-show zone security
-show zone-pair security
-show policy-map type inspect
-</code></pre>
-
-<h3 id="important-features-of-zone-based-policy-firewalls">Important Features of Zone-Based Policy Firewalls</h3>
-<ul>
-<li>No filtering is applied for intra-zone traffic.</li>
-<li>Only one zone is allowed per interface.</li>
-<li>No Classic Firewall and Zone-Based Policy Firewall configuration on same interface.</li>
-<li>If only one zone member is assigned, all traffic is dropped.</li>
-<li>Only explicitly allowed traffic is forwarded between zones.</li>
-<li>Traffic to the self zone is not filtered.</li>
-</ul>
               
             </div>
           </div>
@@ -383,10 +348,10 @@ show policy-map type inspect
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../S05_IPS_Configuration/index.html" class="btn btn-neutral float-right" title="IPS Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../Cisco_Voice-Notes/index.html" class="btn btn-neutral float-right" title="Cisco Voice Basics">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../S04-2_IPv6_ACLs/index.html" class="btn btn-neutral" title="IPv6 ACLs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Network_Security_Monitoring_SNMP/index.html" class="btn btn-neutral" title="Network Security, Monitoring, SNMP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -412,10 +377,10 @@ show policy-map type inspect
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../S04-2_IPv6_ACLs/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Network_Security_Monitoring_SNMP/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../S05_IPS_Configuration/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../Cisco_Voice-Notes/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
