@@ -64,6 +64,12 @@ Disable PPP multilink:
 no ppp multlink   ! On each bundled interfaces
 ```
 
+Verify PPP multilink:
+
+```
+show ppp multilink
+```
+
 ### PPP Authentication
 
 ```

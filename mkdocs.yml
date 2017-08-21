@@ -28,7 +28,9 @@ pages:
     - 'PPPoE, GRE, BGP Configuration': 'CCNA4/PPPoE,GRE,BGP_Configuration.md'
     - 'Access Control Lists': 'CCNA4/ACLs.md'
     - 'Network Security, Monitoring, SNMP': 'CCNA4/Network_Security_Monitoring_SNMP.md'
-- Cisco Voice Basics: 'Cisco_Voice-Notes.md'
+    - 'Troubleshooting and IP SLAs': 'CCNA4/Troubleshooting,IP_SLA.md'
+- Cisco Voice:
+    - 'Cisco Voice Basics' : 'Cisco_Voice-Notes.md'
 - CCNA Security:
     - 'Securing Network Devices': 'CCNAS/S02-1_Securing_Network_Devices.md'
     - 'Privilege and Role-Based Views': 'CCNAS/S02-2_Privilege_Role-based_Access.md'

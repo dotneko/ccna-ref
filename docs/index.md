@@ -7,15 +7,12 @@ Current notes available and accessible from the menu are:
 - CCNA 1
 - CCNA 2
 - CCNA 3
-- CCNA 4 (Ongoing)
+- CCNA 4
 - Cisco Voice Basic Telephony
 - CCNA Security (Up to Chapter 5)
 
-*Last updated on 2017-08-08*
+*Last updated on 2017-08-18*
 
 # Useful Links
 - [Cisco NetAcademy](https://netacad.com)
-- [Ingmar's Cisco Study Notes](https://sites.google.com/view/ingmar/)
-- [Ingmar's Cisco Security Page](https://sites.google.com/view/ingmar/ccna-security)
-
-Good luck!
+- [Cisco](https://www.cisco.com/c/en/us/index.html)

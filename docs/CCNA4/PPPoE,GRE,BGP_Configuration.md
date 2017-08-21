@@ -80,9 +80,6 @@ interface Tunnel 0
   ip address <ipv4-addr> <netmask>
   tunnel source <ipv4-addr>
   tunnel destination <ipv4-addr>
-
-router ospf <process-id>
-  network <ipv4-network> <wildcard> area <area>
 ```
 
 ### Verify GRE
