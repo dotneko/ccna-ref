@@ -221,6 +221,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/CCNAS/S06_LAN_Security_Configuration/index.html</loc>
+     <lastmod>2017-08-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>

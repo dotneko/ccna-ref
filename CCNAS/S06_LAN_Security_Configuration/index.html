@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>LAN Security - CCNA Journal</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "LAN Security";
+    var mkdocs_page_input_path = "CCNAS/S06_LAN_Security_Configuration.md";
+    var mkdocs_page_url = "/CCNAS/S06_LAN_Security_Configuration/index.html";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-104298040-1', 'gavchan.github.io/ccna-ref/');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="icon icon-home"> CCNA Journal</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../index.html">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../CCNA1_Cmdline/index.html">CCNA 1 Commands</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA 2 Commands</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Basic_Configuration/index.html">Basic Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Static_Routing/index.html">Static Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Dynamic_Routing/index.html">Dynamic Routing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/SSH_and_Port_Security/index.html">SSH and Port Security</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/VLAN_Configuration/index.html">VLAN Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Access_Control_Lists/index.html">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/DHCP_Configuration/index.html">DHCP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/NAT_Port_Forwarding/index.html">NAT and Port Forwarding for IPv4</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Device_Discovery_Mx/index.html">Device Discovery and Management</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA2/Miscellaneous/index.html">Miscellaneous</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA 3</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNA3/VTP_Configuration/index.html">VTP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA3/STP_Configuration/index.html">STP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA3/EtherChannel_HSRP_Configuration/index.html">EtherChannel and HSRP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA3/EIGRP_Configuration/index.html">EIGRP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA3/OSPF_Configuration/index.html">OSPF Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA3/OSPF_Multiarea_and_Advanced_Configuration/index.html">OSPF Multiarea & Advanced</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA 4</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../CCNA4/PPP_Configuration/index.html">PPP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA4/PPPoE,GRE,BGP_Configuration/index.html">PPPoE, GRE, BGP Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA4/ACLs/index.html">Access Control Lists</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA4/Network_Security_Monitoring_SNMP/index.html">Network Security, Monitoring, SNMP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../CCNA4/Troubleshooting,IP_SLA/index.html">Troubleshooting and IP SLAs</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Cisco Voice</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../Cisco_Voice-Notes/index.html">Cisco Voice Basics</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">CCNA Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../S02-1_Securing_Network_Devices/index.html">Securing Network Devices</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-2_Privilege_Role-based_Access/index.html">Privilege and Role-Based Views</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-2_Securing_Cisco_IOS_and_Configuration/index.html">Securing Cisco IOS and Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S02-3_AutoSecure_and_Routing_Authentication/index.html">AutoSecure and Routing Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S03_Basic_AAA_Configuration/index.html">Basic AAA Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S04-1_Numbered_and_Named_ACLs/index.html">Numbered and Named ACLs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S04-2_IPv6_ACLs/index.html">IPv6 ACLs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S04-3_ZPF_Configuration/index.html">ZPF Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../S05_IPS_Configuration/index.html">IPS Configuration</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="index.html">LAN Security</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#securing-the-local-network">Securing the Local Network</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#common-layer-2-attacks">Common Layer 2 Attacks:</a></li>
+        
+            <li><a class="toctree-l4" href="#cisco-solutions-to-help-mitigate-layer-2-attacks">Cisco Solutions to help Mitigate Layer 2 Attacks:</a></li>
+        
+            <li><a class="toctree-l4" href="#countering-cam-table-attacks">Countering CAM Table Attacks</a></li>
+        
+            <li><a class="toctree-l4" href="#port-security-aging">Port Security Aging</a></li>
+        
+            <li><a class="toctree-l4" href="#port-security-with-ip-phones">Port Security with IP Phones</a></li>
+        
+            <li><a class="toctree-l4" href="#snmp-mac-address-notification">SNMP MAC Address Notification</a></li>
+        
+            <li><a class="toctree-l4" href="#mitigating-vlan-hopping-attacks">Mitigating VLAN Hopping Attacks</a></li>
+        
+            <li><a class="toctree-l4" href="#mitigating-dhcp-spoofing-dhcp-starvation-attacks">Mitigating DHCP Spoofing / DHCP Starvation Attacks</a></li>
+        
+            <li><a class="toctree-l4" href="#mitigating-arp-spoofing-and-arp-poisoning-attacks">Mitigating ARP Spoofing and ARP Poisoning Attacks</a></li>
+        
+            <li><a class="toctree-l4" href="#mitigating-mac-ip-address-spoofing-with-ipsg">Mitigating MAC / IP address Spoofing with IPSG</a></li>
+        
+            <li><a class="toctree-l4" href="#mitigating-spanning-tree-protocol-stp-attacks">Mitigating Spanning-Tree Protocol (STP) Attacks</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">CCNA Journal</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>CCNA Security &raquo;</li>
+        
+      
+    
+    <li>LAN Security</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="securing-the-local-network">Securing the Local Network</h1>
+<h3 id="common-layer-2-attacks">Common Layer 2 Attacks:</h3>
+<ul>
+<li>CAM Table Attacks: incl. CAM table overflow (MAC address flooding)</li>
+<li>VLAN Attacks: incl. VLAN hopping, and VLAN double-tagging attacks, attacks between devices on a common VLAN</li>
+<li>DHCP Attacks: DHCP starvation and DHCP spoofing attacks</li>
+<li>ARP Attacks: ARP spoofing and ARP poisoning attacks</li>
+<li>Address Spoofing Attacks: MAC address and IP address spoofing attacks</li>
+<li>STP Attacks: Spanning Tree Protocol manipulation attacks</li>
+</ul>
+<h3 id="cisco-solutions-to-help-mitigate-layer-2-attacks">Cisco Solutions to help Mitigate Layer 2 Attacks:</h3>
+<ul>
+<li>IP Source Guard (IPSG): prevent MAC and IP address spoofing attacks.</li>
+<li>DAI (Dynamic ARP Inspection): prevents ARP spoofing and ARP poisoning attacks.</li>
+<li>DHCP Snooping: prevents DHCP starvation and DHCP spoofing attacks.</li>
+<li>Port Security: prevents many types of attacks including CAM table overflow attacks and DHCP starvation attacks.</li>
+</ul>
+<h3 id="countering-cam-table-attacks">Countering CAM Table Attacks</h3>
+<p>Enable port-security on interface:</p>
+<ul>
+<li>Must first configure interface as an access port as default is dynamic auto (trunking on).</li>
+</ul>
+<pre><code>interface &lt;intf-id&gt;
+  switchport mode access
+  switchport port-security
+</code></pre>
+
+<p>Enabling specific port-security options:</p>
+<pre><code>  switchport port-security mac-address &lt;mac-addr&gt; \
+    { vlan | [acess|voice] }
+  switchport port-security mac-address sticky     ! Learn dynamically
+  switchport port-security maximum &lt;number-max-addresses; default=1&gt;
+  switchport port-security violation &lt;mode&gt;
+</code></pre>
+
+<p>Notes:</p>
+<ul>
+<li>Max number of MAC address allowed on the switch could be viewed via <code>show sdm prefer</code></li>
+<li>Three violation modes:<ul>
+<li><code>protect</code>: drops unknown source address packets when number of secure MAC addresses reaches the limit, with no notification.</li>
+<li><code>restrict</code>: drops unknown source address packets when number of secure MAC address reachest the limit and issues a <em>notification that a security violation has occurred</em>.</li>
+<li><code>shutdown</code>(default): interface immediately becomes error-disabled, port LED turns off, violation counter is incremented. Must be re-enabled manually using <code>shutdown</code> and <code>no shutdown</code>.</li>
+</ul>
+</li>
+</ul>
+<p>Re-enable error-disabled port:
+- <code>shutdown</code> then <code>no shutdown</code>
+- Automatically: <code>errdisable recovery cause psecure-violation</code></p>
+<h3 id="port-security-aging">Port Security Aging</h3>
+<pre><code>switchport port-security aging \
+  {static | time &lt;time&gt; | type {absolute | inactivity} }
+</code></pre>
+
+<ul>
+<li><code>static</code>: Enable aging for statically configured secure addresses on this port.</li>
+<li><code>time &lt;time&gt;</code>: Range 0-1440 mins; disable aging by setting <code>time 0</code></li>
+<li><code>type absolute</code>: All secure addresses on this port age out exactly after the time specified.</li>
+<li><code>type inactivity</code>: All secure address on this port age out only if there is no data traffic from the secure source address from the specified time period.</li>
+</ul>
+<p>Example configuration:</p>
+<pre><code>interface f0/1
+  switchport port-security aging time 10
+  switchport port-security aging type inactivity
+  exit
+
+snmp server enable traps port-security trap-rate 5
+exit
+
+show port-security interface f0/1
+</code></pre>
+
+<h3 id="port-security-with-ip-phones">Port Security with IP Phones</h3>
+<p>Note that an IP phone requires up to 2 MAC addresses, so switchports connected to IP phones will need an additional MAC address assigned; example:</p>
+<pre><code>interface f0/1
+  switchport mode access
+  switchport port-security
+  switchport port-security maximum 3
+  switchport port-security violation shutdown
+  switchport port-securigy aging time 120
+</code></pre>
+
+<h3 id="snmp-mac-address-notification">SNMP MAC Address Notification</h3>
+<p>Enable notifications when SNMP traps are configured:</p>
+<pre><code>mac address-table notification
+</code></pre>
+
+<h3 id="mitigating-vlan-hopping-attacks">Mitigating VLAN Hopping Attacks</h3>
+<ul>
+<li>Disable DTP (auto trunking) negotiations on non-trunking ports by using the <code>switchport mode access</code> interface configuration command.</li>
+<li>Manually enable the trunk link on a trunking port using the <code>switchport mode trunk</code> interface configuration command.</li>
+<li>Disable DTP (auto trunking) negotiations on trunking ports using the <code>switchport nonegotiate</code> interface configuration command.</li>
+<li>Set the native VLAN to be something other than VLAN 1 and to be set on an unused VLAN using the <code>switchport trunk native vlan &lt;vlan_number&gt;</code> interface configuration mode command.</li>
+<li>Disable unused ports and put them in an unused VLAN.</li>
+</ul>
+<h3 id="mitigating-dhcp-spoofing-dhcp-starvation-attacks">Mitigating DHCP Spoofing / DHCP Starvation Attacks</h3>
+<p>A <strong>DHCP spoofing attack</strong> occurs when a rogue DHCP server is connected to the network and <em>provides false IP configuration parameters to legitimate clients</em>.</p>
+<p>A <strong>DHCP starvation attack</strong> occurs when an attacker attempts to lease all available IP addresses by creating DHCP discovery messages with bogus MAC addresses.</p>
+<h5 id="dhcp-snooping">DHCP snooping</h5>
+<ul>
+<li>DHCP spoofing attacks can be mitigated using <strong>DHCP snooping on trusted ports</strong>.</li>
+<li>DHCP snooping also helps mitigate against DHCP starvation attacks by <em>rate limiting the number of DHCP discovery messages that an untrusted port can receive</em>.</li>
+<li>DHCP snooping builds and maintains a <strong>DHCP snooping binding database</strong> that the switch can use to filter DHCP messages from untrusted sources. The DHCP snooping binding table includes the <em>client MAC address, IP address, DHCP lease time, binding type, VLAN number, and interface information</em> on each untrusted switchport or interface.</li>
+</ul>
+<p>Steps:</p>
+<ol>
+<li>Enable DHCP snooping using the <code>ip dhcp snooping</code> global configuration command.</li>
+<li>On trusted ports, use the <code>ip dhcp snooping trust</code> interface configuration command.</li>
+<li>Enable DHCP snooping by VLAN, or by a range of VLANs.</li>
+</ol>
+<p>Example:</p>
+<pre><code>ip dhcp snooping
+interface f0/1
+  ip dhcp snooping trust
+  exit
+interface f0/5-24
+  ip dhcp snooping limit rate 6
+  exit
+ip dhcp snooping vlan 5,10,50-52
+</code></pre>
+
+<p>Verify DHCP Snooping/Snooping Binding:</p>
+<pre><code>show ip dhcp snooping
+show ip dhcp snooping binding
+show ip dhcp snooping database
+</code></pre>
+
+<h3 id="mitigating-arp-spoofing-and-arp-poisoning-attacks">Mitigating ARP Spoofing and ARP Poisoning Attacks</h3>
+<ul>
+<li>To prevent ARP spoofing or poisoning, a switch must <strong>ensure that only valid ARP requests and replies are relayed</strong>.</li>
+</ul>
+<p><strong>Dynamic ARP inspection (DAI)</strong> helps prevent such attacks by <em>not relaying invalid or gratuitous ARP Replies out to other ports</em> in the same VLAN. Dynamic ARP inspection <em>intercepts all ARP Requests and all replies on the untrusted ports</em>. Each intercepted packet is <em>verified for valid IP-to-MAC binding</em>. ARP Replies coming from invalid devices are either dropped or logged by the switch for auditing so that ARP poisoning attacks are prevented. DAI can also be rate limited to limit the number of ARP packets, and the interface can be error-disabled if the rate is exceeded.</p>
+<p><strong>DAI requires DHCP snooping</strong>. DAI determines the validity of an ARP packet based on a <strong>valid MAC-address-to-IP-address bindings database</strong> that is built by DHCP snooping. In addition, to handle hosts that use statically configured IP addresses, DAI can <strong>validate ARP packets against user-configured ARP ACLs</strong>.</p>
+<p>Example; set uplink port f0/24 as trusted port:</p>
+<pre><code>ip dhcp snooping
+ip dhcp snooping vlan 10
+ip arp inspection vlan 10
+
+interface f0/24
+  ip dhcp snooping trust
+  ip arp inspection trust
+  exit
+</code></pre>
+
+<p>Configure DAI to drop ARP packets when IP addresses are invalid:</p>
+<pre><code>ip arp inspection validate src-mac
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+</code></pre>
+
+<ul>
+<li>Note that multiple entries overwrite the previous command, so enter them on the same command line for more than one validation method:</li>
+</ul>
+<pre><code>ip arp inspection validate src-mac dst-mac ip
+</code></pre>
+
+<p>Verify with:</p>
+<pre><code>do show run | include validate
+</code></pre>
+
+<h3 id="mitigating-mac-ip-address-spoofing-with-ipsg">Mitigating MAC / IP address Spoofing with IPSG</h3>
+<ul>
+<li>IP Source Guard (IPSG) operates just like DAI, but it <em>looks at every packet</em>, not just the ARP packets. Like DAI, IPSG also <strong>requires that DHCP snooping be enabled</strong>.</li>
+<li>IPSG is <em>deployed on untrusted Layer 2 access and trunk ports</em>. <strong>IPSG dynamically maintains per-port VLAN ACLs (PVACL) based on IP-to-MAC-to-switch-port bindings</strong>.</li>
+</ul>
+<p>Configure on untrusted port:</p>
+<pre><code>interface range f0/1-2
+  ip verify source
+  exit
+</code></pre>
+
+<p>To verify, use <code>show ip verify source</code></p>
+<h3 id="mitigating-spanning-tree-protocol-stp-attacks">Mitigating Spanning-Tree Protocol (STP) Attacks</h3>
+<p>To mitigate STP manipulation attacks, use the <strong>Cisco STP stability mechanisms</strong> to enhance the overall performance of the switches and to reduce the time that is lost during topology changes.</p>
+<p>These are recommended practices for using STP stability mechanisms:</p>
+<ul>
+<li><strong>PortFast</strong> - PortFast immediately brings an interface configured as an access or trunk port to the forwarding state from a blocking state, <em>bypassing the listening and learning states</em>. <strong>Apply to all end-user ports</strong>. PortFast should only be configured when there is a <em>host attached to the port</em>, and not another switch.</li>
+<li><strong>BPDU Guard</strong> - BPDU guard immediately <em>error disables a port that receives a BPDU</em>. Typically <em>used on PortFast enabled ports. Apply to all end-user ports</em>.</li>
+<li><strong>Root Guard</strong> - Root guard <em>prevents an inappropriate switch from becoming the root</em> bridge. Root guard limits the switch ports out of which the root bridge may be negotiated. <em>Apply to all ports which should not become root ports</em>.</li>
+<li><strong>Loop Guard</strong> - Loop guard <em>prevents alternate or root ports from becoming designated ports because of a failure that leads to a unidirectional link</em>. <em>Apply to all ports that are or can become non-designated</em>.</li>
+</ul>
+<h5 id="configuring-portfast">Configuring PortFast:</h5>
+<pre><code>spanning-tree portfast default    ! Enable on all non-trunking ports
+
+interface &lt;intf-id&gt;
+  spanning-tree portfast          ! Enable on an interface
+</code></pre>
+
+<p>Verify with <code>show running-config interface &lt;intf-id&gt;</code></p>
+<h5 id="configuring-bpdu-guard-should-always-do-so-on-portfast-enabled-ports">Configuring BPDU Guard (should always do so on PortFast-enabled ports):</h5>
+<pre><code>spanning-tree portfast bpduguard default
+
+interface &lt;intf-id&gt;
+  spanning-tree bpduguard enable
+</code></pre>
+
+<p>Verify with:</p>
+<pre><code>show spanning-tree summary
+show spanning-tree summary totals
+</code></pre>
+
+<h5 id="configuring-root-guard">Configuring Root Guard</h5>
+<pre><code>interface &lt;intf-id&gt;
+  spanning-tree guard root
+</code></pre>
+
+<p>To view Root Guard ports that have received superior BPDUs and are in a root-inconsistent state, use the <code>show spanning-tree inconsistent ports</code> command.</p>
+<h5 id="configuring-loop-guard">Configuring Loop Guard</h5>
+<pre><code>spanning-tree loopguard default       ! Enable globally
+
+interface &lt;intf-id&gt;
+  spanning-tree loopguard default    ! Enable on an interface
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../S05_IPS_Configuration/index.html" class="btn btn-neutral" title="IPS Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../S05_IPS_Configuration/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
