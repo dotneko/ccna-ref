@@ -2,12 +2,12 @@
     "docs": [
         {
             "location": "/index.html", 
-            "text": "About\n\n\nThis site contains a compilation of Cisco IOS commands from Cisco's CCNA NetAcademy Course.\n\n\nCurrent notes available and accessible from the menu are:\n\n\n\n\nCCNA 1\n\n\nCCNA 2\n\n\nCCNA 3\n\n\nCCNA 4\n\n\nCisco Voice Basic Telephony\n\n\nCCNA Security (Up to Chapter 5)\n\n\n\n\nLast updated on 2017-08-18\n\n\nUseful Links\n\n\n\n\nCisco NetAcademy\n\n\nCisco", 
+            "text": "About\n\n\nThis site contains a compilation of Cisco IOS commands from Cisco's NetAcademy Course.\n\n\nCurrent notes available and accessible from the menu are:\n\n\n\n\nCCNA 1\n\n\nCCNA 2\n\n\nCCNA 3\n\n\nCCNA 4\n\n\nCisco Voice Basic Telephony\n\n\nCCNA Security\n\n\n\n\nLast updated on 2017-08-18\n\n\nUseful Links\n\n\n\n\nCisco NetAcademy\n\n\nCisco", 
             "title": "Home"
         }, 
         {
             "location": "/index.html#about", 
-            "text": "This site contains a compilation of Cisco IOS commands from Cisco's CCNA NetAcademy Course.  Current notes available and accessible from the menu are:   CCNA 1  CCNA 2  CCNA 3  CCNA 4  Cisco Voice Basic Telephony  CCNA Security (Up to Chapter 5)   Last updated on 2017-08-18", 
+            "text": "This site contains a compilation of Cisco IOS commands from Cisco's NetAcademy Course.  Current notes available and accessible from the menu are:   CCNA 1  CCNA 2  CCNA 3  CCNA 4  Cisco Voice Basic Telephony  CCNA Security   Last updated on 2017-08-18", 
             "title": "About"
         }, 
         {
